@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>Int 1A/AH=04h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 1A/AH=04h - TIME - GET REAL-TIME CLOCK DATE (AT,XT286,PS) - 
+AH = 04h
+CF clear to avoid bug (see below)
+Return: CF clear if successful
+CH = century (BCD)
+CL = year (BCD)
+DH = month (BCD)
+DL = day (BCD)
+CF set on error
+Notes: DR-DOS 7.02 (after 1998-06-06) and 7.03 hook this function and correct
+the century to 20xx if the reported year is 1900..1980 to auto-fix
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 1A/AH=04h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2276.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2278.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>TIME - GET REAL-TIME CLOCK DATE (AT,XT286,PS)</font></h3>
+<PRE>
+AH = 04h
+CF clear to avoid bug (see below)<br>
+<p><b>Return:</b><br>CF clear if successful
+CH = century (BCD)
+CL = year (BCD)
+DH = month (BCD)
+DL = day (BCD)
+CF set on error
+</PRE>
+<p><b>Notes:</b>
+DR-DOS 7.02 (after 1998-06-06) and 7.03 hook this function and correct
+the century to 20xx if the reported year is 1900..1980 to auto-fix
+ROM-BIOSes which are not Year 2000 compliant. On a running system,
+it would also correct the rollover bug from 1999/12/31 to 2000/01/01.
+The latter can be turned off using the new CONFIG.SYS YEAR2000=ON|OFF
+command, as hooking INT 1Ah can sometimes cause compatibility
+problems with 3rd party software, e.g. NCR/Symbios/LSI Logic-based
+SDMS PCI SCSI drivers (including all OEM drivers like from Asus,
+Noma, etc.), some Flash-BIOS software like Asus PFLASH, Quarterdeck's
+QEMM Stealth and Quick-Boot features..
+Using EXCLUDESTEALTHINT=1A, though, will allow QEMM's Stealth features
+to coexist with the DR-DOS Year 2000 rollover support..
+Actually, the Y2K-fix is provided since OpenDOS 7.02 BETA 2+
+(1997-08-13), but although these older releases corrected the
+ROM-BIOS, they didn't pass all Y2K-test suites and had some obscure
+and inexplicable PCI problems due to the fact that the original
+INT 1Ah was called via indirect means.  Newer releases, however, use
+a dynamically fixed-up direct jump to avoid these problems..
+PC DOS 7 plus Y2K fixes and PC DOS 2000 provide similar, though not
+identical means, which cannot be switched off..
+MS-DOS and older issues of PC DOS do not provide any such means, and
+thus requires extra Y2K-TSRs to be loaded when run on buggy BIOSes.
+<p><b>BUG:</b>
+Some BIOSes, such as the 1998/07/25 system ROM in the Compaq Deskpro
+EP/SB, leave CF unchanged if successful, so CF should be cleared
+before calling this function
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2273.htm>AH=02h</a> - <a href=http://www.ctyme.com/intr/rb-2278.htm>AH=04h"Sperry"</a> - <a href=http://www.ctyme.com/intr/rb-2280.htm>AH=05h</a> - <a href=http://www.ctyme.com/intr/rb-2686.htm>INT 21/AH=2A
+<p>
+<b>Category: <a href=cat-003.htm>
+Bios</a>
+- <a href=int-1A.htm>
+Int 1Ah</a>
+- <a href=alpha-t.htm>
+T</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2276.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2278.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>Int 60/AH=ADh
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 60/AH=ADh - AccessDOS - API - 
+AH = ADh
+AL = function
+E1h ???
+Return: AX = ???
+E2h get configuration
+Return: BX:AX - configuration data
+Program: AccessDOS is a public domain TSR developed at The Trace Research and
+Development Center which provides extensions for keyboard, mouse,
+and sound access by the visually, hearing, or motor-control
+impaired.
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 60/AH=ADh
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6689.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6691.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>AccessDOS - API</font></h3>
+<PRE>
+AH = ADh
+AL = function
+E1h ???
+<p><b>Return:</b><br>AX = ???
+E2h get configuration
+<p><b>Return:</b><br>BX:AX -> configuration data
+</PRE>
+<p><b>Program:</b>
+AccessDOS is a public domain TSR developed at The Trace Research and
+Development Center which provides extensions for keyboard, mouse,
+and sound access by the visually, hearing, or motor-control
+impaired.
+<PRE>
+<p><b>InstallCheck:</b><br>Test for the signature "ACCESSv1.00" beginning three bytes
+past the start of the interrupt handler (this same signature is also
+present in v1.10)
+<p><b>Range:</b><br>INT 60 to INT 66, selected by scanning for 0000h:0000h vector
+</PRE>
+<p>
+<b>Category: <a href=cat-001.htm>
+Access Software (screen readers, etc)</a>
+- <a href=int-60.htm>
+Int 60h</a>
+- <a href=alpha-a.htm>
+A</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6689.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6691.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

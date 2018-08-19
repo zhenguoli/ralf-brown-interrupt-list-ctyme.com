@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AH=64h/CX=636Ch
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AH=64h/CX=636Ch - OS/2 v2.1+ Virtual DOS Machine - OS/2 API support - 
+AH = 64h
+CX = 636Ch (cl)
+BX = API ordinal (see #01747)
+other registers as appropriate for API call
+Return: as appropriate for API call
+SeeAlso: AH=64h/BX=0025h,AH=64h/BX=00B6h,AH=64h/BX=00CBh
+(Table 01747)
+Values for OS/2 API ordinal:
+0025h DOS32StartSession
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AH=64h/CX=636Ch
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3157.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3159.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>OS/2 v2.1+ Virtual DOS Machine - OS/2 API support</font></h3>
+<PRE>
+AH = 64h
+CX = 636Ch ("cl")
+BX = API ordinal <a href=http://www.ctyme.com/intr/rb-3158.htm#Table1747>(see #01747)</a>
+other registers as appropriate for API call<br>
+<p><b>Return:</b><br>As appropriate for API call
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-3159.htm>AH=64h/BX=0025h</a> - <a href=http://www.ctyme.com/intr/rb-3160.htm>AH=64h/BX=00B6h</a> - <a href=http://www.ctyme.com/intr/rb-3161.htm>AH=64h/BX=00CBh</a>
+<PRE>
+<p>
+<a name=table1747></a>
+(Table 01747)
+Values for OS/2 API ordinal:
+0025h  DOS32StartSession
+0082h  DosGetCP
+00B6h  DosQFSAttach
+00BFh  DosEditName
+00CBh  DosForceDelete
+0144h  Dos32CreateEventSem
+0145h  Dos32OpenEvenSem
+0146h  Dos32CloseEventSem
+0147h  Dos32ResetEventSem
+0148h  Dos32PostEventSem
+0149h  Dos32WaitEventSem
+014Ah  Dos32QueryEventSem
+014Bh  Dos32CreateMutexSem
+014Ch  Dos32OpenMutexSem
+014Dh  Dos32CloseMutexSem
+014Eh  Dos32RequestMutexSem
+014Fh  Dos32ReleaseMutexSem
+0150h  Dos32QueryMutexSem
+0151h  Dos32CreateMuxWaitSem
+0152h  Dos32OpenMuxWaitSem
+0153h  Dos32CloseMuxWaitSem
+0154h  Dos32WaitMuxWaitSem
+0155h  Dos32AddMuxWaitSem
+0156h  Dos32DeleteMuxWaitSem
+0157h  Dos32QueryMuxWaitSem
+</PRE>
+<p>
+<b>Category: <a href=cat-030.htm>
+Other Operating Systems</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-o.htm>
+O</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3157.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3159.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

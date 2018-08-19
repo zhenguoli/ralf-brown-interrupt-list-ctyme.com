@@ -1,0 +1,204 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AX=D042h/BL=01h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AX=D042h/BL=01h - Intel Pentium Pro BIOS UPDATE - WRITE BIOS UPDATE AREA - 
+AX = D042h
+BL = 01h
+ES:DI - microcode update block (see #00533)
+CX,DX,SI = segments of three 64K scratchpad areas for BIOS use
+Return: CF clear if successful
+CF set on error
+AH = status (see #00532)
+AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+00h successful
+Notes: a microcode update may also be initiated by a WRMSR instruction
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AX=D042h/BL=01h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1622.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1624.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Intel Pentium Pro BIOS UPDATE - WRITE BIOS UPDATE AREA</font></h3>
+<PRE>
+AX = D042h
+BL = 01h
+ES:DI -> microcode update block <a href=http://www.ctyme.com/intr/rb-1623.htm#Table533>(see #00533)</a>
+CX,DX,SI = segments of three 64K scratchpad areas for BIOS use<br>
+<p><b>Return:</b><br>CF clear if successful
+CF set on error
+AH = status <a href=http://www.ctyme.com/intr/rb-1623.htm#Table532>(see #00532)</a>
+AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+00h successful
+</PRE>
+<p><b>Notes:</b>
+A microcode update may also be initiated by a WRMSR instruction
+with ECX=0079h, EDX=00000000h, and EAX=linear address of update
+block <a href=http://www.ctyme.com/intr/rb-1623.htm#Table533>(see #00533)</a>.
+At least 32K stack space must be available when this function is called
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1622.htm>AX=D042h/BL=00h</a> - <a href=http://www.ctyme.com/intr/rb-1624.htm>AX=D042h/BL=02h</a> - <a href=http://www.ctyme.com/intr/rb-1625.htm>AX=D042h/BL=03h</a> - MSR 00000079h
+<PRE>
+<p>
+<a name=table532></a>
+(Table 00532)
+Values for Pentium Pro BIOS update status:
+00h    successful
+86h    not implemented
+90h    unable to erase NVRAM device
+91h    unable to write to NVRAM device
+92h    unable to read storage
+93h    NVRAM is full
+94h    specified processor stepping is not present in system
+95h    invalid header or loader version
+96h    wrong checksum in header
+97h    processor rejected the update
+98h    the same or a more recent update is already stored
+99h    update block number was out of range
+<p>
+Format of Pentium Pro microcode update block:
+<a name=table533></a>
+Offset  Size    Description     (Table 00533)
+00h    DWORD   update header version number (currently 00000001h)
+FFFFFFFFh = unused block
+04h    DWORD   revision number of this microcode update
+08h    DWORD   update creation date, as BCD mmddyyyy (month,day,year)
+0Ch    DWORD   family/model/stepping of processor to which update applied
+(same value as returned by CPUID instruction)
+10h    DWORD   checksum (used to force sum of all 512 DWORDs of the update
+block to 00000000h)
+14h    DWORD   revision number of loader needed to install update
+(currently 00000001h)
+18h 24 BYTEs   reserved for future expansion
+30h 2000 BYTEs encrypted microcode data
+</PRE>
+<p><b>See Also:</b>
+MSR 00000079h - <a href=http://www.ctyme.com/intr/int-15.htm>OPCODE </a>"CPUID"
+<p>
+<b>Category: <a href=cat-043.htm>
+Uncatagorized</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-i.htm>
+I</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1622.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1624.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

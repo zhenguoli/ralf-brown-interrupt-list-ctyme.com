@@ -1,0 +1,230 @@
+<HTML>
+<HEAD>
+<TITLE>Int 31/AX=FF24h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 31/AX=FF24h - CauseWay - ExecOverlay - LOAD AND OPTIONALLY EXECUTE APP CODE - 
+AX = FF24h
+EBX = flags
+bit 0: don't execute (overlay only)
+bit 1: don't preserve relocation information
+ES:EDX - filename (see also #03163)
+FS:ESI - commandline (ESI = 00000000h if no commandline)
+GS:EDI - name (CW's /o option)
+Return: CF clear if successful
+---EBX bit 0 set---
+CX:EDX = program entry point (CS:EIP)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 31/AX=FF24h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-5926.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-5928.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>CauseWay - ExecOverlay - LOAD AND OPTIONALLY EXECUTE APP CODE</font></h3>
+<PRE>
+AX = FF24h
+EBX = flags
+<p><b>bit 0:</b><br>Don't execute (overlay only)
+<p><b>bit 1:</b><br>Don't preserve relocation information.
+ES:EDX -> filename (see also #03163).
+FS:ESI -> commandline (ESI = 00000000h if no commandline).
+GS:EDI -> name (CW's /o option)<br>
+<p><b>Return:</b><br>CF clear if successful
+---EBX bit 0 set---
+CX:EDX = program entry point (CS:EIP)
+SI = segment of PSP
+---EBX bit 1 set---
+BX:EAX = initial SS:ESP
+EDI high word = base segment
+EDI low word = number of segments
+EBP = start of segment definitions
+CF set on error
+AX = error code
+0001h DOS file access error
+0002h not a CuaseWay 3P file
+0003h not enough memory
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-5933.htm>AX=FF2Ah</a> - <a href=http://www.ctyme.com/intr/rb-2939.htm>INT 21/AH=4Bh</a>
+<PRE>
+<p>
+Format of CauseWay executable:
+<a name=table3163></a>
+Offset  Size    Description     (Table 03163)
+00h  2 BYTEs   signature "3P"
+02h    DWORD   size of header data in bytes
+06h    DWORD   size of EXE image data in bytes
+0Ah    DWORD   number of bytes of program memory required
+0Eh    WORD    number of segment definitions <a href=http://www.ctyme.com/intr/rb-5927.htm#Table3165>(see #03165)</a>
+10h    DWORD   number of relocation table entries
+14h    DWORD   offset of program entry point
+18h    WORD    segment list entry number for entry point's CS
+1Ah    DWORD   initial ESP
+1Eh    WORD    segment list entry number for initial SS
+20h    DWORD   control flags <a href=http://www.ctyme.com/intr/rb-5927.htm#Table3164>(see #03164)</a>
+24h    DWORD   automatic stack size in bytes if ESP entry = 00000000h
+28h    BYTE    length of name (name follows program image)
+29h 23 BYTEs   reserved
+</PRE>
+<p><b>See Also:</b>
+#01594 - #01609 at INT 21/AH=4Bh
+<PRE>
+<p>
+Bitfields for CauseWay executable control flags:
+<a name=table3164></a>
+Bit(s)  Description     (Table 03164)
+0      16-bit interrupt stack frame
+7      descriptor table type (0 = GDT, 1 = LDT)
+14     16-bit default data size
+31     compressed EXE image
+</PRE>
+<p><b>Note:</b>
+Bits 0 and 14 should always be equal
+<p><b>See Also:</b>
+#03163
+<PRE>
+<p>
+Format of CauseWay segment definition [array]:
+<a name=table3165></a>
+Offset  Size    Description     (Table 03165)
+00h    DWORD   start offset within program image
+04h    DWORD   length and type
+<p><b>bits 0-19:</b><br>Length
+<p><b>bit 20:</b><br>Granularity (if set, length is in 4K pages)
+<p><b>bits 21-24:</b><br>Type
+0000 code
+0001 read/write data
+0010 stack
+0011 read-only data
+<p><b>bit 25:</b><br>Force segment descriptor's D bit to 0
+<p><b>bit 26:</b><br>Force segmetn descriptor's D bit to 1
+</PRE>
+<p><b>See Also:</b>
+#03163
+<p>
+<b>Category: <a href=cat-009.htm>
+DOS Extenders</a>
+- <a href=int-31.htm>
+Int 31h</a>
+- <a href=alpha-c.htm>
+C</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-5926.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-5928.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

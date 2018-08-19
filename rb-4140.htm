@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>Int 2A/AH=80h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 2A/AH=80h - NETWORK - BEGIN DOS CRITICAL SECTION - 
+AH = 80h
+AL = critical section number (00h-0Fh) (see #02555)
+Notes: normally hooked to avoid interrupting a critical section, rather than
+called
+the handler should ensure that none of the critical sections are
+reentered, usually by suspending a task which attempts to reenter
+an active critical section
+the DOS kernel does not invoke critical sections 01h and 02h unless it
+is patched. DOS 3.1+ contains a zero-terminated list of words
+beginning at offset -11 from the Swappable Data Area
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 2A/AH=80h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4139.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4141.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>NETWORK - BEGIN DOS CRITICAL SECTION</font></h3>
+<PRE>
+AH = 80h
+AL = critical section number (00h-0Fh) <a href=http://www.ctyme.com/intr/rb-4140.htm#Table2555>(see #02555)</a>
+</PRE>
+<p><b>Notes:</b>
+Normally hooked to avoid interrupting a critical section, rather than
+called.
+The handler should ensure that none of the critical sections are
+reentered, usually by suspending a task which attempts to reenter
+an active critical section.
+The DOS kernel does not invoke critical sections 01h and 02h unless it
+is patched.  DOS 3.1+ contains a zero-terminated list of words
+beginning at offset -11 from the Swappable Data Area
+<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01687 at INT 21/AX=5D06h); each word contains the offset within
+the DOS data segment of a byte which must be changed from C3h (RET)
+to 50h (PUSH AX) under DOS 3.x or from 00h to a nonzero value under
+DOS 4.0+ to enable use of critical sections.  For DOS 4.0+, all
+words in this list point at the byte at offset 0D0Ch..
+MS Windows patches the DOS kernel's calls to INT 2A/AH=80h-81h into
+far calls to its own handler, and does not reflect the calls back
+to INT 2A unless SYSTEM.INI contains ReflectDOSInt2A=1 or
+ModifyDOSInt2A=0 in the [386Enh] section.
+Novell NETX does not issue INT 2A/AH=80h and INT 2A/AH=81h calls when
+it intercepts INT 21 calls and processes them itself
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-4141.htm>AH=81h</a> - <a href=http://www.ctyme.com/intr/rb-4142.htm>AH=82h</a> - <a href=http://www.ctyme.com/intr/rb-4145.htm>AX=8700h</a> - <a href=http://www.ctyme.com/intr/rb-3023.htm>INT 21/AX=5D06h</a
+<PRE>
+<p>
+<a name=table2555></a>
+(Table 02555)
+Values for DOS critical section number:
+01h    DOS kernel, SHARE.EXE, DOSMGR.
+Apparently for maintaining the integrity of DOS/SHARE/NET
+data structures
+02h    DOS kernel, DOSMGR.
+Ensures that no multitasking occurs while DOS is calling an
+installable device driver
+05h    network redirector
+06h    DOS 4.x only IFSFUNC
+08h    ASSIGN.COM
+0Ah    MSCDEX, CORELCDX
+0Fh    IBM PC LAN server (while intercepting INT 10/AH=06h,07h,0Eh)
+</PRE>
+<p>
+<b>Category: <a href=cat-010.htm>
+DOS Kernel</a>
+- <a href=int-2A.htm>
+Int 2Ah</a>
+- <a href=alpha-n.htm>
+N</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4139.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4141.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

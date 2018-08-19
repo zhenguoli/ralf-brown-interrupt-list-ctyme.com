@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>Int 6F/AH=03h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 6F/AH=03h - 10NET - GET ADDRESS OF CONFIGURATION TABLE - 
+AH = 03h
+DS:DI - node ID (optional)
+Return: ES:BX - configuration table (see #03756)
+SeeAlso: AH=13h,INT 21/AX=5E01h10NET
+Format of 10NET configuration table:
+Offset Size  Description   (Table 03756)
+-41   WORD  local device table address
+-39   WORD  extended network error mapping table address
+-37   WORD  shared device table address
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 6F/AH=03h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7655.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7657.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>10NET - GET ADDRESS OF CONFIGURATION TABLE</font></h3>
+<PRE>
+AH = 03h
+DS:DI -> node ID (optional)<br>
+<p><b>Return:</b><br>ES:BX -> configuration table (see #03756)
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-7746.htm>AH=13h</a> - <a href=http://www.ctyme.com/intr/rb-3032.htm>INT 21/AX=5E01h"10NET"</a>
+<PRE>
+<p>
+Format of 10NET configuration table:
+<a name=table3756></a>
+Offset  Size    Description     (Table 03756)
+-41     WORD    local device table address
+-39     WORD    extended network error mapping table address
+-37     WORD    shared device table address
+-35     WORD    mounted device table address
+-33     BYTE    receive buffer counter
+-32     BYTE    collect buffer counter
+-31     WORD    TUF address
+-29     BYTE    enable flag
+-28     BYTE    FCB keep flag
+-27     WORD    reserved
+---up to here, 10NET v3.3---
+-25     WORD    count of dropped Send6F
+-23     WORD    buffer start address
+-21     WORD    comm driver base address
+-19     WORD    send/receive retry count
+-17     BYTE    number of 550ms loops before timeout
+-16     WORD    UFH address
+-14     WORD    CDIR address
+-12     WORD    LTAB address
+-10     WORD    SFH address
+-8      WORD    FTAB address
+-6      WORD    RLTAB address
+-4      WORD    SMI address
+-2      WORD    NTAB address
+00h    WORD    address of first CT_DRV
+02h    BYTE    number of DRV entries
+03h  8 BYTEs   login name
+0Bh 12 BYTEs   node ID (blank-padded)
+17h  6 BYTEs   node address
+1Dh    BYTE    flag
+1Eh    BYTE    CT_CFLG (chat permit)
+<p><b>bit 1:</b><br>Sound bell
+<p><b>bit 0:</b><br>CHAT permit
+1Fh    BYTE    CT_PSFLG <a href=http://www.ctyme.com/intr/rb-7656.htm#Table3757>(see #03757)</a>
+20h    BYTE    in 10Net flag
+21h    WORD    receive message count
+23h    WORD    send message count
+25h    WORD    retry count
+27h    WORD    failed count
+29h    WORD    driver errors
+2Bh    WORD    dropped responses/CHATs
+2Dh  9 BYTEs   LIST ID/NTAB address (3 entries--LPT1-3)
+36h  6 BYTEs   AUX ID/NTAB address (2 entries--COM1-2)
+3Ch    BYTE    active CB channel
+3Dh    BYTE    received 6F messages on queue
+3Eh  9 BYTEs   activity counters for channels 1-9
+---beyond here, 10NET v3.3---
+<p><b>47h    BYTE    bit 0:</b><br>RS232 gate
+<p><b>bit 1:</b><br>Send6F gate (user set)
+48h    DWORD   pointer into gate (user set)
+4Ch    DWORD   pointer into 10Net send
+50h  N WORDs   addresses of timer blocks
+<p>
+Bitfields for CT_PSFLG:
+<a name=table3757></a>
+Bit(s)  Description     (Table 03757)
+5      PRINT permit
+4      KB initiated
+3      CHAT called FOXPTRM
+2      SUBMIT active
+1      SUBMIT received
+0      SUBMIT permit
+</PRE>
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-6F.htm>
+Int 6Fh</a>
+- <a href=alpha-@.htm>
+@</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7655.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7657.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

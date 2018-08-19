@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AX=D800h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AX=D800h - EISA SYSTEM ROM - READ SLOT CONFIGURATION INFORMATION - 
+AX = D800h
+CL = slot number (including embedded and virtual)
+Return: CF clear if successful
+AH = 00h
+CF set on error
+AH = error code (80h,82h,83h,86h,87h)(see #00539)
+AL = bit flags (see #00538)
+BH = major revision level of configuration utility
+BL = minor revision level of configuration utility
+CX = checksum of configuration file
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AX=D800h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1639.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1641.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>EISA SYSTEM ROM - READ SLOT CONFIGURATION INFORMATION</font></h3>
+<PRE>
+AX = D800h
+CL = slot number (including embedded and virtual)<br>
+<p><b>Return:</b><br>CF clear if successful
+AH = 00h
+CF set on error
+AH = error code (80h,82h,83h,86h,87h)<a href=http://www.ctyme.com/intr/rb-1640.htm#Table539>(see #00539)</a>
+AL = bit flags <a href=http://www.ctyme.com/intr/rb-1640.htm#Table538>(see #00538)</a>
+BH = major revision level of configuration utility
+BL = minor revision level of configuration utility
+CX = checksum of configuration file
+DH = number of device functions
+DL = combined function information byte <a href=http://www.ctyme.com/intr/rb-1640.htm#Table540>(see #00540)</a>
+SI:DI = 4-byte compressed ID (DI = bytes 0&1, SI = bytes 2&3)
+</PRE>
+<p><b>Note:</b>
+Call with AL=80h if using 32-bit CS addressing mode instead of 16-bit
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1641.htm>AX=D801h</a> - <a href=http://www.ctyme.com/intr/rb-1644.htm>AX=D804h</a>
+<PRE>
+<p>
+Bitfields for EISA AL bit flags:
+<a name=table538></a>
+Bit(s)  Description     (Table 00538)
+7      set if duplicate IDs
+6      set if product ID readable
+4,5    slot type (00=expansion, 01=embedded, 10=virtual device)
+0-3    duplicate ID number if bit 7 set
+</PRE>
+<p><b>See Also:</b>
+#00540
+<PRE>
+<p>
+<a name=table539></a>
+(Table 00539)
+Values for EISA error code:
+80h    invalid slot number
+81h    invalid function number
+82h    EISA CMOS corrupt
+83h    empty slot
+84h    error clearing CMOS
+85h    EISA CMOS is full
+86h    invalid BIOS-FW function call
+87h    invalid system configuration
+88h    config utility version not supported
+<p>
+Bitfields for EISA combined function information byte:
+<a name=table540></a>
+Bit(s)  Description     (Table 00540)
+7      reserved
+6      slot has free-form data entries
+5      slot has port initialization entries
+4      slot has port-range entries
+3      slot has DMA entries
+2      slot has IRQ entries
+1      slot has memory entries
+0      slot has function type entries
+</PRE>
+<p><b>See Also:</b>
+#00538
+<p>
+<b>Category: <a href=cat-014.htm>
+Expansion Bus Bios</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-e.htm>
+E</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1639.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1641.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

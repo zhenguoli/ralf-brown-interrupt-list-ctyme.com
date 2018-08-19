@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AH=05h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AH=05h - SYSTEM - BUILD ABIOS INITIALIZATION TABLE (PS) - 
+AH = 05h
+ES:DI - results buffer of length 18h * Number_of_Entries (see #00411)
+DS = segment containing ABIOS RAM extensions (zero if none)
+Return: CF clear if successful
+AH = 00h success
+ES:DI buffer filled
+AL destroyed
+CF set on failure
+AX destroyed
+AH = 80h/86h if not supported
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AH=05h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1160.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1162.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>SYSTEM - BUILD ABIOS INITIALIZATION TABLE (PS)</font></h3>
+<PRE>
+AH = 05h
+ES:DI -> results buffer of length 18h * Number_of_Entries <a href=http://www.ctyme.com/intr/rb-1161.htm#Table411>(see #00411)</a>
+DS = segment containing ABIOS RAM extensions (zero if none)<br>
+<p><b>Return:</b><br>CF clear if successful
+AH = 00h success
+ES:DI buffer filled
+AL destroyed
+CF set on failure
+AX destroyed
+AH = 80h/86h if not supported
+</PRE>
+<p><b>See Also:</b>
+<a href=rb-1157.htm>AH=04h"ABIOS"</a> - <a href=http://www.ctyme.com/intr/rb-1595.htm>AH=C1h</a>
+<PRE>
+<p>
+Format of one entry of ABIOS Initialization Table:
+<a name=table411></a>
+Offset  Size    Description     (Table 00411)
+00h    WORD    device ID <a href=http://www.ctyme.com/intr/rb-1161.htm#Table412>(see #00412)</a>
+02h    WORD    number of Logical IDs
+04h    WORD    Device Block length (zero for ABIOS patch or extension)
+06h    DWORD   -> init routine for Device Block and Function Transfer Table
+0Ah    WORD    request block length
+0Ch    WORD    Function Transfer Table length (zero for a patch)
+0Eh    WORD    Data Pointers length (in Common Data Area)
+10h    BYTE    secondary device ID (hardware level this ABIOS ver supports)
+11h    BYTE    revision (device driver revision level this ABIOS supports)
+12h  6 BYTEs   reserved
+<p>
+<a name=table412></a>
+(Table 00412)
+Values for ABIOS device ID:
+00h    ABIOS internal calls
+01h    floppy disk
+02h    hard disk
+03h    video
+04h    keyboard
+05h    parallel port
+06h    serial port
+07h    system timer
+08h    real-time clock
+09h    system services
+0Ah    NMI
+0Bh    mouse
+0Eh    CMOS RAM
+0Fh    DMA
+10h    Programmable Option Select (POS)
+16h    keyboard password
+</PRE>
+<p>
+<b>Category: <a href=cat-003.htm>
+Bios</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-s.htm>
+S</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1160.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1162.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

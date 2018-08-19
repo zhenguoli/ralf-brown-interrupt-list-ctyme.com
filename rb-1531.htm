@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AH=89h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AH=89h - SYSTEM - SWITCH TO PROTECTED MODE - 
+AH = 89h
+BL = interrupt number of IRQ0 (IRQ1-7 use next 7 interrupts)
+BH = interrupt number of IRQ8 (IRQ9-F use next 7 interrupts)
+ES:SI - GDT for protected mode (see #00500)
+Return: CF set on error
+AH = FFh error enabling address line 20
+CF clear if successful
+AH = 00h
+in protected mode at specified address
+BP may be destroyed; all segment registers change
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AH=89h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1530.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1532.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>SYSTEM - SWITCH TO PROTECTED MODE</font></h3>
+<PRE>
+AH = 89h
+BL = interrupt number of IRQ0 (IRQ1-7 use next 7 interrupts)
+BH = interrupt number of IRQ8 (IRQ9-F use next 7 interrupts)
+ES:SI -> GDT for protected mode <a href=http://www.ctyme.com/intr/rb-1531.htm#Table500>(see #00500)</a><br>
+<p><b>Return:</b><br>CF set on error
+AH = FFh  error enabling address line 20
+CF clear if successful
+AH = 00h
+in protected mode at specified address
+BP may be destroyed; all segment registers change
+</PRE>
+<p><b>Notes:</b>
+BL and BH must be multiples of 8.
+The protected-mode CS must reference the same memory as the CS this
+function is called from because execution continues with the address
+following the interrupt call
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1527.htm>AH=87h</a> - <a href=http://www.ctyme.com/intr/rb-1529.htm>AH=88h</a> - <a href=http://www.ctyme.com/intr/rb-7503.htm>INT 67/AX=DE0Ch</a>
+<PRE>
+<p>
+Format of BIOS switch-to-protected-mode Global Descriptor Table:
+<a name=table500></a>
+Offset  Size    Description     (Table 00500)
+00h  8 BYTEs   null descriptor (initialize to zeros)
+08h  8 BYTEs   GDT descriptor <a href=http://www.ctyme.com/intr/rb-1531.htm#Table501>(see #00501)</a>
+10h  8 BYTEs   IDT descriptor
+18h  8 BYTEs   DS descriptor
+20h  8 BYTEs   ES
+28h  8 BYTEs   SS
+30h  8 BYTEs   CS
+38h  8 BYTEs   uninitialized, used to build descriptor for BIOS CS
+<p>
+Format of segment descriptor table entry:
+<a name=table501></a>
+Offset  Size    Description     (Table 00501)
+00h    WORD    segment limit, low word
+02h  3 BYTEs   segment base address, low 24 bits
+05h    BYTE    access mode <a href=http://www.ctyme.com/intr/rb-1531.htm#Table502>(see #00502)</a>
+06h    BYTE    386+ extended access mode <a href=http://www.ctyme.com/intr/rb-1531.htm#Table505>(see #00505)</a>
+07h    BYTE    386+ segment base address, high 8 bits
+</PRE>
+<p><b>See Also:</b>
+#00500 - <a href=http://www.ctyme.com/intr/rb-4173.htm>INT 2C/AX=0002h</a> - <a href=http://www.ctyme.com/intr/rb-5811.htm>INT 31/AX=0009h</a>
+<PRE>
+<p>
+Bitfields for segment descriptor table access mode field:
+<a name=table502></a>
+Bit(s)  Description     (Table 00502)
+3-0    segment type <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00503,#00504)
+4      descriptor type (1 = application, 0 = system)
+6-5    descriptor privilege level
+7      segment is present in RAM
+</PRE>
+<p><b>See Also:</b>
+#00501 - #00505
+<PRE>
+<p>
+<a name=table503></a>
+(Table 00503)
+Values for system segment descriptor type:
+0      reserved
+1      available 16-bit TSS
+2      LDT
+3      busy 16-bit TSS
+4      16-bit call gate
+5      task gate
+6      16-bit interrupt gate
+7      16-bit trap gate
+8      reserved
+9      available 32-bit TSS
+10     reserved
+11     busy 32-bit TSS
+12     32-bit call gate
+13     reserved
+14     32-bit interrupt gate
+15     32-bit trap gate
+</PRE>
+<p><b>See Also:</b>
+#00502 - #00504
+<PRE>
+<p>
+Bitfields for application segment descriptor type:
+<a name=table504></a>
+Bit(s)  Description     (Table 00504)
+3      code/data.
+0 date.
+1 code
+---data segments---
+2      expand down
+1      writeable
+---code segments---
+2      conforming
+1      readable
+------
+0      accessed
+</PRE>
+<p><b>See Also:</b>
+#00502 - #00503
+<PRE>
+<p>
+Bitfields for 386+ segment descriptor table extended access mode field:
+<a name=table505></a>
+Bit(s)  Description     (Table 00505)
+3-0    high 4 bits of segment limit
+4      available
+5      reserved (0)
+6      default operation size (1 = 32 bits, 0 = 16 bits)
+7      granularity (1 = 4K, 0 = byte)
+</PRE>
+<p><b>See Also:</b>
+#00501 - #00502 - #02557
+<p>
+<b>Category: <a href=cat-003.htm>
+Bios</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-s.htm>
+S</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1530.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1532.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

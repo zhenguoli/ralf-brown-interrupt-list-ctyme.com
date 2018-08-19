@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>Int 41
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 41 - SYSTEM DATA - HARD DISK 0 PARAMETER TABLE ADDRESS [NOT A VECTOR!] - 
+Notes: the default parameter table array is located at F000h:E401h in 100%
+compatible BIOSes; the pointer may be overridden by the hard disk
+controller's BIOS to support drive formats unknown to the ROM BIOS
+not used by some PS/2 models
+BIOSes which support four hard drives may store the parameter tables
+for drives 81h-83h immediately following the parameter table pointed
+at by INT 41, with a separate copy of the drive 81h table for INT 46.
+The check for such an arrangement is to test whether INT 46 points
+somewhere other than exactly 16 bytes past INT 41, and the sixteen
+bytes starting at offset 10h from INT 41 are identical to the sixteen
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 41
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6134.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6136.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>SYSTEM DATA - HARD DISK 0 PARAMETER TABLE ADDRESS [NOT A VECTOR!]</font></h3>
+<p><b>Notes:</b>
+The default parameter table array is located at F000h:E401h in 100%
+compatible BIOSes; the pointer may be overridden by the hard disk
+controller's BIOS to support drive formats unknown to the ROM BIOS.
+Not used by some PS/2 models.
+BIOSes which support four hard drives may store the parameter tables
+for drives 81h-83h immediately following the parameter table pointed
+at by INT 41, with a separate copy of the drive 81h table for INT 46.
+The check for such an arrangement is to test whether INT 46 points
+somewhere other than exactly 16 bytes past INT 41, and the sixteen
+bytes starting at offset 10h from INT 41 are identical to the sixteen
+bytes pointed at by INT 46.
+Another arrangement for BIOSes which support four IDE drives is to have
+four tables pointed at by INT 41 in the order primary master,
+primary slave, secondary master, and secondary slave, in which case
+(for example) a system with only primary master and secondary master
+will have valid tables at offsets 00h and 20h, with garbage (but
+sectors-per-track = 00h) at offsets 10h and 30h
+<p><b>See Also:</b>
+#03196 - <a href=http://www.ctyme.com/intr/rb-0624.htm>INT 13/AH=09h</a> - <a href=http://www.ctyme.com/intr/rb-2445.htm>INT 1E</a> - <a href=rb-6184.htm>INT 46"HARD DISK 1"</a> - <a href=http://www.ctyme.com/intr/rb-6433.htm>INT 60"Adaptec"</
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-8390.htm>INT C0"AMI"</a>
+<PRE>
+<p>
+Format of fixed disk parameters:
+<a name=table3196></a>
+Offset  Size    Description     (Table 03196)
+00h    WORD    number of cylinders
+02h    BYTE    number of heads
+03h    WORD    starting reduced write current cylinder (XT only, 0 for others)
+05h    WORD    starting write precompensation cylinder number
+07h    BYTE    maximum ECC burst length (XT only)
+08h    BYTE    control byte <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03197,#03198)
+09h    BYTE    standard timeout (XT only, 0 for others)
+0Ah    BYTE    formatting timeout (XT and WD1002 only, 0 for others)
+0Bh    BYTE    timeout for checking drive (XT and WD1002 only, 0 for others)
+0Ch    WORD    cylinder number of landing zone (AT and later only)
+0Eh    BYTE    number of sectors per track (AT and later only)
+0Fh    BYTE    reserved
+</PRE>
+<p><b>See Also:</b>
+#00273 - #00277
+<PRE>
+<p>
+Bitfields for XT fixed disk control byte:
+<a name=table3197></a>
+Bit(s)  Description     (Table 03197)
+2-0    drive step speed.
+000  3ms.
+100  200ms.
+101  70ms (default).
+110  3ms.
+111  3ms
+5-3    unused
+6      disable ECC retries
+7      disable access retries
+<p>
+Bitfields for AT fixed disk control byte:
+<a name=table3198></a>
+Bit(s)  Description     (Table 03198)
+0      unused
+1      reserved (0)  (disable IRQ)
+2      reserved (0)  (no reset)
+3      set if more than 8 heads
+4      always 0
+5      set if manufacturer's defect map on max cylinder+1  (AT and later only)
+6      disable ECC retries
+7      disable access retries
+</PRE>
+<p>
+<b>Category: <a href=cat-003.htm>
+Bios</a>
+- <a href=int-41.htm>
+Int 41h</a>
+- <a href=alpha-s.htm>
+S</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6134.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6136.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

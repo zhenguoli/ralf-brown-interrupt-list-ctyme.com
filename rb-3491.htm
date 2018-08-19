@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AH=E3h/SF=0Fh
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AH=E3h/SF=0Fh - Novell NetWare - FILE SERVICES - SCAN FILE INFORMATION - 
+AH = E3h subfn 0Fh
+DS:SI - request buffer (see #01903)
+ES:DI - reply buffer (see #01904)
+Return: AL = status (see #01902)
+Note:  this function is supported by Advanced NetWare 1.0+ and Alloy NTNX
+SeeAlso: AH=B6h,AH=E3h/SF=10h,AX=F217h/SF=0Fh
+(Table 01902)
+Values for NetWare function status:
+00h  successful
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AH=E3h/SF=0Fh
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3490.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3492.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Novell NetWare - FILE SERVICES - SCAN FILE INFORMATION</font></h3>
+<PRE>
+AH = E3h subfn 0Fh
+DS:SI -> request buffer <a href=http://www.ctyme.com/intr/rb-3491.htm#Table1903>(see #01903)</a>
+ES:DI -> reply buffer <a href=http://www.ctyme.com/intr/rb-3491.htm#Table1904>(see #01904)</a><br>
+<p><b>Return:</b><br>AL = status (see #01902)
+</PRE>
+<p><b>Note:</b>
+This function is supported by Advanced NetWare 1.0+ and Alloy NTNX
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-3306.htm>AH=B6h</a> - <a href=http://www.ctyme.com/intr/rb-3492.htm>AH=E3h/SF=10h</a> - <a href=http://www.ctyme.com/intr/rb-3722.htm>AX=F217h/SF=0Fh</a>
+<PRE>
+<p>
+<a name=table1902></a>
+(Table 01902)
+Values for NetWare function status:
+00h    successful
+89h    not permitted to search directory
+FFh    no more matching files
+</PRE>
+<p><b>See Also:</b>
+#01899 - #01920
+<PRE>
+<p>
+Format of NetWare "Scan File Information" request buffer:
+<a name=table1903></a>
+Offset  Size    Description     (Table 01903)
+00h    WORD    length of following data (max 105h)
+02h    BYTE    0Fh (subfunction "Scan File Information")
+03h    WORD    (big-endian) sequence number
+FFFFh on first call
+05h    BYTE    directory handle or 00h
+06h    BYTE    search attributes <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
+07h    BYTE    length of filespec
+08h  N BYTEs   ASCIZ uppercase filespec
+</PRE>
+<p><b>See Also:</b>
+#01904 - #02165
+<PRE>
+<p>
+Format of NetWare "Scan File Information" reply buffer:
+<a name=table1904></a>
+Offset  Size    Description     (Table 01904)
+00h    WORD    (call) 005Eh (size of following results buffer)
+02h    WORD    next sequence number (place in request buffer for next call)
+04h 14 BYTEs   ASCIZ filename
+12h    BYTE    file attributes <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
+13h    BYTE    extended file attributes <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01804 at AH=B6h)
+14h    DWORD   (big-endian) file size in bytes
+18h    WORD    (big-endian) file's creation date <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01666 at AX=5700h)
+1Ah    WORD    (big-endian) date of last access <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01665 at AX=5700h)
+1Ch    DWORD   (big-endian) date and time of last update <a href=http://www.ctyme.com/intr/rb-3459.htm#Table1846>(see #01846)</a>
+20h    DWORD   (big-endian) object ID of owner
+24h    DWORD   (big-endian) date and time last archived <a href=http://www.ctyme.com/intr/rb-3459.htm#Table1846>(see #01846)</a>
+28h 55 BYTEs   reserved
+</PRE>
+<p><b>Note:</b>
+The official documentation erroneously lists the field at offset 04h as
+15 bytes and thus shifts the remaining fields by one byte
+<p><b>See Also:</b>
+#01903 - #02165
+<p>
+<b>Category: <a href=cat-026.htm>
+Netware</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-n.htm>
+N</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3490.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3492.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AH=12h/BH=04h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AH=12h/BH=04h - TopView - SEND MESSAGE - READ - GET NEXT RECORD FROM OBJECT - 
+AH = 12h
+BH = 04h
+BL = object
+00h handle is DWORD on top of stack
+mailbox: wait for and get next message
+keyboard: wait for and get pointer to next input buffer
+pointer: wait for and get next message
+02h get next message from mailbox (task's handle on top of stack)
+03h get next message from current task's mailbox
+04h get the next input from keyboard (handle on top of stack)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AH=12h/BH=04h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1234.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1236.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>TopView - SEND MESSAGE - READ - GET NEXT RECORD FROM OBJECT</font></h3>
+<PRE>
+AH = 12h
+BH = 04h
+BL = object
+00h handle is DWORD on top of stack
+<p><b>mailbox:</b><br>Wait for and get next message
+<p><b>keyboard:</b><br>Wait for and get pointer to next input buffer
+<p><b>pointer:</b><br>Wait for and get next message
+02h get next message from mailbox (task's handle on top of stack)
+03h get next message from current task's mailbox
+04h get the next input from keyboard (handle on top of stack)
+05h get the next input from task's default keyboard
+06h wait for input from any object in OBJECTQ (handle on stack)
+07h wait for input from any object in task's default OBJECTQ<br>
+<p><b>Return:</b><br>STACK: (if objectq) DWORD handle of object with input
+(otherwise)  DWORD number of bytes
+DWORD address of pointer message <a href=http://www.ctyme.com/intr/rb-1235.htm#Table437>(see #00437)</a>
+</PRE>
+<p><b>Notes:</b>
+For a keyboard in keystroke mode, the input buffer is a single byte
+containing the character code as returned by the BIOS; the BIOS scan
+code is available via the STATUS call if the character is zero.
+For a keyboard in field mode, the input buffer format is determined
+by the field table header for the window the keyboard is attached to.
+Keyboard input buffers and mailbox message buffers may be invalidated
+by the next READ, ERASE, CLOSE, or FREE message to the same object
+<p><b>See Also:</b>
+<a href=rb-1147.htm>AH=12h/BH=05h"OBJECT"</a> - <a href=http://www.ctyme.com/intr/rb-1274.htm>AH=12h/BH=84h</a>
+<PRE>
+<p>
+Format of DESQview pointer message:
+<a name=table437></a>
+Offset  Size    Description     (Table 00437)
+00h    WORD    row
+02h    WORD    column
+04h    BYTE    status <a href=http://www.ctyme.com/intr/rb-1235.htm#Table438>(see #00438)</a>
+05h    BYTE    field number or zero (APILEVEL >= 2.00 only)
+<p>
+Bitfields for DESQview pointer status:
+<a name=table438></a>
+Bit(s)  Description     (Table 00438)
+7-2    number of clicks-1 if multiple-click mode active
+7      set when press/release mode active and button pressed
+6      set when press/release mode active and button released
+1-0    button pressed (00=none,01=button1,10=button2)
+</PRE>
+<p><b>See Also:</b>
+#00437
+<p>
+<b>Category: <a href=cat-007.htm>
+DESQview/TopView and Quarterdeck Programs</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-t.htm>
+T</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1234.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1236.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,204 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AX=5300h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AX=5300h - Advanced Power Management v1.0+ - INSTALLATION CHECK - 
+AX = 5300h
+BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+AH = major version (BCD)
+AL = minor version (BCD)
+BX = 504Dh (PM)
+CX = flags (see #00472)
+CF set on error
+AH = error code (06h,09h,86h) (see #00473)
+BUG:  early versions of the Award Modular BIOS with built-in APM support
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AX=5300h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1393.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1395.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Advanced Power Management v1.0+ - INSTALLATION CHECK</font></h3>
+<PRE>
+AX = 5300h
+BX = device ID of system BIOS (0000h)<br>
+<p><b>Return:</b><br>CF clear if successful
+AH = major version (BCD)
+AL = minor version (BCD)
+BX = 504Dh ("PM")
+CX = flags <a href=http://www.ctyme.com/intr/rb-1394.htm#Table472>(see #00472)</a>
+CF set on error
+AH = error code (06h,09h,86h) <a href=http://www.ctyme.com/intr/rb-1394.htm#Table473>(see #00473)</a>
+</PRE>
+<p><b>BUG:</b>
+Early versions of the Award Modular BIOS with built-in APM support
+reportedly do not set BX on return
+<PRE>
+<p>
+Bitfields for APM flags:
+<a name=table472></a>
+Bit(s)  Description     (Table 00472)
+0      16-bit protected mode interface supported
+1      32-bit protected mode interface supported
+2      CPU idle call reduces processor speed
+3      BIOS power management disabled
+4      BIOS power management disengaged (APM v1.1)
+5-7    reserved
+<p>
+<a name=table473></a>
+(Table 00473)
+Values for APM error code:
+01h    power management functionality disabled
+02h    interface connection already in effect
+03h    interface not connected
+04h    real-mode interface not connected
+05h    16-bit protected-mode interface already connected
+06h    16-bit protected-mode interface not supported
+07h    32-bit protected-mode interface already connected
+08h    32-bit protected-mode interface not supported
+09h    unrecognized device ID
+0Ah    invalid parameter value in CX
+0Bh    (APM v1.1) interface not engaged
+0Ch    (APM v1.2) function not supported
+0Dh    (APM v1.2) Resume Timer disabled
+0Eh-1Fh reserved for other interface and general errors
+20h-3Fh reserved for CPU errors
+40h-5Fh reserved for device errors
+60h    can't enter requested state
+61h-7Fh reserved for other system errors
+80h    no power management events pending
+81h-85h reserved for other power management event errors
+86h    APM not present
+87h-9Fh reserved for other power management event errors
+A0h-FEh reserved
+FFh    undefined
+</PRE>
+<p>
+<b>Category: <a href=cat-031.htm>
+Power Management</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-a.htm>
+A</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1393.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1395.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

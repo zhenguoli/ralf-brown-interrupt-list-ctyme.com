@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<TITLE>Int 10/AX=1A00h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 10/AX=1A00h - VIDEO - GET DISPLAY COMBINATION CODE (PS,VGA/MCGA) - 
+AX = 1A00h
+Return: AL = 1Ah if function was supported
+BL = active display code (see #00039)
+BH = alternate display code (see #00039)
+Notes: this function is commonly used to check for the presence of a VGA
+this function is supported on the ATI EGA Wonder with certain
+undocumented configuration switch settings, even though the EGA
+Wonder does not support VGA graphics; to distinguish this case,
+call AX=1C00h with CX nonzero, which the EGA Wonder does not support
+SeeAlso: AH=12h/BL=35h,AX=1A01h,AH=1Bh,AH=1Ch,MEM 0040h:008Ah
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 10/AX=1A00h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0218.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0220.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>VIDEO - GET DISPLAY COMBINATION CODE (PS,VGA/MCGA)</font></h3>
+<PRE>
+AX = 1A00h<br>
+<p><b>Return:</b><br>AL = 1Ah if function was supported
+BL = active display code <a href=http://www.ctyme.com/intr/rb-0219.htm#Table39>(see #00039)</a>
+BH = alternate display code <a href=http://www.ctyme.com/intr/rb-0219.htm#Table39>(see #00039)</a>
+</PRE>
+<p><b>Notes:</b>
+This function is commonly used to check for the presence of a VGA.
+This function is supported on the ATI EGA Wonder with certain
+undocumented configuration switch settings, even though the EGA
+Wonder does not support VGA graphics; to distinguish this case,
+call AX=1C00h with CX nonzero, which the EGA Wonder does not support
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-0172.htm>AH=12h/BL=35h</a> - <a href=http://www.ctyme.com/intr/rb-0220.htm>AX=1A01h</a> - <a href=http://www.ctyme.com/intr/rb-0221.htm>AH=1Bh</a> - <a href=http://www.ctyme.com/intr/rb-0222.htm>AH=1Ch</a>
+<PRE>
+<p><b>Index:</b><br>Installation check;VGA
+<p>
+<a name=table39></a>
+(Table 00039)
+Values for display combination code:
+00h    no display
+01h    monochrome adapter w/ monochrome display
+02h    CGA w/ color display
+03h    reserved
+04h    EGA w/ color display
+05h    EGA w/ monochrome display
+06h    PGA w/ color display
+07h    VGA w/ monochrome analog display
+08h    VGA w/ color analog display
+09h    reserved
+0Ah    MCGA w/ digital color display
+0Bh    MCGA w/ monochrome analog display
+0Ch    MCGA w/ color analog display
+FFh    unknown display type
+</PRE>
+<p>
+<b>Category: <a href=cat-046.htm>
+Video</a>
+- <a href=int-10.htm>
+Int 10h</a>
+- <a href=alpha-v.htm>
+V</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0218.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0220.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

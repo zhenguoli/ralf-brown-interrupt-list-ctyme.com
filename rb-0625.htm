@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>Int 13/AH=0Ah
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 13/AH=0Ah - HARD DISK - READ LONG SECTOR(S) (AT and later) - 
+AH = 0Ah
+AL = number of sectors (01h may be only value supported)
+CH = low eight bits of cylinder number
+CL = sector number (bits 5-0)
+high two bits of cylinder number (bits 7-6)
+DH = head number
+DL = drive number (80h = first, 81h = second)
+ES:BX - data buffer
+Return: CF clear if successful
+CF set on error
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 13/AH=0Ah
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0624.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0626.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>HARD DISK - READ LONG SECTOR(S) (AT and later)</font></h3>
+<PRE>
+AH = 0Ah
+AL = number of sectors (01h may be only value supported)
+CH = low eight bits of cylinder number
+CL = sector number (bits 5-0)
+high two bits of cylinder number (bits 7-6)
+DH = head number
+DL = drive number (80h = first, 81h = second)
+ES:BX -> data buffer<br>
+<p><b>Return:</b><br>CF clear if successful
+CF set on error
+AH = status <a href=http://www.ctyme.com/intr/rb-0606.htm#Table234>(see #00234)</a>
+AL = number of sectors transferred
+</PRE>
+<p><b>Notes:</b>
+This function reads in four to seven bytes of error-correcting code
+along with each sector's worth of information.
+Data errors are not automatically corrected, and the read is aborted
+after the first sector with an ECC error.
+Used for diagnostics only on PS/2 systems; IBM officially classifies
+this function as optional
+<p><b>BUG:</b>
+On the original IBM AT BIOS (1984/01/10) this function does not disable
+interrupts for harddisks (DL >= 80h). On these machines the MS-DOS/
+PC DOS IO.SYS/IBMBIO.COM installs a special filter to bypass the
+buggy code in the ROM (see CALL F000h:211Eh)
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-0607.htm>AH=02h</a> - <a href=http://www.ctyme.com/intr/rb-0626.htm>AH=0Bh</a> - MEM 0040h:0074h
+<p>
+<b>Category: <a href=cat-003.htm>
+Bios</a>
+- <a href=int-13.htm>
+Int 13h</a>
+- <a href=alpha-h.htm>
+H</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0624.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0626.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

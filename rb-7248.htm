@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>Int 64
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 64 - Extended Batch Language v3.14+ - 
+AH = function
+00h to 5Fh chained to previous handler
+60h to 6Ch reserved, return immediately
+80h to FFh chained to previous handler
+6Dh (v4.01+) insert tone in queue
+AL = ???
+CX = frequency in Hertz
+DL = duration in clock ticks
+Return: AL = 00h if note stored
+= 01h if no room to store
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 64
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7247.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7249.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Extended Batch Language v3.14+</font></h3>
+<PRE>
+AH = function
+00h to 5Fh chained to previous handler
+60h to 6Ch reserved, return immediately
+80h to FFh chained to previous handler
+6Dh (v4.01+) insert tone in queue
+AL = ???
+CX = frequency in Hertz
+DL = duration in clock ticks
+<p><b>Return:</b><br>AL = 00h if note stored
+= 01h if no room to store
+6Eh clear ??? counter/flag
+6Fh return counter/flag that AH=6Eh clears
+70h ???
+AL = ???
+71h ???
+AL = ???
+72h ???
+73h insert byte at end of keyboard buffer
+AL = byte to insert
+<p><b>Return:</b><br>AL = 00h if byte inserted
+= 01h if no room to store
+74h insert byte at front of keyboard buffer
+AL = byte to insert
+<p><b>Return:</b><br>AL = 00h if byte inserted
+= 01h if no room to store
+75h ???
+76h get keyboard "stack" status
+AL = 'K' if kbd read will read physical keyboard
+'S' if it will read EBL internal keyboard buffer
+AH = ???
+77h clear internal keyboard buffer
+78h ???
+AL = ???
+79h ???
+7Ah ???
+AL = ???
+7Bh ???
+AL = ???
+7Ch ???
+AL = ???
+7Dh ???
+AL = ???
+7Eh clear buffer for ???
+7Fh installation check
+<p><b>Return:</b><br>CX = version in BCD
+DI = segment of ???
+BX = segment of next program's PSP???
+</PRE>
+<p><b>Program:</b>
+Extended Batch Language is a batch-file enhancer by Seaware
+<p><b>Notes:</b>
+The chaining does not check whether the interrupt had been hooked
+before, so if you try to chain when the previous vector was
+0000h:0000h, you'll be in trouble.
+Functions 72h and 7Ah-7Dh appear to be interfaces to the optional
+floating-point and extended function packages
+<PRE>
+<p><b>Index:</b><br>Installation check;EBL|installation check;Extended Batch Language
+</PRE>
+<p>
+<b>Category: <a href=cat-036.htm>
+Runtime Support</a>
+- <a href=int-64.htm>
+Int 64h</a>
+- <a href=alpha-e.htm>
+E</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7247.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7249.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

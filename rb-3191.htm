@@ -1,0 +1,222 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AH=70h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AH=70h - MS-DOS 7 (Windows95) - GET/SET INTERNATIONALIZATION INFORMATION - 
+AH = 70h
+AL = subfunction
+00h get ??? info
+CX = buffer size (3Ah bytes needed)
+ES:DI - buffer
+01h set above info
+CX = number of bytes to set
+DS:SI - buffer containing ??? info (see #01774)
+02h set general internationalization info (see also AX=6500h)
+DS:SI - buffer containing info (see #01775)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AH=70h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3190.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3192.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>MS-DOS 7 (Windows95) - GET/SET INTERNATIONALIZATION INFORMATION</font></h3>
+<PRE>
+AH = 70h
+AL = subfunction
+00h get ??? info
+CX = buffer size (3Ah bytes needed)
+ES:DI -> buffer
+01h set above info
+CX = number of bytes to set
+DS:SI -> buffer containing ??? info <a href=http://www.ctyme.com/intr/rb-3191.htm#Table1774>(see #01774)</a>
+02h set general internationalization info (see also AX=6500h)
+DS:SI -> buffer containing info <a href=http://www.ctyme.com/intr/rb-3191.htm#Table1775>(see #01775)</a>
+CX = buffer size in bytes (up to 26h bytes used)
+first three bytes are skipped, the rest is copied to somewhere
+in the DOS data segment<br>
+<p><b>Return:</b><br>CF clear if successful
+ES:DI buffer filled (func 00h) <a href=http://www.ctyme.com/intr/rb-3191.htm#Table1774>(see #01774)</a>
+CX = number of bytes actually set or returned
+(max 003Ah for functions 00h and 01h under v7.00, 0026h for
+function 02h)
+CF set on error
+AX = error code
+7000h if function not supported
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2773.htm>AH=38h</a> - <a href=http://www.ctyme.com/intr/rb-3163.htm>AH=65h</a>
+<PRE>
+<p>
+Format of MS-DOS v7.0 ??? table:
+<a name=table1774></a>
+Offset  Size    Description     (Table 01774)
+00h 58 BYTEs   ??? country-specific information
+returned was (among others) "ENU USA GR"..."AM PM M/d/yy"...
+"dddd,MMMMdd,yyyy" in the German Preview version, and "US"
+instead of "GR" in the US build 450 version (with German
+country setting) and the US build 950a version with US
+country settings
+</PRE>
+<p><b>See Also:</b>
+#01775
+<PRE>
+<p>
+Format of MS-DOS v7.0 internationalization table:
+<a name=table1775></a>
+Offset  Size    Description     (Table 01775)
+00h  3 BYTEs   unused (and ignored by DOS)
+03h    WORD    country ID <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01400 at AH=38h)
+05h    WORD    code page <a href=http://www.ctyme.com/intr/rb-3168.htm#Table1757>(see #01757)</a>
+07h    WORD    date format
+09h  5 BYTEs   ASCIZ currency symbol string
+07h  2 BYTEs   ASCIZ thousands separator
+09h  2 BYTEs   ASCIZ decimal separator
+0Bh  2 BYTEs   ASCIZ date separator
+0Dh  2 BYTEs   ASCIZ time separator
+0Fh    BYTE    currency format
+bit 2 = set if currency symbol replaces decimal point
+bit 1 = number of spaces between value and currency symbol
+bit 0 = 0 if currency symbol precedes value
+1 if currency symbol follows value
+10h    BYTE    number of digits after decimal in currency
+11h    BYTE    time format
+bit 0 = 0 if 12-hour clock
+1 if 24-hour clock
+12h    DWORD   address of case map routine
+(FAR CALL, AL = character to map to upper case [>= 80h])
+16h  2 BYTEs   ASCIZ data-list separator
+18h 10 BYTEs   reserved
+</PRE>
+<p><b>Note:</b>
+This table has the identical format to the extended country information
+retrieved via AH=65h with info ID = 01h
+<p><b>See Also:</b>
+#01399 - #01750
+<p>
+<b>Category: <a href=cat-010.htm>
+DOS Kernel</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-m.htm>
+M</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3190.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3192.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

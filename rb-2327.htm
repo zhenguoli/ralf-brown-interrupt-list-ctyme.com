@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>Int 1A/AH=84h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 1A/AH=84h - PCMCIA Socket Services v1.00 - INQUIRE ADAPTER - 
+AH = 84h
+AL = adapter number
+Return: CF clear if successful
+AH destroyed
+BH = number of windows
+BL = number of sockets (1-16)
+CX = number of EDCs
+DH = capabilities (see #00670)
+DL = status change interrupt used (only if DH bit 3 set)(see #00671)
+CF set on error
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 1A/AH=84h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2326.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2328.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>PCMCIA Socket Services v1.00 - INQUIRE ADAPTER</font></h3>
+<PRE>
+AH = 84h
+AL = adapter number<br>
+<p><b>Return:</b><br>CF clear if successful
+AH destroyed
+BH = number of windows
+BL = number of sockets (1-16)
+CX = number of EDCs
+DH = capabilities <a href=http://www.ctyme.com/intr/rb-2327.htm#Table670>(see #00670)</a>
+DL = status change interrupt used (only if DH bit 3 set)<a href=http://www.ctyme.com/intr/rb-2327.htm#Table671>(see #00671)</a>
+CF set on error
+AH = error code (01h) <a href=http://www.ctyme.com/intr/rb-2319.htm#Table656>(see #00656)</a>
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2319.htm>AH=80h"PCMCIA"</a> - <a href=http://www.ctyme.com/intr/rb-2329.htm>AH=85h"PCMCIA"</a> - <a href=http://www.ctyme.com/intr/rb-2331.htm>AH=87h</a>
+<PRE>
+<p>
+Bitfields for PCMCIA capabilities:
+<a name=table670></a>
+Bit(s)  Description     (Table 00670)
+7-6    reserved (0)
+5      status change interrupt is hardware shareable
+4      status change interrupt is software shareable
+3      status change interrupt
+2      data bus width is per-socket rather than per-window
+1      power management is per-adapter rather than per-socket
+0      indicators are per-adapter rather than per-socket
+<p>
+<a name=table671></a>
+(Table 00671)
+Values for PCMCIA status change interrupt usage:
+00h-0Fh IRQ level
+10h    NMI
+11h    I/O check
+12h    bus error
+13h    vendor specific
+14h-FFh reserved
+</PRE>
+<p>
+<b>Category: <a href=cat-014.htm>
+Expansion Bus Bios</a>
+- <a href=int-1A.htm>
+Int 1Ah</a>
+- <a href=alpha-p.htm>
+P</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2326.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2328.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

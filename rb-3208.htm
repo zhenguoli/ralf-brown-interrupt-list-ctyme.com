@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AX=7160h/CL=02h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AX=7160h/CL=02h - Windows95 - LONG FILENAME - GET CANONICAL LONG FILENAME OR PATH - 
+AX = 7160h
+CL = 02h
+CH = SUBST expansion flag
+00h return a path containing true path for a SUBSTed drive letter
+80h return a path containing the SUBSTed drive letter
+DS:SI - ASCIZ short filename or path
+ES:DI - 261-byte buffer for canonicalized long name
+Return: CF set on error
+AX = error code
+02h invalid component in directory path or drive letter only
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AX=7160h/CL=02h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3207.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3209.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Windows95 - LONG FILENAME - GET CANONICAL LONG FILENAME OR PATH</font></h3>
+<PRE>
+AX = 7160h
+CL = 02h
+CH = SUBST expansion flag
+00h return a path containing true path for a SUBSTed drive letter
+80h return a path containing the SUBSTed drive letter
+DS:SI -> ASCIZ short filename or path
+ES:DI -> 261-byte buffer for canonicalized long name<br>
+<p><b>Return:</b><br>CF set on error
+AX = error code
+02h invalid component in directory path or drive letter only
+03h malformed path or invalid drive letter
+ES:DI buffer unchanged
+CF clear if successful
+ES:DI buffer filled with qualified long name (can contain
+lowercase letters)
+</PRE>
+<p><b>Desc:</b>
+Determine the canonical name of the specified filename or path,
+corresponding to the undocumented TRUENAME command in COMMAND.COM
+<p><b>BUGS:</b>
+Even though the maximum length of a complete long pathname is 260
+characters, Windows95 returns CF set/AX=0003h even if the file
+exists whenever the full pathname is more than 255 characters.
+Windows95 incorrectly treats filenames where the first two characters
+after the drive letter and colon are both slashes (either forward
+or backward) as a UNC (network name) and requires several seconds
+to attempt to resolve the name before returning an unchanged
+string
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-3137.htm>AH=60h</a> - <a href=http://www.ctyme.com/intr/rb-3206.htm>AX=7160h/CL=00h</a> - <a href=http://www.ctyme.com/intr/rb-3207.htm>AX=7160h/CL=01h</a>
+<p>
+<b>Category: <a href=cat-010.htm>
+DOS Kernel</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-w.htm>
+W</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3207.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3209.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

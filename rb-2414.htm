@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>Int 1A/AX=B406h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 1A/AX=B406h - Intel Plug-and-Play AUTO-CONFIGURATION - GET PCI IRQ ROUTING TABLE - 
+AX = B406h
+ES:DI - IRQ routing table header (see #01259)
+Return: CF clear if successful
+AX = 0000h
+WORD ES:[DI] = size of returned data
+CF set on error
+AX = error code (0059h) (see #01243)
+WORD ES:[DI] = required size of buffer
+SeeAlso: AX=B400h,AX=B404h,AX=B10Eh,INT 2F/AX=1684h/BX=304Ch
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 1A/AX=B406h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2413.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2415.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Intel Plug-and-Play AUTO-CONFIGURATION - GET PCI IRQ ROUTING TABLE</font></h3>
+<PRE>
+AX = B406h
+ES:DI -> IRQ routing table header <a href=http://www.ctyme.com/intr/rb-2414.htm#Table1259>(see #01259)</a><br>
+<p><b>Return:</b><br>CF clear if successful
+AX = 0000h
+WORD ES:[DI] = size of returned data
+CF set on error
+AX = error code (0059h) <a href=http://www.ctyme.com/intr/rb-2408.htm#Table1243>(see #01243)</a>
+WORD ES:[DI] = required size of buffer
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2408.htm>AX=B400h</a> - <a href=http://www.ctyme.com/intr/rb-2412.htm>AX=B404h</a> - <a href=http://www.ctyme.com/intr/rb-2392.htm>AX=B10Eh</a> - <a href=http://www.ctyme.com/intr/rb-4606.htm>INT 2F/AX=1684
+<PRE>
+<p>
+Format of Intel Plug-and-Play AUTO-CONFIGURATION PCI IRQ routing header:
+<a name=table1259></a>
+Offset  Size    Description     (Table 01259)
+00h    WORD    length of IRQ routing table buffer
+02h    DWORD   -> IRQ routing table array buffer <a href=http://www.ctyme.com/intr/rb-2414.htm#Table1260>(see #01260)</a>
+<p>
+Format of Intel Plug-and-Play ACFG PCI IRQ routing table entry [array]:
+<a name=table1260></a>
+Offset  Size    Description     (Table 01260)
+00h    BYTE    PCI bus number
+01h    BYTE    PCI device number (bits 7-3)
+02h    BYTE    link value for INTA#
+(if non-zero, wire-ORed together with any other PCI interrupts
+with same link value)
+03h    WORD    IRQ connectivity bit map for INTA#
+(standard AT IRQs to which PCI interrupt can be routed)
+05h    BYTE    link value for INTB#
+06h    WORD    IRQ connectivity bit map for INTB#
+08h    BYTE    link value for INTC#
+09h    WORD    IRQ connectivity bit map for INTC#
+0Bh    BYTE    link value for INTD#
+0Ch    WORD    IRQ connectivity bit map for INTD#
+0Eh    BYTE    (PCI BIOS v2.1+) device slot number (00h = motherboard)
+0Fh    BYTE    reserved
+</PRE>
+<p><b>Note:</b>
+Each item in the routing table corresponds to a motherboard PCI
+device or PCI slot
+<p><b>See Also:</b>
+#01259 - #M0091
+<p>
+<b>Category: <a href=cat-014.htm>
+Expansion Bus Bios</a>
+- <a href=int-1A.htm>
+Int 1Ah</a>
+- <a href=alpha-i.htm>
+I</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2413.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2415.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

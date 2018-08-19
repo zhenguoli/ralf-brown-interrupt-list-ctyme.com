@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>Int 6F/AH=02h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 6F/AH=02h - 10NET - STATUS OF NODE - 
+AH = 02h
+DS:DX - 512-byte status record (see #03753)
+Return: CF clear if successful
+CF set on error
+AX = error code (see #03740)
+SeeAlso: INT 21/AX=5E01h10NET
+(Table 03752)
+Values for 10NET station type:
+00h  workstation
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 6F/AH=02h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7641.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7643.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>10NET - STATUS OF NODE</font></h3>
+<PRE>
+AH = 02h
+DS:DX -> 512-byte status record <a href=http://www.ctyme.com/intr/rb-7642.htm#Table3753>(see #03753)</a><br>
+<p><b>Return:</b><br>CF clear if successful
+CF set on error
+AX = error code <a href=http://www.ctyme.com/intr/rb-7639.htm#Table3740>(see #03740)</a>
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-3032.htm>INT 21/AX=5E01h"10NET"</a>
+<PRE>
+<p>
+<a name=table3752></a>
+(Table 03752)
+Values for 10NET station type:
+00h    workstation
+01h    superstation
+02h    gateway station
+03h    gateway active
+04h    logged into multiple superstations
+05h    reserved
+<p>
+Format of 10NET node status record:
+<a name=table3753></a>
+Offset  Size    Description     (Table 03753)
+00h  8 BYTEs   user name (0 if none)
+08h    BYTE    station type <a href=http://www.ctyme.com/intr/rb-7642.htm#Table3752>(see #03752)</a>
+09h 24 BYTEs   list of superstations logged into more than one superstation
+21h 12 BYTEs   node ID
+2Dh    WORD    message count for this station (send for user node, receive for
+superstations)
+---for superstations only---
+2Fh    WORD    drives allocated (bit 0=A:, bit 1=B:,...)
+31h    BYTE    user service flags <a href=http://www.ctyme.com/intr/rb-7642.htm#Table3754>(see #03754)</a>
+32h    BYTE    printers allocated (bit 0=LPT1,...)
+33h    BYTE    number of unprinted spool files
+34h    BYTE    number of opened files
+35h    BYTE    number of logged on nodes
+36h    BYTE    primary drive (1=A:)
+37h    BYTE    reserved
+38h  N BYTEs   list of logged on node IDs (each 12 bytes, max 37 IDs)
+<p><b>1F4h  3 BYTEs   time:</b><br>Sec/min/hrs
+<p><b>1F7h  3 BYTEs   date:</b><br>Day/mon/year-1980
+<p>
+Bitfields for 10NET user service flags:
+<a name=table3754></a>
+Bit(s)  Description     (Table 03754)
+7      gate
+6      print permit on
+4      SUBMIT is on
+3      mail waiting for node
+2      calendar waiting for you
+1      news waiting for you
+0      mail waiting for you
+</PRE>
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-6F.htm>
+Int 6Fh</a>
+- <a href=alpha-@.htm>
+@</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7641.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7643.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

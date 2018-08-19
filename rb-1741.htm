@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AX=E820h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AX=E820h - Newer BIOSes - GET SYSTEM MEMORY MAP - 
+AX = E820h
+EAX = 0000E820h
+EDX = 534D4150h ('SMAP')
+EBX = continuation value or 00000000h to start at beginning of map
+ECX = size of buffer for result, in bytes (should be = 20 bytes)
+ES:DI - buffer for result (see #00581)
+Return: CF clear if successful
+EAX = 534D4150h ('SMAP')
+ES:DI buffer filled
+EBX = next offset from which to copy or 00000000h if all done
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AX=E820h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1740.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1742.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Newer BIOSes - GET SYSTEM MEMORY MAP</font></h3>
+<PRE>
+AX = E820h
+EAX = 0000E820h
+EDX = 534D4150h ('SMAP')
+EBX = continuation value or 00000000h to start at beginning of map
+ECX = size of buffer for result, in bytes (should be >= 20 bytes)
+ES:DI -> buffer for result <a href=http://www.ctyme.com/intr/rb-1741.htm#Table581>(see #00581)</a><br>
+<p><b>Return:</b><br>CF clear if successful
+EAX = 534D4150h ('SMAP')
+ES:DI buffer filled
+EBX = next offset from which to copy or 00000000h if all done
+ECX = actual length returned in bytes
+CF set on error
+AH = error code (86h) <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00496 at INT 15/AH=80h)
+</PRE>
+<p><b>Notes:</b>
+Originally introduced with the Phoenix BIOS v4.0, this function is
+now supported by most newer BIOSes, since various versions of Windows
+call it to find out about the system memory.
+A maximum of 20 bytes will be transferred at one time, even if ECX is
+higher; some BIOSes (e.g. Award Modular BIOS v4.50PG) ignore the
+value of ECX on entry, and always copy 20 bytes.
+Some BIOSes expect the high word of EAX to be clear on entry, i.e.
+EAX=0000E820h.
+If this function is not supported, an application should fall back
+to AX=E802h, AX=E801h, and then AH=88h.
+The BIOS is permitted to return a nonzero continuation value in EBX
+and indicate that the end of the list has already been reached by
+returning with CF set on the next iteration.
+This function will return base memory and ISA/PCI memory contiguous
+with base memory as normal memory ranges; it will indicate
+chipset-defined address holes which are not in use and motherboard
+memory-mapped devices, and all occurrences of the system BIOS as
+reserved; standard PC address ranges will not be reported
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1611.htm>AH=C7h</a> - <a href=http://www.ctyme.com/intr/rb-1739.htm>AX=E801h"Phoenix"</a> - <a href=http://www.ctyme.com/intr/rb-1742.htm>AX=E881h</a> - <a href=http://www.ctyme.com/intr/int-15.htm>MEM xxxx
+<PRE>
+<p>
+Format of Phoenix BIOS system memory map address range descriptor:
+<a name=table580></a>
+Offset  Size    Description     (Table 00580)
+00h    QWORD   base address
+08h    QWORD   length in bytes
+10h    DWORD   type of address range <a href=http://www.ctyme.com/intr/rb-1741.htm#Table581>(see #00581)</a>
+<p>
+<a name=table581></a>
+(Table 00581)
+Values for System Memory Map address type:
+01h    memory, available to OS
+02h    reserved, not available (e.g. system ROM, memory-mapped device)
+03h    ACPI Reclaim Memory (usable by OS after reading ACPI tables)
+04h    ACPI NVS Memory (OS is required to save this memory between NVS
+sessions)
+other  not defined yet -- treat as Reserved
+</PRE>
+<p><b>See Also:</b>
+#00580
+<p>
+<b>Category: <a href=cat-044.htm>
+Vendor-specific BIOS Extensions</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-n.htm>
+N</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1740.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1742.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

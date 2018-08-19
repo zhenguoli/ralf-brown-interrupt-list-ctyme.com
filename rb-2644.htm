@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AX=252Ah
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AX=252Ah - Phar Lap 386/DOS-Extender VMM - NEW LOAD PROGRAM FOR DEBUG - 
+AX = 252Ah
+DS:EDX - ASCIZ program name
+ES:EBX - parameter block (see #01363)
+ECX = size of LDT buffer in bytes
+ESI = bit flags
+bit 0: allow demand paging rather than loading entire program
+bit 1: demand page from swap file rather than from .EXP
+Return: CF clear if successful
+EAX = VMM handle or FFFFFFFFh if none
+ECX = number of descriptors in LDT buffer
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AX=252Ah
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2643.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2645.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Phar Lap 386/DOS-Extender VMM - NEW LOAD PROGRAM FOR DEBUG</font></h3>
+<PRE>
+AX = 252Ah
+DS:EDX -> ASCIZ program name
+ES:EBX -> parameter block <a href=http://www.ctyme.com/intr/rb-2620.htm#Table1363>(see #01363)</a>
+ECX = size of LDT buffer in bytes
+ESI = bit flags
+<p><b>bit 0:</b><br>Allow demand paging rather than loading entire program
+<p><b>bit 1:</b><br>Demand page from swap file rather than from .EXP<br>
+<p><b>Return:</b><br>CF clear if successful
+EAX = VMM handle or FFFFFFFFh if none
+ECX = number of descriptors in LDT buffer
+CF set on error
+EAX = error code
+02h file error
+EBX = file error code <a href=http://www.ctyme.com/intr/rb-2644.htm#Table1370>(see #01370)</a>
+ECX = DOS error code if EBX=1,2,3, or 8
+08h insufficient memory
+EBX = memory error code <a href=http://www.ctyme.com/intr/rb-2644.htm#Table1371>(see #01371)</a>
+80h LDT buffer too small
+87h called twice without intervening call to AX=2531h
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2620.htm>AX=2512h</a> - <a href=http://www.ctyme.com/intr/rb-2625.htm>AX=2517h</a> - <a href=http://www.ctyme.com/intr/rb-2643.htm>AX=2529h</a> - <a href=http://www.ctyme.com/intr/rb-2660.htm>AX=2531h</a>
+<PRE>
+<p>
+<a name=table1370></a>
+(Table 01370)
+Values for Phar Lap file error code:
+01h    DOS open error
+02h    DOS seek error
+03h    DOS read error
+04h    not an .EXP or .REX file
+05h    invalid file format
+06h    -OFFSET is not a multiple of 64K
+07h    -NOPAGE incompatible with -REALBREAK/-OFFSET
+08h    DOS error loading .EXE file
+<p>
+<a name=table1371></a>
+(Table 01371)
+Values for Phar Lap memory error code:
+01h    out of physical memory
+02h    out of swap space
+04h    unable to change extended memory allocation
+05h    -MAXPGMMEM exceeded
+06h    insufficient low memory to REALBREAK value
+07h    insufficient low memory for PSP and environment
+</PRE>
+<p>
+<b>Category: <a href=cat-009.htm>
+DOS Extenders</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-p.htm>
+P</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2643.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2645.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

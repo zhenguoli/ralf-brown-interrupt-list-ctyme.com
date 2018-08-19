@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>Int 61/AX=000Fh
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 61/AX=000Fh - Banyan VINES - VINES SOCKET API (FAR DATA) - 
+AX = 000Fh
+CX:BX - request block (see #03444)
+DX = application's data segment (should be = CX)
+ES = DS
+Return: AX = status
+0000h successful
+0099h invalid operation
+00A5h resource not available
+Desc:  StreetTalk access with session handles
+Notes: This service is handled by the adapter driver
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 61/AX=000Fh
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6790.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6792.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Banyan VINES - VINES SOCKET API (FAR DATA)</font></h3>
+<PRE>
+AX = 000Fh
+CX:BX -> request block <a href=http://www.ctyme.com/intr/rb-6791.htm#Table3444>(see #03444)</a>
+DX = application's data segment (should be = CX)
+ES = DS<br>
+<p><b>Return:</b><br>AX = status
+0000h successful
+0099h invalid operation
+00A5h resource not available
+</PRE>
+<p><b>Desc:</b>
+StreetTalk access with session handles
+<p><b>Notes:</b>
+This service is handled by the adapter driver.
+The request dispatch table contains dummy entries for subfunctions
+06h, 0Dh, 0Eh, 0Fh, 10h, and 11h, which always return error 0099h
+(invalid operation) in the request block's result buffer.
+This interface does the same as the corresponding AX=0001h interface,
+but with a slightly modified request block structure (i.e it allows
+FAR parameter block pointers) and without expecting DS=0001h.
+Some adapter drivers (e.g. the NDIS2 token ring driver NDTOKBAN for
+VINES 5.53) ignore the value in CX and use the value from DX instead
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-6709.htm>AX=0001h/SF=0001h</a> - <a href=http://www.ctyme.com/intr/rb-6792.htm>AX=000Fh/SF=0001h</a>
+<PRE>
+<p>
+Format of VINES Socket request block:
+<a name=table3444></a>
+Offset  Size    Description     (Table 03444)
+00h    WORD    subfunction number (01h-16h)
+02h    WORD    magic number (FEFEh)
+04h    WORD    buffer for return code (set to 0 before calling)
+06h    WORD    reserved (will be set to client DS)
+08h    WORD    reserved (obviously not used; set to 0 before calling)
+0Ah    DWORD   far pointer to parameter block
+0Eh    WORD    StreetTalk handle
+</PRE>
+<p><b>See Also:</b>
+#03324 at INT 61/AX=0001h
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-61.htm>
+Int 61h</a>
+- <a href=alpha-b.htm>
+B</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6790.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6792.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

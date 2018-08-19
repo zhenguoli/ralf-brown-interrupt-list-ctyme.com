@@ -1,0 +1,247 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AX=4402h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AX=4402h - WORKGRP.SYS - GET API ENTRY POINT - 
+AX = 4402h
+BX = file handle for device NET$HLP$
+CX = 0008h
+DS:DX - buffer for entry point record (see #01485)
+Return: CF clear if successful
+AX = number of bytes actually read
+CF set on error
+AX = error code
+Program: WORKGRP.SYS is the portion of Microsoft's Workgroup Connection which
+permits communication with PCs running Windows for Workgroups or
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AX=4402h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2835.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2837.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>WORKGRP.SYS - GET API ENTRY POINT</font></h3>
+<PRE>
+AX = 4402h
+BX = file handle for device "NET$HLP$"
+CX = 0008h
+DS:DX -> buffer for entry point record <a href=http://www.ctyme.com/intr/rb-2836.htm#Table1485>(see #01485)</a><br>
+<p><b>Return:</b><br>CF clear if successful
+AX = number of bytes actually read
+CF set on error
+AX = error code
+</PRE>
+<p><b>Program:</b>
+WORKGRP.SYS is the portion of Microsoft's Workgroup Connection which
+permits communication with PCs running Windows for Workgroups or
+LAN Manager
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2786.htm>AH=3Fh"WORKGRP.SYS"</a>
+<PRE>
+<p>
+Format of WORKGRP.SYS entry point record:
+<a name=table1485></a>
+Offset  Size    Description     (Table 01485)
+00h    WORD    3633h  \ signature???
+02h    WORD    EF6Fh  /
+04h    DWORD   address of entry point <a href=http://www.ctyme.com/intr/rb-2836.htm#Table1486>(see #01486)</a>
+</PRE>
+<p><b>Note:</b>
+First four bytes of buffer must be 6Fh E9h 33h 36h on entry when using
+IOCTL rather than READ to get the entry point record
+<PRE>
+<p>
+<a name=table1486></a>
+(Table 01486)
+Call WORKGRP entry point with:.
+<p><b>STACK:</b><br>WORD    function number (0000h-0009h)<br>
+<p><b>Return:</b><br>STACK unchanged
+</PRE>
+<p><b>See Also:</b>
+#01487 - #01488 - #01489 - #01490 - #01491 - #01492 - #01493 - #01494
+<PRE>
+<p>
+<a name=table1487></a>
+(Table 01487)
+Call WORKGRP function 00h with:.
+<p><b>STACK:</b><br>WORD    0000h (function "get ???")<br>
+<p><b>Return:</b><br>DX:AX -> data table
+<p>
+<a name=table1488></a>
+(Table 01488)
+Call WORKGRP function 01h with:.
+<p><b>STACK:</b><br>WORD    0001h (function "hook ???")<br>
+<p><b>Return:</b><br>STACK:  DWORD   pointer to ???
+WORD    0001h (function number)
+<p>
+<a name=table1489></a>
+(Table 01489)
+Call WORKGRP function 02h with:.
+<p><b>STACK:</b><br>WORD    0002h (function "unhook ???").
+???<br>
+<p><b>Return:</b><br>???
+<p>
+<a name=table1490></a>
+(Table 01490)
+Call WORKGRP function 03h with:.
+<p><b>STACK:</b><br>WORD    0003h (function "reenable printer port")
+WORD    LPT port number<br>
+<p><b>Return:</b><br>???
+<p>
+<a name=table1491></a>
+(Table 01491)
+Call WORKGRP function 04h with:.
+<p><b>STACK:</b><br>WORD    0004h (function "disable printer port")
+WORD    LPT port number<br>
+<p><b>Return:</b><br>???
+<p>
+<a name=table1492></a>
+(Table 01492)
+Call WORKGRP function 05h with:.
+<p><b>STACK:</b><br>WORD    0005h (function "???")
+???<br>
+<p><b>Return:</b><br>???
+<p>
+<a name=table1493></a>
+(Table 01493)
+Call WORKGRP function 06h with:.
+<p><b>STACK:</b><br>WORD    0006h (function "???")<br>
+<p><b>Return:</b><br>STACK unchanged
+AX = 0000h
+DX = 0000h
+<p>
+<a name=table1494></a>
+(Table 01494)
+Call WORKGRP functions 07h-09h with:.
+<p><b>STACK:</b><br>WORD    0007h-0009h (NOP functions)<br>
+<p><b>Return:</b><br>STACK unchanged
+AX = 0001h
+DX = 0000h
+</PRE>
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-w.htm>
+W</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2835.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2837.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

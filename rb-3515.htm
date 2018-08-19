@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AH=E3h/SF=42h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AH=E3h/SF=42h - Novell NetWare - BINDERY SERVICES - DELETE BINDERY OBJECT FROM SET - 
+AH = E3h subfn 42h
+DS:SI - request buffer (see #01952)
+ES:DI - reply buffer (see #01953)
+Return: AL = status (see #01950)
+Desc:  delete the specified object from a set property
+Note:  this function is supported by Advanced NetWare 1.0+ and Alloy NTNX
+SeeAlso: AH=E3h/SF=40h,AH=E3h/SF=42h,AH=E3h/SF=43h,AX=F217h/SF=42h
+Format of NetWare Delete Bindery Object from Set request buffer:
+Offset Size  Description   (Table 01952)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AH=E3h/SF=42h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3514.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3516.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Novell NetWare - BINDERY SERVICES - DELETE BINDERY OBJECT FROM SET</font></h3>
+<PRE>
+AH = E3h subfn 42h
+DS:SI -> request buffer <a href=http://www.ctyme.com/intr/rb-3515.htm#Table1952>(see #01952)</a>
+ES:DI -> reply buffer <a href=http://www.ctyme.com/intr/rb-3515.htm#Table1953>(see #01953)</a><br>
+<p><b>Return:</b><br>AL = status (see #01950)
+</PRE>
+<p><b>Desc:</b>
+Delete the specified object from a set property
+<p><b>Note:</b>
+This function is supported by Advanced NetWare 1.0+ and Alloy NTNX
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-3513.htm>AH=E3h/SF=40h</a> - <a href=http://www.ctyme.com/intr/rb-3515.htm>AH=E3h/SF=42h</a> - <a href=http://www.ctyme.com/intr/rb-3516.htm>AH=E3h/SF=43h</a> - <a href=http://www.ctyme.com/intr/rb-3754.htm
+<PRE>
+<p>
+Format of NetWare "Delete Bindery Object from Set" request buffer:
+<a name=table1952></a>
+Offset  Size    Description     (Table 01952)
+00h    WORD    length of following data (max 75h)
+02h    BYTE    42h (subfunction "Delete Bindery Object from Set")
+03h    WORD    (big-endian) type of object
+05h    BYTE    length of object's name
+06h  N BYTEs   object name.
+BYTE    length of property name (01h-0Fh)
+N BYTEs   property name.
+WORD    (big-endian) type of member object.
+BYTE    length of member object's name
+N BYTEs   member object's name
+</PRE>
+<p><b>See Also:</b>
+#01953
+<PRE>
+<p>
+Format of NetWare reply buffer:
+<a name=table1953></a>
+Offset  Size    Description     (Table 01953)
+00h    WORD    (call) 0000h (no data returned)
+</PRE>
+<p><b>See Also:</b>
+#01952 - #01954 - #01955 - #01956
+<p>
+<b>Category: <a href=cat-026.htm>
+Netware</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-n.htm>
+N</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-3514.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-3516.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

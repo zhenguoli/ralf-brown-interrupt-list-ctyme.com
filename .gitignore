@@ -1,0 +1,7 @@
+*.swp
+tags
+*.lst
+*.o
+*.bin
+*.pyc
+*.gch

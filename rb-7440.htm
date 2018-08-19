@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>Int 67/AH=57h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 67/AH=57h - LIM EMS 4.0 - MOVE/EXCHANGE MEMORY REGION - 
+AH = 57h
+AL = subfunction
+00h move memory region
+01h exchange memory region
+DS:SI - structure describing source and destination (see #03653)
+Return: AH = status (see #03652)
+Note:  source and destination may overlap for a move, in which case the copy
+direction is chosen such that the destination receives an intact copy
+of the source region
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 67/AH=57h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7439.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7441.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>LIM EMS 4.0 - MOVE/EXCHANGE MEMORY REGION</font></h3>
+<PRE>
+AH = 57h
+AL = subfunction
+00h move memory region
+01h exchange memory region
+DS:SI -> structure describing source and destination <a href=http://www.ctyme.com/intr/rb-7440.htm#Table3653>(see #03653)</a><br>
+<p><b>Return:</b><br>AH = status (see #03652)
+</PRE>
+<p><b>Note:</b>
+Source and destination may overlap for a move, in which case the copy
+direction is chosen such that the destination receives an intact copy
+of the source region
+<PRE>
+<p>
+<a name=table3652></a>
+(Table 03652)
+Values for EMS function status:
+00h    successful
+80h    internal error
+81h    hardware failure
+83h    invalid handle
+84h    undefined function requested
+8Ah    invalid logical page number encountered
+8Fh    undefined subfunction
+92h    successful, but a portion of the source region has been overwritten
+93h    length of source or destination region exceeds length of region
+allocated to either source or destination handle
+94h    conventional and expanded memory regions overlap
+95h    offset within logical page exceeds size of logical page
+96h    region length exceeds 1M
+97h    source and destination EMS regions have same handle and overlap
+98h    memory source or destination type undefined
+A2h    attempted to wrap around 1M conventional address space
+<p>
+Format of EMS copy data:
+<a name=table3653></a>
+Offset  Size    Description     (Table 03653)
+00h    DWORD   region length in bytes
+04h    BYTE    source memory type
+00h conventional
+01h expanded
+05h    WORD    source handle (0000h if conventional memory)
+07h    WORD    source initial offset (within page if EMS, segment if convent)
+09h    WORD    source initial segment (conv mem) or logical page (EMS)
+0Bh    BYTE    destination memory type
+00h conventional
+01h expanded
+0Ch    WORD    destination handle
+0Eh    WORD    destination initial offset
+10h    WORD    destination initial segment or page
+</PRE>
+<p>
+<b>Category: <a href=cat-024.htm>
+Memory Management</a>
+- <a href=int-67.htm>
+Int 67h</a>
+- <a href=alpha-l.htm>
+L</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7439.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7441.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

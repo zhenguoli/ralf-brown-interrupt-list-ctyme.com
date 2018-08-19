@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<TITLE>Int 14/AH=EAh
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 14/AH=EAh - TelAPI - telstatus - GET TELNET CONNECTION STATUS INFORMATION - 
+AH = EAh
+BX = connection ID (see AH=E0hTelAPI)
+ES:SI - buffer for status info (see #00401)
+Return: AX = status (0000h,FFFFh,etc.)
+SeeAlso: AH=E9h,AH=EBh,AX=FF00h
+Format of TelAPI Telnet connection status information:
+Offset Size  Description   (Table 00401)
+00h 4 BYTEs  remote host IP address
+04h 20 BYTEs  reserved
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 14/AH=EAh
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1118.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1120.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>TelAPI - telstatus - GET TELNET CONNECTION STATUS INFORMATION</font></h3>
+<PRE>
+AH = EAh
+BX = connection ID (see AH=E0h"TelAPI")
+ES:SI -> buffer for status info <a href=http://www.ctyme.com/intr/rb-1119.htm#Table401>(see #00401)</a><br>
+<p><b>Return:</b><br>AX = status (0000h,FFFFh,etc.)
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1118.htm>AH=E9h</a> - <a href=http://www.ctyme.com/intr/rb-1120.htm>AH=EBh</a> - <a href=http://www.ctyme.com/intr/rb-1131.htm>AX=FF00h</a>
+<PRE>
+<p>
+Format of TelAPI Telnet connection status information:
+<a name=table401></a>
+Offset  Size    Description     (Table 00401)
+00h  4 BYTEs   remote host IP address
+04h 20 BYTEs   reserved
+18h    WORD    local port number
+1Ah    BYTE    connection mode (00h = ASCII, 01h = Binary)
+1Bh    BYTE    echo flag (00h local, 01h remote)
+1Ch    BYTE    SGA flag (00h will, 01h won't)
+1Dh    BYTE    EOR negotation flag (00h do negotiate, 01h don't)
+1Eh    BYTE    buffering (00h line mode, 01h character mode)
+1Fh    BYTE    reserved
+20h    BYTE    verbose flag (00h no, 01h verbose mode)
+21h    BYTE    received EOL (00h no xlat, 01h CR, 02h LF, 03h CRLF)
+22h    BYTE    sent EOL (00h no translation, 01h CR, 02h LF)
+23h    BYTE    break character
+24h    BYTE    IP escape character
+25h    BYTE    AO escape character
+26h    BYTE    AYT escape character
+27h    BYTE    EC escape character
+28h    BYTE    EL escape character
+29h 41 BYTEs   ASCIZ Telnet-negotiated terminal type
+52h  9 BYTEs   session ID
+</PRE>
+<p><b>See Also:</b>
+#00402
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-14.htm>
+Int 14h</a>
+- <a href=alpha-t.htm>
+T</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1118.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1120.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

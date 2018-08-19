@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>Int 61/AX=0006h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 61/AX=0006h - Banyan VINES - GET ADDRESS OF GLOBAL VARIABLE - 
+AX = 0006h
+BX = bits 14..0: request ID (see #03431)
+bit 15:  result destination flag (0 for ES:BX, 1 for AX:BX)
+Return: AX = status
+0000h successful
+000Bh invalid request
+ES:BX - internal variable (bit 15 of BX was not set)
+AX:BX - internal variable (bit 15 of BX was set)
+Note:  This service is handled by the redirector
+SeeAlso: AX=0004h/SF=0013h,AX=0004h/SF=0014h
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 61/AX=0006h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6766.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6768.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Banyan VINES - GET ADDRESS OF GLOBAL VARIABLE</font></h3>
+<PRE>
+AX = 0006h.
+<p><b>BX = bits 14..0:</b><br>Request ID (see #03431)
+<p><b>bit  15:</b><br>Result destination flag (0 for ES:BX, 1 for AX:BX)<br>
+<p><b>Return:</b><br>AX = status
+0000h successful
+000Bh invalid request
+ES:BX -> internal variable (bit 15 of BX was not set)
+AX:BX -> internal variable (bit 15 of BX was set)
+</PRE>
+<p><b>Note:</b>
+This service is handled by the redirector
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-6757.htm>AX=0004h/SF=0013h</a> - <a href=http://www.ctyme.com/intr/rb-6758.htm>AX=0004h/SF=0014h</a>
+<PRE>
+<p>
+<a name=table3431></a>
+(Table 03431)
+Values for request IDs:
+Request Length  Description
+0000h     1    ???
+0001h    16    StreetTalk port
+0002h     4    StreetTalk session handle
+0003h     6    colors
+0004h    64    StreetTalk name of currently logged in user
+0005h     0    old clear text password (always returns error code 000Bh)
+0006h     0    default group (not applicable)
+0007h     1    message queue count
+0008h     1    message flag
+0009h    16    TalkPort
+000Ah     2    TalkPort socket
+000Bh    64    StreetTalk name of mail service
+000Ch     2    message timeout
+000Dh     2    next message place
+000Eh   246    message queue
+000Fh    14    system nonce
+0010h     2    failed login count
+0011h     1    new mail message received
+0012h     8    mail capabilities
+0013h     3    printer port diverted
+0014h    32    international location
+0015h    16    IPC port of drive Z:
+0016h  1024    pointer to current directory table
+0017h     2    maximum number of file volume mappings
+0018h    24    routine to call back for messages
+0019h     4    current virtual machine
+001Ah    20    DOS redirector message bell tones
+001Bh     2    various flags used for internal communication
+001Ch     0    OS/2 client configuration (always returns error code 000Bh)
+001Dh     8    redirector/IFS file version
+001Eh     0    reserved (always returns error code 000Bh)
+001Fh     4    address of VVINESD.386 dispatch
+</PRE>
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-61.htm>
+Int 61h</a>
+- <a href=alpha-b.htm>
+B</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-6766.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-6768.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

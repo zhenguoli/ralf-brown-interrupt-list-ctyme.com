@@ -1,0 +1,286 @@
+<HTML>
+<HEAD>
+<TITLE>Int 2F/AX=7A2Fh
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 2F/AX=7A2Fh - Novell NetWare - IPXODI v2.12 - GET GNMA SUPPORT - 
+AX = 7A2Fh
+Return: AX = 0000h if supported and active
+BX = support level (0001h)
+ES:DI - GNMA entry point (see #02898)
+Program: GNMA is the Generic NetWare Management Agent
+Note:  IPXODI v2.12 is distributed as part of the Personal NetWare system
+bundled with Novell DOS 7
+SeeAlso: INT 7A/BX=001Fh
+(Table 02898)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 2F/AX=7A2Fh
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4956.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4958.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Novell NetWare - IPXODI v2.12 - GET GNMA SUPPORT</font></h3>
+<PRE>
+AX = 7A2Fh<br>
+<p><b>Return:</b><br>AX = 0000h if supported and active
+BX = support level (0001h)
+ES:DI -> GNMA entry point <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2898>(see #02898)</a>
+</PRE>
+<p><b>Program:</b>
+GNMA is the Generic NetWare Management Agent
+<p><b>Note:</b>
+IPXODI v2.12 is distributed as part of the Personal NetWare system
+bundled with Novell DOS 7
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-7873.htm>INT 7A/BX=001Fh</a>
+<PRE>
+<p>
+<a name=table2898></a>
+(Table 02898)
+Call IPXODI GNMA entry point with:.
+BX = function
+0000h Register Responder
+ES:SI -> responder structure <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2899>(see #02899)</a>
+<p><b>Return:</b><br>CF clear if successful
+CF set on error
+AX = status
+FFFFh if specified responder is already registered
+interrupts enabled
+all other registers except DS, CS:IP, SS:SP destroyed
+</PRE>
+<p><b>Note:</b>
+The responder structure must not be deallocated until
+the responder is deregistered
+0001h Deregister Responder
+AX = type of responder to deregister
+<PRE>
+<p><b>Return:</b><br>AX = status
+FFFFh if specified responder not registered
+interrupts enabled
+ES:SI buffer from original registration may now be
+freed
+all other registers except DS, CS:IP, SS:SP destroyed
+0002h Get Responders
+<p><b>Return:</b><br>ES:SI -> head of responder structure list (read-only)
+interrupts enabled
+all other registers except DS, CS:IP, SS:SP destroyed
+</PRE>
+<p><b>Note:</b>
+The returned list may change as tasks are swapped in
+and out
+0003h Send Acknowledgement
+AL = completion code
+00h successful
+01h-FCh responder-specific
+FDh invalid function
+CX = length of return data (0000h if none)
+DX:SI -> return data
+<PRE>
+<p><b>Return:</b><br>Interrupts enabled
+all other registers except DS, CS:IP, SS:SP destroyed
+<p>
+Format of NetWare GNMA responder structure:
+<a name=table2899></a>
+Offset  Size    Description     (Table 02899)
+00h    DWORD   -> next responder structure (used by GNMA)
+04h    DWORD   -> responder's request handler (called by GNMA) <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2900>(see #02900)</a>
+08h    WORD    responder ID
+0Ah    WORD    number of functions supported by responder
+0Ch    DWORD   reserved for use by GNMA
+</PRE>
+<p><b>See Also:</b>
+#02898
+<PRE>
+<p>
+<a name=table2900></a>
+(Table 02900)
+Values GNMA responder's request handler is called with:.
+AL = function
+00h responder request
+CX = length of request data (not including header) <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2901>(see #02901)</a>
+DS:DI -> request data <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2901>(see #02901)</a>
+DS:BX -> 528-byte reply buffer
+ES:SI -> responder structure <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2899>(see #02899)</a> from registration
+DF clear
+interrupts disabled
+<p><b>Return:</b><br>AH = acknowledement status
+00h acknowledgment being returned synchronously
+<p><b>nonzero:</b><br>Acknowledgment will be sent via GNMA
+function 0003h <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2898>(see #02898)</a>
+CX = length of acknowledement data
+DX:BX -> acknowledgment (may use provided
+buffer or another buffer)
+AL = completion code
+00h successful
+01h-FCh responder-specific
+FDh invalid request
+DF clear
+interrupts disabled
+other registers may be destroyed
+01h responder acknowledgement complete
+ES:SI -> responder structure <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2899>(see #02899)</a> from registration
+DF clear
+interrupts disabled
+<p><b>Return:</b><br>DF clear
+interrupts disabled
+all registers (except SS:SP) may be destroyed
+</PRE>
+<p><b>Note:</b>
+This function is called if function 00h returned a
+responder-provided data buffer; once this function
+is called, the responder may deallocate the buffer
+02h responder reset
+ES:SI -> responder structure <a href=http://www.ctyme.com/intr/rb-4957.htm#Table2899>(see #02899)</a> from registration
+DF clear
+interrupts disabled
+<PRE>
+<p><b>Return:</b><br>DF clear
+interrupts disabled
+all registers (except SS:SP) may be destroyed
+</PRE>
+<p><b>Note:</b>
+Called whenever a network managment application
+terminates
+<p><b>Note:</b>
+The responder handler should switch to a local stack if it enables
+interrupts or uses more than a few words of stack space
+<p><b>See Also:</b>
+#02899
+<PRE>
+<p>
+Format of GNMA responder request data:
+<a name=table2901></a>
+Offset  Size    Description     (Table 02901)
+00h    WORD    responder's assigned ID
+02h    WORD    function number (defined by responder)
+04h  N BYTEs   data for request (max 528 bytes; actual amount is determined
+by CX)
+</PRE>
+<p><b>See Also:</b>
+#02900
+<p>
+<b>Category: <a href=cat-026.htm>
+Netware</a>
+- <a href=int-2F.htm>
+Int 2Fh</a>
+- <a href=alpha-n.htm>
+N</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4956.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4958.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

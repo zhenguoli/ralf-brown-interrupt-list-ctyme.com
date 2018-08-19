@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>Int 10/AX=BF03h/BX=0000h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 10/AX=BF03h/BX=0000h - VIDEO - Compaq Extensions - GET ENVIRONMENT - 
+AX = BF03h
+BX = 0000h
+Return: BH = active monitor
+(00h = external, 01h = internal, 03h both, 04h neither)
+BL = master mode (see #00211)
+CH = ASIC type and version
+00h (reserved, very early Compaq VGCs)
+31h if QVision VGA
+CL = switchable VDU modes supported (see #00212)
+DH = internal monitor type (see #00213)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 10/AX=BF03h/BX=0000h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0480.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0482.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>VIDEO - Compaq Extensions - GET ENVIRONMENT</font></h3>
+<PRE>
+AX = BF03h
+BX = 0000h<br>
+<p><b>Return:</b><br>BH = active monitor
+(00h = external, 01h = internal, 03h both, 04h neither)
+BL = master mode <a href=http://www.ctyme.com/intr/rb-0481.htm#Table211>(see #00211)</a>
+CH = ASIC type and version
+00h (reserved, very early Compaq VGCs)
+31h if QVision VGA
+CL = switchable VDU modes supported <a href=http://www.ctyme.com/intr/rb-0481.htm#Table212>(see #00212)</a>
+DH = internal monitor type <a href=http://www.ctyme.com/intr/rb-0481.htm#Table213>(see #00213)</a>
+DL = external monitor type <a href=http://www.ctyme.com/intr/rb-0481.htm#Table213>(see #00213)</a>
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-0219.htm>AX=1A00h</a> - <a href=http://www.ctyme.com/intr/rb-0478.htm>AX=BF00h</a> - <a href=http://www.ctyme.com/intr/rb-0479.htm>AX=BF01h</a> - <a href=http://www.ctyme.com/intr/rb-0480.htm>AX=BF02h</a> -
+<PRE>
+<p>
+<a name=table211></a>
+(Table 00211)
+Values for Compaq video master mode:
+00h    switchable VDU not present
+04h    CGA
+05h    EGA
+07h    MDA
+08h    switchable LCD controller present
+09h    plasma VGA
+0Ah    TFT (active-matrix) VGA
+<p>
+Bitfields for Compaq switchable VDU modes support:
+<a name=table212></a>
+Bit(s)  Description     (Table 00212)
+0      CGA supported
+1,2    reserved (1)
+3      MDA supported
+4      BitBLT engine available
+5      132-column support availble
+6      640x480x256 mode available
+7      8-bit DAC mode available
+<p>
+<a name=table213></a>
+(Table 00213)
+Values for Compaq monitor type:
+00h    none
+01h    dual-mode monitor
+02h    5153 RGB monitor (RGBI 16-color)
+03h    Compaq Color monitor
+04h    640x400 flat panel (Plasma CGA)
+05h    VGC monochrome
+06h    VGC color
+07h    8-level mono LCD VGA (internal).
+1024x768 mono VGA (external)
+08h    16-level mono plasma VGA (internal).
+1024x768 color VGA (external)
+09h    4-level mono LCD CGA
+0Ah    16-level mono LCD VGA
+0Bh    active-matrix color VGA
+0Ch    active-matrix mono VGA
+0Dh    STN color VGA
+</PRE>
+<p>
+<b>Category: <a href=cat-044.htm>
+Vendor-specific BIOS Extensions</a>
+- <a href=int-10.htm>
+Int 10h</a>
+- <a href=alpha-v.htm>
+V</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-0480.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-0482.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

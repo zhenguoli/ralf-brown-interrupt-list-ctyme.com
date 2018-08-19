@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>Int 2F/AX=5600h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 2F/AX=5600h - INTERLNK - INSTALLATION CHECK - 
+AX = 5600h
+DX = magic value FFFFh
+BL = instance number (00h = any, 01h = first loaded, etc.)
+(BH = 00h and CX = 0000h, see note)
+Return: AL = FFh if installed
+BL = instance number
+CX = version number (CL = major, CH = minor)
+DX = resident CS of driver, DX:0000h - header (see #02845)
+Notes: INTERLNK was derived from Sewell Development Corporation's FASTLYNX.
+Some Microsoft software explicitly clears the BH and CX registers
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 2F/AX=5600h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4897.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4899.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>INTERLNK - INSTALLATION CHECK</font></h3>
+<PRE>
+AX = 5600h
+DX = magic value FFFFh
+BL = instance number (00h = any, 01h = first loaded, etc.)
+(BH = 00h and CX = 0000h, see note)<br>
+<p><b>Return:</b><br>AL = FFh if installed
+BL = instance number
+CX = version number (CL = major, CH = minor)
+DX = resident CS of driver, DX:0000h -> header <a href=http://www.ctyme.com/intr/rb-4898.htm#Table2845>(see #02845)</a>
+</PRE>
+<p><b>Notes:</b>
+INTERLNK was derived from Sewell Development Corporation's FASTLYNX..
+Some Microsoft software explicitly clears the BH and CX registers
+before calling this function.
+<p><b>BUG:</b>
+Reportedly, the MS-DOS INTERSRV program (though not INTERLNK) causes
+serious FAT corruption and data loss when run under Novell DOS 7.
+INTERSRV apparently checks for DR-DOS by testing the "OS"
+environment variable for the value "DRDOS", which is no longer
+correct for PalmDOS, Novell DOS, or OpenDOS.  A workaround may be
+to explicitly set the OS variable to "DRDOS".
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-4899.htm>AX=5601h</a> - <a href=http://www.ctyme.com/intr/rb-4900.htm>AX=5602h</a> - <a href=http://www.ctyme.com/intr/rb-6641.htm>INT 60/AX=0000h</a>
+<PRE>
+<p>
+Format of Interlnk device driver header:
+<a name=table2845></a>
+Offset  Size    Description     (Table 02845)
+00h    DWORD   pointer to next driver, offset=FFFFh if last driver
+04h    WORD    device attributes <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01647,#01648)
+06h    WORD    device strategy entry point
+08h    WORD    device interrupt entry point
+0Ah  8 BYTEs   character device name "NUL2    "
+12h 165 BYTEs  ???
+B7h 67 BYTEs   fully qualified Interlnk filename
+FAh  6 BYTEs   ???
+100h    DWORD   pointer back to Interlnk filename at offset B7h
+104h  8 BYTEs   ???
+10Ch    BYTE    total number of redirected drives
+10Dh    BYTE    first local drive number (0=A:)
+10Eh    BYTE    printer redirection (0=no, 1=yes)
+10Fh    BYTE    ???
+110h  3 BYTEs   LPT1...3 status (0FFh=invalid)
+113h 26 BYTEs   remote drive number (0=A:, 0FEh=unused) (refer to note below)
+12Dh 26 BYTEs   always 0FEh ???
+147h 26 BYTEs   always 0FFh ???
+</PRE>
+<p><b>Note:</b>
+To obtain the remote drive number, subtract the value at offset 10Ch
+from the local drive number before indexing into the table at 113h
+<PRE>
+<p><b>(example:</b><br>If local drives F, G, H are remote drives C, F, E then
+the first three bytes at offset 113h are 02h, 05h, 04h).
+For each instance of Interlnk, an extra device driver is loaded, but
+all have the same device name NUL2
+</PRE>
+<p><b>See Also:</b>
+#01646 at INT 21/AH=52h
+<p>
+<b>Category: <a href=cat-033.htm>
+Remote Control/File Access</a>
+- <a href=int-2F.htm>
+Int 2Fh</a>
+- <a href=alpha-i.htm>
+I</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-4897.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-4899.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

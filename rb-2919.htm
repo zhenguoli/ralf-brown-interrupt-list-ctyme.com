@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>Int 21/AX=4451h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 21/AX=4451h - Concurrent DOS v3.2+ - INSTALLATION CHECK - 
+AX = 4451h
+Return: CF set if not Concurrent DOS
+AX = error code (see #01680 at AH=59h/BX=0000h)
+CF clear if successful
+AH = single-user/multiuser nature (see #01581)
+10h single-user
+AL = operating system version ID (see #01580)
+14h multiuser
+AL = operating system version ID (see #01579)
+Notes: as of Concurrent DOS/XM 5.0 (possibly earlier), the version is stored
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 21/AX=4451h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2918.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2920.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>Concurrent DOS v3.2+ - INSTALLATION CHECK</font></h3>
+<PRE>
+AX = 4451h<br>
+<p><b>Return:</b><br>CF set if not Concurrent DOS
+AX = error code <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
+CF clear if successful
+AH = single-user/multiuser nature <a href=http://www.ctyme.com/intr/rb-2920.htm#Table1581>(see #01581)</a>
+10h single-user
+AL = operating system version ID <a href=http://www.ctyme.com/intr/rb-2920.htm#Table1580>(see #01580)</a>
+14h multiuser
+AL = operating system version ID <a href=http://www.ctyme.com/intr/rb-2919.htm#Table1579>(see #01579)</a>
+</PRE>
+<p><b>Notes:</b>
+As of Concurrent DOS/XM 5.0 (possibly earlier), the version is stored
+in the environment variable VER and the OS type in variable OS.
+Use this function if you are looking for multiuser capabilities,
+AX=4452h for single-user.
+This function should never return the single-user values; however, an
+application should be prepared to accept single-user values, i.e. it
+should check the returned AH and AL separately.
+CCI Multiuser DOS 7.22 returns AX=DX=1466h..
+DR DOS 3.31+ error returns with AX=0001h
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2920.htm>AX=4452h</a> - <a href=http://www.ctyme.com/intr/rb-2926.htm>AX=4459h</a>
+<PRE>
+<p>
+<a name=table1579></a>
+(Table 01579)
+Values for Digital Research operating system version ID:
+32h    Concurrent PC DOS 3.2
+41h    Concurrent DOS 4.1
+50h    Concurrent DOS/XM 5.0 or Concurrent DOS/386 1.1
+60h    Concurrent DOS/XM 6.0 or Concurrent DOS/386 2.0
+62h    Concurrent DOS/XM 6.2 or Concurrent DOS/386 3.0
+66h    DR Multiuser DOS 5.1, CCT Multiuser DOS 7.x
+67h    Concurrent DOS 5.1
+</PRE>
+<p><b>See Also:</b>
+#01581 - #04023
+<p>
+<b>Category: <a href=cat-030.htm>
+Other Operating Systems</a>
+- <a href=int-21.htm>
+Int 21h</a>
+- <a href=alpha-c.htm>
+C</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2918.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2920.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>Int 78
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 78 - UofSalford DBOS DOS extender - API - 
+AH = function
+00h (PB) display 32-bit memory specified by command argument
+01h (PT) display 32-bit instruction(s) specified by command arg
+02h specify offset to subsequent PB and PT commands
+03h switch to protected mode
+DWORD following INT instruction point to map; protected-mode
+entry point is immediately following the DWORD
+Return: never
+Note:  if bit 31 of the map address is set, only a stub was
+loaded by DOS and DBOS will load the entire program
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 78
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7807.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7809.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>UofSalford DBOS DOS extender - API</font></h3>
+<PRE>
+AH = function
+00h (PB) display 32-bit memory specified by command argument
+01h (PT) display 32-bit instruction(s) specified by command arg
+02h specify offset to subsequent PB and PT commands
+03h switch to protected mode
+DWORD following INT instruction point to map; protected-mode
+entry point is immediately following the DWORD
+<p><b>Return:</b><br>Never
+</PRE>
+<p><b>Note:</b>
+If bit 31 of the map address is set, only a stub was
+loaded by DOS and DBOS will load the entire program
+04h specify that subsequent load (AH=03h) should leave program in
+memory
+05h release program from memory
+06h set break point at address and option count from commandline
+07h resume program execution
+08h single-step program
+09h set read/write breakpoint using 386 debug registers
+0Ah set write breakpoint using 386 debug register
+0Bh set memory byte to new value
+0Ch display CPU registers
+0Dh run until specified program address reached
+0Fh print trace from program map
+10h specify an offset using a map symbol
+14h print memory without any offset
+18h switch DBOS into/out of test mode (ON/OFF commandline args)
+1Dh get address of real/protected-mode communication buffer
+<PRE>
+<p><b>Return:</b><br>ES:BP -> comm buffer
+1Eh set real-mode memory size (specify how much real-mode memory
+to leave free when running FTN77 programs)
+22h uninstall DBOS
+24h force DBOS to emulate coprocessor instructions
+26h set named DBOS switches from commandline
+27h reset named DBOS switched from commandline
+2Ah set list of dynamic link libraries to contents of commandline
+file
+35h specify that subsequent load (AH=03h) should stop at first
+instruction<br>
+<p><b>Return:</b><br>???
+</PRE>
+<p><b>Notes:</b>
+DBOS supports functions 00h through 50h; many of these functions
+provide a low-level debugging interface.
+Command arguments are read from the calling program's PSP
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-7833.htm>INT 79"DBOS"</a>
+<PRE>
+<p><b>Index:</b><br>Uninstall;DBOS DOS extender
+</PRE>
+<p>
+<b>Category: <a href=cat-009.htm>
+DOS Extenders</a>
+- <a href=int-78.htm>
+Int 78h</a>
+- <a href=alpha-u.htm>
+U</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7807.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7809.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- Friend Finder 100%/Sale *Sex *Gen -->
+
+<A HREF="http://friendfinder.com/go/p10748" target=_blank>
+<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
+width=468 height=60 border=0></A><p>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

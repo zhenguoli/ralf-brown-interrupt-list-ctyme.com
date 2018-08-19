@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>Int 68/AH=06h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 68/AH=06h - APPC/PC - CHANGE NUMBER OF SESSIONS - 
+AH = 06h
+DS:DX - control block (see #03705)
+Return: control block updated
+Format of APPC/PC Change Number of Sessions control block:
+Offset Size  Description   (Table 03705)
+00h 12 BYTEs  reserved
+0Ch  WORD  1500h (verb Change Number of Sessions)
+0Eh 6 BYTEs  00h
+14h  WORD  (big-endian) primary return code (see #03681)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 68/AH=06h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7538.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7540.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>APPC/PC - CHANGE NUMBER OF SESSIONS</font></h3>
+<PRE>
+AH = 06h
+DS:DX -> control block <a href=http://www.ctyme.com/intr/rb-7539.htm#Table3705>(see #03705)</a><br>
+<p><b>Return:</b><br>Control block updated
+<p>
+Format of APPC/PC "Change Number of Sessions" control block:
+<a name=table3705></a>
+Offset  Size    Description     (Table 03705)
+00h 12 BYTEs   reserved
+0Ch    WORD    1500h (verb "Change Number of Sessions")
+0Eh  6 BYTEs   00h
+14h    WORD    (big-endian) primary return code <a href=http://www.ctyme.com/intr/rb-7518.htm#Table3681>(see #03681)</a>
+16h    DWORD   (big-endian) secondary return code <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03668,#03706)
+1Ah  8 BYTEs   (big-endian) logical unit ID
+22h  8 BYTEs   blanks
+2Ah  8 BYTEs   (big-endian) partner logical unit name
+32h  8 BYTEs   (big-endian) mode name
+<p><b>3Ah    BYTE    bit 7:</b><br>Use MODE_NAME_SELECT_ALL rather than MODE_NAME
+<p><b>bit 6:</b><br>Set negotiable values
+3Bh    BYTE    partner logical unit mode session limit
+3Ch    BYTE    minimum CONWINNERS_SOURCE
+3Dh    BYTE    maximum CONWINNERS_TARGET
+3Eh    BYTE    automatic activation
+3Fh    BYTE    00h
+40h    BYTE    flags
+<p><b>bit 7:</b><br>Drain target
+<p><b>bit 6:</b><br>Drain source
+<p><b>bit 5:</b><br>Target responsible, not source
+<p>
+<a name=table3706></a>
+(Table 03706)
+Values for secondary return code (see also AH=01h/SF=1B00h):
+0000h  accepted
+0001h  negotiated
+0003h  bad logical unit ID
+0004h  allocation failure, no retry
+0005h  allocation failure, retry
+0151h  can't raise limits
+0153h  all modes must reset
+0154h  bad SNASVCMG limits
+0155h  minimum greater than total
+0156h  mode closed (primary return code = 1).
+CNOS mode closed (primary return code = 18h)
+0157h  bad mode name (primary return code = 1).
+CNOS bad mode name (primary return code = 18h)
+0159h  reset SNA drains
+015Ah  single not SRC response
+015Bh  bad partner logical unit
+015Ch  exceeds maximum allowed
+015Dh  change SRC drains
+015Eh  logical unit detached
+015Fh  CNOS command race reject
+</PRE>
+<p>
+<b>Category: <a href=cat-027.htm>
+Network</a>
+- <a href=int-68.htm>
+Int 68h</a>
+- <a href=alpha-a.htm>
+A</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-7538.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-7540.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,257 @@
+<HTML>
+<HEAD>
+<TITLE>Int E0/CL=9Ah
+</TITLE>
+<META NAME="Description" CONTENT="
+Int E0/CL=9Ah - REAL/32 - S_SYSDAT - GET SYSTEM DATA AREA - 
+CL = 9Ah
+Return: ES:AX - system data area (see #04048)
+may destroy SI,DI
+Format of REAL/32 system data area:
+Offset Size  Description   (Table 04048)
+00h  DWORD  address of supervisor entry point
+04h 36 BYTEs  reserved
+28h  DWORD  address of XIOS entry point
+2Ch  DWORD  address of XIOS initialization point
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int E0/CL=9Ah
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-8560.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-8562.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>REAL/32 - S_SYSDAT - GET SYSTEM DATA AREA</font></h3>
+<PRE>
+CL = 9Ah<br>
+<p><b>Return:</b><br>ES:AX -> system data area (see #04048)
+may destroy SI,DI
+<p>
+Format of REAL/32 system data area:
+<a name=table4048></a>
+Offset  Size    Description     (Table 04048)
+00h    DWORD   address of supervisor entry point
+04h 36 BYTEs   reserved
+28h    DWORD   address of XIOS entry point
+2Ch    DWORD   address of XIOS initialization point
+30h  8 BYTEs   reserved
+38h    DWORD   address of IRET dispatcher entry point
+3Ch    DWORD   address of RETF dispatcher entry point
+40h    WORD    segment of operating system code
+42h    WORD    paragraph address of first Resident System Process (RSP)
+44h    WORD    paragraph after OS system area
+46h    BYTE    reserved
+47h    BYTE    number of system console devices
+48h    BYTE    number of system list (printer) devices
+49h    BYTE    number of Character Control blocks
+4Ah    BYTE    number of system flags
+4Bh    BYTE    current search disk
+4Ch    WORD    maximum memory per process
+4Eh    BYTE    reserved
+4Fh    BYTE    "dayfile" (flag, true if FFh)
+50h    BYTE    default disk for temporary files
+51h    BYTE    system ticks per second (typically 60)
+52h    WORD    offset of Locked Unused list
+54h    WORD    offset of CCB table
+56h    WORD    offset of system flag table
+58h    WORD    offset of root of Memory Descriptor Unused list
+5Ah    WORD    offset of Memory Free list
+5Ch    WORD    offset of Process Unused list
+5Eh    WORD    offset of Queue Unused list
+60h  4 WORDs   (no longer used) QMAU
+68h    WORD    offset of root of Ready List
+6Ah    WORD    offset of root of Delay List
+6Ch    WORD    offset of Dispatcher Ready list
+6Eh    WORD    offset of root of Poll List
+70h    WORD    reserved
+72h    WORD    offset of root of Thread List
+74h    WORD    offset of root of Queue List
+76h    WORD    offset of Memory Allocation list
+78h    WORD    segment of version string
+7Ah    WORD    BDOS version number
+7Ch    WORD    OS version number
+7Eh    WORD    number of days since 1978/01/01
+<p><b>80h    BYTE    current time:</b><br>Hour
+<p><b>81h    BYTE    current time:</b><br>Minute
+<p><b>82h    BYTE    current time:</b><br>Second
+83h    BYTE    number of XIOS consoles
+84h    BYTE    number of XIOS list (printer) devices
+85h    BYTE    total number of character devices
+86h    WORD    offset of LCB table
+88h    WORD    bitmap of open files
+8Ah    BYTE    maximum locked records per process
+8Bh    BYTE    maximum open files per process
+8Ch    WORD    offset of process descriptor for math coprocessor's owner
+8Eh    WORD    offset of Auxiliary Control Block
+90h  8 BYTEs   reserved
+98h    WORD    offset of root Memory Window Descriptor
+9Ah    WORD    reserved
+9Ch    BYTE    number of Auxiliary Control Blocks
+9Dh    BYTE    default search disk
+9Eh    BYTE    reserved
+9Fh    BYTE    number of physical consoles
+A0h    DWORD   address of 8087 interrupt handler
+A4h    DWORD   address of default 8087 exception handler
+...            reserved
+C00h 82 BYTEs   XIOS header structure <a href=http://www.ctyme.com/intr/rb-8561.htm#Table4049>(see #04049)</a>
+<p>
+Format of REAL/32 XIOS header structure:
+<a name=table4049></a>
+Offset  Size    Description     (Table 04049)
+00h  3 BYTEs   XIOS initialization entry point
+03h  3 BYTEs   XIOS service entry point
+06h    WORD    segment address of system data
+08h    DWORD   address of supervisor entry point
+0Ch    BYTE    set tick flag
+0Dh    BYTE    ticks per second
+0Eh    BYTE    global Door Open interrupt flag
+0Fh    BYTE    number of Auxiliary Control Blocks
+10h    BYTE    number of physical consoles
+11h    BYTE    number of virtual consoles
+12h    BYTE    number of logical consoles
+13h    BYTE    number of list control blocks
+14h    WORD    offset of CCB table
+16h    WORD    offset of LCB table
+18h 16 WORDs   offsets into DPH for drives A-P
+38h    WORD    buffer size in paragraphs
+3Ah    WORD    offset of ACB table
+3Ch    WORD    used by OEM
+3Eh    WORD    offset of CCB pointer array
+40h    WORD    offset of LCB pointer array
+42h    WORD    offset of ACB pointer array
+44h    BYTE    'first' flag
+45h    BYTE    unused
+46h    WORD    offset of print device support table
+48h    WORD    offset of aux device support table
+4Ah    WORD    XIOS extra segment
+4Ch    WORD    segment of save end address for debug
+4Eh    WORD    segment of save start address for debug
+50h    BYTE    number of main virtual console
+51h    WORD    segment of XIOS code
+</PRE>
+<p><b>See Also:</b>
+#04048
+<p>
+<b>Category: <a href=cat-030.htm>
+Other Operating Systems</a>
+- <a href=int-E0.htm>
+Int E0h</a>
+- <a href=alpha-r.htm>
+R</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-8560.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-8562.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!-- I Want U 30%/Sale *Sex *Gen -->
+
+<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
+<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

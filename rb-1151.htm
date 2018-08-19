@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<TITLE>Int 15/AH=02h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 15/AH=02h - VMiX - sys_memreq - MEMORY OBJECT MANAGER - 
+AH = 02h
+STACK: WORD  object ID of requestor
+DWORD  pointer to ASCIZ name of requested method
+assign allocate low memory block
+assign extended allocate extended memory pages
+assign gdt allocate GDT selector
+paged allocate low paged memory
+paged extended alllocate extended memory pages
+deassign free memory block
+deassign gdt free GDT selector
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 15/AH=02h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1150.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1152.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>VMiX - sys_memreq - MEMORY OBJECT MANAGER</font></h3>
+<PRE>
+AH = 02h.
+<p><b>STACK:</b><br>WORD    object ID of requestor
+DWORD   pointer to ASCIZ name of requested method
+"assign" allocate low memory block
+"assign extended" allocate extended memory pages
+"assign gdt" allocate GDT selector
+"paged" allocate low paged memory
+"paged extended" alllocate extended memory pages
+"deassign" free memory block
+"deassign gdt" free GDT selector
+"getvpage" get physical address for virtual page
+"setvpage" set physical address for virtual page
+"info" get VMiX memory usage info block
+"move" move contents of 32-bit memory
+"newmcb" make new DOS memory control block
+"owner" get process ID of MCB or PSP owner
+"umb" allocate upper memory block
+"video" toggle system use of video memory and get stat
+---if "assign"---
+WORD   number of objects
+WORD   size in bytes (multiple of 512 bytes)
+---if "assign extended"---
+WORD   number of objects
+WORD   size in bytes (multiple of 4K)
+---if "assign gdt"---
+WORD   access type (low byte)
+WORD   segment size in paragraphs
+DWORD  pointer to start of physical segment
+---if "paged"---
+WORD   number of 512-byte pages
+---if "paged extended"
+WORD   number of 4K pages
+---if "deassign"---
+DWORD  pointer returned by previous allocation call
+---if "deassign gdt"---
+WORD   GDT selector
+---if "getvpage"---
+WORD   owner's process ID
+DWORD  pointer to buffer for page structure (struct VPGE)
+---if "setvpage"---
+WORD   owner's process ID
+DWORD  pointer to new page structure (struct VPGE)
+---if "info"---
+no additional arguments
+---if "move"
+DWORD  32-bit source address
+DWORD  32-bit destination address
+WORD   number of words to move
+---if "newmcb"---
+DWORD  pointer to new MCB's location
+WORD   size of memory block
+DWORD  pointer to ASCIZ name string (max 8 chars)
+---if "owner"---
+WORD   MCB or PSP segment
+---if "umb"---
+WORD   size in paragraphs
+---if "video"---
+no additional arguments<br>
+<p><b>Return:</b><br>DX:AX -> memory block or VPGE struct or 0000h:0000h
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-1143.htm>AH=00h"VMiX"</a> - <a href=http://www.ctyme.com/intr/rb-1147.htm>AH=01h"VMiX"</a>
+<p>
+<b>Category: <a href=cat-030.htm>
+Other Operating Systems</a>
+- <a href=int-15.htm>
+Int 15h</a>
+- <a href=alpha-v.htm>
+V</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-1150.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-1152.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>

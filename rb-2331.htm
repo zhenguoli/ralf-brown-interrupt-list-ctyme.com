@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<TITLE>Int 1A/AH=87h
+</TITLE>
+<META NAME="Description" CONTENT="
+Int 1A/AH=87h - PCMCIA Socket Services v1.00 - INQUIRE WINDOW - 
+AH = 87h
+AL = adapter number
+BH = window number
+Return: CF clear if successful
+AH destroyed
+BL = capabilities (see #00673)
+CX = bitmap of assignable sockets
+DH = EISA A15-A12 address lines (in bits 7-4, bits 3-0 = 0)
+DL = supported access speeds (see #00674)
+DS:SI - Memory Window Characteristics table (see #00675)
+">
+<META NAME="robots" CONTENT="none">
+</HEAD>
+<BODY BGCOLOR="#FFD0A0">
+<center>
+<h2>Int 1A/AH=87h
+</h2>
+</center><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2330.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2332.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<h3><font color=#C00040>PCMCIA Socket Services v1.00 - INQUIRE WINDOW</font></h3>
+<PRE>
+AH = 87h
+AL = adapter number
+BH = window number<br>
+<p><b>Return:</b><br>CF clear if successful
+AH destroyed
+BL = capabilities <a href=http://www.ctyme.com/intr/rb-2331.htm#Table673>(see #00673)</a>
+CX = bitmap of assignable sockets
+DH = EISA A15-A12 address lines (in bits 7-4, bits 3-0 = 0)
+DL = supported access speeds <a href=http://www.ctyme.com/intr/rb-2331.htm#Table674>(see #00674)</a>
+DS:SI -> Memory Window Characteristics table <a href=http://www.ctyme.com/intr/rb-2331.htm#Table675>(see #00675)</a>
+DS:DI -> I/O Window Characteristics table <a href=http://www.ctyme.com/intr/rb-2331.htm#Table676>(see #00676)</a>
+CF set on error
+AH = error code (01h,11h) <a href=http://www.ctyme.com/intr/rb-2319.htm#Table656>(see #00656)</a>
+</PRE>
+<p><b>See Also:</b>
+<a href=http://www.ctyme.com/intr/rb-2327.htm>AH=84h"PCMCIA"</a> - <a href=http://www.ctyme.com/intr/rb-2332.htm>AH=88h</a> - <a href=http://www.ctyme.com/intr/rb-2333.htm>AH=89h</a> - <a href=http://www.ctyme.com/intr/rb-2336.htm>AH=8Ch</a>
+<PRE>
+<p>
+Bitfields for PCMCIA window capabilities:
+<a name=table673></a>
+Bit(s)  Description     (Table 00673)
+7-5    reserved (0)
+4      separate enable for EISA comon space
+3      EISA I/O mappable
+2      I/O space
+1      attribute memory
+0      common memory
+<p>
+Bitfields for PCMCIA supported access speeds:
+<a name=table674></a>
+Bit(s)  Description     (Table 00674)
+7      reserved (0)
+6      600 ns
+5      300 ns
+4      250 ns
+3      200 ns
+2      150 ns
+1      100 ns
+0      WAIT line monitoring
+<p>
+Format of PCMCIA Memory Window Characteristics table:
+<a name=table675></a>
+Offset  Size    Description     (Table 00675)
+00h    WORD    window capabilities <a href=http://www.ctyme.com/intr/rb-2331.htm#Table677>(see #00677)</a>
+02h    WORD    minimum base address in 4K pages
+04h    WORD    maximum base address in 4K pages
+06h    WORD    minimum window size in 4K pages
+08h    WORD    maximum window size in 4K pages
+0Ah    WORD    window size granularity (4K units)
+0Ch    WORD    required base address alignment (4K units)
+0Eh    WORD    required card offset alignment (4K units)
+<p>
+Format of PCMCIA I/O Window Characteristics table:
+<a name=table676></a>
+Offset  Size    Description     (Table 00676)
+00h    WORD    window capabilities <a href=http://www.ctyme.com/intr/rb-2331.htm#Table677>(see #00677)</a>
+02h    WORD    minimum base address in bytes
+04h    WORD    maximum base address in bytes
+06h    WORD    minimum window size in bytes
+08h    WORD    maximum window size in bytes
+0Ah    WORD    window size granularity (bytes)
+<p>
+Bitfields for PCMCIA window capabilities:
+<a name=table677></a>
+Bit(s)  Description     (Table 00677)
+0      programmable base address
+1      programmable window size
+2      window disable/enable supported
+3      8-data bus
+4      16-data bus
+5      base address alignment on size boundary required
+6      power-of-two size granularity
+---memory windows---
+7      card offset must be aligned on size boundary
+8      paging hardware available
+9      paging hardware shared
+10     page disable/enable supported
+11-15  reserved (0)
+---I/O windows---
+7-15   reserved (0)
+</PRE>
+<p>
+<b>Category: <a href=cat-014.htm>
+Expansion Bus Bios</a>
+- <a href=int-1A.htm>
+Int 1Ah</a>
+- <a href=alpha-p.htm>
+P</a>
+</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+<table border=1 cellpadding=3 cellspacing=1>
+<td>
+<a href=http://www.ctyme.com/intr/rb-2330.htm>
+<img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
+<a href=http://www.ctyme.com/intr/rb-2332.htm>
+<img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
+<a href=http://www.ctyme.com/rbrown.htm>
+<img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
+<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
+<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
+<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+</td></table><p>
+
+<!-- Bottom Link Start -->
+
+<center>
+
+<p><table border=1 bgcolor="#ffff99"><tr><td>
+<table border=0 height=80>
+<tr align=center><td width="65">
+
+<a href="http://www.ctyme.com/sponsor.htm">
+<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
+
+</td><td width="65">
+
+<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
+<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
+<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/mail.htm">
+<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com/map.htm">
+<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com/map.htm">Index</a>
+
+</td><td width="65">
+
+<a href="http://www.ctyme.com">
+<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
+<br><a href="http://www.ctyme.com">Home</a>
+
+</td><td width="90">
+
+<center>
+<!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="marc@perkel.com">
+<input type="hidden" name="item_name" value="">
+<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
+<input type="hidden" name="no_shipping" value="1">
+<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+<!-- End PayPal Logo -->
+
+</td></tr></table></td></tr></table><p>
+
+
+<center>
+<p>
+<!--- I Want You *Gen --->
+
+<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
+<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
+</a>
+<p>
+<!-- Ad End --->
+
+<p>
+<!-- Adult FriendFinder -->
+<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
+<a href="http://sex.perkel.com/affredir.htm" target=_blank>
+<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
+<p>
+<!-- Ad End --->
+
+<p>
+<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
+<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
+border=3 height=60 width=468></a>
+<p>
+<!-- Ad End --->
+
+</center>
+
+
+</center>
+
+
+<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
+<!-- Bottom Link End -->
+
+</BODY>
+</HTML>
