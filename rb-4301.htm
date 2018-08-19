@@ -17,24 +17,24 @@ the files' directory entries. (See table !!! at INT 21h/11h for
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=10FEh
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4300.htm>
+<a href=rb-4300.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4302.htm>
+<a href=rb-4302.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>DR DOS 6.0+ DELWATCH.EXE - INSTALLATION CHECK</font></h3>
 <PRE>
 AX = 10FEh<br>
@@ -42,7 +42,7 @@ AX = 10FEh<br>
 AH = internal version number
 10h for DR DOS 6.0 DELWATCH 1.0 / 1.1 (through 1993/03/19)
 20h for Novell DOS 7+ DELWATCH 2.0+
-DX:BX -> private entry point <a href=http://www.ctyme.com/intr/rb-4301.htm#Table2605>(see #02605)</a>
+DX:BX -> private entry point <a href=rb-4301.htm#Table2605>(see #02605)</a>
 </PRE>
 <p><b>Notes:</b>
 The DR DOS 6.0 DELWATCH 1.x used to store information about deleted
@@ -56,7 +56,7 @@ Running DELWATCH 2.x on a system which previously used DELWATCH 1.x,
 the @DLWATCH.DAT file will be abandoned and converted to the new
 method.
 <p><b>See Also:</b>
-#01352 - <a href=http://www.ctyme.com/intr/rb-2809.htm>INT 21/AX=4306h</a> - <a href=http://www.ctyme.com/intr/rb-3000.htm>INT 21/AX=5704h</a> - <a href=http://www.ctyme.com/intr/rb-4285.htm>INT 2F/AX=1001h</a>
+#01352 - <a href=rb-2809.htm>INT 21/AX=4306h</a> - <a href=rb-3000.htm>INT 21/AX=5704h</a> - <a href=rb-4285.htm>INT 2F/AX=1001h</a>
 <PRE>
 <p>
 <a name=table2605></a>
@@ -110,13 +110,13 @@ AL = drive number with bit 7 set (80h = A:, etc.)
 <p><b>(DELWATCH 2.0+:</b><br>Set bit 6 for removable drives)
 BX = maximum files of same name in one directory to save
 CX = maximum files to save on this disk
-DS:DX -> MEMDESC??? for drive data <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4104>(see #04104)</a>
-DS:SI -> MEMDESC??? for DWLIST <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4104>(see #04104)</a>
+DS:DX -> MEMDESC??? for drive data <a href=rb-4301.htm#Table4104>(see #04104)</a>
+DS:SI -> MEMDESC??? for DWLIST <a href=rb-4301.htm#Table4104>(see #04104)</a>
 ES,DS must contain valid selectors if called in protected mode
 <p><b>Return:</b><br>AX = status
 0000h failed
 FFFFh successful
-CX = error code on failure <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4102>(see #04102)</a>
+CX = error code on failure <a href=rb-4301.htm#Table4102>(see #04102)</a>
 (0004h "wrong version" if AL < 80h on entry)
 07h (DELWATCH 1.x) disable DELWATCH on drive
 ???
@@ -150,14 +150,14 @@ AL = drive number (00h = A:, etc.)
 CX = pending delete space, if drive enabled
 0Ch (DELWATCH 2.0+) check if drive enabled
 AL = drive number with bit 7 set (80h = A:, etc.)
-DS:DX -> MEMDESC for drive data <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4104>(see #04104)</a>
+DS:DX -> MEMDESC for drive data <a href=rb-4301.htm#Table4104>(see #04104)</a>
 (DX = 0000h if not required)
-DS:SI -> MEMDESC for DWLIST <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4104>(see #04104)</a>
+DS:SI -> MEMDESC for DWLIST <a href=rb-4301.htm#Table4104>(see #04104)</a>
 (SI = 0000h if not required)
 ES,DS must contain valid selectors if called in protected mode
 <p><b>Return:</b><br>AX = drive status (see also #04103)
 0000h disabled or error
-CX = error code <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4102>(see #04102)</a>
+CX = error code <a href=rb-4301.htm#Table4102>(see #04102)</a>
 0001h drive enabled
 CX = pending delete space, FFFFh if NEWDISK
 not yet called
@@ -173,7 +173,7 @@ CX = directory entry number
 CF clear
 AX = status
 0000h successfully purged
-else error code <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4102>(see #04102)</a>
+else error code <a href=rb-4301.htm#Table4102>(see #04102)</a>
 0Fh (DELWATCH 2.0+) (OS hook) undelete file
 AL = drive number (00h = A:)
 DX = directory cluster number (0000h if root directory)
@@ -182,7 +182,7 @@ CX = directory entry number
 CF clear
 AX = status
 0000h successfully undeleted
-else error code <a href=http://www.ctyme.com/intr/rb-4301.htm#Table4102>(see #04102)</a><br>
+else error code <a href=rb-4301.htm#Table4102>(see #04102)</a><br>
 <p><b>Return:</b><br>AX = 0000h, CX = 0001h (see #04102) if DELWATCH busy
 registers unchanged if AH > 0Fh on entry
 </PRE>
@@ -196,7 +196,7 @@ to ensure that DELWATCH 1.x calls will not do anything under newer
 versions of the OS; for the same reason, the drive number in AL
 sometimes requires that bit 7 be set for DELWATCH 2.0+.
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-4285.htm>AX=1001h</a> - <a href=http://www.ctyme.com/intr/rb-4294.htm>AX=1010h</a>
+<a href=rb-4285.htm>AX=1001h</a> - <a href=rb-4294.htm>AX=1010h</a>
 <PRE>
 <p>
 <a name=table4102></a>
@@ -250,107 +250,20 @@ Other Operating Systems</a>
 Int 2Fh</a>
 - <a href=alpha-d.htm>
 D</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4300.htm>
+<a href=rb-4300.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4302.htm>
+<a href=rb-4302.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- I Want U 30%/Sale *Sex *Gen -->
-
-<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
-<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

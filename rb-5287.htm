@@ -16,29 +16,29 @@ SeeAlso: AX=5100h,AX=C000hNESL
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=C000h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5286.htm>
+<a href=rb-5286.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5288.htm>
+<a href=rb-5288.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>Novell ODI Link Support Layer (LSL.COM) - INSTALLATION CHECK</font></h3>
 <PRE>
 AX = C000h<br>
 <p><b>Return:</b><br>AL = FFh if installed
-DX:BX -> FAR entry point <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #02986,#02987,#02988)
+DX:BX -> FAR entry point <a href=rb-0000.htm#Table0></a>(see #02986,#02987,#02988)
 ES:SI -> signature string "LINKSUP$"
 <p><b>Range:</b><br>AH=C0h to AH=FFh, selected by scanning for first free multiplex number
 </PRE>
@@ -46,15 +46,15 @@ ES:SI -> signature string "LINKSUP$"
 On return, ES = DX for LSL v1.10 and v2.05; LSL makes use of this in
 its search for a previous installation
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-4876.htm>AX=5100h</a> - <a href=rb-5288.htm>AX=C000h"NESL"</a>
+<a href=rb-4876.htm>AX=5100h</a> - <a href=rb-5288.htm>AX=C000h"NESL"</a>
 <PRE>
 <p>
 <a name=table2986></a>
 (Table 02986)
 Call LSL function "Request MLID Registration" with:.
 BX = 0001h.
-ES:SI -> registration??? record <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2990>(see #02990)</a>.
-DS:DI -> buffer for LSL information block <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2991>(see #02991)</a><br>
+ES:SI -> registration??? record <a href=rb-5287.htm#Table2990>(see #02990)</a>.
+DS:DI -> buffer for LSL information block <a href=rb-5287.htm#Table2991>(see #02991)</a><br>
 <p><b>Return:</b><br>AX = completion code (0000h,8001h) (see #02989)
 DS:DI buffer filled if successful
 BX,CX corrupted
@@ -67,7 +67,7 @@ See "Novell LAN Driver Developer's Guide, Volume III" for more details
 (Table 02987)
 Call LSL function "get support entry points" with:.
 BX = 0002h.
-ES:SI -> buffer for entry point record <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2992>(see #02992)</a><br>
+ES:SI -> buffer for entry point record <a href=rb-5287.htm#Table2992>(see #02992)</a><br>
 <p><b>Return:</b><br>ES:SI buffer filled
 <p>
 <a name=table2988></a>
@@ -120,8 +120,8 @@ will crash if the above entry point is called with BX=0012h
 Format of entry point record:
 <a name=table2992></a>
 Offset  Size    Description     (Table 02992)
-00h    DWORD   pointer to protocol support entry point in LSL <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2993>(see #02993)</a>
-04h    DWORD   pointer to general support entry point in LSL <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2994>(see #02994)</a>
+00h    DWORD   pointer to protocol support entry point in LSL <a href=rb-5287.htm#Table2993>(see #02993)</a>
+04h    DWORD   pointer to general support entry point in LSL <a href=rb-5287.htm#Table2994>(see #02994)</a>
 <p>
 <a name=table2993></a>
 (Table 02993)
@@ -131,28 +131,28 @@ BX = function number
 0001h ???
 0002h ???
 0003h "ScheduleAESEvent"
-ES:SI -> AES ECB to be scheduled <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2997>(see #02997)</a>
+ES:SI -> AES ECB to be scheduled <a href=rb-5287.htm#Table2997>(see #02997)</a>
 <p><b>Return:</b><br>ES,SI preserved
 0004h "CancelAESEvent"
-ES:SI -> ECB to be cancelled <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2997>(see #02997)</a>
+ES:SI -> ECB to be cancelled <a href=rb-5287.htm#Table2997>(see #02997)</a>
 <p><b>Return:</b><br>ES,SI preserved
 0005h "GetIntervalMarker"
 <p><b>Return:</b><br>DX:AX = current interval marker in milliseconds
 all other registers preserved
 0006h "RegisterStack"
 AX = logical board number
-ES:SI -> bound stack info structure <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3007>(see #03007)</a>
+ES:SI -> bound stack info structure <a href=rb-5287.htm#Table3007>(see #03007)</a>
 <p><b>Return:</b><br>BX = assigned Stack ID if AX=0000h
 0007h "DeRegisterStack"
 AX = protocol stack's assigned Stack ID
 0008h "RegisterDefaultStack"
 AX = logical board number
-ES:SI -> stack info structure <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3008>(see #03008)</a>
+ES:SI -> stack info structure <a href=rb-5287.htm#Table3008>(see #03008)</a>
 0009h "DeRegisterDefaultStack"
 AX = logical board number
 000Ah "RegisterPrescanStack"
 AX = logical board number
-ES:SI -> stack info structure <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3008>(see #03008)</a>
+ES:SI -> stack info structure <a href=rb-5287.htm#Table3008>(see #03008)</a>
 000Bh "DeRegisterPrescanStack"
 AX = logical board number
 000Ch "SendPacket"
@@ -178,11 +178,11 @@ CX = logical board number
 FFFFh default protocol
 CX = logical board number
 <p><b>Return:</b><br>ES:SI -> protocol stack control entry point if AX=0000h
-<a href=http://www.ctyme.com/intr/rb-5287.htm#Table2996>(see #02996)</a>
+<a href=rb-5287.htm#Table2996>(see #02996)</a>
 0014h "GetLSLStatistics"
 <p><b>Return:</b><br>AX = 0000h (successful)
 ZF set
-ES:SI -> LSL statistics table <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2999>(see #02999)</a>
+ES:SI -> LSL statistics table <a href=rb-5287.htm#Table2999>(see #02999)</a>
 0015h "BindStack"
 AX = protocol stack's assigned Stack ID
 CX = logical board number
@@ -198,7 +198,7 @@ CX:DI -> counted NUL-terminated short protocol name (max 15 ch)
 0019h "GetLSLConfiguration"
 <p><b>Return:</b><br>AX = 0000h (successful)
 ZF set
-ES:SI -> LSL configuration table <a href=http://www.ctyme.com/intr/rb-5287.htm#Table2998>(see #02998)</a>
+ES:SI -> LSL configuration table <a href=rb-5287.htm#Table2998>(see #02998)</a>
 001Ah "GetTickMarker"
 <p><b>Return:</b><br>AX = number of 55ms ticks since LSL loaded
 BX destroyed<br>
@@ -221,9 +221,9 @@ always returns AX=8008h (BAD_COMMAND)
 0004h "Add Memory To Pool" (obsolete)
 always returns AX=8008h (BAD_COMMAND)
 0005h "AddGeneralService"
-ES:SI -> General Service Control Block <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3009>(see #03009)</a>
+ES:SI -> General Service Control Block <a href=rb-5287.htm#Table3009>(see #03009)</a>
 0006h "RemoveGeneralService"
-ES:SI -> General Service Control Block <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3009>(see #03009)</a>
+ES:SI -> General Service Control Block <a href=rb-5287.htm#Table3009>(see #03009)</a>
 0007h "GetNETcfgPath"
 <p><b>Return:</b><br>AX = 0000h (successful)
 DS:DX -> ASCIZ pathname for NET.CFG
@@ -236,7 +236,7 @@ ES:SI -> ??? (a 22-byte data area)
 interrupts disabled
 <p><b>Return:</b><br>Interrupts disabled
 0010h "GetStackECB"
-DS:DI -> Lookahead structure <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3010>(see #03010)</a>
+DS:DI -> Lookahead structure <a href=rb-5287.htm#Table3010>(see #03010)</a>
 interrupts disabled
 <p><b>Return:</b><br>ES:SI -> ECB if successful (AX=0000h,ZF set)
 interrupts disabled
@@ -252,10 +252,10 @@ AX = logical board number
 BX = function number
 0000h "GetMLIDConfiguration"
 <p><b>Return:</b><br>ES:SI -> MLID's configuration table if successful
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03002 for format)
+<a href=rb-0000.htm#Table0></a>(see #03002 for format)
 0001h "GetMLIDStatistics"
 <p><b>Return:</b><br>ES:SI -> MLID's statistics table if successful
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03002 for format)
+<a href=rb-0000.htm#Table0></a>(see #03002 for format)
 0002h "AddMulticastAddress"
 ES:SI -> 6-byte multicast address to add
 0003h "DeleteMulticastAddress"
@@ -297,7 +297,7 @@ Call protocol stack control entry point with:.
 BX = function number
 0000h "GetProtocolStackConfiguration"
 <p><b>Return:</b><br>ES:SI -> protocol stack's configuration table
-<a href=http://www.ctyme.com/intr/rb-5287.htm#Table3001>(see #03001)</a>
+<a href=rb-5287.htm#Table3001>(see #03001)</a>
 0001h "GetProtocolStackStatistics"
 <p><b>Return:</b><br>ES:SI -> protocol stack's statistics table (see #03000)
 0002h "BindToMLID"
@@ -415,7 +415,7 @@ Offset  Size    Description     (Table 03002)
 1Ah    BYTE    configuration table major version
 1Bh    BYTE    configuration table minor version (decimal, 0-99)
 1Ch  6 BYTEs   node address
-22h    WORD    MLID mode flags <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3003>(see #03003)</a>
+22h    WORD    MLID mode flags <a href=rb-5287.htm#Table3003>(see #03003)</a>
 24h    WORD    board number
 26h    WORD    board instance (if more than one of same board installed)
 28h    WORD    maximum packet size
@@ -434,10 +434,10 @@ Offset  Size    Description     (Table 03002)
 4Ah  6 BYTEs   reserved (0)
 50h    BYTE    driver major version
 51h    BYTE    driver minor version (decimal, 0-99)
-52h    WORD    bus/multicast flags <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3004>(see #03004)</a>
+52h    WORD    bus/multicast flags <a href=rb-5287.htm#Table3004>(see #03004)</a>
 54h    WORD    send retries
 56h    DWORD   ConfigTableLink
-5Ah    WORD    MLID sharing flags <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3005>(see #03005)</a>
+5Ah    WORD    MLID sharing flags <a href=rb-5287.htm#Table3005>(see #03005)</a>
 5Ch    WORD    slot number
 5Eh    WORD    I/O address 1
 60h    WORD    I/O range 1
@@ -568,7 +568,7 @@ Offset  Size    Description     (Table 03011)
 0000h received successfully
 8006h packet overflow
 8007h reception aborted (data not valid)
-0Ah    DWORD   -> event service routine or RETF (never 0000h:0000h)<a href=http://www.ctyme.com/intr/rb-5287.htm#Table3012>(see #03012)</a>
+0Ah    DWORD   -> event service routine or RETF (never 0000h:0000h)<a href=rb-5287.htm#Table3012>(see #03012)</a>
 0Eh    WORD    protocol stack identifier
 10h  6 BYTEs   protocol ID (sending only)
 16h    WORD    MLID board number (sending only)
@@ -588,7 +588,7 @@ Offset  Size    Description     (Table 03011)
 <a name=table3012></a>
 (Table 03012)
 Values event service routine is called with:.
-ES:SI -> associated ODI ECB <a href=http://www.ctyme.com/intr/rb-5287.htm#Table3011>(see #03011)</a>.
+ES:SI -> associated ODI ECB <a href=rb-5287.htm#Table3011>(see #03011)</a>.
 Interrupts disabled<br>
 <p><b>Return:</b><br>DS,BP,SS,SP preserved
 interrupt disabled
@@ -604,108 +604,20 @@ Network</a>
 Int 2Fh</a>
 - <a href=alpha-n.htm>
 N</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5286.htm>
+<a href=rb-5286.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5288.htm>
+<a href=rb-5288.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

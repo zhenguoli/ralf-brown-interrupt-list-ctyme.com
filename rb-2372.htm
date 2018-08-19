@@ -17,33 +17,33 @@ BL = device/function number (bits 7-3 device, bits 2-0 func)
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 1A/AX=B102h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2371.htm>
+<a href=rb-2371.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2373.htm>
+<a href=rb-2373.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>PCI BIOS v2.0c+ - FIND PCI DEVICE</font></h3>
 <PRE>
 AX = B102h
-CX = device ID <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00735,#00742,#00743,#00873,#00875)
-DX = vendor ID <a href=http://www.ctyme.com/intr/rb-2372.htm#Table732>(see #00732)</a>
+CX = device ID <a href=rb-0000.htm#Table0></a>(see #00735,#00742,#00743,#00873,#00875)
+DX = vendor ID <a href=rb-2372.htm#Table732>(see #00732)</a>
 SI = device index (0-n)<br>
 <p><b>Return:</b><br>CF clear if successful
 CF set on error
-AH = status (00h,83h,86h) <a href=http://www.ctyme.com/intr/rb-2371.htm#Table729>(see #00729)</a>
+AH = status (00h,83h,86h) <a href=rb-2371.htm#Table729>(see #00729)</a>
 00h successful
 BH = bus number
 BL = device/function number (bits 7-3 device, bits 2-0 func)
@@ -59,7 +59,7 @@ drafts of the specification and final implementation.
 All devices sharing a single vendor ID and device ID may be enumerated
 by incrementing SI from 0 until error 86h is returned
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2395.htm>AX=B182h</a>
+<a href=rb-2395.htm>AX=B182h</a>
 <PRE>
 <p>
 <a name=table732></a>
@@ -67,25 +67,25 @@ by incrementing SI from 0 until error 86h is returned
 Values for PCI vendor ID:
 001Ah  Ascend Communications, Inc.
 003Dh  Martin-Marietta Corporation
-0E11h  Compaq <a href=http://www.ctyme.com/intr/rb-2372.htm#Table733>(see #00733)</a>
-1000h  Symbios Logic Inc (formerly NCR) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table734>(see #00734)</a>
-1002h  ATI <a href=http://www.ctyme.com/intr/rb-2372.htm#Table735>(see #00735)</a>
-1003h  ULSI Systems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table736>(see #00736)</a>
-1004h  VLSI Technologies <a href=http://www.ctyme.com/intr/rb-2372.htm#Table737>(see #00737)</a>
-1005h  Avance Logics (ADL) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table738>(see #00738)</a>
+0E11h  Compaq <a href=rb-2372.htm#Table733>(see #00733)</a>
+1000h  Symbios Logic Inc (formerly NCR) <a href=rb-2372.htm#Table734>(see #00734)</a>
+1002h  ATI <a href=rb-2372.htm#Table735>(see #00735)</a>
+1003h  ULSI Systems <a href=rb-2372.htm#Table736>(see #00736)</a>
+1004h  VLSI Technologies <a href=rb-2372.htm#Table737>(see #00737)</a>
+1005h  Avance Logics (ADL) <a href=rb-2372.htm#Table738>(see #00738)</a>
 1006h  Reply Group
 1007h  Netframe Systems Inc.
 1008h  Epson
 100Ah  Phoenix Technologies
-100Bh  National Semiconductor <a href=http://www.ctyme.com/intr/rb-2372.htm#Table739>(see #00739)</a>
-100Ch  Tseng Labs <a href=http://www.ctyme.com/intr/rb-2372.htm#Table740>(see #00740)</a> (also ID 10BEh)
+100Bh  National Semiconductor <a href=rb-2372.htm#Table739>(see #00739)</a>
+100Ch  Tseng Labs <a href=rb-2372.htm#Table740>(see #00740)</a> (also ID 10BEh)
 100Dh  AST Research
-100Eh  Weitek <a href=http://www.ctyme.com/intr/rb-2372.htm#Table741>(see #00741)</a>
+100Eh  Weitek <a href=rb-2372.htm#Table741>(see #00741)</a>
 1010h  Video Logic Ltd
-1011h  DEC <a href=http://www.ctyme.com/intr/rb-2372.htm#Table742>(see #00742)</a>
+1011h  DEC <a href=rb-2372.htm#Table742>(see #00742)</a>
 1012h  Micronics Computers
-1013h  Cirrus Logic <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00743,#00029)
-1014h  IBM <a href=http://www.ctyme.com/intr/rb-2372.htm#Table744>(see #00744)</a>
+1013h  Cirrus Logic <a href=rb-0000.htm#Table0></a>(see #00743,#00029)
+1014h  IBM <a href=rb-2372.htm#Table744>(see #00744)</a>
 1015h  LSI Logic Corp. of Canada
 1016h  ICL Personal Systems
 1017h  SPEA Software AG
@@ -93,79 +93,79 @@ Values for PCI vendor ID:
 1019h  EliteGroup Computer Sys
 101Ah  NCR/AT&T GIS
 101Bh  Vitesse Semiconductor
-101Ch  Western Digital <a href=http://www.ctyme.com/intr/rb-2372.htm#Table745>(see #00745)</a>
-101Eh  AMI <a href=http://www.ctyme.com/intr/rb-2372.htm#Table746>(see #00746)</a>
+101Ch  Western Digital <a href=rb-2372.htm#Table745>(see #00745)</a>
+101Eh  AMI <a href=rb-2372.htm#Table746>(see #00746)</a>
 101Fh  Picturetel
 1020h  Hitachi Computer Electronics
 1021h  Oki Electric Industry
-1022h  Advanced Micro Devices <a href=http://www.ctyme.com/intr/rb-2372.htm#Table747>(see #00747)</a>
-1023h  Trident Microsystems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table748>(see #00748)</a>
+1022h  Advanced Micro Devices <a href=rb-2372.htm#Table747>(see #00747)</a>
+1023h  Trident Microsystems <a href=rb-2372.htm#Table748>(see #00748)</a>
 1024h  Zenith Data Systems
 1025h  Acer
 1028h  Dell Computer Corporation
 1029h  Siemens Nixdorf
-102Ah  LSI Logic, Headland Division <a href=http://www.ctyme.com/intr/rb-2372.htm#Table749>(see #00749)</a>
-102Bh  Matrox <a href=http://www.ctyme.com/intr/rb-2372.htm#Table750>(see #00750)</a>
-102Ch  Chips & Technologies <a href=http://www.ctyme.com/intr/rb-2372.htm#Table751>(see #00751)</a>
+102Ah  LSI Logic, Headland Division <a href=rb-2372.htm#Table749>(see #00749)</a>
+102Bh  Matrox <a href=rb-2372.htm#Table750>(see #00750)</a>
+102Ch  Chips & Technologies <a href=rb-2372.htm#Table751>(see #00751)</a>
 102Dh  Wyse Technologies
 102Eh  Olivetti Advanced Technology
-102Fh  Toshiba America <a href=http://www.ctyme.com/intr/rb-2372.htm#Table752>(see #00752)</a>
+102Fh  Toshiba America <a href=rb-2372.htm#Table752>(see #00752)</a>
 1030h  TMC Research
-1031h  Miro Computer Products AG <a href=http://www.ctyme.com/intr/rb-2372.htm#Table753>(see #00753)</a>
+1031h  Miro Computer Products AG <a href=rb-2372.htm#Table753>(see #00753)</a>
 1032h  Compaq
-1033h  NEC Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table754>(see #00754)</a>
+1033h  NEC Corporation <a href=rb-2372.htm#Table754>(see #00754)</a>
 1034h  Burndy Corporation
 1035h  Computers and Communications Research Lab
-1036h  Future Domain <a href=http://www.ctyme.com/intr/rb-2372.htm#Table755>(see #00755)</a>
+1036h  Future Domain <a href=rb-2372.htm#Table755>(see #00755)</a>
 1037h  Hitachi Micro Systems
 1038h  AMP Incorporated
-1039h  Silicon Integrated System (SIS) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table756>(see #00756)</a>
+1039h  Silicon Integrated System (SIS) <a href=rb-2372.htm#Table756>(see #00756)</a>
 103Ah  Seiko Epson Corporation
 103Bh  Tatung Corp. of America
-103Ch  Hewlett-Packard <a href=http://www.ctyme.com/intr/rb-2372.htm#Table757>(see #00757)</a>
+103Ch  Hewlett-Packard <a href=rb-2372.htm#Table757>(see #00757)</a>
 103Eh  Solliday
 103Fh  Logic Modeling
 1040h  Kubota Pacific
 1041h  Computrend
-1042h  PC Technology <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00758,#00928) (see also PORT 03F0h"PCTech")
+1042h  PC Technology <a href=rb-0000.htm#Table0></a>(see #00758,#00928) (see also PORT 03F0h"PCTech")
 1043h  Asustek
-1044h  Distributed Processing Technology (DPT) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table759>(see #00759)</a>
-1045h  OPTi <a href=http://www.ctyme.com/intr/rb-2372.htm#Table760>(see #00760)</a>
+1044h  Distributed Processing Technology (DPT) <a href=rb-2372.htm#Table759>(see #00759)</a>
+1045h  OPTi <a href=rb-2372.htm#Table760>(see #00760)</a>
 1046h  IPC Corporation, Ltd.
 1047h  Genoa Systems Corp.
 1048h  Elsa GmbH
 1049h  Fountain Technology
-104Ah  SGS Thomson Microelectric <a href=http://www.ctyme.com/intr/rb-2372.htm#Table761>(see #00761)</a>
-104Bh  BusLogic <a href=http://www.ctyme.com/intr/rb-2372.htm#Table762>(see #00762)</a>
-104Ch  Texas Instruments <a href=http://www.ctyme.com/intr/rb-2372.htm#Table763>(see #00763)</a>
+104Ah  SGS Thomson Microelectric <a href=rb-2372.htm#Table761>(see #00761)</a>
+104Bh  BusLogic <a href=rb-2372.htm#Table762>(see #00762)</a>
+104Ch  Texas Instruments <a href=rb-2372.htm#Table763>(see #00763)</a>
 104Dh  Sony Corporation
-104Eh  Oak Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table764>(see #00764)</a>
+104Eh  Oak Technology <a href=rb-2372.htm#Table764>(see #00764)</a>
 104Fh  Co-Time Computer Ltd.
-1050h  Winbond <a href=http://www.ctyme.com/intr/rb-2372.htm#Table765>(see #00765)</a>
+1050h  Winbond <a href=rb-2372.htm#Table765>(see #00765)</a>
 1051h  Anigma Corp.
 1052h  Young Micro Systems
-1054h  Hitachi, Ltd. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table766>(see #00766)</a>
-1055h  EFAR Microsystems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table767>(see #00767)</a>
+1054h  Hitachi, Ltd. <a href=rb-2372.htm#Table766>(see #00766)</a>
+1055h  EFAR Microsystems <a href=rb-2372.htm#Table767>(see #00767)</a>
 1056h  ICL
-1057h  Motorola <a href=http://www.ctyme.com/intr/rb-2372.htm#Table768>(see #00768)</a>
+1057h  Motorola <a href=rb-2372.htm#Table768>(see #00768)</a>
 1058h  Electronics and Telecommunications Research
 1059h  Teknor Microsystems
-105Ah  Promise Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table769>(see #00769)</a>
+105Ah  Promise Technology <a href=rb-2372.htm#Table769>(see #00769)</a>
 105Bh  Foxconn International
 105Ch  Wipro Infotech Ltd.
-105Dh  Number 9 Computer Company <a href=http://www.ctyme.com/intr/rb-2372.htm#Table770>(see #00770)</a>
+105Dh  Number 9 Computer Company <a href=rb-2372.htm#Table770>(see #00770)</a>
 105Eh  VTech Engineering Canada, Ltd.
 105Fh  Infotronic America, Inc.
-1060h  United Microelectronics (UMC) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table771>(see #00771)</a>
-1061h  8x8 (X Tech) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table772>(see #00772)</a>
+1060h  United Microelectronics (UMC) <a href=rb-2372.htm#Table771>(see #00771)</a>
+1061h  8x8 (X Tech) <a href=rb-2372.htm#Table772>(see #00772)</a>
 1062h  Maspar Computer Copr.
 1063h  Ocean Office Automation
 1064h  Alcatel Cit
 1065h  Texas Microsystems
-1066h  PicoPower Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table773>(see #00773)</a>
+1066h  PicoPower Technology <a href=rb-2372.htm#Table773>(see #00773)</a>
 1067h  Mitsubishi Electronics
 1068h  Diversified Technology
-1069h  Mylex Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table774>(see #00774)</a>
+1069h  Mylex Corporation <a href=rb-2372.htm#Table774>(see #00774)</a>
 106Ah  Aten Research
 106Bh  Apple Computer
 106Ch  Hyundai Electronics America
@@ -175,49 +175,49 @@ Values for PCI vendor ID:
 1070h  Daewoo Telecom Ltd.
 1071h  Mitac
 1072h  GIT Co., Ltd.
-1073h  Yamaha Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table775>(see #00775)</a>
-1074h  NexGen Microsystems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table776>(see #00776)</a>
+1073h  Yamaha Corporation <a href=rb-2372.htm#Table775>(see #00775)</a>
+1074h  NexGen Microsystems <a href=rb-2372.htm#Table776>(see #00776)</a>
 1075h  Advanced Integration Research
 1076h  Chaintech Computer Co. Ltd.
-1077h  Q Logic <a href=http://www.ctyme.com/intr/rb-2372.htm#Table777>(see #00777)</a>
+1077h  Q Logic <a href=rb-2372.htm#Table777>(see #00777)</a>
 1078h  Cyrix Corporation
 1079h  I-Bus
 107Ah  Networth
 107Bh  Gateway 2000
 107Ch  Goldstar Co. Ltd.
-107Dh  Leadtek Research <a href=http://www.ctyme.com/intr/rb-2372.htm#Table778>(see #00778)</a>
-107Eh  Interphase Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table779>(see #00779)</a>
-107Fh  Data Technology Corporation (DTC) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table780>(see #00780)</a>
-1080h  Contaq Microsystems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table781>(see #00781)</a>
+107Dh  Leadtek Research <a href=rb-2372.htm#Table778>(see #00778)</a>
+107Eh  Interphase Corporation <a href=rb-2372.htm#Table779>(see #00779)</a>
+107Fh  Data Technology Corporation (DTC) <a href=rb-2372.htm#Table780>(see #00780)</a>
+1080h  Contaq Microsystems <a href=rb-2372.htm#Table781>(see #00781)</a>
 1081h  Supermac Technology
 1082h  EFA Corporation of America
-1083h  Forex Computer Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table782>(see #00782)</a>
+1083h  Forex Computer Corporation <a href=rb-2372.htm#Table782>(see #00782)</a>
 1084h  Parador
 1085h  Tulip Computers Int'l BV
 1086h  J. Bond Computer Systems
 1087h  Cache Computer
 1088h  Microcomputer Systems (M) Son
 1089h  Data General Corporation
-108Ah  Bit3 Computer <a href=http://www.ctyme.com/intr/rb-2372.htm#Table783>(see #00783)</a>
+108Ah  Bit3 Computer <a href=rb-2372.htm#Table783>(see #00783)</a>
 108Ch  Elonex PLC (Oakleigh Systems, Inc)
-108Dh  Olicom <a href=http://www.ctyme.com/intr/rb-2372.htm#Table784>(see #00784)</a>
+108Dh  Olicom <a href=rb-2372.htm#Table784>(see #00784)</a>
 108Eh  Sun Microsystems
 108Fh  Systemsoft Corporation
 1090h  Encore Computer Corporation
-1091h  Intergraph Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table785>(see #00785)</a>
+1091h  Intergraph Corporation <a href=rb-2372.htm#Table785>(see #00785)</a>
 1092h  Diamond Computer Systems
-1093h  National Instruments <a href=http://www.ctyme.com/intr/rb-2372.htm#Table786>(see #00786)</a>
+1093h  National Instruments <a href=rb-2372.htm#Table786>(see #00786)</a>
 1094h  First International Computers (FIC)
-1095h  CMD Technology, Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table787>(see #00787)</a>
+1095h  CMD Technology, Inc. <a href=rb-2372.htm#Table787>(see #00787)</a>
 1096h  Alacron
-1097h  Appian Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table788>(see #00788)</a>
-1098h  Vision / Quantum Designs Ltd <a href=http://www.ctyme.com/intr/rb-2372.htm#Table789>(see #00789)</a>
+1097h  Appian Technology <a href=rb-2372.htm#Table788>(see #00788)</a>
+1098h  Vision / Quantum Designs Ltd <a href=rb-2372.htm#Table789>(see #00789)</a>
 1099h  Samsung Electronics Co. Ltd.
 109Ah  Packard Bell
 109Bh  Gemlight Computer Ltd.
 109Ch  Megachips Corporation
 109Dh  Zida Technologies
-109Eh  Brooktree Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table790>(see #00790)</a>
+109Eh  Brooktree Corporation <a href=rb-2372.htm#Table790>(see #00790)</a>
 109Fh  Trigem Computer Inc.
 10A0h  Meidensha Corporation
 10A1h  Juko Electronics Inc. Ltd.
@@ -227,12 +227,12 @@ Values for PCI vendor ID:
 10A5h  Racal Interlan
 10A6h  Informtech Industrial Ltd.
 10A7h  Benchmarq Microelectronics
-10A8h  Sierra Semiconductor <a href=http://www.ctyme.com/intr/rb-2372.htm#Table791>(see #00791)</a>
+10A8h  Sierra Semiconductor <a href=rb-2372.htm#Table791>(see #00791)</a>
 10A9h  Silicon Graphics
-10AAh  ACC Microelectronics <a href=http://www.ctyme.com/intr/rb-2372.htm#Table792>(see #00792)</a>
+10AAh  ACC Microelectronics <a href=rb-2372.htm#Table792>(see #00792)</a>
 10ABh  Digicom
 10ACh  Honeywell IASD
-10ADh  Symphony Labs <a href=http://www.ctyme.com/intr/rb-2372.htm#Table793>(see #00793)</a>
+10ADh  Symphony Labs <a href=rb-2372.htm#Table793>(see #00793)</a>
 10AEh  Cornerstone Technology
 10AFh  Microcomputer Systems
 10B0h  CardExpert Technology
@@ -240,16 +240,16 @@ Values for PCI vendor ID:
 10B2h  Raytheon Company
 10B3h  Databook Inc
 10B4h  STB Systems
-10B5h  PLX Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table794>(see #00794)</a>
-10B6h  Madge Networks <a href=http://www.ctyme.com/intr/rb-2372.htm#Table795>(see #00795)</a>
-10B7h  3com Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table796>(see #00796)</a>
-10B8h  Standard Microsystems Corporation (SMC) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table797>(see #00797)</a>
-10B9h  Acer Labs Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table798>(see #00798)</a>
+10B5h  PLX Technology <a href=rb-2372.htm#Table794>(see #00794)</a>
+10B6h  Madge Networks <a href=rb-2372.htm#Table795>(see #00795)</a>
+10B7h  3com Corporation <a href=rb-2372.htm#Table796>(see #00796)</a>
+10B8h  Standard Microsystems Corporation (SMC) <a href=rb-2372.htm#Table797>(see #00797)</a>
+10B9h  Acer Labs Inc. <a href=rb-2372.htm#Table798>(see #00798)</a>
 10BAh  Mitsubishi Electronics Corp.
 10BBh  Dapha Electronics Corporation
 10BCh  Advanced Logic Research Inc. (ALR)
-10BDh  Surecom Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table799>(see #00799)</a>
-10BEh  Tseng Labs International Corp. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table740>(see #00740)</a>
+10BDh  Surecom Technology <a href=rb-2372.htm#Table799>(see #00799)</a>
+10BEh  Tseng Labs International Corp. <a href=rb-2372.htm#Table740>(see #00740)</a>
 10BFh  Most Inc.
 10C0h  Boca Research Inc.
 10C1h  ICM Corp. Ltd.
@@ -259,14 +259,14 @@ Values for PCI vendor ID:
 10C5h  Xerox Corporation
 10C6h  Rambus Inc.
 10C7h  Media Vision
-10C8h  Neomagic Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table800>(see #00800)</a>
+10C8h  Neomagic Corporation <a href=rb-2372.htm#Table800>(see #00800)</a>
 10C9h  DataExpert Corporation
 10CAh  Fujitsu
 10CBh  Omron Corporation
 10CCh  Mentor Arc Inc.
-10CDh  Advanced System Products <a href=http://www.ctyme.com/intr/rb-2372.htm#Table801>(see #00801)</a>
+10CDh  Advanced System Products <a href=rb-2372.htm#Table801>(see #00801)</a>
 10CEh  Radius Inc.
-10CFh  Citicorp TTI <a href=http://www.ctyme.com/intr/rb-2372.htm#Table802>(see #00802)</a>
+10CFh  Citicorp TTI <a href=rb-2372.htm#Table802>(see #00802)</a>
 10D0h  Fujitsu Limited
 10D1h  Future+ Systems
 10D2h  Molex Incorporated
@@ -279,24 +279,24 @@ Values for PCI vendor ID:
 10D9h  Macronix International Co. Ltd
 10DAh  Thomas-Conrad Corporation
 10DBh  Rohm Research
-10DCh  CERN/ECP/EDU <a href=http://www.ctyme.com/intr/rb-2372.htm#Table803>(see #00803)</a>
-10DDh  Evans & Sutherland <a href=http://www.ctyme.com/intr/rb-2372.htm#Table804>(see #00804)</a>
+10DCh  CERN/ECP/EDU <a href=rb-2372.htm#Table803>(see #00803)</a>
+10DDh  Evans & Sutherland <a href=rb-2372.htm#Table804>(see #00804)</a>
 10DEh  NVIDIA Corporation
-10DFh  Emulex Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table805>(see #00805)</a>
-10E0h  Integrated Micro Solutions (IMS) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table806>(see #00806)</a>
-10E1h  TekRAM Technology Corporation Ltd. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table807>(see #00807)</a>
+10DFh  Emulex Corporation <a href=rb-2372.htm#Table805>(see #00805)</a>
+10E0h  Integrated Micro Solutions (IMS) <a href=rb-2372.htm#Table806>(see #00806)</a>
+10E1h  TekRAM Technology Corporation Ltd. <a href=rb-2372.htm#Table807>(see #00807)</a>
 10E2h  Aptix Corporation
-10E3h  Newbridge Microsystems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table808>(see #00808)</a>
+10E3h  Newbridge Microsystems <a href=rb-2372.htm#Table808>(see #00808)</a>
 10E4h  Tandem Computers
 10E5h  Micro Industries
 10E6h  Gainbery Computer Products Inc.
 10E7h  Vadem
-10E8h  Applied Micro Circuits Corp. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table809>(see #00809)</a>
+10E8h  Applied Micro Circuits Corp. <a href=rb-2372.htm#Table809>(see #00809)</a>
 10E9h  Alps Electronic Corp. Ltd.
-10EAh  Integraphics Systems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table810>(see #00810)</a>
-10EBh  Artist Graphics <a href=http://www.ctyme.com/intr/rb-2372.htm#Table811>(see #00811)</a>
-10ECh  Realtek Semiconductor <a href=http://www.ctyme.com/intr/rb-2372.htm#Table812>(see #00812)</a>
-10EDh  ASCII Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table813>(see #00813)</a>
+10EAh  Integraphics Systems <a href=rb-2372.htm#Table810>(see #00810)</a>
+10EBh  Artist Graphics <a href=rb-2372.htm#Table811>(see #00811)</a>
+10ECh  Realtek Semiconductor <a href=rb-2372.htm#Table812>(see #00812)</a>
+10EDh  ASCII Corporation <a href=rb-2372.htm#Table813>(see #00813)</a>
 10EEh  Xilinx Corporation
 10EFh  Racore Computer Products
 10F0h  Peritek Corporation
@@ -304,28 +304,28 @@ Values for PCI vendor ID:
 10F2h  Achme Computer Inc.
 10F3h  Alaris Inc.
 10F4h  S-MOS Systems
-10F5h  NKK Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table814>(see #00814)</a>
+10F5h  NKK Corporation <a href=rb-2372.htm#Table814>(see #00814)</a>
 10F6h  Creative Electronic Systems SA
 10F7h  Matsushita Electric Industrial Corp. Ltd.
 10F8h  Altos India Ltd.
 10F9h  PC Direct
-10FAh  Truevision <a href=http://www.ctyme.com/intr/rb-2372.htm#Table815>(see #00815)</a>
+10FAh  Truevision <a href=rb-2372.htm#Table815>(see #00815)</a>
 10FBh  Thesys Ges. fÅr Microelektronik mbH
 10FCh  I/O Data Device Inc.
 10FDh  Soyo Technology Corp. Ltd.
 10FEh  Fast Electronic GmbH
 10FFh  N-Cube
 1100h  Jazz Multimedia
-1101h  Initio Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table816>(see #00816)</a>
+1101h  Initio Corporation <a href=rb-2372.htm#Table816>(see #00816)</a>
 1102h  Creative Labs
 1103h  Triones Technologies Inc.
 1104h  Rasterops
 1105h  Sigma Designs, Inc.
-1106h  VIA Technologies <a href=http://www.ctyme.com/intr/rb-2372.htm#Table817>(see #00817)</a>
+1106h  VIA Technologies <a href=rb-2372.htm#Table817>(see #00817)</a>
 1107h  Stratus Computer
-1108h  Proteon Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table818>(see #00818)</a>
-1109h  Cogent Data Technologies <a href=http://www.ctyme.com/intr/rb-2372.htm#Table819>(see #00819)</a>
-110Ah  Siemens AG / Siemens Nixdorf AG <a href=http://www.ctyme.com/intr/rb-2372.htm#Table820>(see #00820)</a>
+1108h  Proteon Inc. <a href=rb-2372.htm#Table818>(see #00818)</a>
+1109h  Cogent Data Technologies <a href=rb-2372.htm#Table819>(see #00819)</a>
+110Ah  Siemens AG / Siemens Nixdorf AG <a href=rb-2372.htm#Table820>(see #00820)</a>
 110Bh  Xenon Microsystems / Chromatic Research, Inc.
 110Ch  Mini-Max Technology Inc.
 110Dh  ZNyX Corporation
@@ -333,15 +333,15 @@ Values for PCI vendor ID:
 110Fh  Ross Technology
 1110h  Powerhouse Systems
 1111h  Santa Cruz Operation (SCO)
-1112h  Rockwell / RNS division of Meret Communications Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table821>(see #00821)</a>
+1112h  Rockwell / RNS division of Meret Communications Inc. <a href=rb-2372.htm#Table821>(see #00821)</a>
 1113h  Accton Technology Corporation
 1114h  Atmel Corporation
 1115h  DuPont Pixel Systems
 1116h  Data Translation / Media 100, Inc.
-1117h  Datacube Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table822>(see #00822)</a>
+1117h  Datacube Inc. <a href=rb-2372.htm#Table822>(see #00822)</a>
 1118h  Berg Electronics
-1119h  Vortex Computersysteme GmbH <a href=http://www.ctyme.com/intr/rb-2372.htm#Table823>(see #00823)</a>
-111Ah  Efficient Networks, Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table824>(see #00824)</a>
+1119h  Vortex Computersysteme GmbH <a href=rb-2372.htm#Table823>(see #00823)</a>
+111Ah  Efficient Networks, Inc. <a href=rb-2372.htm#Table824>(see #00824)</a>
 111Bh  Teledyne Electronic Systems
 111Ch  Tricord Systems, Inc.
 111Dh  Integrated Device Technology
@@ -354,45 +354,45 @@ Values for PCI vendor ID:
 1124h  Leutron Vision AG
 1125h  Eurocore
 1126h  Vigra
-1127h  FORE Systems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table825>(see #00825)</a>
+1127h  FORE Systems <a href=rb-2372.htm#Table825>(see #00825)</a>
 1128h  ???
 1129h  Firmworks
 112Ah  Hermes Electronics Co.
 112Bh  Linotype - Hell AG
 112Dh  Ravicad
-112Eh  Infomedia MicroElectronics Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table826>(see #00826)</a>
-112Fh  Imaging Technology <a href=http://www.ctyme.com/intr/rb-2372.htm#Table827>(see #00827)</a>
+112Eh  Infomedia MicroElectronics Inc <a href=rb-2372.htm#Table826>(see #00826)</a>
+112Fh  Imaging Technology <a href=rb-2372.htm#Table827>(see #00827)</a>
 1130h  Computervision
 1131h  Philips Semiconductors
 1132h  Mitel Corp
 1133h  Eicon Technology Corporation
-1134h  Mercury Computer Systems Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table828>(see #00828)</a>
-1135h  Fuji Xerox Co Ltd <a href=http://www.ctyme.com/intr/rb-2372.htm#Table829>(see #00829)</a>
+1134h  Mercury Computer Systems Inc <a href=rb-2372.htm#Table828>(see #00828)</a>
+1135h  Fuji Xerox Co Ltd <a href=rb-2372.htm#Table829>(see #00829)</a>
 1136h  Momentum Data Systems
 1137h  Cisco Systems Inc
-1138h  Ziatech Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table830>(see #00830)</a>
-1139h  Dynamic Pictures Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table831>(see #00831)</a>
+1138h  Ziatech Corporation <a href=rb-2372.htm#Table830>(see #00830)</a>
+1139h  Dynamic Pictures Inc <a href=rb-2372.htm#Table831>(see #00831)</a>
 113Ah  FWB Inc
-113Ch  Cyclone Microsystems (PLX) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table832>(see #00832)</a>
+113Ch  Cyclone Microsystems (PLX) <a href=rb-2372.htm#Table832>(see #00832)</a>
 113Dh  Leading Edge Products Inc
 113Eh  Sanyo Electric Co. - Computer Engineering Dept.
 113Fh  Equinox Systems
 1140h  Intervoice Inc
-1141h  Crest Microsystem Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table833>(see #00833)</a>
-1142h  Alliance Semiconductor Corp <a href=http://www.ctyme.com/intr/rb-2372.htm#Table834>(see #00834)</a>
+1141h  Crest Microsystem Inc <a href=rb-2372.htm#Table833>(see #00833)</a>
+1142h  Alliance Semiconductor Corp <a href=rb-2372.htm#Table834>(see #00834)</a>
 1143h  Netpower, Inc.
-1144h  Cincinnati Milacron / Vickers Inc. Electronic Systems <a href=http://www.ctyme.com/intr/rb-2372.htm#Table835>(see #00835)</a>
+1144h  Cincinnati Milacron / Vickers Inc. Electronic Systems <a href=rb-2372.htm#Table835>(see #00835)</a>
 1145h  Workbit Corp
 1146h  Force Computers
 1147h  Interface Corp.
-1148h  Schneider & Koch Co. / Syskonnect <a href=http://www.ctyme.com/intr/rb-2372.htm#Table836>(see #00836)</a>
+1148h  Schneider & Koch Co. / Syskonnect <a href=rb-2372.htm#Table836>(see #00836)</a>
 1149h  Win System Corporation
-114Ah  VMIC <a href=http://www.ctyme.com/intr/rb-2372.htm#Table837>(see #00837)</a>
+114Ah  VMIC <a href=rb-2372.htm#Table837>(see #00837)</a>
 114Bh  Canopus Co.
 114Ch  Annabooks
 114Dh  IC Corporation
 114Eh  Nikon Systems Inc
-114Fh  Digi International / Stargate <a href=http://www.ctyme.com/intr/rb-2372.htm#Table838>(see #00838)</a>
+114Fh  Digi International / Stargate <a href=rb-2372.htm#Table838>(see #00838)</a>
 1150h  Thinking Machines Corp.
 1151h  JAE Electronics Inc.
 1152h  Megatek
@@ -401,8 +401,8 @@ Values for PCI vendor ID:
 1155h  Pine Technology Ltd.
 1156h  Periscope Engineering
 1157h  Avsys Corporation
-1158h  Voarx R&D Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table839>(see #00839)</a>
-1159h  MuTech <a href=http://www.ctyme.com/intr/rb-2372.htm#Table840>(see #00840)</a>
+1158h  Voarx R&D Inc. <a href=rb-2372.htm#Table839>(see #00839)</a>
+1159h  MuTech <a href=rb-2372.htm#Table840>(see #00840)</a>
 115Ah  Harleguin Ltd.
 115Bh  Parallax Graphics
 115Ch  Photron, Ltd.
@@ -410,11 +410,11 @@ Values for PCI vendor ID:
 115Eh  Peer Protocols Inc.
 115Fh  ???
 1160h  Megasoft Inc.
-1161h  PFU Ltd. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table841>(see #00841)</a>
+1161h  PFU Ltd. <a href=rb-2372.htm#Table841>(see #00841)</a>
 1162h  OA Laboratory Co Ltd.
-1163h  Creative Labs / Rendition <a href=http://www.ctyme.com/intr/rb-2372.htm#Table842>(see #00842)</a>
+1163h  Creative Labs / Rendition <a href=rb-2372.htm#Table842>(see #00842)</a>
 1164h  Advanced Peripherals Tech
-1165h  Imagraph Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table843>(see #00843)</a>
+1165h  Imagraph Corporation <a href=rb-2372.htm#Table843>(see #00843)</a>
 1166h  Pequr Technology Inc. / Relience Computer
 1167h  Mutoh Industries, Inc.
 1168h  Thine Electronics Inc
@@ -433,7 +433,7 @@ Values for PCI vendor ID:
 1175h  Mitron Computer Inc.
 1176h  SBE
 1177h  Silicon Engineering
-1178h  Alfa Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table844>(see #00844)</a>
+1178h  Alfa Inc <a href=rb-2372.htm#Table844>(see #00844)</a>
 1179h  Toshiba America Info Systems
 117Ah  A-Trend Technology
 117Bh  LG Electronics Inc.
@@ -450,17 +450,17 @@ Values for PCI vendor ID:
 1186h  D-Link System Inc
 1187h  Advanced Technology Laboratories
 1188h  Shima Seiki Manufacturing Ltd.
-1189h  Matsushita Electronics <a href=http://www.ctyme.com/intr/rb-2372.htm#Table845>(see #00845)</a>
+1189h  Matsushita Electronics <a href=rb-2372.htm#Table845>(see #00845)</a>
 118Ah  Hilevel Technology
 118Bh  ???
-118Ch  Corollary Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table846>(see #00846)</a>
-118Dh  BitFlow Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table847>(see #00847)</a>
+118Ch  Corollary Inc <a href=rb-2372.htm#Table846>(see #00846)</a>
+118Dh  BitFlow Inc <a href=rb-2372.htm#Table847>(see #00847)</a>
 118Eh  Hermstedt GmbH
 118Fh  ???
 1190h  ???
-1191h  Artop Electric / Acard Technology Corp. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table848>(see #00848)</a>
+1191h  Artop Electric / Acard Technology Corp. <a href=rb-2372.htm#Table848>(see #00848)</a>
 1192h  Densan Co. Ltd
-1193h  Zeitnet Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table849>(see #00849)</a>
+1193h  Zeitnet Inc. <a href=rb-2372.htm#Table849>(see #00849)</a>
 1194h  Toucan Technology
 1195h  Ratoc System Inc
 1196h  Hytec Electronics Ltd
@@ -481,14 +481,14 @@ Values for PCI vendor ID:
 11A5h  MicroUnity Systems Engineering, Inc.
 11A6h  Pure Data
 11A7h  Power Computing Corp.
-11A9h  InnoSys Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table850>(see #00850)</a>
+11A9h  InnoSys Inc. <a href=rb-2372.htm#Table850>(see #00850)</a>
 11AAh  Actel
-11ABh  Galileo Technology Ltd. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table851>(see #00851)</a>
+11ABh  Galileo Technology Ltd. <a href=rb-2372.htm#Table851>(see #00851)</a>
 11ACh  Canon Information Systems
 11ADh  Lite-On Communications Inc
 11AEh  Scitex Corporation Ltd
 11AFh  Pro-Log Corporation / Avid Technology Corp.
-11B0h  V3 Semiconductor Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table852>(see #00852)</a>
+11B0h  V3 Semiconductor Inc. <a href=rb-2372.htm#Table852>(see #00852)</a>
 11B1h  Apricot Computers
 11B2h  Eastman Kodak
 11B3h  Barr Systems Inc.
@@ -497,7 +497,7 @@ Values for PCI vendor ID:
 11B6h  United Video Corp
 11B7h  Motorola
 11B8h  Xpoint Technologies Inc
-11B9h  Pathlight Technology Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table853>(see #00853)</a>
+11B9h  Pathlight Technology Inc. <a href=rb-2372.htm#Table853>(see #00853)</a>
 11BAh  Videotron Corp
 11BBh  Pyramid Technology
 11BCh  Network Peripherals Inc
@@ -509,10 +509,10 @@ Values for PCI vendor ID:
 11C5h  Shiva Corporatin
 11C6h  Dainippon Screen Mfg. Co., Ltd.
 11C7h  D.C.M. Data Systems
-11C8h  Dolphin Interconnect Solutions <a href=http://www.ctyme.com/intr/rb-2372.htm#Table854>(see #00854)</a>
+11C8h  Dolphin Interconnect Solutions <a href=rb-2372.htm#Table854>(see #00854)</a>
 11C9h  MAGMA
 11CAh  LSI Systems Inc
-11CBh  Specialix International, Ltd. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table855>(see #00855)</a>
+11CBh  Specialix International, Ltd. <a href=rb-2372.htm#Table855>(see #00855)</a>
 11CCh  Michels & Kleberhoff Computer GmbH
 11CDh  HAL Computer Systems Inc.
 11CEh  Netaccess
@@ -548,22 +548,22 @@ Values for PCI vendor ID:
 11F4h  Kinetic Systems Corporation
 11F5h  Computing Devices International
 11F6h  Powermatic Data Systems Ltd.
-11F6h  Compex USA, Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table856>(see #00856)</a>
+11F6h  Compex USA, Inc. <a href=rb-2372.htm#Table856>(see #00856)</a>
 11F7h  Scientific Atlanta
-11F8h  PMC-Sierra Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table857>(see #00857)</a>
+11F8h  PMC-Sierra Inc. <a href=rb-2372.htm#Table857>(see #00857)</a>
 11F9h  I-Cube, Inc.
-11FEh  RP ??? <a href=http://www.ctyme.com/intr/rb-2372.htm#Table858>(see #00858)</a>
+11FEh  RP ??? <a href=rb-2372.htm#Table858>(see #00858)</a>
 1201h  Vista Controls Corp.
 1203h  Bayer Corp., AGFA division
 1204h  Lattice Semiconductor Corp.
 1205h  Array Corp.
 1206h  Amdahl Corp.
-120Eh  Cyclades <a href=http://www.ctyme.com/intr/rb-2372.htm#Table859>(see #00859)</a>
+120Eh  Cyclades <a href=rb-2372.htm#Table859>(see #00859)</a>
 1216h  PURUP Eskofot A/S
 1217h  O2Micro, Inc.
 121Ah  3DFX Interactive, Inc.
 121Bh  Advanced Telecomm Modules
-1220h  Ariel Corporation <a href=http://www.ctyme.com/intr/rb-2372.htm#Table860>(see #00860)</a>
+1220h  Ariel Corporation <a href=rb-2372.htm#Table860>(see #00860)</a>
 1221h  Contec Co., Ltd.
 1222h  Ancor Communications, Inc.
 1223h  Heurikon/Computer Products
@@ -627,7 +627,7 @@ Values for PCI vendor ID:
 125Dh  ESS Technology
 125Eh  SpecialVideo Engineering SRL
 125Fh  Concurrent Technologies, Inc.
-1260h  Harris Semiconductor <a href=http://www.ctyme.com/intr/rb-2372.htm#Table861>(see #00861)</a>
+1260h  Harris Semiconductor <a href=rb-2372.htm#Table861>(see #00861)</a>
 1261h  Matsushita-Kotobuki Electronics Industries
 1262h  ES Computer Company, Ltd.
 1263h  Sonic Solutions
@@ -647,7 +647,7 @@ Values for PCI vendor ID:
 1271h  GW Instruments
 1272h  Telematics International
 1273h  Hughes Network Systems
-1274h  Ensoniq <a href=http://www.ctyme.com/intr/rb-2372.htm#Table862>(see #00862)</a>
+1274h  Ensoniq <a href=rb-2372.htm#Table862>(see #00862)</a>
 1275h  Network Appliance Corporation
 1276h  Switched Network Tecnologies, Inc.
 1277h  Comstream
@@ -730,7 +730,7 @@ Values for PCI vendor ID:
 12C2h  Mentec Limited
 12C3h  Holtek Microelectronics Inc.
 12C4h  Connect Tech Inc.
-12C5h  Picture Elements, Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table863>(see #00863)</a>
+12C5h  Picture Elements, Inc. <a href=rb-2372.htm#Table863>(see #00863)</a>
 12C6h  Mitani Corporation
 12C7h  Dialogic Corporation
 12C8h  G Force Co, Ltd.
@@ -1159,9 +1159,9 @@ Values for PCI vendor ID:
 1668h  Action Tec Electronics, Inc.
 1A08h  Sierra Semiconductor
 1B13h  Jaton Corp.
-1C1Ch  Symphony <a href=http://www.ctyme.com/intr/rb-2372.htm#Table864>(see #00864)</a>
+1C1Ch  Symphony <a href=rb-2372.htm#Table864>(see #00864)</a>
 1D44h  DPT
-1DE1h  TekRAM <a href=http://www.ctyme.com/intr/rb-2372.htm#Table865>(see #00865)</a>
+1DE1h  TekRAM <a href=rb-2372.htm#Table865>(see #00865)</a>
 21C3h  21st Century Computer Corp.
 2348h  Racore
 270Bh  Xantel Corp.
@@ -1169,8 +1169,8 @@ Values for PCI vendor ID:
 3000h  Hansol Electronics Inc.
 3142h  Post Impression Systems
 3388h  Hint Corp.
-3D3Dh  3DLabs <a href=http://www.ctyme.com/intr/rb-2372.htm#Table866>(see #00866)</a>
-4005h  Avance Logic, Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table867>(see #00867)</a>
+3D3Dh  3DLabs <a href=rb-2372.htm#Table866>(see #00866)</a>
+4005h  Avance Logic, Inc. <a href=rb-2372.htm#Table867>(see #00867)</a>
 4444h  Internext Compression, Inc.
 4468h  BRIDGEPORT MACHINES
 4594h  Cogetec Informatique Inc.
@@ -1180,7 +1180,7 @@ Values for PCI vendor ID:
 4943h  Growth Networks
 4978h  Axil Computer, Inc.
 4A14h  NetVin
-4B10h  Buslogic Inc. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table869>(see #00869)</a>
+4B10h  Buslogic Inc. <a href=rb-2372.htm#Table869>(see #00869)</a>
 4C48h  Lung Hwa Electronics
 4D51h  Mediaq Inc
 4DDCh  ILC data Device Corp.
@@ -1192,31 +1192,31 @@ Values for PCI vendor ID:
 5555h  Genroco Inc
 5700h  Netpower
 6356h  UltraStor
-6374h  c't Magazin fuer Computertechnik <a href=http://www.ctyme.com/intr/rb-2372.htm#Table871>(see #00871)</a>
+6374h  c't Magazin fuer Computertechnik <a href=rb-2372.htm#Table871>(see #00871)</a>
 6409h  Logitec Corp
 6666h  Decision Computer International Co.
 7604h  O.N. Electric Co Ltd
-8008h  Quancom Electronic GmbH <a href=http://www.ctyme.com/intr/rb-2372.htm#Table872>(see #00872)</a>
+8008h  Quancom Electronic GmbH <a href=rb-2372.htm#Table872>(see #00872)</a>
 8086h  Intel (see also #00873)
-8800h  Trigem Computer <a href=http://www.ctyme.com/intr/rb-2372.htm#Table874>(see #00874)</a>
+8800h  Trigem Computer <a href=rb-2372.htm#Table874>(see #00874)</a>
 8866h  T-Square Design Inc
 8888h  Silicon Magic
 8E0Eh  Computone Corporation
 8E2Eh  KTI
-9004h  Adaptec <a href=http://www.ctyme.com/intr/rb-2372.htm#Table875>(see #00875)</a>
+9004h  Adaptec <a href=rb-2372.htm#Table875>(see #00875)</a>
 9005h  Adaptec
-907Fh  Atronics <a href=http://www.ctyme.com/intr/rb-2372.htm#Table876>(see #00876)</a>
+907Fh  Atronics <a href=rb-2372.htm#Table876>(see #00876)</a>
 9412h  Holtek
-A200h  NEC Corp. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table754>(see #00754)</a>
-A259h  Hewlett Packard <a href=http://www.ctyme.com/intr/rb-2372.htm#Table757>(see #00757)</a>
-A25Bh  Hewlett Packard GmbH PL24-MKT <a href=http://www.ctyme.com/intr/rb-2372.htm#Table757>(see #00757)</a>
+A200h  NEC Corp. <a href=rb-2372.htm#Table754>(see #00754)</a>
+A259h  Hewlett Packard <a href=rb-2372.htm#Table757>(see #00757)</a>
+A25Bh  Hewlett Packard GmbH PL24-MKT <a href=rb-2372.htm#Table757>(see #00757)</a>
 A304h  Sony
-A727h  3com Corp. <a href=http://www.ctyme.com/intr/rb-2372.htm#Table796>(see #00796)</a>
+A727h  3com Corp. <a href=rb-2372.htm#Table796>(see #00796)</a>
 AA42h  Scitex Digital Video
 B1B3h  Shiva Europe, Ltd.
 C001h  TSI Telsys
 C0A9h  Micron/Crucial Technology
-C0DEh  Motorola <a href=http://www.ctyme.com/intr/rb-2372.htm#Table768>(see #00768)</a>
+C0DEh  Motorola <a href=rb-2372.htm#Table768>(see #00768)</a>
 C0FEh  Motion Engineering, Inc.
 CAFEh  Chrysalis-ITS
 D4D4h  DY4 Systems Inc.
@@ -1224,7 +1224,7 @@ E159h  Tiger Jet Network Inc.
 E000h  Winbond
 E159h  Tiger Jet Network Inc.
 ECC0h  Echo Corp.
-EDD8h  Ark Logic Inc <a href=http://www.ctyme.com/intr/rb-2372.htm#Table877>(see #00877)</a>
+EDD8h  Ark Logic Inc <a href=rb-2372.htm#Table877>(see #00877)</a>
 FEDAh  Epigram Inc
 </PRE>
 <p><b>Note:</b>
@@ -1333,15 +1333,15 @@ Values for Avance Logic, Inc. (Avance Logics) PCI device code:
 2302h  ALG2302 GUI accelerator
 </PRE>
 <p><b>See Also:</b>
-#00732 - <a href=http://www.ctyme.com/intr/rb-0313.htm>INT 10/AX=4F70h</a>
+#00732 - <a href=rb-0313.htm>INT 10/AX=4F70h</a>
 <PRE>
 <p>
 <a name=table739></a>
 (Table 00739)
 Values for National Semiconductor PCI device code:
 0001h  DP83810 Ethernet
-0002h  PC87415 IDE DMA-Master Mode controller <a href=http://www.ctyme.com/intr/rb-2379.htm#Table922>(see #00922)</a>
-D001h  NS87410 EIDE controller <a href=http://www.ctyme.com/intr/rb-2379.htm#Table921>(see #00921)</a>
+0002h  PC87415 IDE DMA-Master Mode controller <a href=rb-2379.htm#Table922>(see #00922)</a>
+D001h  NS87410 EIDE controller <a href=rb-2379.htm#Table921>(see #00921)</a>
 </PRE>
 <p><b>See Also:</b>
 #00732 - #00773
@@ -1377,13 +1377,13 @@ Values for DEC PCI device code:
 0001h  DC21050 DEC BRD PCI-PCI bridge
 0002h  DC21040 Tulip
 0004h  DecChip 21030
-0009h  DC21140 Tulip Fast <a href=http://www.ctyme.com/intr/rb-2380.htm#Table923>(see #00923)</a>
+0009h  DC21140 Tulip Fast <a href=rb-2380.htm#Table923>(see #00923)</a>
 000Ah  21230   Video Codec
 000Fh  DEFPA   FDDI
-0014h  DC21041 Tulip Plus <a href=http://www.ctyme.com/intr/rb-2380.htm#Table923>(see #00923)</a>
+0014h  DC21041 Tulip Plus <a href=rb-2380.htm#Table923>(see #00923)</a>
 0016h  DGLPB   ATM
 0019h  DC21143 PCI/Cardbus Ethernet
-0021h  21052   PCI-PCI Bridge <a href=http://www.ctyme.com/intr/rb-2380.htm#Table924>(see #00924)</a>
+0021h  21052   PCI-PCI Bridge <a href=rb-2380.htm#Table924>(see #00924)</a>
 0022h  21150   PCI-PCI Bridge
 0024h  21152   PCI-PCI Bridge
 0025h  21153   PCI-PCI Bridge
@@ -1491,7 +1491,7 @@ Values for Advanced Micro Devices (AMD) PCI device code:
 2000h  Am79C970 (Lance).
 Am79C970A (PCnet-PCI II, PCI revision ID is 1xh).
 Am79C971 (PCnet-FAST, PCI revision ID is 2xh)
-2020h  Am53c974 SCSI <a href=http://www.ctyme.com/intr/rb-2381.htm#Table925>(see #00925)</a>
+2020h  Am53c974 SCSI <a href=rb-2381.htm#Table925>(see #00925)</a>
 2040h  Am79C974 Ethernet/SCSI
 </PRE>
 <p><b>See Also:</b>
@@ -1667,7 +1667,7 @@ C621h  82C621 IDE controller / 82C750 Vendetta IDE controller
 C822h  82C822
 C824h  82C824 FireFox PC-Card controller
 C825h  82C825 FireBridge II
-C861h  82C861/82C871 FireLink/FireBlast PCI-to-USB Bridge <a href=http://www.ctyme.com/intr/rb-2383.htm#Table965>(see #00965)</a>
+C861h  82C861/82C871 FireLink/FireBlast PCI-to-USB Bridge <a href=rb-2383.htm#Table965>(see #00965)</a>
 D568h  82C750 Vendetta IDE controller
 D768h  82C750 Vendetta IDE controller (ultra DMA)
 </PRE>
@@ -1823,7 +1823,7 @@ Values for PicoPower PCI device code:
 0000h  PT80C826 VL Bridge
 0001h  Vesuvius V1-LS System Controller (see PORT 0024h"V1-LS").
 <p><b>Revision ID field:</b><br>03h = Rev. AA, 04h = Rev. BB, 05h = Rev. CC
-0002h  Vesuvius V3-LS ISA Bridge <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00971,PORT 0024h"V3-LS")
+0002h  Vesuvius V3-LS ISA Bridge <a href=rb-0000.htm#Table0></a>(see #00971,PORT 0024h"V3-LS")
 0005h  National Semiconductor PC87550 PCI System Controller
 8002h  Vesuvius V3-LS ISA Bridge (secondary; Rev. BB and higher only)
 </PRE>
@@ -1994,7 +1994,7 @@ Values for Brooktree Corporation PCI device code:
 0350h  BT848  TV/PCI with DMA Push
 2115h  BtV 2115 Mediastream Controller
 2125h  BtV 2125 Mediastream Controller
-8230h  Bt8230 ATM Segment/Reassembly Ctrlr (SRC) <a href=http://www.ctyme.com/intr/rb-2385.htm#Table981>(see #00981)</a>
+8230h  Bt8230 ATM Segment/Reassembly Ctrlr (SRC) <a href=rb-2385.htm#Table981>(see #00981)</a>
 </PRE>
 <p><b>See Also:</b>
 #00732
@@ -2300,21 +2300,21 @@ Values for Initio Corporation PCI device code:
 Values for VIA Technologies PCI device code:
 0505h  VIA 82C505
 0561h  VIA 82C561
-0571h  AMD-645 Peripheral Bus Controller, function 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1034>(see #01034)</a>.
+0571h  AMD-645 Peripheral Bus Controller, function 1 <a href=rb-2386.htm#Table1034>(see #01034)</a>.
 VT82C586A/B PCI Integrated Peripheral Controller, function 1
 0576h  VIA 82C576
-0585h  VT82C585VPX Host Bus-PCI bridge <a href=http://www.ctyme.com/intr/rb-2386.htm#Table982>(see #00982)</a>
-0586h  AMD-645 Peripheral Bus Controller, function 0 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1011>(see #01011)</a>.
+0585h  VT82C585VPX Host Bus-PCI bridge <a href=rb-2386.htm#Table982>(see #00982)</a>
+0586h  AMD-645 Peripheral Bus Controller, function 0 <a href=rb-2386.htm#Table1011>(see #01011)</a>.
 VT82C586A/B PCI Integrated Peripheral Controller, function 0
-0595h  AMD-640 System Controller <a href=http://www.ctyme.com/intr/rb-2386.htm#Table983>(see #00983)</a>.
+0595h  AMD-640 System Controller <a href=rb-2386.htm#Table983>(see #00983)</a>.
 VT82C595
 0597h  VT82C597 / VT82C597AT
 1000h  82C570MV P54 Controller
 1106h  82C570MV ISA Bridge + IDE
 1571h  VIA 82C416
-3038h  AMD-645 Peripheral Bus Controller, function 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1046>(see #01046)</a>.
+3038h  AMD-645 Peripheral Bus Controller, function 2 <a href=rb-2386.htm#Table1046>(see #01046)</a>.
 VT82C586A/B PCI Integrated Peripheral Controller, function 2
-3040h  AMD-645 Peripheral Bus Controller, function 3 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1049>(see #01049)</a>.
+3040h  AMD-645 Peripheral Bus Controller, function 3 <a href=rb-2386.htm#Table1049>(see #01049)</a>.
 VT82C586B PCI Integrated Peripheral Controller, function 3
 </PRE>
 <p><b>See Also:</b>
@@ -2901,11 +2901,11 @@ Values for Quancom Electronic PCI device code:
 <a name=table873></a>
 (Table 00873)
 Values for Intel PCI device code:
-0482h  82375EB/SB PCI-EISA Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1054>(see #01054)</a>
-0483h  82424 Cache Controller <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1063>(see #01063)</a>
-0484h  82378/82379 Bus Interface (Mercury/Saturn/Neptune chipsets) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1064>(see #01064)</a>
+0482h  82375EB/SB PCI-EISA Bridge <a href=rb-2387.htm#Table1054>(see #01054)</a>
+0483h  82424 Cache Controller <a href=rb-2387.htm#Table1063>(see #01063)</a>
+0484h  82378/82379 Bus Interface (Mercury/Saturn/Neptune chipsets) <a href=rb-2387.htm#Table1064>(see #01064)</a>
 0486h  82425EX/82430
-04A3h  82434 LX (Mercury) / NX (Neptune) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1055>(see #01055)</a>
+04A3h  82434 LX (Mercury) / NX (Neptune) <a href=rb-2387.htm#Table1055>(see #01055)</a>
 0960h  i960 RP Microprocessor/Bridge
 1221h  82092AA PCMCIA Bridge
 1222h  82092AA IDE Controller
@@ -2913,36 +2913,36 @@ Values for Intel PCI device code:
 1226h  82596
 1227h  82865
 1228h  EtherExpress Pro/100 Smart
-1229h  82557 Fast Ethernet <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1227>(see #01227)</a>
+1229h  82557 Fast Ethernet <a href=rb-2387.htm#Table1227>(see #01227)</a>
 122Dh  82437FX (Triton)
 122Eh  82371FB ISA Bridge (Triton)
 1230h  82338 IDE controller / 82371FB IDE function (Triton)
-1234h  82371MX <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1168>(see #01168)</a>
+1234h  82371MX <a href=rb-2387.htm#Table1168>(see #01168)</a>
 1235h  82437MX
-1237h  82441FX <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1229>(see #01229)</a>
+1237h  82441FX <a href=rb-2387.htm#Table1229>(see #01229)</a>
 1239h  82371FB IDE Interface (Triton)
-123Ch  82380AB Mobile PCI-to-ISA Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1090>(see #01090)</a>
-124Bh  82380FB Mobile PCI-to-PCI Bridge <a href=http://www.ctyme.com/intr/rb-8676.htm#Table4069>(see #04069)</a>
-1250h  82439HX (430HX chipset) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1098>(see #01098)</a>
+123Ch  82380AB Mobile PCI-to-ISA Bridge <a href=rb-2387.htm#Table1090>(see #01090)</a>
+124Bh  82380FB Mobile PCI-to-PCI Bridge <a href=rb-8676.htm#Table4069>(see #04069)</a>
+1250h  82439HX (430HX chipset) <a href=rb-2387.htm#Table1098>(see #01098)</a>
 1960h  80960RP i960RP Microprocessor
-7000h  82371SB ISA Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1167>(see #01167)</a>
-7010h  82371SB IDE controller <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1214>(see #01214)</a>
-7020h  82371SB <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1215>(see #01215)</a>
-7030h  82437VX (430VX chipset) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1108>(see #01108)</a>
-7100h  82439TX (430TX chipset) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1099>(see #01099)</a>
-7110h  82371AB PIIX4 ISA Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1100>(see #01100)</a>
-7111h  82371AB PIIX4 Ultra DMA IDE Controller <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1103>(see #01103)</a>
-7112h  82371AB PIIX4 USB Controller <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1104>(see #01104)</a>
-7113h  82371AB PIIX4 Power Management Controller <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1105>(see #01105)</a>
-7180h  82443LX/EX 440LX/EX Host-PCI Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1129>(see #01129)</a>
-7181h  82443LX/EX 440LX/EX AGP device <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1130>(see #01130)</a>
-7190h  82443BX 440BX PCI-Host Bridge (AGP Enabled) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1142>(see #01142)</a>
-7191h  82443BX 440BX PCI-PCI Bridge <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1143>(see #01143)</a>
-7192h  82443BX 440BX PCI-Host Bridge (AGP Disabled) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1142>(see #01142)</a>
+7000h  82371SB ISA Bridge <a href=rb-2387.htm#Table1167>(see #01167)</a>
+7010h  82371SB IDE controller <a href=rb-2387.htm#Table1214>(see #01214)</a>
+7020h  82371SB <a href=rb-2387.htm#Table1215>(see #01215)</a>
+7030h  82437VX (430VX chipset) <a href=rb-2387.htm#Table1108>(see #01108)</a>
+7100h  82439TX (430TX chipset) <a href=rb-2387.htm#Table1099>(see #01099)</a>
+7110h  82371AB PIIX4 ISA Bridge <a href=rb-2387.htm#Table1100>(see #01100)</a>
+7111h  82371AB PIIX4 Ultra DMA IDE Controller <a href=rb-2387.htm#Table1103>(see #01103)</a>
+7112h  82371AB PIIX4 USB Controller <a href=rb-2387.htm#Table1104>(see #01104)</a>
+7113h  82371AB PIIX4 Power Management Controller <a href=rb-2387.htm#Table1105>(see #01105)</a>
+7180h  82443LX/EX 440LX/EX Host-PCI Bridge <a href=rb-2387.htm#Table1129>(see #01129)</a>
+7181h  82443LX/EX 440LX/EX AGP device <a href=rb-2387.htm#Table1130>(see #01130)</a>
+7190h  82443BX 440BX PCI-Host Bridge (AGP Enabled) <a href=rb-2387.htm#Table1142>(see #01142)</a>
+7191h  82443BX 440BX PCI-PCI Bridge <a href=rb-2387.htm#Table1143>(see #01143)</a>
+7192h  82443BX 440BX PCI-Host Bridge (AGP Disabled) <a href=rb-2387.htm#Table1142>(see #01142)</a>
 71A0h  82443GX Host Bridge/Controller (AGP enabled)
 71A1h  82443GX AGP Controller
 71A2h  82443GX Host Bridge/Controller (AGP disabled)
-84C4h  82450KX/GX PCI Bridge (Orion) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1240>(see #01240)</a>
+84C4h  82450KX/GX PCI Bridge (Orion) <a href=rb-2387.htm#Table1240>(see #01240)</a>
 84C5h  82450KX/GX Memory Ctrlr (Orion)
 84CAh  82451NX (450NX) Memory & I/O Controller (MIOC)
 84CBh  82454NX (450NX) PCI Expansion Bridge (PXB)
@@ -2972,7 +2972,7 @@ Values for Adaptec PCI device code:
 7378h  AHA-3985 4-channel RAID SCSI
 7478h  AHA-2944 SCSI
 7810h  AIC-7810 memory control IC
-7850h  AIC-7850 SCSI IC <a href=http://www.ctyme.com/intr/rb-2388.htm#Table1241>(see #01241)</a>
+7850h  AIC-7850 SCSI IC <a href=rb-2388.htm#Table1241>(see #01241)</a>
 7855h  AHA-2930 SCSI
 7870h  AIC-7870 SCSI IC
 7871h  AHA-2940
@@ -3015,108 +3015,20 @@ Expansion Bus Bios</a>
 Int 1Ah</a>
 - <a href=alpha-p.htm>
 P</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2371.htm>
+<a href=rb-2371.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2373.htm>
+<a href=rb-2373.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

@@ -17,35 +17,35 @@ Notes: if the value given in CX is less than the size of the state record
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 21/AX=4402h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2832.htm>
+<a href=rb-2832.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2834.htm>
+<a href=rb-2834.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>Qualitas 386MAX v6.00+ - IOCTL INPUT - GET STATE</font></h3>
 <PRE>
 AX = 4402h
 BX = file handle for device "386MAX$$"
 CX = number of bytes to read
-DS:DX -> BYTE 03h followed by 386MAX state buffer <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1467>(see #01467)</a><br>
+DS:DX -> BYTE 03h followed by 386MAX state buffer <a href=rb-2833.htm#Table1467>(see #01467)</a><br>
 <p><b>Return:</b><br>CF clear if successful
 buffer at DS:DX+1 filled
 AX = number of bytes actually copied
 CF set on error
-AX = error code (01h,05h,06h,0Dh) <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
+AX = error code (01h,05h,06h,0Dh) <a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
 </PRE>
 <p><b>Notes:</b>
 If the value given in CX is less than the size of the state record
@@ -65,7 +65,7 @@ Windows 3.1 Standard mode, LAN Manager, and Windows for Workgroups all
 use the 386MAX API; LAN Manager and Windows for Workgroups reportedly
 make some calls incorrectly
 <p><b>See Also:</b>
-<a href=rb-2833.htm>AX=4403h/SF=03h"386MAX"</a> - <a href=http://www.ctyme.com/intr/rb-7414.htm>INT 67/AH=3Fh</a>
+<a href=rb-2833.htm>AX=4403h/SF=03h"386MAX"</a> - <a href=rb-7414.htm>INT 67/AH=3Fh</a>
 <PRE>
 <p>
 Format of 386MAX v6.01+ state:
@@ -79,7 +79,7 @@ has linked high RAM into DOS's memory chain)
 0Ah    WORD    segment of low-memory portion of 386MAX.SYS
 0Ch  2 BYTEs   ???
 0Eh    WORD    segment of ??? memory block or 0000h
-10h    WORD    bit flags 1 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1468>(see #01468)</a>
+10h    WORD    bit flags 1 <a href=rb-2833.htm#Table1468>(see #01468)</a>
 12h    WORD    starting address of video memory in KB
 14h  2 BYTEs   ???
 16h    WORD    total high DOS memory in KB
@@ -90,27 +90,27 @@ has linked high RAM into DOS's memory chain)
 20h    WORD    total extended memory in KB
 22h    WORD    IO port to write (OUT DX,AL) to invoke 386MAX INT 15 functions
 24h    WORD    IO port to write (OUT DX,AL) to invoke 386MAX API functions
-<a href=http://www.ctyme.com/intr/rb-2833.htm#Table1481>(see #01481)</a>
+<a href=rb-2833.htm#Table1481>(see #01481)</a>
 26h    WORD    ??? (depends on DOS version)
 28h    WORD    size of ??? in paragraphs
-2Ah    DWORD   machine type <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1476>(see #01476)</a>
+2Ah    DWORD   machine type <a href=rb-2833.htm#Table1476>(see #01476)</a>
 2Eh    DWORD   -> first DOS memory control block
-32h    WORD    system configuration flags <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1469>(see #01469)</a>
-34h    WORD    debugging flags 1 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1470>(see #01470)</a>
-36h    WORD    debugging flags 2 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1471>(see #01471)</a>
+32h    WORD    system configuration flags <a href=rb-2833.htm#Table1469>(see #01469)</a>
+34h    WORD    debugging flags 1 <a href=rb-2833.htm#Table1470>(see #01470)</a>
+36h    WORD    debugging flags 2 <a href=rb-2833.htm#Table1471>(see #01471)</a>
 38h  2 BYTEs   ???
 3Ah    WORD    segment of first MCB in high memory chain
-3Ch    WORD    feature flags 1 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1473>(see #01473)</a>
-3Eh    WORD    feature flags 2 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1474>(see #01474)</a>
-40h    WORD    feature flags 3 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1475>(see #01475)</a>
-42h    WORD    segment of first 386MAX control block??? <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1477>(see #01477)</a>
+3Ch    WORD    feature flags 1 <a href=rb-2833.htm#Table1473>(see #01473)</a>
+3Eh    WORD    feature flags 2 <a href=rb-2833.htm#Table1474>(see #01474)</a>
+40h    WORD    feature flags 3 <a href=rb-2833.htm#Table1475>(see #01475)</a>
+42h    WORD    segment of first 386MAX control block??? <a href=rb-2833.htm#Table1477>(see #01477)</a>
 44h    WORD    amount of memory to report available on INT 15/AH=88h
 46h  4 BYTEs   ???
 4Ah    WORD    number of K at start of address space swapped with fast
 extended memory (SWAP= parameter)
 4Ch  2 BYTEs   ???
 4Eh    WORD    segment address of ???
-50h    WORD    debugging flags 3 <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1472>(see #01472)</a>
+50h    WORD    debugging flags 3 <a href=rb-2833.htm#Table1472>(see #01472)</a>
 52h    DWORD   old INT 21h
 56h    DWORD   pointer to 386MAX's EMS (INT 67h) handler
 ---386MAX v7.00---
@@ -345,18 +345,18 @@ AH = 00h unused
 <p><b>Return:</b><br>AH = 84h (unsupported function).
 AH = 01h get high memory information
 ES:DI -> buffer for array of high memory info records
-<a href=http://www.ctyme.com/intr/rb-2833.htm#Table1478>(see #01478)</a>
+<a href=rb-2833.htm#Table1478>(see #01478)</a>
 <p><b>Return:</b><br>CX = number of records placed in buffer.
 AH = 02h get shadowed ROM info
-ES:DI -> buffer for array of ROM shadowing records <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1479>(see #01479)</a>
+ES:DI -> buffer for array of ROM shadowing records <a href=rb-2833.htm#Table1479>(see #01479)</a>
 <p><b>Return:</b><br>CX = number of records placed in buffer.
 AH = 03h get 386MAX state
-ES:DI -> 90-byte buffer for state <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1467>(see #01467)</a>
+ES:DI -> 90-byte buffer for state <a href=rb-2833.htm#Table1467>(see #01467)</a>
 <p><b>Return:</b><br>AH = 00h (successful)
 buffer filled.
 AH = 04h get memory types???
 ES:DI -> buffer for memory type info (array of bytes, one per
-16K page) <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1480>(see #01480)</a>
+16K page) <a href=rb-2833.htm#Table1480>(see #01480)</a>
 <p><b>Return:</b><br>CX = number of bytes placed in buffer.
 AH = 05h get page table entries
 AL = A20 control (00h enable A20 first, 01h leave unchanged)
@@ -367,7 +367,7 @@ ES:DI -> buffer for returned page table entries
 <p><b>Return:</b><br>CX = number of bytes returned (four per 4K page)
 ES:DI buffer filled.
 AH = 06h get memory speed info
-ES:DI -> buffer for memory speed records <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1482>(see #01482)</a>
+ES:DI -> buffer for memory speed records <a href=rb-2833.htm#Table1482>(see #01482)</a>
 <p><b>Return:</b><br>AH = 00h (successful)
 CX = number of bytes placed in buffer
 </PRE>
@@ -398,14 +398,14 @@ AL = ??? (00h or nonzero)
 <p><b>Note:</b>
 If AL=00h, this function always returns success.
 AH = 09h toggle Bit Flags 1 flags
-BX = bitmask of bit flags 1's flags to toggle <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1468>(see #01468)</a>
+BX = bitmask of bit flags 1's flags to toggle <a href=rb-2833.htm#Table1468>(see #01468)</a>
 <PRE>
 <p><b>Return:</b><br>AH = 00h (successful)
 </PRE>
 <p><b>Note:</b>
 Enables A20 first.
 AH = 0Ah toggle Debugging Flags 1 flags
-BX = bitmask of Debugging Flags 1's bits to toggle <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1470>(see #01470)</a>
+BX = bitmask of Debugging Flags 1's bits to toggle <a href=rb-2833.htm#Table1470>(see #01470)</a>
 <PRE>
 <p><b>Return:</b><br>AH = 00h (successful)
 </PRE>
@@ -413,14 +413,14 @@ BX = bitmask of Debugging Flags 1's bits to toggle <a href=http://www.ctyme.com/
 Enables A20 first
 does ??? if bit 3 on after specified bits are toggled.
 AH = 0Bh toggle Debugging Flags 2 flags
-BX = bitmask of Debugging Flags 2's bits to toggle <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1471>(see #01471)</a>
+BX = bitmask of Debugging Flags 2's bits to toggle <a href=rb-2833.htm#Table1471>(see #01471)</a>
 <PRE>
 <p><b>Return:</b><br>AH = 00h (successful)
 </PRE>
 <p><b>Note:</b>
 Enables A20 first.
 AH = 0Ch toggle feature flags 3
-BX = bitmask of feature flags 3's bits to toggle <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1475>(see #01475)</a>
+BX = bitmask of feature flags 3's bits to toggle <a href=rb-2833.htm#Table1475>(see #01475)</a>
 <PRE>
 <p><b>Return:</b><br>AH = 00h (successful)
 </PRE>
@@ -558,12 +558,12 @@ SI = ???
 <p><b>Note:</b>
 This function appears to be broken in v7.00.
 AH = 1Eh get memory info
-ES:DI -> memory info <a href=http://www.ctyme.com/intr/rb-2833.htm#Table1483>(see #01483)</a>
+ES:DI -> memory info <a href=rb-2833.htm#Table1483>(see #01483)</a>
 <PRE>
 <p><b>Return:</b><br>???.
 AH = 1Fh get DPMI host information
 <p><b>Return:</b><br>AX = 0000h if successful
-BX = DPMI flags <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03152 at INT 31/AX=0400h)
+BX = DPMI flags <a href=rb-0000.htm#Table0></a>(see #03152 at INT 31/AX=0400h)
 CL = CPU type (02h = 80286, 03h = 80386, etc.)
 DX = DPMI ver supported (DH=major, DL=2-digit minor)
 SI = ???
@@ -737,107 +737,20 @@ Memory Management</a>
 Int 21h</a>
 - <a href=alpha-q.htm>
 Q</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2832.htm>
+<a href=rb-2832.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2834.htm>
+<a href=rb-2834.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- I Want U 30%/Sale *Sex *Gen -->
-
-<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
-<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

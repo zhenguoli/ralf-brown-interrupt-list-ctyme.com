@@ -17,24 +17,24 @@ Return: CX = 0000h if okay for Windows to load
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=1605h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4497.htm>
+<a href=rb-4497.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4499.htm>
+<a href=rb-4499.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>MS Windows - WINDOWS ENHANCED MODE & 286 DOSX INIT BROADCAST</font></h3>
 <PRE>
 AX = 1605h
@@ -49,9 +49,9 @@ DI = version number (major in upper byte, minor in lower)<br>
 <p><b>Return:</b><br>CX = 0000h if okay for Windows to load
 CX = FFFFh (other registers unchanged) if Windows 3.0 in standard mode
 CX <> 0 if Windows should not load
-ES:BX -> startup info structure <a href=http://www.ctyme.com/intr/rb-4498.htm#Table2631>(see #02631)</a>
+ES:BX -> startup info structure <a href=rb-4498.htm#Table2631>(see #02631)</a>
 DS:SI -> virtual86 mode enable/disable callback or 0000h:0000h
-<a href=http://www.ctyme.com/intr/rb-4498.htm#Table2634>(see #02634)</a>
+<a href=rb-4498.htm#Table2634>(see #02634)</a>
 </PRE>
 <p><b>Notes:</b>
 The Windows enhanced mode loader and Microsoft 286 DOS extender will
@@ -76,7 +76,7 @@ Microsoft's EMM386.EXE for DOS 5+ when installed with the NOEMS option
 changes its driver name from EMMQXXX0 to EMMXXXX0 while Windows is
 active
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-4499.htm>AX=1606h</a> - <a href=http://www.ctyme.com/intr/rb-4517.htm>AX=1608h</a> - <a href=http://www.ctyme.com/intr/rb-4865.htm>AX=4B05h</a>
+<a href=rb-4499.htm>AX=1606h</a> - <a href=rb-4517.htm>AX=1608h</a> - <a href=rb-4865.htm>AX=4B05h</a>
 <PRE>
 <p>
 Format of Windows Startup Information Structure:
@@ -85,11 +85,11 @@ Offset  Size    Description     (Table 02631)
 00h  2 BYTEs   major, minor version of info structure
 02h    DWORD   pointer to next startup info structure or 0000h:0000h
 06h    DWORD   pointer to ASCIZ name of virtual device file or 0000h:0000h
-0Ah    DWORD   virtual device reference data <a href=http://www.ctyme.com/intr/rb-4498.htm#Table2633>(see #02633)</a>
+0Ah    DWORD   virtual device reference data <a href=rb-4498.htm#Table2633>(see #02633)</a>
 (only used if above nonzero)
-0Eh    DWORD   pointer to instance data records <a href=http://www.ctyme.com/intr/rb-4498.htm#Table2632>(see #02632)</a> or 0000h:0000h
+0Eh    DWORD   pointer to instance data records <a href=rb-4498.htm#Table2632>(see #02632)</a> or 0000h:0000h
 ---structure version >= 4.0---
-12h    DWORD   pointer to optionally-instanced data records <a href=http://www.ctyme.com/intr/rb-4498.htm#Table2632>(see #02632)</a>
+12h    DWORD   pointer to optionally-instanced data records <a href=rb-4498.htm#Table2632>(see #02632)</a>
 or 0000h:0000h
 <p>
 Format of one Instance Item in array:
@@ -139,108 +139,20 @@ Windows</a>
 Int 2Fh</a>
 - <a href=alpha-m.htm>
 M</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4497.htm>
+<a href=rb-4497.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4499.htm>
+<a href=rb-4499.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

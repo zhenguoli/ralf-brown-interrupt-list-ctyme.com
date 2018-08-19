@@ -17,31 +17,31 @@ CX = ID number for TSR when installed
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=5453h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4890.htm>
+<a href=rb-4890.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4892.htm>
+<a href=rb-4892.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>TesSeRact RAM-RESIDENT PROGRAM INTERFACE</font></h3>
 <PRE>
 AX = 5453h
 BX = subfunction
 00h installation check
 CX = 0000h
-DS:SI -> 8-char blank-padded name <a href=http://www.ctyme.com/intr/rb-4891.htm#Table2840>(see #02840)</a>
+DS:SI -> 8-char blank-padded name <a href=rb-4891.htm#Table2840>(see #02840)</a>
 <p><b>Return:</b><br>AX = FFFFh installed
 CX = ID number of already-installed copy
 AX = anything else, not installed
@@ -50,10 +50,10 @@ CX = ID number for TSR when installed
 CX = TSR ID number
 <p><b>Return:</b><br>AX = status
 0000h successful
-ES:BX -> user parameter block <a href=http://www.ctyme.com/intr/rb-4891.htm#Table2841>(see #02841)</a>
+ES:BX -> user parameter block <a href=rb-4891.htm#Table2841>(see #02841)</a>
 nonzero failed
 02h check if hotkey in use
-CL = scan code of hot key <a href=http://www.ctyme.com/intr/rb-0045.htm#Table6>(see #00006)</a>
+CL = scan code of hot key <a href=rb-0045.htm#Table6>(see #00006)</a>
 <p><b>Return:</b><br>AX = FFFFh hot key conflicts with another TSR
 otherwise safe to use the hotkey
 03h replace default critical error handler
@@ -64,13 +64,13 @@ DS:SI -> new routine for INT 24h
 CX = TSR ID number
 <p><b>Return:</b><br>AX = status
 0000h successful
-ES:BX -> TSR's internal data area <a href=http://www.ctyme.com/intr/rb-4891.htm#Table2842>(see #02842)</a>
+ES:BX -> TSR's internal data area <a href=rb-4891.htm#Table2842>(see #02842)</a>
 nonzero, TSR not found
 05h set multiple hot keys
 CX = TSR ID number
 DL = number of additional hot keys to allocate
 DS:SI -> table of hot keys
-BYTE  hotkey scan code <a href=http://www.ctyme.com/intr/rb-0045.htm#Table6>(see #00006)</a>
+BYTE  hotkey scan code <a href=rb-0045.htm#Table6>(see #00006)</a>
 BYTE  hotkey shift state
 BYTE  flag value to pass to TSR (nonzero)
 <p><b>Return:</b><br>AX = nonzero, unable to install hot keys
@@ -145,7 +145,7 @@ do the SWAP?? programs by Innovative Data Concepts..
 AVATAR.SYS supports functions 00h and 01h (only the first three fields
 of the user parameter block) using the name "AVATAR  "
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-5419.htm>AX=CAFEh</a> - <a href=http://www.ctyme.com/intr/rb-1814.htm>INT 16/AX=55FFh</a> - <a href=http://www.ctyme.com/intr/rb-4215.htm>INT 2D"AMIS"</a>
+<a href=rb-5419.htm>AX=CAFEh</a> - <a href=rb-1814.htm>INT 16/AX=55FFh</a> - <a href=rb-4215.htm>INT 2D"AMIS"</a>
 <PRE>
 <p><b>Index:</b><br>Installation check;TesSeRact TSR interface|uninstall;TesSeRact
 <p>
@@ -162,7 +162,7 @@ Offset  Size    Description     (Table 02841)
 00h  8 BYTEs   blank-padded TSR name
 08h    WORD    TSR ID number
 0Ah    DWORD   bitmap of supported functions
-0Eh    BYTE    scan code of primary hotkey <a href=http://www.ctyme.com/intr/rb-0045.htm#Table6>(see #00006)</a>
+0Eh    BYTE    scan code of primary hotkey <a href=rb-0045.htm#Table6>(see #00006)</a>
 00h = pop up when shift states match
 FFh = no popup (if shift state also FFh)
 0Fh    BYTE    shift state of primary hotkey
@@ -218,108 +218,20 @@ TSR Libraries</a>
 Int 2Fh</a>
 - <a href=alpha-t.htm>
 T</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4890.htm>
+<a href=rb-4890.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4892.htm>
+<a href=rb-4892.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

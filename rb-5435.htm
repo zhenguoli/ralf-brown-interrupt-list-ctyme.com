@@ -16,36 +16,36 @@ SeeAlso: AX=CB02h,AX=CB0Dh
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=CB10h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5434.htm>
+<a href=rb-5434.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5436.htm>
+<a href=rb-5436.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>Communicating Applications Specification - GET CURRENT EVENT STATUS</font></h3>
 <PRE>
 AX = CB10h
-DS:DX -> 512-byte buffer for status area <a href=http://www.ctyme.com/intr/rb-5435.htm#Table3051>(see #03051)</a><br>
+DS:DX -> 512-byte buffer for status area <a href=rb-5435.htm#Table3051>(see #03051)</a><br>
 <p><b>Return:</b><br>AX = 0000h successful
 BX = event handle of current event or negative error code if
 no current event
 buffer filled
-AX < 0     error code <a href=http://www.ctyme.com/intr/rb-5422.htm#Table3048>(see #03048)</a>
+AX < 0     error code <a href=rb-5422.htm#Table3048>(see #03048)</a>
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-5423.htm>AX=CB02h</a> - <a href=http://www.ctyme.com/intr/rb-5432.htm>AX=CB0Dh</a>
+<a href=rb-5423.htm>AX=CB02h</a> - <a href=rb-5432.htm>AX=CB0Dh</a>
 <PRE>
 <p>
 <a name=table3050></a>
@@ -61,13 +61,13 @@ FFh    serious hardware error
 Format of CAS status area:
 <a name=table3051></a>
 Offset  Size    Description     (Table 03051)
-00h    BYTE    event type <a href=http://www.ctyme.com/intr/rb-5435.htm#Table3050>(see #03050)</a>
+00h    BYTE    event type <a href=rb-5435.htm#Table3050>(see #03050)</a>
 01h    BYTE    transfer type
 00h 200x200 dpi, FAX mode
 01h 100x200 dpi, FAX mode
 02h file transfer mode
 03h to 7Fh reserved
-02h    WORD    event status <a href=http://www.ctyme.com/intr/rb-5435.htm#Table3052>(see #03052)</a>
+02h    WORD    event status <a href=rb-5435.htm#Table3052>(see #03052)</a>
 04h    WORD    event time (packed DOS time format, see INT 21/AX=5700h)
 06h    WORD    event date (packed DOS date format, see INT 21/AX=5700h)
 08h    WORD    number of files to transfer, max 7FFFh
@@ -91,7 +91,7 @@ DAh 21 BYTEs   ASCIZ remote FAX's CCITT identification
 EFH 32 BYTEs   ASCIZ destination name
 10Fh 32 BYTEs   ASCIZ sender name
 12Fh 80 BYTEs   filename of PCX logo file (max 1780x800 pixels)
-17Fh 128 BYTEs  file transfer record for current event <a href=http://www.ctyme.com/intr/rb-5435.htm#Table3053>(see #03053)</a>
+17Fh 128 BYTEs  file transfer record for current event <a href=rb-5435.htm#Table3053>(see #03053)</a>
 <p>
 <a name=table3052></a>
 (Table 03052)
@@ -148,108 +148,20 @@ Fax</a>
 Int 2Fh</a>
 - <a href=alpha-c.htm>
 C</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5434.htm>
+<a href=rb-5434.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5436.htm>
+<a href=rb-5436.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

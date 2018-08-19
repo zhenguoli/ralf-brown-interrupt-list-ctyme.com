@@ -17,28 +17,28 @@ used on various calls to specify which of possibly multiple
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 15/AX=DE2Eh
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1725.htm>
+<a href=rb-1725.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1727.htm>
+<a href=rb-1727.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>DESQview v2.50+ - SOCKET API</font></h3>
 <PRE>
 AX = DE2Eh
-DX:BX -> socket record <a href=http://www.ctyme.com/intr/rb-1726.htm#Table558>(see #00558)</a>
+DX:BX -> socket record <a href=rb-1726.htm#Table558>(see #00558)</a>
 0000h:0000h to create a new socket record<br>
 <p><b>Return:</b><br>CX = size of socket record in bytes
 DX:BX -> socket record which was used
@@ -51,7 +51,7 @@ allocated a DOS file handle (referencing an SFT for NUL) which is
 used on various calls to specify which of possibly multiple
 connections is to be operated upon
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-1725.htm>AX=DE2Dh</a> - <a href=rb-6705.htm>INT 61/AX=0001h/SF=0001h"VINES"</a> - <a href=http://www.ctyme.com/intr/rb-7197.htm>INT 63"DESQview"</a>
+<a href=rb-1725.htm>AX=DE2Dh</a> - <a href=rb-6705.htm>INT 61/AX=0001h/SF=0001h"VINES"</a> - <a href=rb-7197.htm>INT 63"DESQview"</a>
 <PRE>
 <p>
 <a name=table557></a>
@@ -106,8 +106,8 @@ Format of DESQview/X socket record:
 <a name=table558></a>
 Offset  Size    Description     (Table 00558)
 00h    WORD    signature F0ADh
-02h    WORD    function number <a href=http://www.ctyme.com/intr/rb-1726.htm#Table557>(see #00557)</a>
-04h    WORD    returned error code <a href=http://www.ctyme.com/intr/rb-1726.htm#Table578>(see #00578)</a>
+02h    WORD    function number <a href=rb-1726.htm#Table557>(see #00557)</a>
+04h    WORD    returned error code <a href=rb-1726.htm#Table578>(see #00578)</a>
 06h    WORD    maximum message size??? (usually 0400h)
 08h    WORD    PSP segment to use or 0000h if socket not valid
 0Ah    WORD    scratch space (JFT size)
@@ -270,12 +270,12 @@ no additional fields
 1Ah    WORD    file handle which may or may not be a socket
 ---function 001Fh---
 18h    WORD    (ret) file handle or FFFFh on error
-1Ah    DWORD   (call) pointer to Socket Context Record <a href=http://www.ctyme.com/intr/rb-1726.htm#Table579>(see #00579)</a> of a
+1Ah    DWORD   (call) pointer to Socket Context Record <a href=rb-1726.htm#Table579>(see #00579)</a> of a
 previously detached socket
 ---function 0020h---
 <p><b>18h    WORD    (ret) status:</b><br>0000h if successful or FFFFh on error
 1Ah    WORD    socket's file handle
-1Ch    DWORD   (ret) pointer to Socket Context Record <a href=http://www.ctyme.com/intr/rb-1726.htm#Table579>(see #00579)</a> for
+1Ch    DWORD   (ret) pointer to Socket Context Record <a href=rb-1726.htm#Table579>(see #00579)</a> for
 the file handle
 ---function 0021h---
 18h 64 BYTEs   buffer for DESQview startup directory (see AX=DE25h)
@@ -283,12 +283,12 @@ the file handle
 18h    DWORD   (ret) task handle of new application
 1Ch    WORD    size of .DVP data
 1Eh 129 BYTEs  ASCIZ ???
-9Fh  N BYTEs   .DVP data <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00427 at AX=102Ch)
+9Fh  N BYTEs   .DVP data <a href=rb-0000.htm#Table0></a>(see #00427 at AX=102Ch)
 ---function 0023h---
 18h    WORD    (ret) ??? or FFFFh on error
 1Ah    WORD    socket's file handle???
 ---function 0024h---
-18h    WORD    (ret) DOS error code <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at INT 21/AH=59h/BX=0000h)
+18h    WORD    (ret) DOS error code <a href=rb-0000.htm#Table0></a>(see #01680 at INT 21/AH=59h/BX=0000h)
 0000h if successful
 1Ah 129 BYTEs  ASCIZ filename/pathname
 11Bh 129 BYTEs  ASCIZ canonicalized filename/pathname (see INT 21/AH=60h)
@@ -307,12 +307,12 @@ the file handle
 2Ah  N DWORDs  (call) stack parameters for INT 15/AH=12h call
 (ret) stack results from INT 15/AH=12h call
 ---function 0026h---
-18h    WORD    (call) Network Manager subfunction <a href=http://www.ctyme.com/intr/rb-1726.htm#Table559>(see #00559)</a>
+18h    WORD    (call) Network Manager subfunction <a href=rb-1726.htm#Table559>(see #00559)</a>
 (ret) status??? (0000h on error)
 1Ah    WORD    (call) size of parameter data
 (ret) size of returned data
-1Ch  N BYTEs   (call) parameter data required by call <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00560,#00561,#00577)
-(ret) result data <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00570,#00571,#00576)
+1Ch  N BYTEs   (call) parameter data required by call <a href=rb-0000.htm#Table0></a>(see #00560,#00561,#00577)
+(ret) result data <a href=rb-0000.htm#Table0></a>(see #00570,#00571,#00576)
 ---function 0027h---
 <p><b>18h    WORD    (ret) status:</b><br>0000h if successful, FFFFh on error
 1Ah    WORD    socket's file handle
@@ -333,21 +333,21 @@ Values for DESQview/X Network Manager subfunction:
 000Fh  "getprotobyname"
 0010h  get protocol name for protocol number
 0011h  "getservbyname"
-0012h  "getservbyport" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table563>(see #00563)</a>
-0013h  "getsockname"??? <a href=http://www.ctyme.com/intr/rb-1726.htm#Table564>(see #00564)</a>
-0016h  "shutdown" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table565>(see #00565)</a>
+0012h  "getservbyport" <a href=rb-1726.htm#Table563>(see #00563)</a>
+0013h  "getsockname"??? <a href=rb-1726.htm#Table564>(see #00564)</a>
+0016h  "shutdown" <a href=rb-1726.htm#Table565>(see #00565)</a>
 0017h  kill Network Manager
-0018h  "getpeername"??? <a href=http://www.ctyme.com/intr/rb-1726.htm#Table566>(see #00566)</a>
-0019h  ??? (called by socket function 0000h) <a href=http://www.ctyme.com/intr/rb-1726.htm#Table567>(see #00567)</a>
-001Ah  ??? <a href=http://www.ctyme.com/intr/rb-1726.htm#Table568>(see #00568)</a>
-001Bh  "so_linkup" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table569>(see #00569)</a>
-001Dh  "getnetstatus" get network services <a href=http://www.ctyme.com/intr/rb-1726.htm#Table570>(see #00570)</a>
+0018h  "getpeername"??? <a href=rb-1726.htm#Table566>(see #00566)</a>
+0019h  ??? (called by socket function 0000h) <a href=rb-1726.htm#Table567>(see #00567)</a>
+001Ah  ??? <a href=rb-1726.htm#Table568>(see #00568)</a>
+001Bh  "so_linkup" <a href=rb-1726.htm#Table569>(see #00569)</a>
+001Dh  "getnetstatus" get network services <a href=rb-1726.htm#Table570>(see #00570)</a>
 001Fh  "getpwuid"
 0020h  "getpwnam"
 0021h  "getpwvar"
 0022h  "crypt"
 0023h  "so_unlink"
-0024h  "getlogin" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table571>(see #00571)</a>
+0024h  "getlogin" <a href=rb-1726.htm#Table571>(see #00571)</a>
 0028h  "sethostent"
 0029h  "gethostent"
 002Ah  "soaddhost"
@@ -356,15 +356,15 @@ Values for DESQview/X Network Manager subfunction:
 002Dh  "setservent"
 002Eh  "getservent"
 002Fh  "setpwent"
-0030h  "getpwent" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table572>(see #00572)</a>
-0031h  "sethostpath" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table573>(see #00573)</a>
+0030h  "getpwent" <a href=rb-1726.htm#Table572>(see #00572)</a>
+0031h  "sethostpath" <a href=rb-1726.htm#Table573>(see #00573)</a>
 0032h  "endservent"
 0033h  "endhostent"
-0034h  "getnettype" get IP network number <a href=http://www.ctyme.com/intr/rb-1726.htm#Table574>(see #00574)</a>
+0034h  "getnettype" get IP network number <a href=rb-1726.htm#Table574>(see #00574)</a>
 0035h  ??? (pops up Network Manager window)
-0037h  "getnettimeout" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table575>(see #00575)</a>
-0038h  get machine name and IP address <a href=http://www.ctyme.com/intr/rb-1726.htm#Table576>(see #00576)</a>
-0039h  "getuid" <a href=http://www.ctyme.com/intr/rb-1726.htm#Table577>(see #00577)</a>
+0037h  "getnettimeout" <a href=rb-1726.htm#Table575>(see #00575)</a>
+0038h  get machine name and IP address <a href=rb-1726.htm#Table576>(see #00576)</a>
+0039h  "getuid" <a href=rb-1726.htm#Table577>(see #00577)</a>
 ---DV/X v2.0+ ---
 0041h  "deletepwnam"
 0045h  "renamepw"
@@ -515,7 +515,7 @@ Offset  Size    Description     (Table 00579)
 00h    DWORD   pointer to next Socket Context Record, 0000h:0000h if last
 04h    WORD    SFT index for socket, 00FFh if not connected, FFFFh if detached
 06h    WORD    PSP segment of owner or 0000h
-08h    WORD    mapping context of owning window <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00416 at AX=1016h)
+08h    WORD    mapping context of owning window <a href=rb-0000.htm#Table0></a>(see #00416 at AX=1016h)
 0Ah  2 BYTEs   ???
 0Ch    WORD    address family
 0Eh    WORD    socket type
@@ -546,108 +546,20 @@ DESQview/TopView and Quarterdeck Programs</a>
 Int 15h</a>
 - <a href=alpha-d.htm>
 D</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1725.htm>
+<a href=rb-1725.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1727.htm>
+<a href=rb-1727.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

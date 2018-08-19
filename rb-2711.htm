@@ -17,36 +17,36 @@ BH = MS-DOS OEM number (see #01394)
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 21/AH=30h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2710.htm>
+<a href=rb-2710.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2712.htm>
+<a href=rb-2712.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>DOS 2+ - GET DOS VERSION</font></h3>
 <PRE>
 AH = 30h
 ---DOS 5+ ---
 AL = what to return in BH
-00h OEM number <a href=http://www.ctyme.com/intr/rb-2711.htm#Table1394>(see #01394)</a>
+00h OEM number <a href=rb-2711.htm#Table1394>(see #01394)</a>
 01h version flag<br>
 <p><b>Return:</b><br>AL = major version number (00h if DOS 1.x)
 AH = minor version number
 BL:CX = 24-bit user serial number (most versions do not use this)
 ---if DOS <5 or AL=00h---
-BH = MS-DOS OEM number <a href=http://www.ctyme.com/intr/rb-2711.htm#Table1394>(see #01394)</a>
+BH = MS-DOS OEM number <a href=rb-2711.htm#Table1394>(see #01394)</a>
 ---if DOS 5+ and AL=01h---
 BH = version flag
 <p><b>bit 3:</b><br>DOS is in ROM
@@ -120,22 +120,22 @@ checking, and will install on any DOS revision 0..127, as long as
 run on a DR-DOS 72h+ kernel (formerly it was bound to a revision
 byte of 0 only)..
 Under Novell DOS 7+, the SETVERing also affects the version number
-WORD stored at offset +40h in each program's PSP <a href=http://www.ctyme.com/intr/rb-2682.htm#Table1378>(see #01378)</a>.
+WORD stored at offset +40h in each program's PSP <a href=rb-2682.htm#Table1378>(see #01378)</a>.
 This holds true even for special sub-versions of 100..255
 (see INT 21/AX=4452h)..
 Generic MS-DOS 3.30, Compaq MS-DOS 3.31, and others identify themselves
 as PC-DOS by returning OEM number 00h.
 The version returned under DOS 4.0x may be modified by entries in
-the special program list <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01662 at AH=52h); the version returned
+the special program list <a href=rb-0000.htm#Table0></a>(see #01662 at AH=52h); the version returned
 under DOS 5+ may be modified by SETVER--use AX=3306h to get the true
 version number
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2716.htm>AX=3000h/BX=3000h</a> - <a href=http://www.ctyme.com/intr/rb-2730.htm>AX=3306h</a> - <a href=http://www.ctyme.com/intr/rb-2920.htm>AX=4452h</a> - <a href=http://www.ctyme.com/intr/rb-3251.htm>AH=87
+<a href=rb-2716.htm>AX=3000h/BX=3000h</a> - <a href=rb-2730.htm>AX=3306h</a> - <a href=rb-2920.htm>AX=4452h</a> - <a href=rb-3251.htm>AH=87
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2596.htm>AH=20h"S/DOS"</a> - <a href=http://www.ctyme.com/intr/rb-4415.htm>INT 2F/AX=122Fh</a> - <a href=http://www.ctyme.com/intr/rb-4754.htm>INT 2F/AX=4010h</a> - <a href=http://www.ctyme.com/intr/rb-4859
+<a href=rb-2596.htm>AH=20h"S/DOS"</a> - <a href=rb-4415.htm>INT 2F/AX=122Fh</a> - <a href=rb-4754.htm>INT 2F/AX=4010h</a> - <a href=rb-4859
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-5623.htm>INT 2F/AX=E002h</a>
+<a href=rb-5623.htm>INT 2F/AX=E002h</a>
 <PRE>
 <p>
 <a name=table1394></a>
@@ -215,108 +215,20 @@ DOS Kernel</a>
 Int 21h</a>
 - <a href=alpha-d.htm>
 D</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2710.htm>
+<a href=rb-2710.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2712.htm>
+<a href=rb-2712.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

@@ -17,30 +17,30 @@ this call is used as the installation check by VLM.EXE, which is the
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=7A20h/BX=0000h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4942.htm>
+<a href=rb-4942.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4944.htm>
+<a href=rb-4944.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>Novell NetWare - Adv NetWare 4.0 DOS Requester - GET VLM CALL ADDRESS</font></h3>
 <PRE>
 AX = 7A20h
 BX = 0000h<br>
 <p><b>Return:</b><br>AX = 0000h on success (installed)
-ES:BX -> far call address for DOS Requester <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2859>(see #02859)</a>
+ES:BX -> far call address for DOS Requester <a href=rb-4943.htm#Table2859>(see #02859)</a>
 </PRE>
 <p><b>Notes:</b>
 The DOS Requester replaces the NetWare Shell (ANETx, NETx) on
@@ -54,19 +54,19 @@ loader for all the modules of the DOS Requester.
 merely terminates to prevent loading from the command line (Novell's
 VLMs all return errorlevel 6).  The real entry point is found by
 looking at the VLM header at the beginning of the load image
-<a href=http://www.ctyme.com/intr/rb-4943.htm#Table2862>(see #02862)</a>
+<a href=rb-4943.htm#Table2862>(see #02862)</a>
 <PRE>
 <p><b>Index:</b><br>Installation check;NetWare 4.0 DOS Requester
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-4944.htm>AX=7A20h/BX=0001h</a> - <a href=http://www.ctyme.com/intr/rb-4945.htm>AX=7A20h/BX=0002h</a>
+<a href=rb-4944.htm>AX=7A20h/BX=0001h</a> - <a href=rb-4945.htm>AX=7A20h/BX=0002h</a>
 <PRE>
 <p>
 <a name=table2859></a>
 (Table 02859)
 Call DOS Requester entry point with:.
 <p><b>STACK:</b><br>WORD    destination function
-WORD    destination VLM ID <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2861>(see #02861)</a>
+WORD    destination VLM ID <a href=rb-4943.htm#Table2861>(see #02861)</a>
 WORD    source VLM ID (0000h = application program).
 Other registers (except BP) as appropriate for function<br>
 <p><b>Return:</b><br>AX = status code (0000h,8811h,8846h,8848h,8853h) (see #02860)
@@ -269,7 +269,7 @@ Values for VLM identifier:
 0001h  VLM.EXE         Virtual Loadable Modules manager (see also #02864)
 0010h  CONN.VLM        connection table manager (see also #02867)
 0020h  TRAN.VLM        transport protocol multiplexor (see also #02871)
-0021h  IPXNCP.VLM      transport protocol implementation using IPX <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2873>(see #02873)</a>
+0021h  IPXNCP.VLM      transport protocol implementation using IPX <a href=rb-4943.htm#Table2873>(see #02873)</a>
 0022h  TCPNCP.VLM      TCP/IP transport
 0030h  NWP.VLM         NetWare protocol multiplexor (see also #02875)
 0031h  BIND.VLM        bindery
@@ -282,7 +282,7 @@ Values for VLM identifier:
 0043h  GENERAL.VLM     misc functions for NETx and REDIR (see also #02888)
 0050h  NETX.VLM        NetWare shell compatibility (see also #02890)
 0060h  AUTO.VLM        auto-reconnect/auto-retry
-0061h  SECURITY.VLM    enhanced security module <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2892>(see #02892)</a>
+0061h  SECURITY.VLM    enhanced security module <a href=rb-4943.htm#Table2892>(see #02892)</a>
 0100h  NMR.VLM         NetWare management responder
 09F2h  DRVPRN.VLM      Desktop SNMP Services - Drive/Printer Mappings
 09F5h  SAA.VLM         SAA client API for Netware
@@ -308,12 +308,12 @@ Offset  Size    Description     (Table 02862)
 ...
 var    DWORD   00000000h (end of entry point list)
 4 BYTEs   signature "NVlm".
-WORD    VLM identifier <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2861>(see #02861)</a>
+WORD    VLM identifier <a href=rb-4943.htm#Table2861>(see #02861)</a>
 ---v1.20+ ---
 1Eh    WORD    ???
 20h    WORD    Transient Switch Count
 22h    WORD    VLM Call Count
-24h    WORD    Offset ControlBlocks <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2863>(See #02863)</a>
+24h    WORD    Offset ControlBlocks <a href=rb-4943.htm#Table2863>(See #02863)</a>
 26h    WORD    Current VLMID
 28h    BYTE    Memory Type
 00h=Conventional 02h=EMS 04h=XMS
@@ -337,7 +337,7 @@ Format of VLM Control Block for VLM v1.20 [array]:
 <a name=table2863></a>
 Offset  Size    Description     (Table 02863)
 00h    WORD    Flag
-02h    WORD    VLM Identifier <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2861>(See #02861)</a>
+02h    WORD    VLM Identifier <a href=rb-4943.htm#Table2861>(See #02861)</a>
 04h    WORD    Func
 06h    WORD    Maps
 08h    WORD    number of times called
@@ -370,7 +370,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    VLM Statistics.
 CX = length of buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2865>(see #02865)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2865>(see #02865)</a>.
 <p><b>Return:</b><br>AX = status (0000h if successful)
 buffer filled if successful
 04h    VLM internal use.
@@ -393,8 +393,8 @@ Offset  Size    Description     (Table 02865)
 0Ch    WORD    EMS/XMS handle or 0000h if conventional memory
 0Eh    WORD    start segment for conventional memory swap
 10h    WORD    segment for global memory, or 0000h if conventional memory
-12h 12 BYTEs   queue structure for asynchronous calls <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2866>(see #02866)</a>
-1Eh 12 BYTEs   queue structure for synchronous calls <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2866>(see #02866)</a>
+12h 12 BYTEs   queue structure for asynchronous calls <a href=rb-4943.htm#Table2866>(see #02866)</a>
+1Eh 12 BYTEs   queue structure for synchronous calls <a href=rb-4943.htm#Table2866>(see #02866)</a>
 2Ah    WORD    current re-entrance level
 2Ch    WORD    number of times EMS/XMS map-out performed
 2Eh    BYTE    stack switch control
@@ -429,7 +429,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    Conn Statistics.
 CX = length of buffer.
-ES:DI -> buffer for connection statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2868>(see #02868)</a>.
+ES:DI -> buffer for connection statistics <a href=rb-4943.htm#Table2868>(see #02868)</a>.
 <p><b>Return:</b><br>AX = status (0000h successful)
 04h    Conn Alloc Handle.
 <p><b>Return:</b><br>AX = status (0000h successful)
@@ -441,7 +441,7 @@ CX = connection handle.
 CX = connection handle.
 <p><b>Return:</b><br>AX = status (0000h successful)
 07h    Conn Get Entry Field.
-BH = connection parameter <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2870>(see #02870)</a>.
+BH = connection parameter <a href=rb-4943.htm#Table2870>(see #02870)</a>.
 CX = connection handle.
 DX = value if BH is non-array parameter.
 DH = offset in array if BH is array parameter.
@@ -453,7 +453,7 @@ DH = maximum number of bytes in buffer if array parameter
 DL = number of bytes copied if array
 BX destroyed
 08h    Conn Set Entry Field.
-BH = connection parameter <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2870>(see #02870)</a>.
+BH = connection parameter <a href=rb-4943.htm#Table2870>(see #02870)</a>.
 CX = connection handle.
 DL/DX = value if BH is non-array parameter.
 DH = offset in array if BH is array parameter.
@@ -464,13 +464,13 @@ DH = maximum number of bytes in buffer
 DL = number of bytes copied
 BX destroyed
 09h    Conn Reset Entry Field.
-BH = connection parameter <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2870>(see #02870)</a>.
+BH = connection parameter <a href=rb-4943.htm#Table2870>(see #02870)</a>.
 CX = connection handle.
 <p><b>Return:</b><br>AX = 0000h if successful
 BX,DX destroyed
 0Ah    Conn Lookup Handle.
 BL = lookup type (00h equal, 40h not equal).
-BH = connection parameter <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2870>(see #02870)</a>.
+BH = connection parameter <a href=rb-4943.htm#Table2870>(see #02870)</a>.
 CX = connection handle, 0000h if first.
 DL/DX = value if BH is non-array parameter.
 DH = offset in array if BH is array parameter.
@@ -493,7 +493,7 @@ CX = connection handle if successful
 <p><b>Return:</b><br>AX = status (0000h if successful)
 DX = number of connections
 CX = segment of connection table
-first entry in table <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2869>(See #02869)</a>
+first entry in table <a href=rb-4943.htm#Table2869>(See #02869)</a>
 <p>
 Format of VLM connection statistics:
 <a name=table2868></a>
@@ -618,15 +618,15 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    TRAN Statistics
 06h    TRAN Request Reply (see INT 21/AH=F2h).
-AL = NCP request code <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #02095 at INT 21/AH=F2h).
+AL = NCP request code <a href=rb-0000.htm#Table0></a>(see #02095 at INT 21/AH=F2h).
 BH = error handler flag
 00h default error handler
 01h return network errors to caller
 02h handle network errors in requester.
-BL = request list length (max 5 fragments) <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2872>(see #02872)</a>.
+BL = request list length (max 5 fragments) <a href=rb-4943.htm#Table2872>(see #02872)</a>.
 CX = connection handle.
 DH = 00h (reserved).
-DL = reply list length (max 5 fragments) <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2872>(see #02872)</a>.
+DL = reply list length (max 5 fragments) <a href=rb-4943.htm#Table2872>(see #02872)</a>.
 DS:SI -> address list (each element is DWORD address + WORD length).
 ES:DI -> address list.
 <p><b>Return:</b><br>AX = error code, 0000h if successful (see #02860)
@@ -675,7 +675,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    IPX Statistics.
 CX = length of buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2874>(see #02874)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2874>(see #02874)</a>.
 <p><b>Return:</b><br>AX = status (see #02860)
 06h    IPXNCP Request Reply???.
 Functionally equivalent to Tran Request Reply???
@@ -726,7 +726,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    NWP Statistics.
 CX = size of buffer for statistics.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2876>(see #02876)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2876>(see #02876)</a>.
 <p><b>Return:</b><br>AX = status (see #02860)
 04h    NWP Connect.
 DL = resource count state (NDS connections only).
@@ -787,7 +787,7 @@ CX = connection handle for server which is to do the lookup
 ES:DI -> 48-byte buffer for object name
 <p><b>Return:</b><br>AX = status (see #02860)
 0005h retrieve broadcast message
-0Ch    NDS Fragment Request (passed to NDS.VLM's function 0Ch) <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2877>(see #02877)</a>.
+0Ch    NDS Fragment Request (passed to NDS.VLM's function 0Ch) <a href=rb-4943.htm#Table2877>(see #02877)</a>.
 AX = verb or request type.
 CX = connection handle.
 DS:SI -> request structure (DWORD data address followed by WORD size).
@@ -907,8 +907,8 @@ CX = connection handle???
 0008h send NDS request
 AX = NDS function
 CX = connection handle
-DS:SI -> request buffer descriptor <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2878>(see #02878)</a>
-ES:DI -> reply buffer descriptor <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2878>(see #02878)</a>
+DS:SI -> request buffer descriptor <a href=rb-4943.htm#Table2878>(see #02878)</a>
+ES:DI -> reply buffer descriptor <a href=rb-4943.htm#Table2878>(see #02878)</a>
 000Ah set NDS CEI Info
 DL = buffer length
 DS:SI -> input buffer
@@ -935,12 +935,12 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    Redir Statistics.
 CX = length of buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2880>(see #02880)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2880>(see #02880)</a>.
 <p><b>Return:</b><br>AX = status (0000h if successful) (see #02860)
 buffer filled if successful
 04h    Redir Build SFT (see INT 21/AH=B4h"NetWare").
 CX = connection handle.
-ES:DI -> SFT build request <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2881>(see #02881)</a>.
+ES:DI -> SFT build request <a href=rb-4943.htm#Table2881>(see #02881)</a>.
 <p><b>Return:</b><br>AX = 0000h if successful
 BX = DOS file handle
 05h    Redir DOS To NW Handle.
@@ -991,7 +991,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    FIO Statistics.
 CX = length of buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2883>(see #02883)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2883>(see #02883)</a>.
 <p><b>Return:</b><br>AX = status (0000h if successful)
 buffer filled if successful
 04h    FIO Remote Copy
@@ -1032,14 +1032,14 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    Print Statistics.
 CX = length of buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2885>(see #02885)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2885>(see #02885)</a>.
 <p><b>Return:</b><br>AX = status (0000h if successful) (see #02860)
 buffer filled if successful
 04h    Print Get/Set Data.
 BX = subfunction
-00h set printer control flags <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2886>(see #02886)</a>
+00h set printer control flags <a href=rb-4943.htm#Table2886>(see #02886)</a>
 01h get printer control flags
-02h set extended printer control flags <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2887>(see #02887)</a>
+02h set extended printer control flags <a href=rb-4943.htm#Table2887>(see #02887)</a>
 03h get extended printer control flags.
 AX = offset within Print structures at which to start read/write.
 CX = number of bytes to transfer.
@@ -1075,7 +1075,7 @@ AX = 0000h or 4E57h ('NW')
 CX = connection handle
 DX = printer/device number (00h=LPT1/PRN, 01h=LPT2, etc.)
 ES:DI -> ASCIZ path of file
-0004h get extended redirection information <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2886>(see #02886)</a>
+0004h get extended redirection information <a href=rb-4943.htm#Table2886>(see #02886)</a>
 DX = printer/device number (00h=LPT1/PRN, 01h=LPT2, etc.)
 ES:DI -> buffer for server/queue name
 <p><b>Return:</b><br>ES:DI buffer filled.
@@ -1182,7 +1182,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    Gen Statistics.
 CX = length of statistics buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2889>(see #02889)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2889>(see #02889)</a>.
 <p><b>Return:</b><br>AX = status (see #02860)
 04h    Gen Get/Set Primary.
 BX = subfunction
@@ -1255,7 +1255,7 @@ BX = major version of VLM supported (0001h)
 CX = minor version of VLM supported (0000h)
 03h    NetX Statistics.
 CX = length of statistics buffer.
-ES:DI -> buffer for statistics <a href=http://www.ctyme.com/intr/rb-4943.htm#Table2891>(see #02891)</a>.
+ES:DI -> buffer for statistics <a href=rb-4943.htm#Table2891>(see #02891)</a>.
 <p><b>Return:</b><br>AX = status (see #02860)
 <p>
 Format of NETX.VLM statistics:
@@ -1292,108 +1292,20 @@ Netware</a>
 Int 2Fh</a>
 - <a href=alpha-n.htm>
 N</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-4942.htm>
+<a href=rb-4942.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-4944.htm>
+<a href=rb-4944.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

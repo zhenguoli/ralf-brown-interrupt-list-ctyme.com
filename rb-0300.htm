@@ -17,24 +17,24 @@ DX = query
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 10/AX=4F13h/BX=0002h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-0299.htm>
+<a href=rb-0299.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-0301.htm>
+<a href=rb-0301.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>VESA VBE/AI (Audio Interface) - QUERY DEVICE</font></h3>
 <PRE>
 AX = 4F13h
@@ -42,11 +42,11 @@ BX = 0002h
 CX = handle
 DX = query
 0001h return length of GeneralDeviceClass
-0002h return copy   of GeneralDeviceClass <a href=http://www.ctyme.com/intr/rb-0300.htm#Table112>(see #00112)</a>
+0002h return copy   of GeneralDeviceClass <a href=rb-0300.htm#Table112>(see #00112)</a>
 0003h return length of Volume Info Structure
-0004h return copy   of Volume Info Structure <a href=http://www.ctyme.com/intr/rb-0300.htm#Table122>(see #00122)</a>
+0004h return copy   of Volume Info Structure <a href=rb-0300.htm#Table122>(see #00122)</a>
 0005h return length of Volume Services Structure
-0006h return copy   of Volume Services Structure <a href=http://www.ctyme.com/intr/rb-0300.htm#Table124>(see #00124)</a>
+0006h return copy   of Volume Services Structure <a href=rb-0300.htm#Table124>(see #00124)</a>
 0007h-000Fh reserved
 0010h-FFFFh device-specific
 SI:DI -> buffer (functions 0002h,0004h,0006h)<br>
@@ -69,10 +69,10 @@ Offset  Size    Description     (Table 00112)
 08h    WORD    type of device (1=Wave, 2=MIDI)
 0Ah    WORD    version of VESA driver support (0100h for 1.00)
 10h    var     for CX=handle for Wave device:
-Wave Info structure <a href=http://www.ctyme.com/intr/rb-0300.htm#Table113>(see #00113)</a>
+Wave Info structure <a href=rb-0300.htm#Table113>(see #00113)</a>
 some bytes ???
 for CX=handle for MIDI device:
-MIDI Info Structure <a href=http://www.ctyme.com/intr/rb-0300.htm#Table118>(see #00118)</a>
+MIDI Info Structure <a href=rb-0300.htm#Table118>(see #00118)</a>
 first 8 bytes of MIDI Service Structure ???
 </PRE>
 <p><b>See Also:</b>
@@ -90,13 +90,13 @@ Offset  Size    Description     (Table 00113)
 4Ch 32 BYTEs   vendor chip/hardware description
 6Ch    BYTE    installed board number
 6Dh    3 BYTEs unused data
-70h    DWORD   feature bits <a href=http://www.ctyme.com/intr/rb-0300.htm#Table114>(see #00114)</a>
+70h    DWORD   feature bits <a href=rb-0300.htm#Table114>(see #00114)</a>
 74h    WORD    user determined preference field
 76h    WORD    memory required for driver use [0200h]
 78h    WORD    number of timer tick callbacks per second [0000h]
 <p><b>7Ah    WORD    channels:</b><br>1 = mono, 2 = stereo
 stereo is assumed to be interleaved data
-7Ch    WORD    bitfield of max sample sizes <a href=http://www.ctyme.com/intr/rb-0300.htm#Table115>(see #00115)</a>
+7Ch    WORD    bitfield of max sample sizes <a href=rb-0300.htm#Table115>(see #00115)</a>
 </PRE>
 <p><b>See Also:</b>
 #00118
@@ -210,7 +210,7 @@ Offset  Size    Description     (Table 00118)
 6Ch    BYTE    installed board number
 6Dh    3 BYTEs unused data
 70h 14 BYTEs   the patch library file name [OPL2.BNK 00..]
-7Eh    DWORD   feature bits <a href=http://www.ctyme.com/intr/rb-0300.htm#Table119>(see #00119)</a>
+7Eh    DWORD   feature bits <a href=rb-0300.htm#Table119>(see #00119)</a>
 80h    WORD    user determined preference field
 82h    WORD    memory required for driver use
 84h    WORD    # of timer tick callbacks per second
@@ -258,7 +258,7 @@ Offset  Size    Description     (Table 00120)
 50h    DWORD   timer tick
 54h    DWORD   get last error
 01h unsupported feature/function
-02h unknown patch type <a href=http://www.ctyme.com/intr/rb-0300.htm#Table121>(see #00121)</a>
+02h unknown patch type <a href=rb-0300.htm#Table121>(see #00121)</a>
 03h all tones are used
 04h messages are out of sync
 05h an incoming patch was incomplete
@@ -291,7 +291,7 @@ Offset  Size    Description     (Table 00122)
 6Ch    BYTE    installed board number (0 for 1st/only board)
 6Dh  3 BYTEs   unused data (0)
 70h 24 BYTEs   text name of the mixer channel
-88h    DWORD   features bits <a href=http://www.ctyme.com/intr/rb-0300.htm#Table123>(see #00123)</a>
+88h    DWORD   features bits <a href=rb-0300.htm#Table123>(see #00123)</a>
 8Ch    WORD    minimum volume setting
 8Eh    WORD    maximum volume setting
 90h    WORD    attenuation/gain crossover
@@ -352,108 +352,20 @@ Sound/Speech</a>
 Int 10h</a>
 - <a href=alpha-v.htm>
 V</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-0299.htm>
+<a href=rb-0299.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-0301.htm>
+<a href=rb-0301.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

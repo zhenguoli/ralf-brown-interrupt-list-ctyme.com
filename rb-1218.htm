@@ -16,34 +16,34 @@ Offset Size  Description   (Table 00427)
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 15/AX=102Ch
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1217.htm>
+<a href=rb-1217.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1219.htm>
+<a href=rb-1219.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>DESQview v2.00+ - NEWPROC - START NEW APPLICATION IN NEW PROCESS</font></h3>
 <PRE>
 AX = 102Ch
-ES:DI -> contents of .PIF/.DVP file <a href=http://www.ctyme.com/intr/rb-1218.htm#Table427>(see #00427)</a>
+ES:DI -> contents of .PIF/.DVP file <a href=rb-1218.htm#Table427>(see #00427)</a>
 BX = size of .PIF/.DVP info<br>
 <p><b>Return:</b><br>BX = segment of object handle for new task
 0000h on error
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-1711.htm>AX=DE24h</a> - <a href=http://www.ctyme.com/intr/rb-2939.htm>INT 21/AH=4Bh</a>
+<a href=rb-1711.htm>AX=DE24h</a> - <a href=rb-2939.htm>INT 21/AH=4Bh</a>
 <PRE>
 <p>
 Format of .PIF/.DVP file:
@@ -69,7 +69,7 @@ ECh    BYTE    initial window position, column
 EDh    WORD    system memory in KB
 EFh 64 BYTEs   ASCIZ shared program name
 12Fh 64 BYTEs   ASCIZ shared program data file
-16Fh    BYTE    program flags 1 <a href=http://www.ctyme.com/intr/rb-1218.htm#Table428>(see #00428)</a>
+16Fh    BYTE    program flags 1 <a href=rb-1218.htm#Table428>(see #00428)</a>
 170h    BYTE    flags2
 <p><b>bit 6:</b><br>Uses command-line parameters in field at A5h
 <p><b>bit 5:</b><br>Swaps interrupt vectors
@@ -93,9 +93,9 @@ in actual .DVP files, frequently 01h
 180h    BYTE    initial number of rows in physical window
 181h    BYTE    initial number of columns in physical window
 182h    WORD    maximum expanded memory to allow, in KB
-184h    BYTE    DVP program flags 3 <a href=http://www.ctyme.com/intr/rb-1218.htm#Table429>(see #00429)</a>
+184h    BYTE    DVP program flags 3 <a href=rb-1218.htm#Table429>(see #00429)</a>
 185h    BYTE    keyboard conflict level (0-4 for DV<2.26, 00h-0Fh for DV2.26+)
-<a href=http://www.ctyme.com/intr/rb-1218.htm#Table431>(see #00431)</a>
+<a href=rb-1218.htm#Table431>(see #00431)</a>
 186h    BYTE    number of graphics pages used
 187h    WORD    extra system memory size
 189h    BYTE    initial screen mode (FFh = default) (overrides offset E5h)
@@ -105,7 +105,7 @@ FFh uses all serial ports
 00h no serial ports
 01h only COM1
 02h only COM2
-18Bh    BYTE    DVP program flags 4 <a href=http://www.ctyme.com/intr/rb-1218.htm#Table430>(see #00430)</a>
+18Bh    BYTE    DVP program flags 4 <a href=rb-1218.htm#Table430>(see #00430)</a>
 18Ch    BYTE    protection level for 386 machines
 18Dh 19 BYTEs   reserved (0) for regular DESQview
 ---information unique to DESQview/X 1.0---
@@ -122,7 +122,7 @@ FFh uses all serial ports
 190h 10 BYTEs   reserved (0)
 19Ah    WORD    length of data follownig XDVP signature
 19Ch  4 BYTEs   signature "XDVP"
-1A0h  N BYTEs   list of variable length records <a href=http://www.ctyme.com/intr/rb-1218.htm#Table432>(see #00432)</a>
+1A0h  N BYTEs   list of variable length records <a href=rb-1218.htm#Table432>(see #00432)</a>
 <p>
 Bitfields for .PIF/.DVP program flags 1:
 <a name=table428></a>
@@ -217,108 +217,20 @@ DESQview/TopView and Quarterdeck Programs</a>
 Int 15h</a>
 - <a href=alpha-d.htm>
 D</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1217.htm>
+<a href=rb-1217.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1219.htm>
+<a href=rb-1219.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

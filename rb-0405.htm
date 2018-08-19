@@ -17,24 +17,24 @@ Seiko Epson Corporation intended to provided a standardized interface
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 10/AX=7F00h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-0404.htm>
+<a href=rb-0404.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-0406.htm>
+<a href=rb-0406.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>SOLLEX SuperVGA - GET EXTENSIONS INFO</font></h3>
 <PRE>
 AX = 7F00h<br>
@@ -42,7 +42,7 @@ AX = 7F00h<br>
 AL = 7Fh if supported
 AH = status
 00h successful
-ES:DI -> info structure <a href=http://www.ctyme.com/intr/rb-0405.htm#Table201>(see #00201)</a>
+ES:DI -> info structure <a href=rb-0405.htm#Table201>(see #00201)</a>
 01h failed
 </PRE>
 <p><b>Program:</b>
@@ -51,7 +51,7 @@ an extension to the VESA SuperVGA BIOS Extensions (see AX=4F00h) by
 Seiko Epson Corporation intended to provided a standardized interface
 to SuperVGA functionality not addressed by the VESA standard
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-0273.htm>AX=4F00h</a>
+<a href=rb-0273.htm>AX=4F00h</a>
 <PRE>
 <p>
 Format of SOLLEX SuperVGA info structure:
@@ -59,11 +59,11 @@ Format of SOLLEX SuperVGA info structure:
 Offset  Size    Description     (Table 00201)
 00h    DWORD   pointer to VESA function dispatch table
 04h    DWORD   pointer to SOLLEX function dispatch table
-08h    DWORD   pointer to VESA SuperVGA info <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00077 at AX=4F00h)
+08h    DWORD   pointer to VESA SuperVGA info <a href=rb-0000.htm#Table0></a>(see #00077 at AX=4F00h)
 0Ch    DWORD   pointer to mode info structure table, consisting of
-alternating ResInfo <a href=http://www.ctyme.com/intr/rb-0405.htm#Table202>(see #00202)</a> and VESA mode information
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00079 at AX=4F01h) blocks, terminated with an FFFFh word
-10h    DWORD   pointer to font info structure table <a href=http://www.ctyme.com/intr/rb-0405.htm#Table203>(see #00203)</a>
+alternating ResInfo <a href=rb-0405.htm#Table202>(see #00202)</a> and VESA mode information
+<a href=rb-0000.htm#Table0></a>(see #00079 at AX=4F01h) blocks, terminated with an FFFFh word
+10h    DWORD   pointer to font info structure table <a href=rb-0405.htm#Table203>(see #00203)</a>
 14h    WORD    high resolution crystal frequency in Hz (0000h = not present)
 16h    DWORD   pointer to ASCIZ ID string
 1Ah    DWORD   pointer to timeout reset table
@@ -99,12 +99,12 @@ Format of SOLLEX SuperVGA ResInfo:
 Offset  Size    Description     (Table 00202)
 00h    WORD    16-bit mode number
 02h    WORD    adapter type (00h VGA, 01h EGA, 02h CGA, 03h MDA)
-04h    WORD    display info <a href=http://www.ctyme.com/intr/rb-0410.htm#Table206>(see #00206)</a>
+04h    WORD    display info <a href=rb-0410.htm#Table206>(see #00206)</a>
 06h    DWORD   pointer to video parameter table
 0Ah    BYTE    replacement entry in master Video Parameter
 0Bh    BYTE    mode requested for mode set by BIOS
 0Ch    DWORD   pointer to LoadReg table
-10h    BYTE    index into table of clock values <a href=http://www.ctyme.com/intr/rb-0405.htm#Table204>(see #00204)</a>
+10h    BYTE    index into table of clock values <a href=rb-0405.htm#Table204>(see #00204)</a>
 </PRE>
 <p><b>See Also:</b>
 #00201
@@ -150,107 +150,20 @@ Video</a>
 Int 10h</a>
 - <a href=alpha-s.htm>
 S</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-0404.htm>
+<a href=rb-0404.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-0406.htm>
+<a href=rb-0406.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- I Want U 30%/Sale *Sex *Gen -->
-
-<A HREF="http://sex.perkel.com/iwanturedir.htm" target=_blank>
-<IMG SRC="http://stats.cashring.com/ads?what=adult&clientID=2" width=468 height=60 BORDER=0 ALT="IwantU Select Clubs"></A>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

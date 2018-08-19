@@ -17,34 +17,34 @@ all other flags (except IF) may be modified
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 1A/AX=B10Ah/SF=1066h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2383.htm>
+<a href=rb-2383.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2385.htm>
+<a href=rb-2385.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>PCI BIOS v2.0c+ - READ CONFIGURATION DWORD (PicoPower devices)</font></h3>
 <PRE>
 AX = B10Ah subfn 1066h
 BH = bus number
 BL = device/function number (bits 7-3 device, bits 2-0 function)
-DI = register number (0000h-00FFh) <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a><br>
+DI = register number (0000h-00FFh) <a href=rb-2377.htm#Table878>(see #00878)</a><br>
 <p><b>Return:</b><br>CF clear if successful
 ECX = dword read
 CF set on error
-AH = status (00h,87h) <a href=http://www.ctyme.com/intr/rb-2371.htm#Table729>(see #00729)</a>
+AH = status (00h,87h) <a href=rb-2371.htm#Table729>(see #00729)</a>
 EAX, EBX, ECX, and EDX may be modified
 all other flags (except IF) may be modified
 </PRE>
@@ -54,29 +54,29 @@ interrupts if they were disabled before making the call.
 The meanings of BL and BH on entry were exchanged between the initial
 drafts of the specification and final implementation
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2377.htm>AX=B10Ah</a> - <a href=http://www.ctyme.com/intr/rb-2387.htm>AX=B10Ah/SF=8086h</a>
+<a href=rb-2377.htm>AX=B10Ah</a> - <a href=rb-2387.htm>AX=B10Ah/SF=8086h</a>
 <PRE>
 <p>
 Format of PicoPower Vesuvius V3-LS ISA Bridge configuration:
 <a name=table971></a>
 Offset  Size    Description     (Table 00971)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1066h, device ID 0002h or 8002h)
-40h    WORD    distributed DMA control register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table972>(see #00972)</a>
-42h    BYTE    distributed DMA status register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table973>(see #00973)</a>
-44h    DWORD   slave DMAC CH0 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-48h    DWORD   slave DMAC CH1 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-4Ch    DWORD   slave DMAC CH2 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-50h    DWORD   slave DMAC CH3 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-54h    DWORD   slave DMAC CH5 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-58h    DWORD   slave DMAC CH6 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-5Ch    DWORD   slave DMAC CH7 base register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table974>(see #00974)</a>
-90h    DWORD   PCI-to-ISA bridge configuration register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table975>(see #00975)</a>
-94h    DWORD   ISA memory address positive decode <a href=http://www.ctyme.com/intr/rb-2384.htm#Table976>(see #00976)</a>
-98h    DWORD   I/O address positive decode <a href=http://www.ctyme.com/intr/rb-2384.htm#Table977>(see #00977)</a>
-9Ch    WORD    I/O configuration address register <a href=http://www.ctyme.com/intr/rb-2384.htm#Table978>(see #00978)</a>
-A0h    DWORD   programmable ISA I/O address decoder <a href=http://www.ctyme.com/intr/rb-2384.htm#Table979>(see #00979)</a>
-A4h  6 DWORD   programmable ISA range decoder registers 1-6 <a href=http://www.ctyme.com/intr/rb-2384.htm#Table980>(see #00980)</a>
+40h    WORD    distributed DMA control register <a href=rb-2384.htm#Table972>(see #00972)</a>
+42h    BYTE    distributed DMA status register <a href=rb-2384.htm#Table973>(see #00973)</a>
+44h    DWORD   slave DMAC CH0 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+48h    DWORD   slave DMAC CH1 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+4Ch    DWORD   slave DMAC CH2 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+50h    DWORD   slave DMAC CH3 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+54h    DWORD   slave DMAC CH5 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+58h    DWORD   slave DMAC CH6 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+5Ch    DWORD   slave DMAC CH7 base register <a href=rb-2384.htm#Table974>(see #00974)</a>
+90h    DWORD   PCI-to-ISA bridge configuration register <a href=rb-2384.htm#Table975>(see #00975)</a>
+94h    DWORD   ISA memory address positive decode <a href=rb-2384.htm#Table976>(see #00976)</a>
+98h    DWORD   I/O address positive decode <a href=rb-2384.htm#Table977>(see #00977)</a>
+9Ch    WORD    I/O configuration address register <a href=rb-2384.htm#Table978>(see #00978)</a>
+A0h    DWORD   programmable ISA I/O address decoder <a href=rb-2384.htm#Table979>(see #00979)</a>
+A4h  6 DWORD   programmable ISA range decoder registers 1-6 <a href=rb-2384.htm#Table980>(see #00980)</a>
 C0h 64 BYTEs   reserved
 </PRE>
 <p><b>See Also:</b>
@@ -255,108 +255,20 @@ Expansion Bus Bios</a>
 Int 1Ah</a>
 - <a href=alpha-p.htm>
 P</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2383.htm>
+<a href=rb-2383.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2385.htm>
+<a href=rb-2385.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

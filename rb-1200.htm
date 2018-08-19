@@ -17,39 +17,39 @@ SeeAlso: AX=DE14h,AX=DE2Bh,AX=DE2Ch
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 15/AX=1016h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1199.htm>
+<a href=rb-1199.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1201.htm>
+<a href=rb-1201.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>TopView - ISOBJ - VERIFY OBJECT HANDLE</font></h3>
 <PRE>
 AX = 1016h
 ES:DI = possible object handle<br>
 <p><b>Return:</b><br>BX = status
-FFFFh if ES:DI is a valid object handle <a href=http://www.ctyme.com/intr/rb-1200.htm#Table414>(see #00414)</a>
+FFFFh if ES:DI is a valid object handle <a href=rb-1200.htm#Table414>(see #00414)</a>
 0000h if ES:DI is not
 </PRE>
 <p><b>Note:</b>
 Under DESQview versions prior to 2.50, an object handle is always a
 pointer to the object; for versions 2.50 and up, only task handles
 are always pointers--other handles may consist of a unique object
-number and offset into DESQview's common memory <a href=http://www.ctyme.com/intr/rb-1200.htm#Table423>(see #00423)</a>
+number and offset into DESQview's common memory <a href=rb-1200.htm#Table423>(see #00423)</a>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-1694.htm>AX=DE14h</a> - <a href=http://www.ctyme.com/intr/rb-1723.htm>AX=DE2Bh</a> - <a href=http://www.ctyme.com/intr/rb-1724.htm>AX=DE2Ch</a>
+<a href=rb-1694.htm>AX=DE14h</a> - <a href=rb-1723.htm>AX=DE2Bh</a> - <a href=rb-1724.htm>AX=DE2Ch</a>
 <PRE>
 <p>
 <a name=table413></a>
@@ -70,13 +70,13 @@ Offset  Size    Description     (Table 00414)
 02h    WORD    offset in common memory of next object of same type
 04h    WORD    signature FEDCh (DV 2.42-)
 signature FEDCh or object number (DV 2.50+)
-06h    WORD    object type <a href=http://www.ctyme.com/intr/rb-1200.htm#Table413>(see #00413)</a>
+06h    WORD    object type <a href=rb-1200.htm#Table413>(see #00413)</a>
 08h    DWORD   object handle to return to caller
 0Ch    DWORD   canonicalized object address (segment = common memory)
 10h    WORD    offset in common memory of owning task
 (0000h for unowned OBJECTQs)
 12h    WORD    mapping context
-offset in common memory of mapping context record <a href=http://www.ctyme.com/intr/rb-1200.htm#Table416>(see #00416)</a>.
+offset in common memory of mapping context record <a href=rb-1200.htm#Table416>(see #00416)</a>.
 Remainder varies by object type and DESQview version
 ---v2.42 keyboard object---
 14h    WORD    flag bits (see also AH=12h/BH=0Ah"OBJECT")
@@ -104,7 +104,7 @@ Remainder varies by object type and DESQview version
 14h    BYTE    00h window, 01h task
 15h    BYTE    internal (not Switch menu) window number???
 16h    BYTE    internal (not Switch menu) window number???
-17h    WORD    segment of internal window record <a href=http://www.ctyme.com/intr/rb-1200.htm#Table417>(see #00417)</a>
+17h    WORD    segment of internal window record <a href=rb-1200.htm#Table417>(see #00417)</a>
 19h  2 BYTEs   ???
 1Bh    BYTE    cursor row
 1Ch    BYTE    cursor column
@@ -178,7 +178,7 @@ no notification if segment = 0000h
 <p><b>bit 6:</b><br>Perform protected-attribute processing on select fields
 9Ch    BYTE    ???
 9Dh    WORD    offset in common memory of current register save record
-<a href=http://www.ctyme.com/intr/rb-1200.htm#Table415>(see #00415)</a>. No register save record in use if < 01C0h
+<a href=rb-1200.htm#Table415>(see #00415)</a>. No register save record in use if < 01C0h
 9Fh    WORD    offset in common memory of task's keyboard object
 A1h    WORD    offset in common memory of task's OBJECTQ object
 A3h    WORD    offset in common memory of task's mailbox object
@@ -190,7 +190,7 @@ B3h    BYTE    ??? bit flags
 <p><b>bit 0:</b><br>Run in foreground only
 B4h    BYTE    ???
 B5h    BYTE    ??? bitflags
-B6h    BYTE    task status <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00555 at AX=DE2Ch)
+B6h    BYTE    task status <a href=rb-0000.htm#Table0></a>(see #00555 at AX=DE2Ch)
 B7h  9 BYTEs   ???
 C0h    WORD    head pointer for keyboard buffer (wraps back to 00h after 80h)
 C2h    WORD    tail pointer for keyboard buffer (wraps back to 00h after 80h)
@@ -218,7 +218,7 @@ F1h 12 BYTEs   ???
 FBh    WORD    ???
 FDh    BYTE    ???
 FFh 12 BYTEs   ???
-10Bh    DWORD   pointer to process record <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00418,#00419)
+10Bh    DWORD   pointer to process record <a href=rb-0000.htm#Table0></a>(see #00418,#00419)
 10Dh 10 BYTEs   ???
 119h    DWORD   SS:SP for ???
 11Dh  4 BYTEs   ???
@@ -231,7 +231,7 @@ FFh 12 BYTEs   ???
 ---v2.42
 142h    DWORD   pointer to first task instance data record in system memory
 148h    DWORD   pointer to last task instance data record in system memory
-<a href=http://www.ctyme.com/intr/rb-1200.htm#Table420>(see #00420)</a>
+<a href=rb-1200.htm#Table420>(see #00420)</a>
 14Ah    BYTE    ???
 14Dh 42 BYTEs   task's default keyboard object
 177h 32 BYTEs   task's ObjectQ object
@@ -274,7 +274,7 @@ FFh    BYTE    ???
 140h    DWORD   pointer to ??? in system memory
 144h    DWORD   pointer to first task instance data record in system memory
 148h    DWORD   pointer to last task instance data record in system memory
-(from INT 15/AX=DE27h) <a href=http://www.ctyme.com/intr/rb-1200.htm#Table420>(see #00420)</a>
+(from INT 15/AX=DE27h) <a href=rb-1200.htm#Table420>(see #00420)</a>
 14Ch    BYTE    ???
 14Eh 42 BYTEs   task's default keyboard object
 179h 32 BYTEs   task's ObjectQ object
@@ -353,7 +353,7 @@ and DOS memory in paragraphs
 ---v2.53 (2.5x???)
 4Eh 12 BYTEs   ???
 ---v2.60
-4Eh    WORD    segment of script buffer <a href=http://www.ctyme.com/intr/rb-1200.htm#Table421>(see #00421)</a>
+4Eh    WORD    segment of script buffer <a href=rb-1200.htm#Table421>(see #00421)</a>
 50h  6 BYTEs   ???
 <p>
 Format of DESQview Internal Window Record (v2.31-2.60):
@@ -400,7 +400,7 @@ Offset  Size    Description     (Table 00419)
 128h  4 BYTEs   ???
 12Ch    DWORD   pointer to first process instance data record in system memory
 130h    DWORD   pointer to last process instance data record in system memory
-(from INT 15/AX=DE27h) <a href=http://www.ctyme.com/intr/rb-1200.htm#Table420>(see #00420)</a>
+(from INT 15/AX=DE27h) <a href=rb-1200.htm#Table420>(see #00420)</a>
 134h  8 BYTEs   ???
 13Ch    WORD    size of current environment
 13Eh    WORD    segment of current environment
@@ -456,7 +456,7 @@ Format of DESQview script buffer (v2.60):
 Offset  Size    Description     (Table 00421)
 00h 13 BYTEs   ASCIZ Script filename
 0Dh 80 BYTEs   ???
-5Eh  N BYTEs   script records <a href=http://www.ctyme.com/intr/rb-1200.htm#Table422>(see #00422)</a>
+5Eh  N BYTEs   script records <a href=rb-1200.htm#Table422>(see #00422)</a>
 <p>
 Format of one DESQview script record (v2.60):
 <a name=table422></a>
@@ -514,108 +514,20 @@ DESQview/TopView and Quarterdeck Programs</a>
 Int 15h</a>
 - <a href=alpha-t.htm>
 T</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1199.htm>
+<a href=rb-1199.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1201.htm>
+<a href=rb-1201.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

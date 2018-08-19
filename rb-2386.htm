@@ -17,34 +17,34 @@ all other flags (except IF) may be modified
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 1A/AX=B10Ah/SF=1106h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2385.htm>
+<a href=rb-2385.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2387.htm>
+<a href=rb-2387.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>PCI BIOS v2.0c+ - READ CONFIGURATION DWORD (VIA Technologies devices)</font></h3>
 <PRE>
 AX = B10Ah subfn 1106h
 BH = bus number
 BL = device/function number (bits 7-3 device, bits 2-0 function)
-DI = register number (0000h-00FFh) <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a><br>
+DI = register number (0000h-00FFh) <a href=rb-2377.htm#Table878>(see #00878)</a><br>
 <p><b>Return:</b><br>CF clear if successful
 ECX = dword read
 CF set on error
-AH = status (00h,87h) <a href=http://www.ctyme.com/intr/rb-2371.htm#Table729>(see #00729)</a>
+AH = status (00h,87h) <a href=rb-2371.htm#Table729>(see #00729)</a>
 EAX, EBX, ECX, and EDX may be modified
 all other flags (except IF) may be modified
 </PRE>
@@ -54,14 +54,14 @@ interrupts if they were disabled before making the call.
 The meanings of BL and BH on entry were exchanged between the initial
 drafts of the specification and final implementation
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2377.htm>AX=B10Ah</a> - <a href=http://www.ctyme.com/intr/rb-2387.htm>AX=B10Ah/SF=8086h</a>
+<a href=rb-2377.htm>AX=B10Ah</a> - <a href=rb-2387.htm>AX=B10Ah/SF=8086h</a>
 <PRE>
 <p>
 <p>
 Format of Via Technologies' VT82C580VPX CPU-PCI bridge configuration:
 <a name=table982></a>
 Offset  Size    Description     (Table 00982)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h, device ID 0585h)
 40h 16 BYTEs   unused
 50h    BYTE    cache control 1
@@ -80,9 +80,9 @@ Offset  Size    Description     (Table 00982)
 62h    BYTE    shadow RAM control 2
 63h    BYTE    shadow RAM control 3
 64h    BYTE    DRAM reference timing
-65h    BYTE    DRAM timing control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table996>(see #00996)</a>
-66h    BYTE    DRAM timing control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table997>(see #00997)</a>
-67h    BYTE    32-bit DRAM width <a href=http://www.ctyme.com/intr/rb-2386.htm#Table998>(see #00998)</a>
+65h    BYTE    DRAM timing control 1 <a href=rb-2386.htm#Table996>(see #00996)</a>
+66h    BYTE    DRAM timing control 2 <a href=rb-2386.htm#Table997>(see #00997)</a>
+67h    BYTE    32-bit DRAM width <a href=rb-2386.htm#Table998>(see #00998)</a>
 68h    BYTE
 69h    BYTE    reserved ("do not program")
 6Ah    BYTE    refresh counter
@@ -108,45 +108,45 @@ Offset  Size    Description     (Table 00982)
 Format of AMD-640 System Controller:
 <a name=table983></a>
 Offset  Size    Description     (Table 00983)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h, device ID 0595h)
 0Dh    BYTE    latency timer (bits 7-3)
 00h = 32*8 PCI clocks
 01h = 1*8 PCI clocks
 N = N*8 PCI clocks
 40h 16 BYTEs   unused???
-50h    BYTE    cache control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table984>(see #00984)</a>
-51h    BYTE    cache control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table985>(see #00985)</a>
-52h    BYTE    non-cacheable control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table986>(see #00986)</a>
-53h    BYTE    system performance control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table987>(see #00987)</a>
-54h    WORD    non-cacheable region 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table988>(see #00988)</a>
-56h    WORD    non-cacheable region 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table988>(see #00988)</a>
-58h    BYTE    DRAM configuration register 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table989>(see #00989)</a>
-59h    BYTE    DRAM configuration register 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table990>(see #00990)</a>
+50h    BYTE    cache control 1 <a href=rb-2386.htm#Table984>(see #00984)</a>
+51h    BYTE    cache control 2 <a href=rb-2386.htm#Table985>(see #00985)</a>
+52h    BYTE    non-cacheable control <a href=rb-2386.htm#Table986>(see #00986)</a>
+53h    BYTE    system performance control <a href=rb-2386.htm#Table987>(see #00987)</a>
+54h    WORD    non-cacheable region 1 <a href=rb-2386.htm#Table988>(see #00988)</a>
+56h    WORD    non-cacheable region 2 <a href=rb-2386.htm#Table988>(see #00988)</a>
+58h    BYTE    DRAM configuration register 1 <a href=rb-2386.htm#Table989>(see #00989)</a>
+59h    BYTE    DRAM configuration register 2 <a href=rb-2386.htm#Table990>(see #00990)</a>
 5Ah  6 BYTEs   end of DRAM banks 0-5
 each register specifies bits 29-22 of the bank's ending address
-60h    BYTE    DRAM type <a href=http://www.ctyme.com/intr/rb-2386.htm#Table991>(see #00991)</a>
-61h    BYTE    shadow RAM control register 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table992>(see #00992)</a>
-62h    BYTE    shadow RAM control register 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table993>(see #00993)</a>
-63h    BYTE    shadow RAM control register 3 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table994>(see #00994)</a>
-64h    BYTE    DRAM timing <a href=http://www.ctyme.com/intr/rb-2386.htm#Table995>(see #00995)</a>
-65h    BYTE    DRAM control register 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table996>(see #00996)</a>
-66h    BYTE    DRAM control register 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table997>(see #00997)</a>
-67h    BYTE    32-bit DRAM width control register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table998>(see #00998)</a>
+60h    BYTE    DRAM type <a href=rb-2386.htm#Table991>(see #00991)</a>
+61h    BYTE    shadow RAM control register 1 <a href=rb-2386.htm#Table992>(see #00992)</a>
+62h    BYTE    shadow RAM control register 2 <a href=rb-2386.htm#Table993>(see #00993)</a>
+63h    BYTE    shadow RAM control register 3 <a href=rb-2386.htm#Table994>(see #00994)</a>
+64h    BYTE    DRAM timing <a href=rb-2386.htm#Table995>(see #00995)</a>
+65h    BYTE    DRAM control register 1 <a href=rb-2386.htm#Table996>(see #00996)</a>
+66h    BYTE    DRAM control register 2 <a href=rb-2386.htm#Table997>(see #00997)</a>
+67h    BYTE    32-bit DRAM width control register <a href=rb-2386.htm#Table998>(see #00998)</a>
 68h  2 BYTEs   reserved
 6Ah    BYTE    DRAM refresh counter (in units of 16 CPU clocks)
-6Bh    BYTE    DRAM refresh control register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table999>(see #00999)</a>
-6Ch    BYTE    SDRAM control register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1000>(see #01000)</a>
-6Dh    BYTE    DRAM drive strength control register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1001>(see #01001)</a>
-6Eh    BYTE    ECC control register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1002>(see #01002)</a>
-6Fh    BYTE    ECC status register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1003>(see #01003)</a>
-70h    BYTE    PCI buffer control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1004>(see #01004)</a>
-71h    BYTE    CPU-to-PCI flow control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1005>(see #01005)</a>
-72h    BYTE    CPU-to-PCI flow control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1006>(see #01006)</a>
-73h    BYTE    PCI target control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1007>(see #01007)</a>
-74h    BYTE    PCI initiator control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1008>(see #01008)</a>
-75h    BYTE    PCI arbitration control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1009>(see #01009)</a>
-76h    BYTE    PCI arbitration control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1010>(see #01010)</a>
+6Bh    BYTE    DRAM refresh control register <a href=rb-2386.htm#Table999>(see #00999)</a>
+6Ch    BYTE    SDRAM control register <a href=rb-2386.htm#Table1000>(see #01000)</a>
+6Dh    BYTE    DRAM drive strength control register <a href=rb-2386.htm#Table1001>(see #01001)</a>
+6Eh    BYTE    ECC control register <a href=rb-2386.htm#Table1002>(see #01002)</a>
+6Fh    BYTE    ECC status register <a href=rb-2386.htm#Table1003>(see #01003)</a>
+70h    BYTE    PCI buffer control <a href=rb-2386.htm#Table1004>(see #01004)</a>
+71h    BYTE    CPU-to-PCI flow control 1 <a href=rb-2386.htm#Table1005>(see #01005)</a>
+72h    BYTE    CPU-to-PCI flow control 2 <a href=rb-2386.htm#Table1006>(see #01006)</a>
+73h    BYTE    PCI target control <a href=rb-2386.htm#Table1007>(see #01007)</a>
+74h    BYTE    PCI initiator control <a href=rb-2386.htm#Table1008>(see #01008)</a>
+75h    BYTE    PCI arbitration control 1 <a href=rb-2386.htm#Table1009>(see #01009)</a>
+76h    BYTE    PCI arbitration control 2 <a href=rb-2386.htm#Table1010>(see #01010)</a>
 77h 137 BYTEs  reserved
 </PRE>
 <p><b>Note:</b>
@@ -259,7 +259,7 @@ Bit(s)  Description     (Table 00989)
 100 twelve-bit column address.
 Other reserved.
 ---SDRAM---.
-0xx = 16-Mbit SDRAM <a href=http://www.ctyme.com/intr/rb-2386.htm#Table991>(see #00991)</a>.
+0xx = 16-Mbit SDRAM <a href=rb-2386.htm#Table991>(see #00991)</a>.
 1xx = 64-Mbit SDRAM
 4      reserved (0)
 3-1    type of address mapping ofr memory banks 2 and 3
@@ -272,7 +272,7 @@ Other reserved.
 Bitfields for AMD-640 DRAM Configuration Register 2:
 <a name=table990></a>
 Bit(s)  Description     (Table 00990)
-7-5    type of address mapping for memory banks 4 and 5 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table989>(see #00989)</a>
+7-5    type of address mapping for memory banks 4 and 5 <a href=rb-2386.htm#Table989>(see #00989)</a>
 4-3    reserved (0)
 2-0    last populated memory bank.
 000 - 101 = Bank0 - Bank5.
@@ -393,7 +393,7 @@ Bit(s)  Description     (Table 00996)
 (VT82C580VPX) Pin88 function (0 = DB32, 1 = TA9)
 1      reserved (0)
 0      delay DRAM read cycle by 1T whenever write buffer contains data.
-Must be set if read-around-write is enabled <a href=http://www.ctyme.com/intr/rb-2386.htm#Table987>(see #00987)</a>
+Must be set if read-around-write is enabled <a href=rb-2386.htm#Table987>(see #00987)</a>
 </PRE>
 <p><b>See Also:</b>
 #00983 - #00997 - #00982
@@ -415,7 +415,7 @@ When set, EDO RAM contents will read correctly, FPM not
 </PRE>
 <p><b>Note:</b>
 Bits 1 and 0 have no effect unless SDRAM has been selected via the
-DRAM type register <a href=http://www.ctyme.com/intr/rb-2386.htm#Table991>(see #00991)</a>
+DRAM type register <a href=rb-2386.htm#Table991>(see #00991)</a>
 <p><b>See Also:</b>
 #00983 - #00996 - #00982
 <PRE>
@@ -620,7 +620,7 @@ Bitfields for AMD-640 PCI Arbitration Control 2 register:
 <a name=table1010></a>
 Bit(s)  Description     (Table 01010)
 7      enable initiator priority rotation.
-=0 use arbitration priority as set by offset 75h bit 7 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1009>(see #01009)</a>
+=0 use arbitration priority as set by offset 75h bit 7 <a href=rb-2386.htm#Table1009>(see #01009)</a>
 6      reserved (0)
 5-4    initiator priority rotation control.
 00 disabled (use offset 75h bit 7 setting).
@@ -636,43 +636,43 @@ Bit(s)  Description     (Table 01010)
 Format of AMD-645 Peripheral Bus Controller, function 0 (PCI-ISA bridge) data:
 <a name=table1011></a>
 Offset  Size    Description     (Table 01011)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h, device ID 0586h)
-40h    BYTE    ISA bus control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1012>(see #01012)</a>
-41h    BYTE    ISA Test Mode <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1013>(see #01013)</a>
-42h    BYTE    ISA clock control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1014>(see #01014)</a>
-43h    BYTE    ROM Decode Control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1015>(see #01015)</a>
-44h    BYTE    keyboard controller control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1016>(see #01016)</a>
-45h    BYTE    Type F DMA control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1017>(see #01017)</a>
-46h    BYTE    Miscellaneous control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1018>(see #01018)</a>
-47h    BYTE    Miscellaneous control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1019>(see #01019)</a>
-48h    BYTE    Miscellaneous control 3 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1020>(see #01020)</a>
+40h    BYTE    ISA bus control <a href=rb-2386.htm#Table1012>(see #01012)</a>
+41h    BYTE    ISA Test Mode <a href=rb-2386.htm#Table1013>(see #01013)</a>
+42h    BYTE    ISA clock control <a href=rb-2386.htm#Table1014>(see #01014)</a>
+43h    BYTE    ROM Decode Control <a href=rb-2386.htm#Table1015>(see #01015)</a>
+44h    BYTE    keyboard controller control <a href=rb-2386.htm#Table1016>(see #01016)</a>
+45h    BYTE    Type F DMA control <a href=rb-2386.htm#Table1017>(see #01017)</a>
+46h    BYTE    Miscellaneous control 1 <a href=rb-2386.htm#Table1018>(see #01018)</a>
+47h    BYTE    Miscellaneous control 2 <a href=rb-2386.htm#Table1019>(see #01019)</a>
+48h    BYTE    Miscellaneous control 3 <a href=rb-2386.htm#Table1020>(see #01020)</a>
 49h    BYTE    reserved
-4Ah    BYTE    IDE interrupt routing <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1021>(see #01021)</a>
+4Ah    BYTE    IDE interrupt routing <a href=rb-2386.htm#Table1021>(see #01021)</a>
 4Bh    BYTE    reserved
 4Ch    BYTE    PCI memory hole bottom, bits 23-16
 4Dh    BYTE    PCI memory hole top, bits 23-16
 (if top is <= bottom, hole is disabled)
-4Eh    WORD    DMA/Master memory access control 3 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1022>(see #01022)</a>
-50h    BYTE    PnP DRQ Routing <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1023>(see #01023)</a>
+4Eh    WORD    DMA/Master memory access control 3 <a href=rb-2386.htm#Table1022>(see #01022)</a>
+50h    BYTE    PnP DRQ Routing <a href=rb-2386.htm#Table1023>(see #01023)</a>
 51h  3 BYTEs   reserved
-54h    BYTE    PCI IRQ Edge/Level selection <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1024>(see #01024)</a>
-55h    BYTE    PnP Routing for external MIRQ0/1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1025>(see #01025)</a>
-56h    BYTE    PnP Routing for PCI INTB/INTA <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1027>(see #01027)</a>
-57h    BYTE    PnP Routing for PCI INTD/INTC <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1028>(see #01028)</a>
-58h    BYTE    PnP Routing for external MIRQ2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1029>(see #01029)</a>
-59h    BYTE    MIRQ pin configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1030>(see #01030)</a>
-5Ah    BYTE    XD Power-On Strap Options <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1031>(see #01031)</a>
-5Bh    BYTE    internal RTC test mode <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1032>(see #01032)</a>
+54h    BYTE    PCI IRQ Edge/Level selection <a href=rb-2386.htm#Table1024>(see #01024)</a>
+55h    BYTE    PnP Routing for external MIRQ0/1 <a href=rb-2386.htm#Table1025>(see #01025)</a>
+56h    BYTE    PnP Routing for PCI INTB/INTA <a href=rb-2386.htm#Table1027>(see #01027)</a>
+57h    BYTE    PnP Routing for PCI INTD/INTC <a href=rb-2386.htm#Table1028>(see #01028)</a>
+58h    BYTE    PnP Routing for external MIRQ2 <a href=rb-2386.htm#Table1029>(see #01029)</a>
+59h    BYTE    MIRQ pin configuration <a href=rb-2386.htm#Table1030>(see #01030)</a>
+5Ah    BYTE    XD Power-On Strap Options <a href=rb-2386.htm#Table1031>(see #01031)</a>
+5Bh    BYTE    internal RTC test mode <a href=rb-2386.htm#Table1032>(see #01032)</a>
 5Ch  4 BYTEs   reserved
-60h    WORD    distributed DMA, channel 0 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
-62h    WORD    distributed DMA, channel 1 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
-64h    WORD    distributed DMA, channel 2 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
-66h    WORD    distributed DMA, channel 3 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
+60h    WORD    distributed DMA, channel 0 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
+62h    WORD    distributed DMA, channel 1 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
+64h    WORD    distributed DMA, channel 2 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
+66h    WORD    distributed DMA, channel 3 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
 68h    WORD    reserved
-6Ah    WORD    distributed DMA, channel 5 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
-6Ch    WORD    distributed DMA, channel 6 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
-6Eh    WORD    distributed DMA, channel 7 base address/enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1033>(see #01033)</a>
+6Ah    WORD    distributed DMA, channel 5 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
+6Ch    WORD    distributed DMA, channel 6 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
+6Eh    WORD    distributed DMA, channel 7 base address/enable <a href=rb-2386.htm#Table1033>(see #01033)</a>
 70h 144 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -809,7 +809,7 @@ Bit(s)  Description     (Table 01020)
 0      add 512K to offset 4Eh bits 15-12 at top of PCI memory
 </PRE>
 <p><b>See Also:</b>
-#01011 - #01018 - #01019 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT 0074h</a>"AMD-645"
+#01011 - #01018 - #01019 - <a href=int-1A.htm>PORT 0074h</a>"AMD-645"
 <PRE>
 <p>
 Bitfields for AMD-645 IDE Interrupt Routing register:
@@ -875,8 +875,8 @@ Bit(s)  Description     (Table 01024)
 Bitfields for AMD-645 PnP IRQ Routing 1 register:
 <a name=table1025></a>
 Bit(s)  Description     (Table 01025)
-7-4    routing for MIRQ1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
-3-0    routing for MIRQ0 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
+7-4    routing for MIRQ1 <a href=rb-2386.htm#Table1026>(see #01026)</a>
+3-0    routing for MIRQ0 <a href=rb-2386.htm#Table1026>(see #01026)</a>
 </PRE>
 <p><b>See Also:</b>
 #01011 - #01024
@@ -906,8 +906,8 @@ Values for AMD-645 IRQ routing:
 Bitfields for AMD-645 PnP IRQ Routing 2 register:
 <a name=table1027></a>
 Bit(s)  Description     (Table 01027)
-7-4    routing for PIRQB# <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
-3-0    routing for PIRQA# <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
+7-4    routing for PIRQB# <a href=rb-2386.htm#Table1026>(see #01026)</a>
+3-0    routing for PIRQA# <a href=rb-2386.htm#Table1026>(see #01026)</a>
 </PRE>
 <p><b>See Also:</b>
 #01025 - #01028 - #01029
@@ -916,8 +916,8 @@ Bit(s)  Description     (Table 01027)
 Bitfields for AMD-645 PnP IRQ Routing 3 register:
 <a name=table1028></a>
 Bit(s)  Description     (Table 01028)
-7-4    routing for PIRQD# <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
-3-0    routing for PIRQC# <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
+7-4    routing for PIRQD# <a href=rb-2386.htm#Table1026>(see #01026)</a>
+3-0    routing for PIRQC# <a href=rb-2386.htm#Table1026>(see #01026)</a>
 </PRE>
 <p><b>See Also:</b>
 #01025 - #01027 - #01029
@@ -927,7 +927,7 @@ Bitfields for AMD-645 PnP IRQ Routing 4 register:
 <a name=table1029></a>
 Bit(s)  Description     (Table 01029)
 7-4    reserved
-3-0    routing for MIRQ2# <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1026>(see #01026)</a>
+3-0    routing for MIRQ2# <a href=rb-2386.htm#Table1026>(see #01026)</a>
 </PRE>
 <p><b>See Also:</b>
 #01025 - #01027 - #01028
@@ -987,7 +987,7 @@ Bit(s)  Description     (Table 01033)
 Format of AMD-645 Peripheral Bus Controller, function 1 (IDE Control) data:
 <a name=table1034></a>
 Offset  Size    Description     (Table 01034)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h [VIA Technologies], device ID 0571h)
 09h    BYTE    programming interface
 <p><b>bit 7:</b><br>Master IDE capability
@@ -1001,30 +1001,30 @@ Offset  Size    Description     (Table 01034)
 18h    DWORD   secondary data/command base address
 1Ch    DWORD   secondary control/status base address
 20h    DWORD   bus master control base address (default 0000CC01h)
-40h    BYTE    chip enable <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1035>(see #01035)</a>
-41h    BYTE    IDE configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1036>(see #01036)</a>
+40h    BYTE    chip enable <a href=rb-2386.htm#Table1035>(see #01035)</a>
+41h    BYTE    IDE configuration <a href=rb-2386.htm#Table1036>(see #01036)</a>
 42h    BYTE    reserved ("do not program")
-43h    BYTE    FIFO configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1037>(see #01037)</a>
-44h    BYTE    miscellaneous control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1038>(see #01038)</a>
-45h    BYTE    miscellaneous control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1039>(see #01039)</a>
-46h    BYTE    miscellaneous control 3 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1040>(see #01040)</a>
+43h    BYTE    FIFO configuration <a href=rb-2386.htm#Table1037>(see #01037)</a>
+44h    BYTE    miscellaneous control 1 <a href=rb-2386.htm#Table1038>(see #01038)</a>
+45h    BYTE    miscellaneous control 2 <a href=rb-2386.htm#Table1039>(see #01039)</a>
+46h    BYTE    miscellaneous control 3 <a href=rb-2386.htm#Table1040>(see #01040)</a>
 47h    BYTE    unused???
-48h    DWORD   drive timing control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1041>(see #01041)</a>
-4Ch    BYTE    address setup time <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1042>(see #01042)</a>
+48h    DWORD   drive timing control <a href=rb-2386.htm#Table1041>(see #01041)</a>
+4Ch    BYTE    address setup time <a href=rb-2386.htm#Table1042>(see #01042)</a>
 4Dh    BYTE    reserved ("do not program")
-4Eh    BYTE    secondary non-01F0h port access timing <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1043>(see #01043)</a>
-4Fh    BYTE    primary non-01F0h port access timing <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1043>(see #01043)</a>
-50h    BYTE    UltraDMA/33 extended timing control, Sec. Drive 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1044>(see #01044)</a>
-51h    BYTE    UltraDMA/33 extended timing control, Sec. Drive 0 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1044>(see #01044)</a>
-52h    BYTE    UltraDMA/33 extended timing control, Pri. Drive 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1044>(see #01044)</a>
-53h    BYTE    UltraDMA/33 extended timing control, Pri. Drive 0 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1044>(see #01044)</a>
+4Eh    BYTE    secondary non-01F0h port access timing <a href=rb-2386.htm#Table1043>(see #01043)</a>
+4Fh    BYTE    primary non-01F0h port access timing <a href=rb-2386.htm#Table1043>(see #01043)</a>
+50h    BYTE    UltraDMA/33 extended timing control, Sec. Drive 1 <a href=rb-2386.htm#Table1044>(see #01044)</a>
+51h    BYTE    UltraDMA/33 extended timing control, Sec. Drive 0 <a href=rb-2386.htm#Table1044>(see #01044)</a>
+52h    BYTE    UltraDMA/33 extended timing control, Pri. Drive 1 <a href=rb-2386.htm#Table1044>(see #01044)</a>
+53h    BYTE    UltraDMA/33 extended timing control, Pri. Drive 0 <a href=rb-2386.htm#Table1044>(see #01044)</a>
 54h  4 BYTEs   reserved
 58h    DWORD   "reserved"
 (appears to be an additional set of drive timing controls)
 5Ch  4 BYTEs   ???
-60h    WORD    primary sector size <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1045>(see #01045)</a>
+60h    WORD    primary sector size <a href=rb-2386.htm#Table1045>(see #01045)</a>
 62h  6 BYTEs   reserved
-68h    WORD    secondary sector size <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1045>(see #01045)</a>
+68h    WORD    secondary sector size <a href=rb-2386.htm#Table1045>(see #01045)</a>
 6Ah 150 BYTEs  reserved
 </PRE>
 <p><b>Note:</b>
@@ -1195,11 +1195,11 @@ Bit(s)  Description     (Table 01045)
 Format of AMD-645 Peripheral Bus Controller, function 2 (USB Controller) data:
 <a name=table1046></a>
 Offset  Size    Description     (Table 01046)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h, device ID 3038h)
 20h    DWORD   base address of USB I/O ports (see PORT xxxxh"AMD-645 - USB"
-40h    BYTE    miscellaneous control 1 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1047>(see #01047)</a>
-41h    BYTE    miscellaneous control 2 <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1048>(see #01048)</a>
+40h    BYTE    miscellaneous control 1 <a href=rb-2386.htm#Table1047>(see #01047)</a>
+41h    BYTE    miscellaneous control 2 <a href=rb-2386.htm#Table1048>(see #01048)</a>
 42h  2 BYTEs   reserved
 44h  3 BYTEs   reserved ("do not program")
 47h    BYTE    reserved
@@ -1249,12 +1249,12 @@ Bit(s)  Description     (Table 01048)
 Format of AMD-645 Peripheral Bus Controller, function 3 (Power Mgmt) data:
 <a name=table1049></a>
 Offset  Size    Description     (Table 01049)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 1106h, device ID 3040h)
 20h    DWORD   base address for I/O ports (see PORT xxxxh"AMD-645")
-40h    BYTE    pin configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1050>(see #01050)</a>
-41h    BYTE    general configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1051>(see #01051)</a>
-42h    BYTE    SCI interrupt configuration <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1052>(see #01052)</a>
+40h    BYTE    pin configuration <a href=rb-2386.htm#Table1050>(see #01050)</a>
+41h    BYTE    general configuration <a href=rb-2386.htm#Table1051>(see #01051)</a>
+42h    BYTE    SCI interrupt configuration <a href=rb-2386.htm#Table1052>(see #01052)</a>
 43h    BYTE    reserved
 44h    WORD    primary interrupt channel
 bit 2 is reserved; setting any other bit N makes IRQN the
@@ -1263,7 +1263,7 @@ primary interrupt channel
 bit 2 is reserved; setting any other bit N makes IRQN the
 secondary interrupt channel
 48h  8 BYTEs   unused???
-50h    DWORD   GP timer control <a href=http://www.ctyme.com/intr/rb-2386.htm#Table1053>(see #01053)</a>
+50h    DWORD   GP timer control <a href=rb-2386.htm#Table1053>(see #01053)</a>
 54h 13 BYTEs   reserved
 61h    BYTE    programming interface read value (value to be returned by
 configuration register 09h) (write-only)
@@ -1302,7 +1302,7 @@ Bit(s)  Description     (Table 01051)
 0      reserved ("do not program")
 </PRE>
 <p><b>See Also:</b>
-#01049 - #01050 - <a href=http://www.ctyme.com/intr/int-1A.htm>MEM xxxxh:xxx0h</a>"ACPI"
+#01049 - #01050 - <a href=int-1A.htm>MEM xxxxh:xxx0h</a>"ACPI"
 <PRE>
 <p>
 Bitfields for AMD-645 PM SCI Interrupt Configuration register:
@@ -1360,108 +1360,20 @@ Expansion Bus Bios</a>
 Int 1Ah</a>
 - <a href=alpha-p.htm>
 P</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2385.htm>
+<a href=rb-2385.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2387.htm>
+<a href=rb-2387.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20103" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20103&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

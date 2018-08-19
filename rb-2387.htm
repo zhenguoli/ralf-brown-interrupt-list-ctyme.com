@@ -17,34 +17,34 @@ all other flags (except IF) may be modified
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 1A/AX=B10Ah/SF=8086h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2386.htm>
+<a href=rb-2386.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2388.htm>
+<a href=rb-2388.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>PCI BIOS v2.0c+ - READ CONFIGURATION DWORD (Intel devices)</font></h3>
 <PRE>
 AX = B10Ah subfn 8086h
 BH = bus number
 BL = device/function number (bits 7-3 device, bits 2-0 function)
-DI = register number (0000h-00FFh) <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a><br>
+DI = register number (0000h-00FFh) <a href=rb-2377.htm#Table878>(see #00878)</a><br>
 <p><b>Return:</b><br>CF clear if successful
 ECX = dword read
 CF set on error
-AH = status (00h,87h) <a href=http://www.ctyme.com/intr/rb-2371.htm#Table729>(see #00729)</a>
+AH = status (00h,87h) <a href=rb-2371.htm#Table729>(see #00729)</a>
 EAX, EBX, ECX, and EDX may be modified
 all other flags (except IF) may be modified
 </PRE>
@@ -54,13 +54,13 @@ interrupts if they were disabled before making the call.
 The meanings of BL and BH on entry were exchanged between the initial
 drafts of the specification and final implementation
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2377.htm>AX=B10Ah</a> - <a href=http://www.ctyme.com/intr/rb-2386.htm>AX=B10Ah/SF=1106h</a> - <a href=http://www.ctyme.com/intr/rb-2391.htm>AX=B10Dh</a>
+<a href=rb-2377.htm>AX=B10Ah</a> - <a href=rb-2386.htm>AX=B10Ah/SF=1106h</a> - <a href=rb-2391.htm>AX=B10Dh</a>
 <PRE>
 <p>
 Format of PCI Configuration data for Intel 82375 EISA Bridge:
 <a name=table1054></a>
 Offset  Size    Description     (Table 01054)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 0482h)
 <p><b>(revision numbers:</b><br>03h = 82375EB, 04h = 82375SB)
 40h    BYTE    PCI Control
@@ -102,14 +102,14 @@ Offset  Size    Description     (Table 01054)
 Format of PCI Configuration data for Intel 82434LX/NX Cache/DRAM Controller:
 <a name=table1055></a>
 Offset  Size    Description     (Table 01055)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 04A3h)
 <p><b>(revision numbers:</b><br>01h/03h are 82434LX, 1xh are 82434NX)
 (command register only supports bits 8,6,2,1,0)
 40h 16 BYTEs   unused (hard-wired to 00h)
 44h    BYTE    ??? (AMI BIOS writes 00h)
 45h    BYTE    ??? (AMI BIOS writes 00h)
-50h    BYTE    Host CPU Selection <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1056>(see #01056)</a>
+50h    BYTE    Host CPU Selection <a href=rb-2387.htm#Table1056>(see #01056)</a>
 51h    BYTE    deturbo frequency control register
 when deturbo mode is selected (see PORT 0CF9h), the chipset
 places a hold on the memory bus for a fraction of the
@@ -118,21 +118,21 @@ by comparing it against a free-running 8-bit counter counting
 at 1/8 the CPU clock speed
 (i.e. C0h = 1/4, 80h = 1/2, 40h = 3/4, 20h = 7/8, etc.)
 (only bits 7-6 writable, bits 5-0 hardwired to 0)
-52h    BYTE    Secondary Cache Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1057>(see #01057)</a>
-53h    BYTE    Host Read/Write Buffer Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1058>(see #01058)</a>
+52h    BYTE    Secondary Cache Control <a href=rb-2387.htm#Table1057>(see #01057)</a>
+53h    BYTE    Host Read/Write Buffer Control <a href=rb-2387.htm#Table1058>(see #01058)</a>
 54h    BYTE    PCI Read/Write Buffer Control
 <p><b>bits 7-3:</b><br>Reserved
 <p><b>bit 2:</b><br>LBXs connected to TRDY#
 <p><b>bit 1:</b><br>Enable PCI burst writes
 <p><b>bit 0:</b><br>Enable PCI-to-memory posted writes
 55h  2 BYTEs   reserved
-57h    BYTE    DRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1059>(see #01059)</a>
+57h    BYTE    DRAM Control <a href=rb-2387.htm#Table1059>(see #01059)</a>
 58h    BYTE    DRAM Timing (see also #01117)
 <p><b>bits 7-2:</b><br>Reserved
 <p><b>bit 1:</b><br>(NX only) RAS# Wait State
 <p><b>bit 0:</b><br>CAS# Wait State (one extra wait state before CAS#
 within burst cycle)
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  8 BYTEs   DRAM Row Boundary registers 0-7
 (chip revisions numbered < 10h [LX] only support six rows of
 DRAM)
@@ -148,8 +148,8 @@ each nybble is concatenated with the corresponding DRAM Row
 Boundary register to form a 12-bit boundary value (of which
 only the low 10 bits are actually used)
 6Ch    DWORD   reserved (hardwired to 00000000h)
-70h    BYTE    Error Command <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1060>(see #01060)</a>
-71h    BYTE    Error Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1061>(see #01061)</a>
+70h    BYTE    Error Command <a href=rb-2387.htm#Table1060>(see #01060)</a>
+71h    BYTE    Error Status <a href=rb-2387.htm#Table1061>(see #01061)</a>
 72h    BYTE    System Management RAM control (see also #01123)
 <p><b>bits 7-6:</b><br>Reserved
 <p><b>bit 5:</b><br>Map SMM-mode memory (64K) into address space when bits
@@ -168,7 +168,7 @@ to PCI bus while execuding SMM code)
 (must be multiple of gap size)
 <p><b>bits 3-0:</b><br>Reserved
 7Ah  2 BYTEs   reserved
-7Ch    DWORD   Frame Buffer Range <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1062>(see #01062)</a>
+7Ch    DWORD   Frame Buffer Range <a href=rb-2387.htm#Table1062>(see #01062)</a>
 80h 128 BYTEs  reserved
 </PRE>
 <p><b>Note:</b>
@@ -326,7 +326,7 @@ If bits 31-20=0, the frame buffer feature is disabled
 Format of PCI Configuration data for Intel 82424 Cache Controller:
 <a name=table1063></a>
 Offset  Size    Description     (Table 01063)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 0483h)
 40h    BYTE    bus number
 41h    BYTE    subordinate bus number
@@ -364,67 +364,67 @@ Manager v1.2
 Format of PCI Configuration data for Intel 82378 and 82379 ISA Bridges:
 <a name=table1064></a>
 Offset  Size    Description     (Table 01064)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 0484h)
 (revision ID:
 <p><b>bits 7-4:</b><br>Reserved
 <p><b>bits 3-0:</b><br>Revision
 0011 82378ZB A0-step
 1000 82379AB A0-step)
-40h    BYTE    PCI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1065>(see #01065)</a>
-41h    BYTE    PCI Arbiter Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1066>(see #01066)</a>
-42h    BYTE    PCI Arbiter Priority Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1067>(see #01067)</a>
+40h    BYTE    PCI Control <a href=rb-2387.htm#Table1065>(see #01065)</a>
+41h    BYTE    PCI Arbiter Control <a href=rb-2387.htm#Table1066>(see #01066)</a>
+42h    BYTE    PCI Arbiter Priority Control <a href=rb-2387.htm#Table1067>(see #01067)</a>
 43h    BYTE    (82378ZB) PCI Arbiter Priority Control Extension Register
 <p><b>bit 0:</b><br>Bank 3 fixed priority mode select (see also #01067)
 =0 REQ2# has higher priority
 =1 REQ3# has higher priority
-44h    BYTE    MEMCS# Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1068>(see #01068)</a>
+44h    BYTE    MEMCS# Control <a href=rb-2387.htm#Table1068>(see #01068)</a>
 45h    BYTE    MEMCS# Bottom of Hole (address bits 23-16)
 46h    BYTE    MEMCS# Top of Hole (address bits 23-16)
 47h    BYTE    MEMCS# Top of Memory
 (address bits 28-21 == size in 2M increments, less 1)
-48h    BYTE    ISA Address Decoder Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1069>(see #01069)</a>
-49h    BYTE    ISA Address Decoder ROM Block Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1070>(see #01070)</a>
+48h    BYTE    ISA Address Decoder Control <a href=rb-2387.htm#Table1069>(see #01069)</a>
+49h    BYTE    ISA Address Decoder ROM Block Enable <a href=rb-2387.htm#Table1070>(see #01070)</a>
 4Ah    BYTE    ISA Address Decoder Bottom of Hole (address bits 23-16)
 4Bh    BYTE    ISA Address Decoder Top of Hole (address bits 23-16)
-4Ch    BYTE    ISA Controller Recovery Time <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1087>(see #01087)</a>
-4Dh    BYTE    ISA Clock Divisor <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1071>(see #01071)</a>
-4Eh    BYTE    Utility Bus Chip Select Enable A <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1072>(see #01072)</a>
-4Fh    BYTE    Utility Bus Chip Select Enable B <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1073>(see #01073)</a>
+4Ch    BYTE    ISA Controller Recovery Time <a href=rb-2387.htm#Table1087>(see #01087)</a>
+4Dh    BYTE    ISA Clock Divisor <a href=rb-2387.htm#Table1071>(see #01071)</a>
+4Eh    BYTE    Utility Bus Chip Select Enable A <a href=rb-2387.htm#Table1072>(see #01072)</a>
+4Fh    BYTE    Utility Bus Chip Select Enable B <a href=rb-2387.htm#Table1073>(see #01073)</a>
 50h  4 BYTEs   reserved
-54h    BYTE    MEMCS# Attribute Register #1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1074>(see #01074)</a>
+54h    BYTE    MEMCS# Attribute Register #1 <a href=rb-2387.htm#Table1074>(see #01074)</a>
 attributes for 16K blocks from C0000h-CFFFFh
-55h    BYTE    MEMCS# Attribute Register #2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1074>(see #01074)</a>
+55h    BYTE    MEMCS# Attribute Register #2 <a href=rb-2387.htm#Table1074>(see #01074)</a>
 attributes for 16K blocks from D0000h-DFFFFh
-56h    BYTE    MEMCS# Attribute Register #3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1074>(see #01074)</a>
+56h    BYTE    MEMCS# Attribute Register #3 <a href=rb-2387.htm#Table1074>(see #01074)</a>
 attributes for 16K blocks from E0000h-EFFFFh
-57h    BYTE    (82378) Scatter/Gather Relocation Base Adress <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1075>(see #01075)</a>
+57h    BYTE    (82378) Scatter/Gather Relocation Base Adress <a href=rb-2387.htm#Table1075>(see #01075)</a>
 (82379AB) reserved
 58h  8 BYTEs   reserved
-60h    BYTE    (82378ZB) IRQ0# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-61h    BYTE    (82378ZB) IRQ1# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-62h    BYTE    (82378ZB) IRQ2# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-63h    BYTE    (82378ZB) IRQ3# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
+60h    BYTE    (82378ZB) IRQ0# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+61h    BYTE    (82378ZB) IRQ1# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+62h    BYTE    (82378ZB) IRQ2# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+63h    BYTE    (82378ZB) IRQ3# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
 64h 12 BYTEs   reserved
 70h    BYTE    (82378) reserved
 (82379AB, write-only) PIC/APIC Configuration Control
-<a href=http://www.ctyme.com/intr/rb-2387.htm#Table1077>(see #01077)</a>
+<a href=rb-2387.htm#Table1077>(see #01077)</a>
 71h    BYTE    (82378) reserved
 (82379AB, write-only) APIC Base Address Relocation
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01078,MEM FEC00000h)
+<a href=rb-0000.htm#Table0></a>(see #01078,MEM FEC00000h)
 72h 14 BYTEs   reserved
 80h    WORD    BIOS timer base address (see PORT 0078h)
 bits 15-2 are bits 15-2 of BIOS timer port address
 <p><b>bit 1:</b><br>Reserved (0)
 <p><b>bit 0:</b><br>Timer enabled (if disabled, other bits ignored)
 82h 30 BYTEs   unused???
-A0h    BYTE    SMI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1079>(see #01079)</a>
+A0h    BYTE    SMI Control <a href=rb-2387.htm#Table1079>(see #01079)</a>
 A1h    BYTE    reserved
-A2h    WORD    SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1080>(see #01080)</a>
-A4h    DWORD   System Event Enable (SEE) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1081>(see #01081)</a>
+A2h    WORD    SMI Enable <a href=rb-2387.htm#Table1080>(see #01080)</a>
+A4h    DWORD   System Event Enable (SEE) <a href=rb-2387.htm#Table1081>(see #01081)</a>
 A8h    BYTE    Fast-Off Timer (in minutes)
 A9h    BYTE    reserved
-AAh    WORD    active SMI Requests <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1082>(see #01082)</a>
+AAh    WORD    active SMI Requests <a href=rb-2387.htm#Table1082>(see #01082)</a>
 ACh    BYTE    (82378ZB) Clock Throttle STPCLK# Low Timer
 duration of STPCLK# low period in 32 microsecond units
 ADh    BYTE    reserved
@@ -433,7 +433,7 @@ duration of STPCLK# high period in 32 microsecond units
 AFh 81 BYTEs   reserved
 </PRE>
 <p><b>See Also:</b>
-#01055 - #01167 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT 040Ah</a>"82378ZB"
+#01055 - #01167 - <a href=int-1A.htm>PORT 040Ah</a>"82378ZB"
 <PRE>
 <p>
 Bitfields for Intel 82378/82379 PCI Control:
@@ -645,7 +645,7 @@ Bit(s)  Description     (Table 01075)
 (default 04h; low 8 bits of address are always 10h-3Fh)
 </PRE>
 <p><b>See Also:</b>
-#01064 - #01074 - #01076 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT 040Ah</a>"82378ZB" - #P0039
+#01064 - #01074 - #01076 - <a href=int-1A.htm>PORT 040Ah</a>"82378ZB" - #P0039
 <PRE>
 <p>
 Bitfields for Intel 82371/82378/82379 PCI IRQ Route Control Register:
@@ -781,17 +781,17 @@ Software must explicitly reset the appropriate bits
 Format of PCI Configuration data for Intel 82425EX PSC:
 <a name=table1083></a>
 Offset  Size    Description     (Table 01083)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 0486h)
-40h    BYTE    PCI control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1084>(see #01084)</a>
+40h    BYTE    PCI control register <a href=rb-2387.htm#Table1084>(see #01084)</a>
 41h  3 BYTEs   ???
-44h    BYTE    host device control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1085>(see #01085)</a>
+44h    BYTE    host device control register <a href=rb-2387.htm#Table1085>(see #01085)</a>
 45h  3 BYTEs   ???
-48h    WORD    PCI local-bus IDE control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1086>(see #01086)</a>
+48h    WORD    PCI local-bus IDE control register <a href=rb-2387.htm#Table1086>(see #01086)</a>
 4Ah  2 BYTEs   ???
-4Ch    BYTE    ISA I/O recovery timer register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1087>(see #01087)</a>
-4Dh    BYTE    part revision register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1088>(see #01088)</a>
-4Eh    BYTE    X-bus Chip Select A register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1089>(see #01089)</a>
+4Ch    BYTE    ISA I/O recovery timer register <a href=rb-2387.htm#Table1087>(see #01087)</a>
+4Dh    BYTE    part revision register <a href=rb-2387.htm#Table1088>(see #01088)</a>
+4Eh    BYTE    X-bus Chip Select A register <a href=rb-2387.htm#Table1089>(see #01089)</a>
 4Fh    BYTE    X-bus Chip Select B register??? (see also #01102)
 50h    BYTE    host select register
 51h    BYTE    deturbo frequency control register
@@ -948,11 +948,11 @@ Bit(s)  Description     (Table 01089)
 Format of PCI Configuration Data for Intel 82380AB PCI-ISA Bridge:
 <a name=table1090></a>
 Offset  Size    Description     (Table 01090)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vender ID 8086h, device ID 123Ch)
-40h    BYTE    I/O Recovery Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1091>(see #01091)</a>
+40h    BYTE    I/O Recovery Register <a href=rb-2387.htm#Table1091>(see #01091)</a>
 41h    BYTE    reserved
-42h    BYTE    MISA Error Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1092>(see #01092)</a>
+42h    BYTE    MISA Error Status <a href=rb-2387.htm#Table1092>(see #01092)</a>
 43h 189 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -989,13 +989,13 @@ Bit(s)  Description     (Table 01092)
 Format of PCI Configuration data for Intel 82380FB PCI-PCI Bridge (MPCI2):
 <a name=table1093></a>
 Offset  Size    Description     (Table 01093)
-00h 64 BYTEs   header type 1 [bridge] <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header type 1 [bridge] <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 124Bh)
-40h    BYTE    Connector Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1094>(see #01094)</a>
-41h    BYTE    Connector Event <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1095>(see #01095)</a>
+40h    BYTE    Connector Control <a href=rb-2387.htm#Table1094>(see #01094)</a>
+41h    BYTE    Connector Event <a href=rb-2387.htm#Table1095>(see #01095)</a>
 42h  2 BYTEs   reserved
-44h    WORD    Serial Bus Interface/Burst Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1096>(see #01096)</a>
-46h    BYTE    MPCI2 Miscellaneous Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1097>(see #01097)</a>
+44h    WORD    Serial Bus Interface/Burst Enable <a href=rb-2387.htm#Table1096>(see #01096)</a>
+46h    BYTE    MPCI2 Miscellaneous Status <a href=rb-2387.htm#Table1097>(see #01097)</a>
 47h  5 BYTEs   reserved
 4Ch    WORD    Special Message Encode
 encoded message portion of Special Cycle forwarded by MPCI2
@@ -1071,30 +1071,30 @@ Bit(s)  Description     (Table 01097)
 Format of PCI Configuration Data for Intel 82439HX:
 <a name=table1098></a>
 Offset  Size    Description     (Table 01098)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vender ID 8086h, device ID 1250h)
 (revision ID 00h = A0 stepping)
 40h 16 BYTEs   reserved
-50h    BYTE    PCI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1110>(see #01110)</a>
+50h    BYTE    PCI Control <a href=rb-2387.htm#Table1110>(see #01110)</a>
 51h    BYTE    reserved
-52h    BYTE    cache control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1112>(see #01112)</a>
+52h    BYTE    cache control <a href=rb-2387.htm#Table1112>(see #01112)</a>
 53h  3 BYTEs   reserved
-56h    BYTE    DRAM extended control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1115>(see #01115)</a>
-57h    BYTE    DRAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1116>(see #01116)</a>
-58h    BYTE    DRAM timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1117>(see #01117)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+56h    BYTE    DRAM extended control <a href=rb-2387.htm#Table1115>(see #01115)</a>
+57h    BYTE    DRAM control <a href=rb-2387.htm#Table1116>(see #01116)</a>
+58h    BYTE    DRAM timing <a href=rb-2387.htm#Table1117>(see #01117)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  8 BYTEs   DRAM Row Boundary registers 0-7
 each register N indicates cumulative amount of memory in rows
 0-N (each 64 bits wide), in 4M units
-68h    BYTE    DRAM Row Type <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1119>(see #01119)</a>
+68h    BYTE    DRAM Row Type <a href=rb-2387.htm#Table1119>(see #01119)</a>
 bits 0-7 indicate whether each row 0-7 contains EDO DRAM
 instead of page-mode DRAM
 69h    BYTE    ???
 6Ah  8 BYTEs   reserved
-72h    BYTE    System Management RAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+72h    BYTE    System Management RAM control <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h 29 BYTEs   reserved
-90h    BYTE    Error Command <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1126>(see #01126)</a>
-91h    BYTE    Error Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1127>(see #01127)</a> (read-only)
+90h    BYTE    Error Command <a href=rb-2387.htm#Table1126>(see #01126)</a>
+91h    BYTE    Error Status <a href=rb-2387.htm#Table1127>(see #01127)</a> (read-only)
 92h    BYTE    Error Syndrome (read-only)
 latest non-zero ECC error syndrome
 93h 109 BYTEs  reserved
@@ -1106,34 +1106,34 @@ latest non-zero ECC error syndrome
 Format of PCI Configuration Data for Intel 82439TX "MTXC":
 <a name=table1099></a>
 Offset  Size    Description     (Table 01099)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7100h)
 (revision ID 00h = A0 stepping)
 40h 15 BYTEs   reserved
-4Fh    BYTE    Arbitration Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1109>(see #01109)</a>
-50h    BYTE    PCI Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1110>(see #01110)</a>
+4Fh    BYTE    Arbitration Control register <a href=rb-2387.htm#Table1109>(see #01109)</a>
+50h    BYTE    PCI Control register <a href=rb-2387.htm#Table1110>(see #01110)</a>
 51h    BYTE    reserved
-52h    BYTE    Cache Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1112>(see #01112)</a>
-53h    BYTE    Extended Cache Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1113>(see #01113)</a>
-54h    WORD    SDRAM Control Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1114>(see #01114)</a>
-56h    BYTE    DRAM Extended Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1115>(see #01115)</a>
-57h    BYTE    DRAM Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1116>(see #01116)</a>
-58h    BYTE    DRAM Timing register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1117>(see #01117)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+52h    BYTE    Cache Control register <a href=rb-2387.htm#Table1112>(see #01112)</a>
+53h    BYTE    Extended Cache Control register <a href=rb-2387.htm#Table1113>(see #01113)</a>
+54h    WORD    SDRAM Control Register <a href=rb-2387.htm#Table1114>(see #01114)</a>
+56h    BYTE    DRAM Extended Control register <a href=rb-2387.htm#Table1115>(see #01115)</a>
+57h    BYTE    DRAM Control register <a href=rb-2387.htm#Table1116>(see #01116)</a>
+58h    BYTE    DRAM Timing register <a href=rb-2387.htm#Table1117>(see #01117)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  6 BYTEs   DRAM Row Boundary registers 0-5
 each register N indicates cumulative amount of memory in rows
 0-N (each 64 bits wide), in 4M units
 66h    BYTE    reserved
-67h    BYTE    DRAM Row Type High register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1213>(see #01213)</a>
-68h    BYTE    DRAM Row Type Low register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1119>(see #01119)</a>
+67h    BYTE    DRAM Row Type High register <a href=rb-2387.htm#Table1213>(see #01213)</a>
+68h    BYTE    DRAM Row Type Low register <a href=rb-2387.htm#Table1119>(see #01119)</a>
 69h  7 BYTEs   reserved
 70h    BYTE    Multi-Transaction Timer register
 number of PCLKs guaranteed to the current agent before the
 82439TX will grant the bus to another PCI agent on request
-71h    BYTE    Extended System Management RAM Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1149>(see #01149)</a>
-72h    BYTE    System Management RAM Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+71h    BYTE    Extended System Management RAM Control register <a href=rb-2387.htm#Table1149>(see #01149)</a>
+72h    BYTE    System Management RAM Control register <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h  6 BYTEs   reserved
-79h    BYTE    Miscellaneous Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1128>(see #01128)</a>
+79h    BYTE    Miscellaneous Control register <a href=rb-2387.htm#Table1128>(see #01128)</a>
 7Ah 134 BYTEs  reserved
 </PRE>
 <p><b>Note:</b>
@@ -1145,17 +1145,17 @@ The Intel 82439TX chipset uses PCI configuration mechanism #1
 Format of PCI Configuration Data for Intel 82371AB (PIIX4), ISA Bridge:
 <a name=table1100></a>
 Offset  Size    Description     (Table 01100)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7110h)
 40h 12 BYTEs   reserved
-4Ch    BYTE    ISA I/O recovery timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1101>(see #01101)</a>
+4Ch    BYTE    ISA I/O recovery timer <a href=rb-2387.htm#Table1101>(see #01101)</a>
 4Dh    BYTE    reserved
-4Eh    WORD    X-Bus Chip Select <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01089,#01102)
+4Eh    WORD    X-Bus Chip Select <a href=rb-0000.htm#Table0></a>(see #01089,#01102)
 50h 16 BYTEs   reserved
-60h    BYTE    PIRQA route control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-61h    BYTE    PIRQB route control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-62h    BYTE    PIRQC route control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-63h    BYTE    PIRQD route control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
+60h    BYTE    PIRQA route control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+61h    BYTE    PIRQB route control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+62h    BYTE    PIRQC route control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+63h    BYTE    PIRQD route control <a href=rb-2387.htm#Table1076>(see #01076)</a>
 !!!intel\29056201.pdf p.59
 64h    BYTE    serial IRQ control
 65h  4 BYTEs   reserved???
@@ -1217,7 +1217,7 @@ forwarded to ISA bus, aliased to top of 16M region)
 Format of PCI Configuration Data for Intel 82371AB (PIIX4), IDE Controller:
 <a name=table1103></a>
 Offset  Size    Description     (Table 01103)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7111h)
 20h    DWORD   I/O base address (for 16 contiguous PORTs)
 !!!intel\29056201.pdf p.89
@@ -1237,7 +1237,7 @@ Offset  Size    Description     (Table 01103)
 Format of PCI Configuration Data for Intel 82371AB (PIIX4), USB Controller:
 <a name=table1104></a>
 Offset  Size    Description     (Table 01104)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7112h)
 20h    DWORD   I/O base address (for 32 contiguous PORTs)
 !!!intel\29056201.pdf p.102
@@ -1257,7 +1257,7 @@ FFh    BYTE    miscellaneous support
 Format of PCI Configuration Data for Intel 82371AB (PIIX4), Power Management:
 <a name=table1105></a>
 Offset  Size    Description     (Table 01105)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7113h)
 40h    DWORD   base address of power-management I/O ports
 (same format as PCI base addresses; low bit hardwired to 1)
@@ -1297,23 +1297,23 @@ D7h
 Format of PCI Configuration Data for Intel 82437MX:
 <a name=table1106></a>
 Offset  Size    Description     (Table 01106)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 1235h)
 40h 16 BYTEs   reserved
-50h    BYTE    PCI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1111>(see #01111)</a>
+50h    BYTE    PCI Control <a href=rb-2387.htm#Table1111>(see #01111)</a>
 51h    BYTE    reserved
-52h    BYTE    cache control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1112>(see #01112)</a>
+52h    BYTE    cache control <a href=rb-2387.htm#Table1112>(see #01112)</a>
 53h  4 BYTEs   reserved
-57h    BYTE    DRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1116>(see #01116)</a>
-58h    BYTE    DRAM timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1117>(see #01117)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+57h    BYTE    DRAM Control <a href=rb-2387.htm#Table1116>(see #01116)</a>
+58h    BYTE    DRAM timing <a href=rb-2387.htm#Table1117>(see #01117)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  4 BYTEs   DRAM Row Boundary Registers 0-3
 each register N indicates cumulative amount of memory in rows
 0-N, in 4M units (each row is 64 bits wide)
 64h  4 BYTEs   reserved
-68h    BYTE    DRAM Row Type <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1121>(see #01121)</a>
+68h    BYTE    DRAM Row Type <a href=rb-2387.htm#Table1121>(see #01121)</a>
 69h  9 BYTEs   reserved
-72h    BYTE    System Management RAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+72h    BYTE    System Management RAM control <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h 141 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -1323,23 +1323,23 @@ each register N indicates cumulative amount of memory in rows
 Format of PCI Configuration Data for Intel 82437FX:
 <a name=table1107></a>
 Offset  Size    Description     (Table 01107)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
-(vendor ID 8086h, device ID 122Dh) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table873>(see #00873)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
+(vendor ID 8086h, device ID 122Dh) <a href=rb-2372.htm#Table873>(see #00873)</a>
 40h 16 BYTEs   reserved
-50h    BYTE    PCI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1111>(see #01111)</a>
+50h    BYTE    PCI Control <a href=rb-2387.htm#Table1111>(see #01111)</a>
 51h    BYTE    reserved
-52h    BYTE    cache control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1112>(see #01112)</a>
+52h    BYTE    cache control <a href=rb-2387.htm#Table1112>(see #01112)</a>
 53h  4 BYTEs   reserved
-57h    BYTE    DRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1116>(see #01116)</a>
-58h    BYTE    DRAM timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1117>(see #01117)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+57h    BYTE    DRAM Control <a href=rb-2387.htm#Table1116>(see #01116)</a>
+58h    BYTE    DRAM timing <a href=rb-2387.htm#Table1117>(see #01117)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  5 BYTEs   DRAM Row Boundary Registers 0-4
 each register N indicates cumulative amount of memory in rows
 0-N, in 4M units (each row is 64 bits wide)
 65h  3 BYTEs   reserved
-68h    BYTE    DRAM Row Type <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1121>(see #01121)</a>
+68h    BYTE    DRAM Row Type <a href=rb-2387.htm#Table1121>(see #01121)</a>
 69h  9 BYTEs   reserved
-72h    BYTE    System Management RAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+72h    BYTE    System Management RAM control <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h 141 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -1349,21 +1349,21 @@ each register N indicates cumulative amount of memory in rows
 Format of PCI Configuration Data for Intel 82437VX:
 <a name=table1108></a>
 Offset  Size    Description     (Table 01108)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7030h)
 (revision ID 00h = A0 stepping)
 40h 15 BYTEs   reserved
-4Fh    BYTE    arbitration control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1109>(see #01109)</a>
-50h    BYTE    PCI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1110>(see #01110)</a>
+4Fh    BYTE    arbitration control <a href=rb-2387.htm#Table1109>(see #01109)</a>
+50h    BYTE    PCI Control <a href=rb-2387.htm#Table1110>(see #01110)</a>
 51h    BYTE    reserved
-52h    BYTE    cache control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1112>(see #01112)</a>
-53h    BYTE    cache control extensions <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1113>(see #01113)</a>
-54h    WORD    SDRAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1114>(see #01114)</a>
+52h    BYTE    cache control <a href=rb-2387.htm#Table1112>(see #01112)</a>
+53h    BYTE    cache control extensions <a href=rb-2387.htm#Table1113>(see #01113)</a>
+54h    WORD    SDRAM control <a href=rb-2387.htm#Table1114>(see #01114)</a>
 55h    BYTE    reserved
-56h    BYTE    DRAM extended control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1115>(see #01115)</a>
-57h    BYTE    DRAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1116>(see #01116)</a>
-58h    BYTE    DRAM timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1117>(see #01117)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+56h    BYTE    DRAM extended control <a href=rb-2387.htm#Table1115>(see #01115)</a>
+57h    BYTE    DRAM control <a href=rb-2387.htm#Table1116>(see #01116)</a>
+58h    BYTE    DRAM timing <a href=rb-2387.htm#Table1117>(see #01117)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  5 BYTEs   DRAM Row Boundary registers 0-4
 each register N indicates amount of memory in rows 0-N in 4M
 units (each row is 64 bits wide); the fifth row of memory (if
@@ -1373,21 +1373,21 @@ boundary register 4 (offset 64h) contains the total system
 memory, which may not exceed 128M
 65h  2 BYTEs   reserved
 67h    BYTE    DRAM Row Type (high)
-defines memory type in DRAM row 4 in bits 4,0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1119>(see #01119)</a>
-68h    BYTE    DRAM Row Type (low) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1119>(see #01119)</a>
-69h    BYTE    PCI TRDY timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1122>(see #01122)</a>
+defines memory type in DRAM row 4 in bits 4,0 <a href=rb-2387.htm#Table1119>(see #01119)</a>
+68h    BYTE    DRAM Row Type (low) <a href=rb-2387.htm#Table1119>(see #01119)</a>
+69h    BYTE    PCI TRDY timer <a href=rb-2387.htm#Table1122>(see #01122)</a>
 6Ah  6 BYTEs   reserved
 70h    BYTE    Multi-Transaction Timer
 number of PCLKs guaranteed to the current agent before the
 82437 will grant the bus to another PCI agent on request
 71h    BYTE    reserved
-72h    BYTE    System Management RAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
-73h    BYTE    shared memory buffer control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1124>(see #01124)</a>
+72h    BYTE    System Management RAM control <a href=rb-2387.htm#Table1123>(see #01123)</a>
+73h    BYTE    shared memory buffer control <a href=rb-2387.htm#Table1124>(see #01124)</a>
 74h    BYTE    shared memory buffer start address, in 0.5MB units
 end address is top-of-memory at offset 64h or start of an
 enabled PCI memory hole when top-of-memory is 16M
 76h  2 BYTEs   reserved
-78h    BYTE    graphics controller latency timers <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1125>(see #01125)</a>
+78h    BYTE    graphics controller latency timers <a href=rb-2387.htm#Table1125>(see #01125)</a>
 79h 135 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -1827,45 +1827,45 @@ power consumption.
 Format of PCI configuration for Intel 82443EX/LX Device 0 (Host-PCI):
 <a name=table1129></a>
 Offset  Size    Description     (Table 01129)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7180h)
 chipset is 82443EX if revision >= 03h
 40h 16 BYTEs   reserved
-50h    WORD    PAC Configuration register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1131>(See #01131)</a>
+50h    WORD    PAC Configuration register <a href=rb-2387.htm#Table1131>(See #01131)</a>
 52h    BYTE    reserved
-53h    BYTE    Data Buffer Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1132>(see #01132)</a>
+53h    BYTE    Data Buffer Control register <a href=rb-2387.htm#Table1132>(see #01132)</a>
 54h    BYTE    reserved
-55h    WORD    DRAM Row Type register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1133>(see #01133)</a>
-57h    BYTE    DRAM Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1134>(see #01134)</a>
-58h    BYTE    DRAM Timing register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1135>(see #01135)</a>
-59h  7 BYTEs   PAM Configuration registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(See #01118)</a>
+55h    WORD    DRAM Row Type register <a href=rb-2387.htm#Table1133>(see #01133)</a>
+57h    BYTE    DRAM Control register <a href=rb-2387.htm#Table1134>(see #01134)</a>
+58h    BYTE    DRAM Timing register <a href=rb-2387.htm#Table1135>(see #01135)</a>
+59h  7 BYTEs   PAM Configuration registers 0-6 <a href=rb-2387.htm#Table1118>(See #01118)</a>
 60h  8 BYTEs   DRAM Row Boundary registers 0-7
 each register indicates top of memory for a particular row, in
 8MB units; DIMMs use two rows each, with single-sided DIMMs
 leaving the odd-numbered rows unpopulated
-68h    BYTE    Fixed DRAM Hole Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1147>(see #01147)</a>
+68h    BYTE    Fixed DRAM Hole Control register <a href=rb-2387.htm#Table1147>(see #01147)</a>
 69h    BYTE    reserved
-6Ah    WORD    DRAM Extended Mode Select register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1136>(see #01136)</a>
-6Ch    DWORD   Memory Buffer Strength Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1137>(see #01137)</a>
-70h    BYTE    Multi-Transaction Timer register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1140>(see #01140)</a>
+6Ah    WORD    DRAM Extended Mode Select register <a href=rb-2387.htm#Table1136>(see #01136)</a>
+6Ch    DWORD   Memory Buffer Strength Control register <a href=rb-2387.htm#Table1137>(see #01137)</a>
+70h    BYTE    Multi-Transaction Timer register <a href=rb-2387.htm#Table1140>(see #01140)</a>
 71h    BYTE    reserved
-72h    BYTE    System Management RAM Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+72h    BYTE    System Management RAM Control register <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h 29 BYTEs   reserved
-90h    BYTE    Error Command register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1156>(see #01156)</a>
-91h    BYTE    Error Status 0 register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1138>(see #01138)</a>
-92h    BYTE    Error Status 1 register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1139>(see #01139)</a>
-93h    BYTE    Reset Control Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1239>(see #01239)</a>
+90h    BYTE    Error Command register <a href=rb-2387.htm#Table1156>(see #01156)</a>
+91h    BYTE    Error Status 0 register <a href=rb-2387.htm#Table1138>(see #01138)</a>
+92h    BYTE    Error Status 1 register <a href=rb-2387.htm#Table1139>(see #01139)</a>
+93h    BYTE    Reset Control Register <a href=rb-2387.htm#Table1239>(see #01239)</a>
 94h 12 BYTEs   reserved
-A0h    DWORD   AGP Capability register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1158>(see #01158)</a>
-A4h    DWORD   AGP Status register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1159>(see #01159)</a>
-A8h    DWORD   AGP Command register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1160>(see #01160)</a>
+A0h    DWORD   AGP Capability register <a href=rb-2387.htm#Table1158>(see #01158)</a>
+A4h    DWORD   AGP Status register <a href=rb-2387.htm#Table1159>(see #01159)</a>
+A8h    DWORD   AGP Command register <a href=rb-2387.htm#Table1160>(see #01160)</a>
 ACh  4 BYTEs   reserved
-B0h    DWORD   AGP Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1161>(see #01161)</a>
-B4h    BYTE    Arpeture Size Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1162>(see #01162)</a>
+B0h    DWORD   AGP Control register <a href=rb-2387.htm#Table1161>(see #01161)</a>
+B4h    BYTE    Arpeture Size Control register <a href=rb-2387.htm#Table1162>(see #01162)</a>
 B5h  3 BYTEs   reserved
-B8h    DWORD   Arpeture Translation Table Base register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1163>(see #01163)</a>
-BCh    BYTE    AGP MTT Control register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1140>(see #01140)</a>
-BDh    BYTE    AGP Low Priority Transaction timer register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1141>(see #01141)</a>
+B8h    DWORD   Arpeture Translation Table Base register <a href=rb-2387.htm#Table1163>(see #01163)</a>
+BCh    BYTE    AGP MTT Control register <a href=rb-2387.htm#Table1140>(see #01140)</a>
+BDh    BYTE    AGP Low Priority Transaction timer register <a href=rb-2387.htm#Table1141>(see #01141)</a>
 BCh 67 BYTEs   reserved
 </PRE>
 <p><b>Notes:</b>
@@ -1879,7 +1879,7 @@ The Intel 82443EX/LX chipsets use PCI configuration mechanism #1
 Format of PCI configuration for Intel 82443EX/LX Device 1 (PCI-PCI):
 <a name=table1130></a>
 Offset  Size    Description     (Table 01130)
-00h 64 BYTEs   header, type 1 [bridge] <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header, type 1 [bridge] <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7181h)
 chipset is 82443EX if revision >= 03h
 40h 192 BYTEs  reserved
@@ -1914,7 +1914,7 @@ Bit(s)  Description     (Table 01131)
 <p><b>Note:</b>
 Controls routing of Monochrome Display Adaptor I/O and memory
 range accesses. Works in conjunction with the VGA-bit in
-Bridge Control register of device 1 <a href=http://www.ctyme.com/intr/rb-2377.htm#Table901>(see #00901)</a>:
+Bridge Control register of device 1 <a href=rb-2377.htm#Table901>(see #00901)</a>:
 VGA MDA
 0   0       MDA and VGA routed to PCI bus
 0   1       reserved
@@ -2109,63 +2109,63 @@ Bit(s)  Description     (Table 01141)
 Format of PCI Configuration for Intel 82443BX Device 0 (Host-PCI):
 <a name=table1142></a>
 Offset  Size    Description     (Table 01142)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7190h/7192h)
 10h    DWORD   graphics aperture base address
 2Ch    WORD    subsystem vendor identification (write-once)
 2Eh    WORD    subsystem device identification (write-once)
 40h 16 BYTEs   reserved (0)
-50h    DWORD   440BX Configuration <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1144>(see #01144)</a>
+50h    DWORD   440BX Configuration <a href=rb-2387.htm#Table1144>(see #01144)</a>
 54h  3 BYTEs   reserved (0)
-57h    BYTE    DRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1145>(see #01145)</a>
-58h    BYTE    DRAM Timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1146>(see #01146)</a>
-59h  7 BYTEs   Programmable Attribute Map register 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+57h    BYTE    DRAM Control <a href=rb-2387.htm#Table1145>(see #01145)</a>
+58h    BYTE    DRAM Timing <a href=rb-2387.htm#Table1146>(see #01146)</a>
+59h  7 BYTEs   Programmable Attribute Map register 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  8 BYTEs   DRAM Row Boundary registers 0-7
 each register indicates top of memory for a particular row, in
 8MB units; DIMMs use two rows each, with single-sided DIMMs
 leaving the odd-numbered rows unpopulated
-68h    BYTE    Fixed DRAM Hole Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1147>(see #01147)</a>
-69h  6 BYTEs   Memory Buffer Strength Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1148>(see #01148)</a>
+68h    BYTE    Fixed DRAM Hole Control <a href=rb-2387.htm#Table1147>(see #01147)</a>
+69h  6 BYTEs   Memory Buffer Strength Control <a href=rb-2387.htm#Table1148>(see #01148)</a>
 6Fh  2 BYTEs   reserved (0)
 71h    BYTE    Intel Reserved (1Fh)
-72h    BYTE    SMRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
-73h    BYTE    Extended SMRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1149>(see #01149)</a>
-74h    WORD    SDRAM Row Page Size <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1150>(see #01150)</a>
-76h    WORD    SDRAM Control Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1151>(see #01151)</a>
-78h    WORD    Paging Policy Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1152>(see #01152)</a>
-7Ah    BYTE    Power Management Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1153>(see #01153)</a>
-7Bh    WORD    Suspend CBR Refresh Rate Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1154>(see #01154)</a>
+72h    BYTE    SMRAM Control <a href=rb-2387.htm#Table1123>(see #01123)</a>
+73h    BYTE    Extended SMRAM Control <a href=rb-2387.htm#Table1149>(see #01149)</a>
+74h    WORD    SDRAM Row Page Size <a href=rb-2387.htm#Table1150>(see #01150)</a>
+76h    WORD    SDRAM Control Register <a href=rb-2387.htm#Table1151>(see #01151)</a>
+78h    WORD    Paging Policy Register <a href=rb-2387.htm#Table1152>(see #01152)</a>
+7Ah    BYTE    Power Management Control <a href=rb-2387.htm#Table1153>(see #01153)</a>
+7Bh    WORD    Suspend CBR Refresh Rate Register <a href=rb-2387.htm#Table1154>(see #01154)</a>
 7Dh  3 BYTEs   reserved (0)
-80h    DWORD   Error Address Pointer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1155>(see #01155)</a>
+80h    DWORD   Error Address Pointer <a href=rb-2387.htm#Table1155>(see #01155)</a>
 84h 12 BYTEs   reserved (0)
-90h    BYTE    Error Command Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1156>(see #01156)</a>
-91h    WORD    Error Status Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1157>(see #01157)</a>
+90h    BYTE    Error Command Register <a href=rb-2387.htm#Table1156>(see #01156)</a>
+91h    WORD    Error Status Register <a href=rb-2387.htm#Table1157>(see #01157)</a>
 93h    BYTE    reserved (0)
 94h    DWORD   Intel Reserved (00006104h)
 98h    WORD    Intel Reserved (0500h)
 9Ah    BYTE    Intel Reserved (0)
 9Bh  5 BYTEs   reserved (0)
-A0h    DWORD   AGP Capability Identifier <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1158>(see #01158)</a>
-A4h    DWORD   AGP Status Register (read-only) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1159>(see #01159)</a>
-A8h    DWORD   AGP Command Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1160>(see #01160)</a>
+A0h    DWORD   AGP Capability Identifier <a href=rb-2387.htm#Table1158>(see #01158)</a>
+A4h    DWORD   AGP Status Register (read-only) <a href=rb-2387.htm#Table1159>(see #01159)</a>
+A8h    DWORD   AGP Command Register <a href=rb-2387.htm#Table1160>(see #01160)</a>
 ACh  4 BYTEs   reserved (0)
-B0h    DWORD   AGP Control Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1161>(see #01161)</a>
-B4h    BYTE    Aperture Size Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1162>(see #01162)</a>
+B0h    DWORD   AGP Control Register <a href=rb-2387.htm#Table1161>(see #01161)</a>
+B4h    BYTE    Aperture Size Control <a href=rb-2387.htm#Table1162>(see #01162)</a>
 B5h  3 BYTEs   reserved (0)
-B8h    DWORD   Aperture Translation Table <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1163>(see #01163)</a>
+B8h    DWORD   Aperture Translation Table <a href=rb-2387.htm#Table1163>(see #01163)</a>
 BCh  2 BYTEs   reserved
 BEh    WORD    reserved (0)
 C0h    DWORD   Intel Reserved (0)
 C4h    DWORD   Intel Reserved (0)
 C8h    BYTE    Intel Reserved (18h)
 C9h    BYTE    Intel Reserved (0Ch)
-CAh  3 BYTEs   Memory Buffer Frequency Select <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1164>(see #01164)</a>
+CAh  3 BYTEs   Memory Buffer Frequency Select <a href=rb-2387.htm#Table1164>(see #01164)</a>
 CDh  3 BYTEs   reserved (0)
 D0h  8 BYTEs   BIOS scratch pad (read-write, init to 0 on reset)
 D8h  8 BYTEs   Intel Reserved (0)
-E0h  2 DWORDs  DRAM Write Thermal Throttling Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1165>(see #01165)</a>
-E8h  8 BYTEs   DRAM Read Therman Throttling Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1165>(see #01165)</a>
-F0h    WORD    Buffer Control Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1166>(see #01166)</a>
+E0h  2 DWORDs  DRAM Write Thermal Throttling Control <a href=rb-2387.htm#Table1165>(see #01165)</a>
+E8h  8 BYTEs   DRAM Read Therman Throttling Control <a href=rb-2387.htm#Table1165>(see #01165)</a>
+F0h    WORD    Buffer Control Register <a href=rb-2387.htm#Table1166>(see #01166)</a>
 F2h  2 BYTEs   Intel Reserved (0000h)
 F4h    DWORD   Intel Reserved (0000F800h)
 bits 30-29 are "Abort Disable Test Mode" configuration bits
@@ -2175,14 +2175,14 @@ F8h    DWORD   Intel Reserved (00000F20h)
 FCh    DWORD   Intel Reserved (0)
 </PRE>
 <p><b>See Also:</b>
-#00873 - #01143 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT 0022h</a>"82443BX"
+#00873 - #01143 - <a href=int-1A.htm>PORT 0022h</a>"82443BX"
 !!!intel\29063301.pdf p.34
 <PRE>
 <p>
 Format of PCI Configuration for Intel 82443BX Device 1 (PCI-AGP):
 <a name=table1143></a>
 Offset  Size    Description     (Table 01143)
-00h 64 BYTEs   header, type 1 [bridge] <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header, type 1 [bridge] <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7191h)
 40h 192 BYTEs  reserved
 </PRE>
@@ -2367,12 +2367,12 @@ is not open and not in SMM
 (forced to 1 by 82443BX, to 0 by 82439TX)
 4      enable L1 caching of SMRAM (forced to 1 by 82443BX)
 3      enable L2 caching of SMRAM (forced to 1 by 82443BX)
-2-1    TSEG size (read-only once SMRAM locked) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>.
+2-1    TSEG size (read-only once SMRAM locked) <a href=rb-2387.htm#Table1123>(see #01123)</a>.
 00 128K.
 01 256K.
 10 512K.
 11 1M
-0      enable TSEG (read-only once SMRAM locked) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>.
+0      enable TSEG (read-only once SMRAM locked) <a href=rb-2387.htm#Table1123>(see #01123)</a>.
 When both SMRAM and TSEG are enabled, the top N kilobytes of physical
 DRAM are no longer claimed by the memory controller, and instead
 appear as extended SMRAM at an address 256M higher than the physical
@@ -2724,42 +2724,42 @@ Bit(s)  Description     (Table 01166)
 Format of PCI Configuration for Intel 82371FB/82371SB Function 0 (ISA Bridge):
 <a name=table1167></a>
 Offset  Size    Description     (Table 01167)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 122Eh/7000h)
 (revision ID 00h = 82371SB step A-1)
 (revision ID 01h = 82371SB step B-0)
 40h 12 BYTEs   reserved
-4Ch    BYTE    ISA I/O Controller Recovery Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1087>(see #01087)</a>
+4Ch    BYTE    ISA I/O Controller Recovery Timer <a href=rb-2387.htm#Table1087>(see #01087)</a>
 4Dh    BYTE    reserved
-4Eh    BYTE    X-Bus Chip Select Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1089>(see #01089)</a>
-4Fh    BYTE    (82371SB) X-Bus Chip Select Enable High <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1102>(see #01102)</a>
+4Eh    BYTE    X-Bus Chip Select Enable <a href=rb-2387.htm#Table1089>(see #01089)</a>
+4Fh    BYTE    (82371SB) X-Bus Chip Select Enable High <a href=rb-2387.htm#Table1102>(see #01102)</a>
 <p><b>bit 0:</b><br>I/O APIC enabled
 4Fh    BYTE    (82371FB) reserved
 50h 16 BYTEs   reserved
-60h  4 BYTEs   PCI IRQ Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
+60h  4 BYTEs   PCI IRQ Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
 64h  5 BYTEs   reserved
-69h    BYTE    top of memory <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1216>(see #01216)</a>
-6Ah    WORD    miscellaneous status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1217>(see #01217)</a>
+69h    BYTE    top of memory <a href=rb-2387.htm#Table1216>(see #01216)</a>
+6Ah    WORD    miscellaneous status <a href=rb-2387.htm#Table1217>(see #01217)</a>
 6Ch  4 BYTEs   reserved
-70h    BYTE    motherboard IRQ Route Control 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1218>(see #01218)</a>
-71h    BYTE    (82371FB) motherboard IRQ Route Control 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1218>(see #01218)</a>
+70h    BYTE    motherboard IRQ Route Control 0 <a href=rb-2387.htm#Table1218>(see #01218)</a>
+71h    BYTE    (82371FB) motherboard IRQ Route Control 1 <a href=rb-2387.htm#Table1218>(see #01218)</a>
 72h  4 BYTEs   reserved
-76h  2 BYTEs   motherboard DMA control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1219>(see #01219)</a>
-78h    WORD    programmable chip select control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1220>(see #01220)</a>
+76h  2 BYTEs   motherboard DMA control <a href=rb-2387.htm#Table1219>(see #01219)</a>
+78h    WORD    programmable chip select control <a href=rb-2387.htm#Table1220>(see #01220)</a>
 7Ah  6 BYTEs   reserved
-80h    BYTE    (82371SB) APIC Base Address Relocation <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1078>(see #01078)</a>
+80h    BYTE    (82371SB) APIC Base Address Relocation <a href=rb-2387.htm#Table1078>(see #01078)</a>
 81h    BYTE    reserved
-82h    BYTE    (82371SB) Deterministic Latency Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1221>(see #01221)</a>
+82h    BYTE    (82371SB) Deterministic Latency Control <a href=rb-2387.htm#Table1221>(see #01221)</a>
 83h 29 BYTEs   reserved
-A0h    BYTE    SMI Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1222>(see #01222)</a>
+A0h    BYTE    SMI Control <a href=rb-2387.htm#Table1222>(see #01222)</a>
 A1h    BYTE    reserved
-A2h    WORD    SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1080>(see #01080)</a>
-A4h    DWORD   System Event Enable (SEE) <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1081>(see #01081)</a>
+A2h    WORD    SMI Enable <a href=rb-2387.htm#Table1080>(see #01080)</a>
+A4h    DWORD   System Event Enable (SEE) <a href=rb-2387.htm#Table1081>(see #01081)</a>
 A8h    BYTE    Fast-Off Timer (in minutes, PCICLKs, or milliseconds)
 value is count less one; timer must be stopped before
 changing its value
 A9h    BYTE    reserved
-AAh    WORD    SMI Request <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1082>(see #01082)</a>
+AAh    WORD    SMI Request <a href=rb-2387.htm#Table1082>(see #01082)</a>
 ACh    BYTE    Clock Scale STPCLK# Low Timer
 STPCLK# stays low for 1+1056*(value+1) PCICLKs
 ADh    BYTE    reserved
@@ -2774,115 +2774,115 @@ AFh 81 BYTEs   reserved
 Format of PCI configuration for Intel 82371MX MPIIX:
 <a name=table1168></a>
 Offset  Size    Description     (Table 01168)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 1234h)
 40h  9 BYTEs   reserved
-49h    BYTE    serial and parallel port enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1169>(see #01169)</a>
+49h    BYTE    serial and parallel port enable <a href=rb-2387.htm#Table1169>(see #01169)</a>
 4Ah  2 BYTEs   reserved
-4Ch    BYTE    Extended I/O Controller Recovery Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1170>(see #01170)</a>
+4Ch    BYTE    Extended I/O Controller Recovery Timer <a href=rb-2387.htm#Table1170>(see #01170)</a>
 4Dh    BYTE    reserved
-4Eh    BYTE    BIOS enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1171>(see #01171)</a>
-4Fh    BYTE    FDC enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1172>(see #01172)</a>
+4Eh    BYTE    BIOS enable <a href=rb-2387.htm#Table1171>(see #01171)</a>
+4Fh    BYTE    FDC enable <a href=rb-2387.htm#Table1172>(see #01172)</a>
 50h 16 BYTEs   reserved
-60h    BYTE    PIRQA# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
-61h    BYTE    PIRQB# Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1076>(see #01076)</a>
+60h    BYTE    PIRQA# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
+61h    BYTE    PIRQB# Route Control <a href=rb-2387.htm#Table1076>(see #01076)</a>
 62h  8 BYTEs   reserved
-6Ah    WORD    Miscellaneous Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1173>(see #01173)</a>
-6Ch    WORD    IDE timing modes <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1223>(see #01223)</a>
+6Ah    WORD    Miscellaneous Status <a href=rb-2387.htm#Table1173>(see #01173)</a>
+6Ch    WORD    IDE timing modes <a href=rb-2387.htm#Table1223>(see #01223)</a>
 6Eh  2 BYTEs   reserved
-70h    BYTE    Motherboard IRQ Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1223>(see #01223)</a>
+70h    BYTE    Motherboard IRQ Route Control <a href=rb-2387.htm#Table1223>(see #01223)</a>
 71h  5 BYTEs   reserved
-76h  3 BYTEs   Motherboard DMA Route Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1219>(see #01219)</a>
+76h  3 BYTEs   Motherboard DMA Route Control <a href=rb-2387.htm#Table1219>(see #01219)</a>
 79h  5 BYTEs   reserved
-7Eh    BYTE    Audio enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1174>(see #01174)</a>
-7Fh    BYTE    DMA channel 5-7 address size <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1175>(see #01175)</a>
-80h    BYTE    PCI DMA enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1176>(see #01176)</a>
+7Eh    BYTE    Audio enable <a href=rb-2387.htm#Table1174>(see #01174)</a>
+7Fh    BYTE    DMA channel 5-7 address size <a href=rb-2387.htm#Table1175>(see #01175)</a>
+80h    BYTE    PCI DMA enable <a href=rb-2387.htm#Table1176>(see #01176)</a>
 81h  7 BYTEs   reserved
-88h    BYTE    PCI DMA/PCI DMA expansion A <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1177>(see #01177)</a>
-89h    BYTE    PCI DMA/PCI DMA expansion B <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1177>(see #01177)</a>
-8Ah    WORD    Programmable Memory Address Control 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1178>(see #01178)</a>
-8Ch    WORD    Programmable Memory Address Control 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1178>(see #01178)</a>
-8Eh    WORD    Programmable Memory Address Mask <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1179>(see #01179)</a>
-90h    BYTE    Programmable Address Range Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1180>(see #01180)</a>
+88h    BYTE    PCI DMA/PCI DMA expansion A <a href=rb-2387.htm#Table1177>(see #01177)</a>
+89h    BYTE    PCI DMA/PCI DMA expansion B <a href=rb-2387.htm#Table1177>(see #01177)</a>
+8Ah    WORD    Programmable Memory Address Control 0 <a href=rb-2387.htm#Table1178>(see #01178)</a>
+8Ch    WORD    Programmable Memory Address Control 1 <a href=rb-2387.htm#Table1178>(see #01178)</a>
+8Eh    WORD    Programmable Memory Address Mask <a href=rb-2387.htm#Table1179>(see #01179)</a>
+90h    BYTE    Programmable Address Range Enable <a href=rb-2387.htm#Table1180>(see #01180)</a>
 91h    BYTE    reserved
-92h    WORD    Programmable Chip Select Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1181>(see #01181)</a>
-94h    WORD    Programmable Address Control 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1182>(see #01182)</a>
-96h    WORD    Programmable Address Control 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1182>(see #01182)</a>
-98h    WORD    Programmable Address Control 3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1182>(see #01182)</a>
-9Ah    BYTE    Programmable Address Mask A <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1183>(see #01183)</a>
-9Bh    BYTE    Programmable Address Mask B <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1184>(see #01184)</a>
-9Ch    WORD    I/O configuration address <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1185>(see #01185)</a>
+92h    WORD    Programmable Chip Select Control <a href=rb-2387.htm#Table1181>(see #01181)</a>
+94h    WORD    Programmable Address Control 1 <a href=rb-2387.htm#Table1182>(see #01182)</a>
+96h    WORD    Programmable Address Control 2 <a href=rb-2387.htm#Table1182>(see #01182)</a>
+98h    WORD    Programmable Address Control 3 <a href=rb-2387.htm#Table1182>(see #01182)</a>
+9Ah    BYTE    Programmable Address Mask A <a href=rb-2387.htm#Table1183>(see #01183)</a>
+9Bh    BYTE    Programmable Address Mask B <a href=rb-2387.htm#Table1184>(see #01184)</a>
+9Ch    WORD    I/O configuration address <a href=rb-2387.htm#Table1185>(see #01185)</a>
 9Eh  2 BYTEs   reserved
-A0h    WORD    Programmable Address Control 4 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1182>(see #01182)</a>
-A2h    WORD    Programmable Address Control 5 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1182>(see #01182)</a>
-A4h    BYTE    Programmable Address Mask C <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1186>(see #01186)</a>
-A5h    BYTE    Peripheral Access Detect Enable 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1187>(see #01187)</a>
-A6h    BYTE    Peripheral Access Detect Enable 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1188>(see #01188)</a>
-A7h    BYTE    Peripheral Access Detect Enable 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1189>(see #01189)</a>
-A8h    WORD    Local Trap Address for Device 3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1190>(see #01190)</a>
-AAh    BYTE    Local Trap Mask for Device 3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1191>(see #01191)</a>
-ABh    BYTE    Local Trap SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1192>(see #01192)</a>
+A0h    WORD    Programmable Address Control 4 <a href=rb-2387.htm#Table1182>(see #01182)</a>
+A2h    WORD    Programmable Address Control 5 <a href=rb-2387.htm#Table1182>(see #01182)</a>
+A4h    BYTE    Programmable Address Mask C <a href=rb-2387.htm#Table1186>(see #01186)</a>
+A5h    BYTE    Peripheral Access Detect Enable 0 <a href=rb-2387.htm#Table1187>(see #01187)</a>
+A6h    BYTE    Peripheral Access Detect Enable 1 <a href=rb-2387.htm#Table1188>(see #01188)</a>
+A7h    BYTE    Peripheral Access Detect Enable 2 <a href=rb-2387.htm#Table1189>(see #01189)</a>
+A8h    WORD    Local Trap Address for Device 3 <a href=rb-2387.htm#Table1190>(see #01190)</a>
+AAh    BYTE    Local Trap Mask for Device 3 <a href=rb-2387.htm#Table1191>(see #01191)</a>
+ABh    BYTE    Local Trap SMI Enable <a href=rb-2387.htm#Table1192>(see #01192)</a>
 ACh  2 BYTEs   reserved
-AEh    BYTE    Local Trap SMI Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1192>(see #01192)</a>
+AEh    BYTE    Local Trap SMI Status <a href=rb-2387.htm#Table1192>(see #01192)</a>
 AFh    BYTE    reserved
-B0h    BYTE    Local Standby SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1193>(see #01193)</a>
-B1h    BYTE    Local Standby Timer Reload Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1194>(see #01194)</a>
-B2h    BYTE    Local Standby SMI Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1193>(see #01193)</a>
+B0h    BYTE    Local Standby SMI Enable <a href=rb-2387.htm#Table1193>(see #01193)</a>
+B1h    BYTE    Local Standby Timer Reload Enable <a href=rb-2387.htm#Table1194>(see #01194)</a>
+B2h    BYTE    Local Standby SMI Status <a href=rb-2387.htm#Table1193>(see #01193)</a>
 B3h    BYTE    reserved
-B4h    BYTE    Local Standby Timer IDE Idle <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-B5h    BYTE    Local Standby Timer Audio Idle  <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-B6h    BYTE    Local Standby Timer COM Idle <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
+B4h    BYTE    Local Standby Timer IDE Idle <a href=rb-2387.htm#Table1195>(see #01195)</a>
+B5h    BYTE    Local Standby Timer Audio Idle  <a href=rb-2387.htm#Table1195>(see #01195)</a>
+B6h    BYTE    Local Standby Timer COM Idle <a href=rb-2387.htm#Table1195>(see #01195)</a>
 B7h    BYTE    reserved
-B8h    BYTE    Local Standby Timer Device 1 Idle <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-B9h    BYTE    Local Standby Timer Device 2 Idle <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-BAh    BYTE    Local Standby Timer Device 3 Idle <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
+B8h    BYTE    Local Standby Timer Device 1 Idle <a href=rb-2387.htm#Table1195>(see #01195)</a>
+B9h    BYTE    Local Standby Timer Device 2 Idle <a href=rb-2387.htm#Table1195>(see #01195)</a>
+BAh    BYTE    Local Standby Timer Device 3 Idle <a href=rb-2387.htm#Table1195>(see #01195)</a>
 BBh    BYTE    reserved
-BCh    BYTE    Software/EXTSMI# SMI Delay Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-BDh    BYTE    Suspend SMI Delay Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-BEh    BYTE    Global Standby Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-BFh    BYTE    Clock Throttle Standby Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-C0h    BYTE    System Management Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1196>(see #01196)</a>
-C1h    BYTE    System SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1197>(see #01197)</a>
-C2h    BYTE    Miscellaneous SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1198>(see #01198)</a>
-C3h    BYTE    Global SMI Enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1200>(see #01200)</a>
+BCh    BYTE    Software/EXTSMI# SMI Delay Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+BDh    BYTE    Suspend SMI Delay Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+BEh    BYTE    Global Standby Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+BFh    BYTE    Clock Throttle Standby Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+C0h    BYTE    System Management Control <a href=rb-2387.htm#Table1196>(see #01196)</a>
+C1h    BYTE    System SMI Enable <a href=rb-2387.htm#Table1197>(see #01197)</a>
+C2h    BYTE    Miscellaneous SMI Enable <a href=rb-2387.htm#Table1198>(see #01198)</a>
+C3h    BYTE    Global SMI Enable <a href=rb-2387.htm#Table1200>(see #01200)</a>
 C4h  2 BYTEs   reserved
-C6h    BYTE    System SMI Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1197>(see #01197)</a>
-C7h    BYTE    Miscellaneous SMI Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1199>(see #01199)</a>
-C8h    BYTE    Global SMI Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1201>(see #01201)</a>
+C6h    BYTE    System SMI Status <a href=rb-2387.htm#Table1197>(see #01197)</a>
+C7h    BYTE    Miscellaneous SMI Status <a href=rb-2387.htm#Table1199>(see #01199)</a>
+C8h    BYTE    Global SMI Status <a href=rb-2387.htm#Table1201>(see #01201)</a>
 C9h  3 BYTEs   reserved
-CCh    BYTE    Suspend/Resume Control 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1202>(see #01202)</a>
-CDh    BYTE    Suspend/Resume Control 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1203>(see #01203)</a>
-CEh    BYTE    SMOUT Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1204>(see #01204)</a>
+CCh    BYTE    Suspend/Resume Control 1 <a href=rb-2387.htm#Table1202>(see #01202)</a>
+CDh    BYTE    Suspend/Resume Control 2 <a href=rb-2387.htm#Table1203>(see #01203)</a>
+CEh    BYTE    SMOUT Control <a href=rb-2387.htm#Table1204>(see #01204)</a>
 CFh    BYTE    reserved
-D0h    BYTE    System Event Enable 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1207>(see #01207)</a>
-D1h    BYTE    System Event Enable 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1208>(see #01208)</a>
-D2h    BYTE    System Event Enable 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1209>(see #01209)</a>
-D3h    BYTE    Burst Count Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-D4h    BYTE    Clock Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1205>(see #01205)</a>
+D0h    BYTE    System Event Enable 0 <a href=rb-2387.htm#Table1207>(see #01207)</a>
+D1h    BYTE    System Event Enable 1 <a href=rb-2387.htm#Table1208>(see #01208)</a>
+D2h    BYTE    System Event Enable 2 <a href=rb-2387.htm#Table1209>(see #01209)</a>
+D3h    BYTE    Burst Count Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+D4h    BYTE    Clock Control <a href=rb-2387.htm#Table1205>(see #01205)</a>
 D5h    BYTE    reserved
-D6h    BYTE    STPCLK# Low Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-D7h    BYTE    STPCLK# High Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1195>(see #01195)</a>
-D8h    BYTE    Stop Break Event Enable 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1207>(see #01207)</a>
-D9h    BYTE    Stop Break Event Enable 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1208>(see #01208)</a>
-DAh    BYTE    Stop Break Event Enable 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1209>(see #01209)</a>
+D6h    BYTE    STPCLK# Low Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+D7h    BYTE    STPCLK# High Timer <a href=rb-2387.htm#Table1195>(see #01195)</a>
+D8h    BYTE    Stop Break Event Enable 0 <a href=rb-2387.htm#Table1207>(see #01207)</a>
+D9h    BYTE    Stop Break Event Enable 1 <a href=rb-2387.htm#Table1208>(see #01208)</a>
+DAh    BYTE    Stop Break Event Enable 2 <a href=rb-2387.htm#Table1209>(see #01209)</a>
 DBh  5 BYTEs   reserved
-E0h    BYTE    Shadow Register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1206>(see #01206)</a>
+E0h    BYTE    Shadow Register <a href=rb-2387.htm#Table1206>(see #01206)</a>
 E1h  3 BYTEs   reserved
-E4h    BYTE    Burst Clock Event Enable 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1207>(see #01207)</a>
-E5h    BYTE    Burst Clock Event Enable 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1208>(see #01208)</a>
-E6h    BYTE    Burst Clock Event Enable 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1209>(see #01209)</a>
-E7h    BYTE    Burst Clock Event Enable 3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1210>(see #01210)</a>
-E8h    BYTE    Burst Clock Event Enable 4 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1211>(see #01211)</a>
-E9h    BYTE    Burst Clock Event Enable 5 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1212>(see #01212)</a>
-EAh    BYTE    Burst Clock Event Enable 6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1213>(see #01213)</a>
+E4h    BYTE    Burst Clock Event Enable 0 <a href=rb-2387.htm#Table1207>(see #01207)</a>
+E5h    BYTE    Burst Clock Event Enable 1 <a href=rb-2387.htm#Table1208>(see #01208)</a>
+E6h    BYTE    Burst Clock Event Enable 2 <a href=rb-2387.htm#Table1209>(see #01209)</a>
+E7h    BYTE    Burst Clock Event Enable 3 <a href=rb-2387.htm#Table1210>(see #01210)</a>
+E8h    BYTE    Burst Clock Event Enable 4 <a href=rb-2387.htm#Table1211>(see #01211)</a>
+E9h    BYTE    Burst Clock Event Enable 5 <a href=rb-2387.htm#Table1212>(see #01212)</a>
+EAh    BYTE    Burst Clock Event Enable 6 <a href=rb-2387.htm#Table1213>(see #01213)</a>
 EBh    BYTE    reserved
-ECH    BYTE    Clock Throttle Break Event Enable 0 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1207>(see #01207)</a>
-EDh    BYTE    Clock Throttle Break Event Enable 1 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1208>(see #01208)</a>
-EEh    BYTE    Clock Throttle Break Event Enable 2 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1209>(see #01209)</a>
-EFh    BYTE    Clock Throttle Break Event Enable 3 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1210>(see #01210)</a>
-F0h    BYTE    Clock Throttle Break Event Enable 4 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1211>(see #01211)</a>
-F1h    BYTE    Clock Throttle Break Event Enable 5 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1212>(see #01212)</a>
-F2h    BYTE    Clock Throttle Break Event Enable 6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1213>(see #01213)</a>
+ECH    BYTE    Clock Throttle Break Event Enable 0 <a href=rb-2387.htm#Table1207>(see #01207)</a>
+EDh    BYTE    Clock Throttle Break Event Enable 1 <a href=rb-2387.htm#Table1208>(see #01208)</a>
+EEh    BYTE    Clock Throttle Break Event Enable 2 <a href=rb-2387.htm#Table1209>(see #01209)</a>
+EFh    BYTE    Clock Throttle Break Event Enable 3 <a href=rb-2387.htm#Table1210>(see #01210)</a>
+F0h    BYTE    Clock Throttle Break Event Enable 4 <a href=rb-2387.htm#Table1211>(see #01211)</a>
+F1h    BYTE    Clock Throttle Break Event Enable 5 <a href=rb-2387.htm#Table1212>(see #01212)</a>
+F2h    BYTE    Clock Throttle Break Event Enable 6 <a href=rb-2387.htm#Table1213>(see #01213)</a>
 F3h 13 BYTES   reserved
 </PRE>
 <p><b>See Also:</b>
@@ -2902,7 +2902,7 @@ Bit(s)  Description     (Table 01169)
 0      COM1 enabled
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Extended I/O Controller Recovery Timer register:
@@ -2923,7 +2923,7 @@ Bit(s)  Description     (Table 01170)
 2-0    Reserved (0)
 </PRE>
 <p><b>See Also:</b>
-#01168 - #01087 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01087 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX BIOS enable register:
@@ -2938,7 +2938,7 @@ Bit(s)  Description     (Table 01171)
 1-0    reserved
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX FDC Enable register:
@@ -2954,7 +2954,7 @@ Bit(s)  Description     (Table 01172)
 0      Floppy Primary Address Enable
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Miscellaneous Status register:
@@ -2969,7 +2969,7 @@ Bit(s)  Description     (Table 01173)
 <p><b>Note:</b>
 This is a read-only register that reports on chipset jumper settings.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Audio enable register:
@@ -2985,7 +2985,7 @@ Bit(s)  Description     (Table 01174)
 1-0    reserved
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX DMA channel 5-7 address size register:
@@ -2999,7 +2999,7 @@ Bit(s)  Description     (Table 01175)
 4-3     reserved (0)
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX PCI DMA Enable register:
@@ -3015,7 +3015,7 @@ Bit(s)  Description     (Table 01176)
 0      DMA CH0 is on PCI Bus
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX PCI DMA/PCI DMA expansion registers:
@@ -3029,7 +3029,7 @@ Bit(s)  Description     (Table 01177)
 The PCI DMA Expansion request lines (REQ[A,B]#/GNT[A,B]#) provide PCI
 DMA and PCI DMA expansion support.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Memory Address Control registers:
@@ -3038,7 +3038,7 @@ Bit(s)  Description     (Table 01178)
 15-0   Memory Access Control
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Memory Address Mask register:
@@ -3047,7 +3047,7 @@ Bit(s)  Description     (Table 01179)
 7-0    Memory Address Mask
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Address Range Enable register:
@@ -3063,7 +3063,7 @@ Bit(s)  Description     (Table 01180)
 5      PCS# Address range Enabled
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Chip Select Control register:
@@ -3072,7 +3072,7 @@ Bit(s)  Description     (Table 01181)
 15-0   PCS# Address
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Address Control registers:
@@ -3085,7 +3085,7 @@ This register selects a 16-bit I/O address range to be forwarded to
 the Extended I/O Bus, if enabled in the Programmable Address Range
 register.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Address Mask A register:
@@ -3095,7 +3095,7 @@ Bit(s)  Description     (Table 01183)
 3-0    Programmable Chip Select Mask
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Address Mask B register:
@@ -3105,7 +3105,7 @@ Bit(s)  Description     (Table 01184)
 3-0    Programmable Address Control 2 Mask
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX I/O configuration address register:
@@ -3121,7 +3121,7 @@ Extended I/O Bus for accesses to the configuration space of an
 integrated I/O device. PCI address bits 9-1 are compared to bits
 9-1 of this register. Address bits 31-10 must be 0.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Programmable Address Mask C register:
@@ -3131,7 +3131,7 @@ Bit(s)  Description     (Table 01186)
 3-0    Programmable Address Control 4 Mask
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Peripheral Access Detect Enable 0 register:
@@ -3147,7 +3147,7 @@ Bit(s)  Description     (Table 01187)
 0      Enable Parallel 1
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Peripheral Access Detect Enable 1 register:
@@ -3163,7 +3163,7 @@ Bit(s)  Description     (Table 01188)
 0      Enable Promary IDE
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Peripheral Access Detect Enable 2 register:
@@ -3179,7 +3179,7 @@ Bit(s)  Description     (Table 01189)
 0      Enable PCSC
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Local Trap Address for Device 3 register:
@@ -3191,7 +3191,7 @@ Bit(s)  Description     (Table 01190)
 Is compared with bits 15-0 of PCI I/O Addresses. Address bits 31-16
 must be 0.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Local Trap Mask for Device 3 register:
@@ -3210,7 +3210,7 @@ port range is made.
 <p><b>Note:</b>
 This field selects the range of trappable addresses (in bytes).
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Local Trap SMI Enable/Status registers:
@@ -3230,7 +3230,7 @@ I/O accesses to the address region used by the selected device;
 a set bit in the Status register indicates which trap caused an SMI#
 interrupt.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Local Standby SMI Enable/Status registers:
@@ -3249,7 +3249,7 @@ Each bit in the Enable register turns on the associated SMI Timer; a
 set bit in the Status register indicates which local standby timer
 caused the SMI interrupt
 <p><b>See Also:</b>
-#01168 - #01194 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01194 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Local Standby Timer Reload Enable register:
@@ -3270,7 +3270,7 @@ associated I/O address range is accessed, the standby timer is
 reloaded with it's default value. Also note the different bit-order
 for this register only.
 <p><b>See Also:</b>
-#01168 - #01193 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01193 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Count Value registers:
@@ -3284,7 +3284,7 @@ events. 00 is an illegal programmed value. The programmed value is
 decremented by certain events or system clocks, and the event is
 triggered when the count reaches 0.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX System Management Control register:
@@ -3296,7 +3296,7 @@ Bit(s)  Description     (Table 01196)
 0      =0 disable SMI
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX System SMI Enable/Status registers:
@@ -3316,7 +3316,7 @@ Each set bit in the Enable register turns on SMI# generation for the
 associated hardware event; a set bit in the Status register indicates
 which event caused the SMI interrupt
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Miscellaneous SMI Enable register:
@@ -3331,7 +3331,7 @@ Bit(s)  Description     (Table 01198)
 <p><b>Note:</b>
 Enables SMI# generation for the above hardware events
 <p><b>See Also:</b>
-#01168 - #01199 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01199 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Miscellaneous SMI Status register:
@@ -3344,7 +3344,7 @@ Bit(s)  Description     (Table 01199)
 0      reserved
 </PRE>
 <p><b>See Also:</b>
-#01168 - #01198 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01198 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Global SMI Enable register:
@@ -3361,7 +3361,7 @@ Bit(s)  Description     (Table 01200)
 <p><b>Note:</b>
 Enables SMI# generation for the above hardware events
 <p><b>See Also:</b>
-#01168 - #01201 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01201 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Global SMI Status register:
@@ -3377,7 +3377,7 @@ Bit(s)  Description     (Table 01201)
 0      reserved
 </PRE>
 <p><b>See Also:</b>
-#01168 - #01200 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - #01200 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Suspend/Resume Control 1 register:
@@ -3396,7 +3396,7 @@ Bit(s)  Description     (Table 01202)
 11      Suspend-to-Disk
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Suspend/Resume Control 2 register:
@@ -3406,7 +3406,7 @@ Bit(s)  Description     (Table 01203)
 0      EXTSMI# will NOT cause a resume event
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX SMOUT Control register:
@@ -3418,7 +3418,7 @@ SMOUT5 is not effected if it is configured for DOE# function.
 SMOUT4 is not effected if it is configured for RTCALE function
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Clock Control register:
@@ -3440,7 +3440,7 @@ Sets the granularity of the Clock Throttle Standby Timer
 1      Enable clock throttling
 0      Enable "PCI Clock can be stopped"
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 <a name=table1206></a>
@@ -3514,7 +3514,7 @@ To read a given register, write the value from the table to the shadow
 register, then immediately re-read the shadow register. The returned
 value is the current value of the I/O port.
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Burst Clock/Clock Throttle Break Enable 0 register:
@@ -3530,7 +3530,7 @@ Bit(s)  Description     (Table 01207)
 0      Enable IRQ0
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 1 register:
@@ -3546,7 +3546,7 @@ Bit(s)  Description     (Table 01208)
 0      Enable IRQ8
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 2 register:
@@ -3571,7 +3571,7 @@ reserved
 0      Enable events of selected type
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 3 register:
@@ -3582,7 +3582,7 @@ Bit(s)  Description     (Table 01210)
 0      Enable PHLDA#
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 4 register:
@@ -3598,7 +3598,7 @@ Bit(s)  Description     (Table 01211)
 0      Enable PCSC
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 5 register:
@@ -3614,7 +3614,7 @@ Bit(s)  Description     (Table 01212)
 0      Enable Promary IDE
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Bitfields for Intel 82371MX Event Enable 6 register:
@@ -3630,29 +3630,29 @@ Bit(s)  Description     (Table 01213)
 0      Enable Parallel 1
 </PRE>
 <p><b>See Also:</b>
-#01168 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371"
+#01168 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371"
 <PRE>
 <p>
 Format of PCI Configuration for Intel 82371FB/82371SB Function 1 (IDE):
 <a name=table1214></a>
 Offset  Size    Description     (Table 01214)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vender ID 8086h, device ID 1230h/7010h)
 20h    DWORD   Bus Master Interface Base Address
 (see PORT xxxxh"Intel 82371SB")
-40h    WORD    IDE timing modes, primary channel <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1223>(see #01223)</a>
-42h    WORD    IDE timing modes, secondary channel <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1223>(see #01223)</a>
-44h    BYTE    (82371SB) slave IDE timing register <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1224>(see #01224)</a>
+40h    WORD    IDE timing modes, primary channel <a href=rb-2387.htm#Table1223>(see #01223)</a>
+42h    WORD    IDE timing modes, secondary channel <a href=rb-2387.htm#Table1223>(see #01223)</a>
+44h    BYTE    (82371SB) slave IDE timing register <a href=rb-2387.htm#Table1224>(see #01224)</a>
 45h 187 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
-#01167 - #01215 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371SB"
+#01167 - #01215 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371SB"
 <PRE>
 <p>
 Format of PCI Configuration data for Intel 82371SB Function 2 (USB):
 <a name=table1215></a>
 Offset  Size    Description     (Table 01215)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 7020h)
 20h    DWORD   I/O space base address
 (see PORT xxxxh"Intel 82371SB")
@@ -3661,13 +3661,13 @@ Offset  Size    Description     (Table 01215)
 00h pre-release 1.0
 10h Release 1.0
 61h  9 BYTEs   reserved
-6Ah    WORD    miscellaneous status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1225>(see #01225)</a>
+6Ah    WORD    miscellaneous status <a href=rb-2387.htm#Table1225>(see #01225)</a>
 6Ch 84 BYTEs   reserved
-C0h    WORD    legacy support <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1226>(see #01226)</a>
+C0h    WORD    legacy support <a href=rb-2387.htm#Table1226>(see #01226)</a>
 C2h 62 BYTEs   reserved
 </PRE>
 <p><b>See Also:</b>
-#01167 - #01214 - <a href=http://www.ctyme.com/intr/int-1A.htm>PORT xxxxh</a>"Intel 82371SB"
+#01167 - #01214 - <a href=int-1A.htm>PORT xxxxh</a>"Intel 82371SB"
 <PRE>
 <p>
 Bitfields for Intel 82371FB/82371SB top of memory register:
@@ -3799,7 +3799,7 @@ Bitfields for Intel 82371FB/82371SB/82371MX IDE timing modes:
 <a name=table1223></a>
 Bit(s)  Description     (Table 01223)
 15     IDE decode enable
-14     (82371SB) slave IDE timing register enable <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1224>(see #01224)</a>.
+14     (82371SB) slave IDE timing register enable <a href=rb-2387.htm#Table1224>(see #01224)</a>.
 (82371MX) primary/secondary address decode (=0 primary, =1 secondary)
 13-12  IORDY# sample point.
 00 five clocks after DIOx# assertion.
@@ -3892,10 +3892,10 @@ Write 1 to clear this bit
 Format of PCI Configuration Data for Intel 82557:
 <a name=table1227></a>
 Offset  Size    Description     (Table 01227)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
-(vendor ID 8086h, device ID 1229h) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table873>(see #00873)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
+(vendor ID 8086h, device ID 1229h) <a href=rb-2372.htm#Table873>(see #00873)</a>
 10h    DWORD   base address of memory-mapped Control/Status Registers (4K)
-<a href=http://www.ctyme.com/intr/rb-2387.htm#Table1228>(see #01228)</a>
+<a href=rb-2387.htm#Table1228>(see #01228)</a>
 14h    DWORD   base address of I/O-mapped Control/Status Registers (32 ports)
 18h    DWORD   base address of Flash memory (1M)
 40h 192 BYTEs  unused
@@ -3926,21 +3926,21 @@ details
 Format of PCI Configuration Data for Intel 82441FX:
 <a name=table1229></a>
 Offset  Size    Description     (Table 01229)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
-(vendor ID 8086h, device ID 1237h) <a href=http://www.ctyme.com/intr/rb-2372.htm#Table873>(see #00873)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
+(vendor ID 8086h, device ID 1237h) <a href=rb-2372.htm#Table873>(see #00873)</a>
 40h 16 BYTEs   reserved
-50h    WORD    PMC Configuration <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1230>(see #01230)</a>
+50h    WORD    PMC Configuration <a href=rb-2387.htm#Table1230>(see #01230)</a>
 52h    BYTE    deturbo counter control
 when deturbo mode is selected (see PORT 0CF9h), the chipset
 places a hold on the memory bus for a fraction of the
 time inversely proportional to the value in this register
 (i.e. C0h = 1/4, 80h = 1/2, 40h = 3/4, 20h = 7/8, etc.)
-53h    BYTE    DBX buffer control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1231>(see #01231)</a>
-54h    BYTE    auxiliary control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1232>(see #01232)</a>
-55h    WORD    DRAM Row Type <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1233>(see #01233)</a>
-57h    BYTE    DRAM Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1234>(see #01234)</a>
-58h    BYTE    DRAM Timing <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1235>(see #01235)</a>
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+53h    BYTE    DBX buffer control <a href=rb-2387.htm#Table1231>(see #01231)</a>
+54h    BYTE    auxiliary control <a href=rb-2387.htm#Table1232>(see #01232)</a>
+55h    WORD    DRAM Row Type <a href=rb-2387.htm#Table1233>(see #01233)</a>
+57h    BYTE    DRAM Control <a href=rb-2387.htm#Table1234>(see #01234)</a>
+58h    BYTE    DRAM Timing <a href=rb-2387.htm#Table1235>(see #01235)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h  8 BYTEs   DRAM Row Buondary registers 0-7
 each register N indicates cumulative amount of memory in rows
 0-N (each 64 bits wide), in 8M units
@@ -3949,13 +3949,13 @@ each register N indicates cumulative amount of memory in rows
 70h    BYTE    Multi-Transaction Timer
 number of PCLKs guaranteed to the current agent before the
 82441 will grant the bus to another PCI agent on request
-71h    BYTE    CPU Latency Timer <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1236>(see #01236)</a>
-72h    BYTE    System Management RAM control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1123>(see #01123)</a>
+71h    BYTE    CPU Latency Timer <a href=rb-2387.htm#Table1236>(see #01236)</a>
+72h    BYTE    System Management RAM control <a href=rb-2387.htm#Table1123>(see #01123)</a>
 73h 29 BYTEs   reserved
-90h    BYTE    Error Command <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1237>(see #01237)</a>
-91h    BYTE    Error Status <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1238>(see #01238)</a>
+90h    BYTE    Error Command <a href=rb-2387.htm#Table1237>(see #01237)</a>
+91h    BYTE    Error Status <a href=rb-2387.htm#Table1238>(see #01238)</a>
 92h    BYTE    reserved
-93h    BYTE    Turbo Reset Control <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1239>(see #01239)</a>
+93h    BYTE    Turbo Reset Control <a href=rb-2387.htm#Table1239>(see #01239)</a>
 94h 108 BYTEs  reserved
 </PRE>
 <p><b>See Also:</b>
@@ -4144,7 +4144,7 @@ BIST should not be enabled during a soft reset
 Format of PCI Configuration data for Intel 82454KX/GX:
 <a name=table1240></a>
 Offset  Size    Description     (Table 01240)
-00h 64 BYTEs   header <a href=http://www.ctyme.com/intr/rb-2377.htm#Table878>(see #00878)</a>
+00h 64 BYTEs   header <a href=rb-2377.htm#Table878>(see #00878)</a>
 (vendor ID 8086h, device ID 84C4h)
 !!!intel\29052301.pdf pg. 40
 40h    DWORD   top of system memory
@@ -4162,7 +4162,7 @@ Offset  Size    Description     (Table 01240)
 56h    BYTE    reserved
 57h    BYTE    SMM Enable
 58h    BYTE    video buffer area enable
-59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=http://www.ctyme.com/intr/rb-2387.htm#Table1118>(see #01118)</a>
+59h  7 BYTEs   Programmable Attribute Map registers 0-6 <a href=rb-2387.htm#Table1118>(see #01118)</a>
 60h 16 BYTEs   reserved
 70h    BYTE    Error Command
 71h    BYTE    Error Status
@@ -4201,108 +4201,20 @@ Expansion Bus Bios</a>
 Int 1Ah</a>
 - <a href=alpha-p.htm>
 P</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2386.htm>
+<a href=rb-2386.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2388.htm>
+<a href=rb-2388.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

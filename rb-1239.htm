@@ -17,24 +17,24 @@ DWORD address of string to display (see #00439)
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 15/AH=12h/BH=05h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1238.htm>
+<a href=rb-1238.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1240.htm>
+<a href=rb-1240.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>TopView - SEND MESSAGE - WRITE - WRITE STRING TO WINDOW</font></h3>
 <PRE>
 AH = 12h
@@ -46,7 +46,7 @@ BL = window to write to
 0Dh (DV 2.26+) default window of parent of current task.
 <p><b>STACK:</b><br>DWORD object handle if handle passed on stack
 DWORD total length of string (high word == 0)
-DWORD address of string to display <a href=http://www.ctyme.com/intr/rb-1239.htm#Table439>(see #00439)</a><br>
+DWORD address of string to display <a href=rb-1239.htm#Table439>(see #00439)</a><br>
 <p><b>Return:</b><br>Indicated actions performed
 a. non-control characters are displayed (opcodes DEh and DFh control
 whether the attributes are left or changed to the current attrib)
@@ -57,7 +57,7 @@ byte is less than 20h; otherwise, it is written to the window.
 else nothing (arguments have been popped)
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-1234.htm>AH=12h/BH=04h</a> - <a href=http://www.ctyme.com/intr/rb-1275.htm>AH=12h/BH=85h</a>
+<a href=rb-1234.htm>AH=12h/BH=04h</a> - <a href=rb-1275.htm>AH=12h/BH=85h</a>
 <PRE>
 <p>
 Format of stream data structure:
@@ -65,7 +65,7 @@ Format of stream data structure:
 Offset  Size    Description     (Table 00439)
 00h    BYTE    1Bh magic value identifying start of stream
 01h    BYTE    stream type (00h, 01h, 10h, 14h-1Fh legal)
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #00440,#00446,#00447,#00448)
+<a href=rb-0000.htm#Table0></a>(see #00440,#00446,#00447,#00448)
 02h    WORD    length of remainder of stream in bytes.
 Var-length fields follow, each an OPCODE followed by
 zero or more args
@@ -218,7 +218,7 @@ D6h  window has frame (default)
 D7h  window unframed [must redraw to actually remove frame]
 D8h  READ/READN will read characters from window (default)
 D9h  READ/READN will read attributes from window
-DAh  use logical attributes, which may be remapped <a href=http://www.ctyme.com/intr/rb-1239.htm#Table441>(see #00441)</a>
+DAh  use logical attributes, which may be remapped <a href=rb-1239.htm#Table441>(see #00441)</a>
 DBh  use physical attributes for characters
 DCh  enable special actions for control characters (default)
 DDh  disable special control char handling, all chars displayable by BIOS TTY
@@ -341,12 +341,12 @@ BYTE field number
 FBh  scroll field right.
 BYTE field number
 FCh  set field table header.
-6 BYTEs field table header <a href=http://www.ctyme.com/intr/rb-1239.htm#Table442>(see #00442)</a>
+6 BYTEs field table header <a href=rb-1239.htm#Table442>(see #00442)</a>
 FDh  reset modified bit for all fields
 FEh  reset selected and modified bits for all fields
 FFh  set up input fields.
-6 BYTEs table header <a href=http://www.ctyme.com/intr/rb-1239.htm#Table442>(see #00442)</a>.
-7/8N BYTEs the field table entries, one for each field <a href=http://www.ctyme.com/intr/rb-1239.htm#Table444>(see #00444)</a>.
+6 BYTEs table header <a href=rb-1239.htm#Table442>(see #00442)</a>.
+7/8N BYTEs the field table entries, one for each field <a href=rb-1239.htm#Table444>(see #00444)</a>.
 <p><b>Note:</b>
 DESQview uses and updates the actual copy of the information
 which is contained in the stream.  Thus this info must remain
@@ -376,7 +376,7 @@ Format of TopView field table header:
 <a name=table442></a>
 Offset  Size    Description     (Table 00442)
 00h    BYTE    number of fields (must be <= existing number of fields)
-01h    BYTE    screen behavior bits <a href=http://www.ctyme.com/intr/rb-1239.htm#Table443>(see #00443)</a>
+01h    BYTE    screen behavior bits <a href=rb-1239.htm#Table443>(see #00443)</a>
 02h    BYTE    current input field (updated by DESQview)
 03h    BYTE    current select field (updated by DESQview)
 04h    BYTE    attribute for select fields when they are pointed at
@@ -415,7 +415,7 @@ Offset  Size    Description     (Table 00444)
 01h    BYTE    start column  \ if menu selection and start is to
 02h    BYTE    end row       / right or below end, select from kbd only
 03h    BYTE    end column   /
-04h    BYTE    field type <a href=http://www.ctyme.com/intr/rb-1239.htm#Table445>(see #00445)</a>
+04h    BYTE    field type <a href=rb-1239.htm#Table445>(see #00445)</a>
 05h    BYTE    modifier
 if type is fill-in, then bit flags to determine behavior
 bit 7  automatically enter CR when field full
@@ -531,7 +531,7 @@ BYTE field number.
 N BYTEs buffer to hold field contents (size equal to field size)
 F5h get field table entry.
 BYTE field number.
-7-8 BYTEs buffer to hold field table entry <a href=http://www.ctyme.com/intr/rb-1239.htm#Table444>(see #00444)</a>.
+7-8 BYTEs buffer to hold field table entry <a href=rb-1239.htm#Table444>(see #00444)</a>.
 </PRE>
 <p><b>Notes:</b>
 DV < 2.26 always returns 7 bytes
@@ -544,7 +544,7 @@ F6h get type of a field.
 BYTE field number.
 BYTE type
 FCh get field table header.
-6 BYTEs buffer to store field table header <a href=http://www.ctyme.com/intr/rb-1239.htm#Table442>(see #00442)</a>
+6 BYTEs buffer to store field table header <a href=rb-1239.htm#Table442>(see #00442)</a>
 <p><b>See Also:</b>
 #00439 - #00447
 <PRE>
@@ -596,7 +596,7 @@ BYTE columns
 89h set maximum size of physical window.
 BYTE rows.
 BYTE cols
-8Ah set primary asynchronous notification routine <a href=http://www.ctyme.com/intr/rb-1239.htm#Table449>(see #00449)</a>.
+8Ah set primary asynchronous notification routine <a href=rb-1239.htm#Table449>(see #00449)</a>.
 DWORD address of routine, 0000h:0000h means none (see also below)
 8Bh set async notification parameter.
 DWORD 32-bit value passed to 8Ah async routine in DS:SI
@@ -747,108 +747,20 @@ DESQview/TopView and Quarterdeck Programs</a>
 Int 15h</a>
 - <a href=alpha-t.htm>
 T</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-1238.htm>
+<a href=rb-1238.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-1240.htm>
+<a href=rb-1240.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

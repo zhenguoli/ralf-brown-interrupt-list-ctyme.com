@@ -17,29 +17,29 @@ SeeAlso: AX=C000hLink Support Layer,AX=C000hNETWARN
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 2F/AX=C000h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5287.htm>
+<a href=rb-5287.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5289.htm>
+<a href=rb-5289.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>Novell NetWare Event Service Layer (NESL) 1.0 - INSTALLATION CHECK</font></h3>
 <PRE>
 AX = C000h<br>
 <p><b>Return:</b><br>AL = FFh if installed
-DX:BX -> FAR entry point <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #03013,#03014,#03015,#03016,#03017,#03018)
+DX:BX -> FAR entry point <a href=rb-0000.htm#Table0></a>(see #03013,#03014,#03015,#03016,#03017,#03018)
 ES:SI -> signature string "NESL_EVENTS"
 </PRE>
 <p><b>Program:</b>
@@ -59,7 +59,7 @@ limited to this.
 Call NESL function GetNESLConfigPointer with:.
 BX = 0000h<br>
 <p><b>Return:</b><br>AX = completion code (0000h,8008h) (see #03019)
-ES:SI -> NESL configuration table if successful <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3020>(see #03020)</a>
+ES:SI -> NESL configuration table if successful <a href=rb-5288.htm#Table3020>(see #03020)</a>
 BP,DS,STACK preserved
 </PRE>
 <p><b>Desc:</b>
@@ -72,7 +72,7 @@ Obtain a pointer to the NESL Configuration Table
 (Table 03014)
 Call NESL function RegisterEventProducer with:.
 BX = 0001h.
-ES:SI -> Producer Event Control Block (PECB) <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3021>(see #03021)</a><br>
+ES:SI -> Producer Event Control Block (PECB) <a href=rb-5288.htm#Table3021>(see #03021)</a><br>
 <p><b>Return:</b><br>AX = completion code (0000h, 8005h, 8008h) (see #03019)
 ES:SI -> still points to PECB
 BP,DS,STACK preserved
@@ -89,7 +89,7 @@ PECB_ClassName and PECB_Flags must be filled in on entry
 (Table 03015)
 Call NESL function DeRegisterEventProducer with:.
 BX = 0002h.
-ES:SI -> PECB previously passed to RegisterEventProducer <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3021>(see #03021)</a><br>
+ES:SI -> PECB previously passed to RegisterEventProducer <a href=rb-5288.htm#Table3021>(see #03021)</a><br>
 <p><b>Return:</b><br>AX = completion code (0000h, 8002h, 8008h) (see #03019)
 ES:SI -> still points to PECB
 BP,DS,STACK preserved
@@ -104,7 +104,7 @@ Allows a module to de-register as a producer of a given event class
 (Table 03016)
 Call NESL function EventNotification with:.
 BX = 0003h.
-ES:SI -> PECB previously registered <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3021>(see #03021)</a><br>
+ES:SI -> PECB previously registered <a href=rb-5288.htm#Table3021>(see #03021)</a><br>
 <p><b>Return:</b><br>AX = completion code (0h, 8005h, 8008h) (see #03019)
 ES:SI -> still points to PECB
 BP,DS,STACK preserved
@@ -116,7 +116,7 @@ event class.
 Once called, NESL will generate corresponding callouts for this
 event, as described in Table #03023..
 On entry, the PECB_DataPtr must point at an Event Parameter Block (EPB)
-<a href=http://www.ctyme.com/intr/rb-5288.htm#Table3024>(see #03024)</a> filled in to match the desired event
+<a href=rb-5288.htm#Table3024>(see #03024)</a> filled in to match the desired event
 <p><b>See Also:</b>
 #03014
 <PRE>
@@ -125,7 +125,7 @@ On entry, the PECB_DataPtr must point at an Event Parameter Block (EPB)
 (Table 03017)
 Call NESL function RegisterEventConsumer with:.
 BX = 0004h.
-ES:SI -> Consumer Event Control Block (CECB) <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3022>(see #03022)</a><br>
+ES:SI -> Consumer Event Control Block (CECB) <a href=rb-5288.htm#Table3022>(see #03022)</a><br>
 <p><b>Return:</b><br>AX = completion code (0h, 8005h, 8008h) (see #03019)
 ES:SI -> still points to CECB
 BP,DS,STACK preserved
@@ -143,7 +143,7 @@ filled in.
 (Table 03018)
 Call NESL function DeRegisterEventConsumer with:.
 BX = 0005h.
-ES:SI -> CECB previously passed to RegisterEventConsumer <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3022>(see #03022)</a><br>
+ES:SI -> CECB previously passed to RegisterEventConsumer <a href=rb-5288.htm#Table3022>(see #03022)</a><br>
 <p><b>Return:</b><br>AX = completion code (0h, 8002h, 8008h) (see #03019)
 ES:SI -> still points to CECB
 BP,DS,STACK preserved
@@ -181,7 +181,7 @@ Offset  Size    Description     (Table 03021)
 02h    WORD    PECB_MinVer  Minor Version of this structure (=0)
 04h    DWORD   PECB_NextProducer   -> next PECB.  NULL if last.
 08h    DWORD   PECB_ClassName      -> ASCIZ string identifying event
-class <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3025>(see #03025)</a>
+class <a href=rb-5288.htm#Table3025>(see #03025)</a>
 0Ch    DWORD   PECB_ConsumerList   -> list of consumers for this event class
 10h    DWORD   PECB_DataPtr        -> points to additional data during events
 14h    DWORD   PECB_Flags
@@ -206,8 +206,8 @@ Offset  Size    Description     (Table 03022)
 02h    WORD    CECB_MinVer  Minor Version of this structure (=0)
 04h    DWORD   CECB_NextConsumer   -> next CECB.  NULL if last.
 08h    DWORD   CECB_ClassName      -> ASCIZ string identifying event
-class <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3025>(see #03025)</a>
-0Ch    DWORD   CECB_NotifProc      -> FAR CALL event handler <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3023>(see #03023)</a>
+class <a href=rb-5288.htm#Table3025>(see #03025)</a>
+0Ch    DWORD   CECB_NotifProc      -> FAR CALL event handler <a href=rb-5288.htm#Table3023>(see #03023)</a>
 10h    WORD    CECB_OSILevel
 Bits 4-7 = OSI Layer of this module (1 through 7)
 Bits 0-3 = relative ordering with other modules on same layer
@@ -222,7 +222,7 @@ While owned by NESL, this structure should be treated as read-only,
 <a name=table3023></a>
 (Table 03023)
 Values NESL Consumer Notification Procedure is called with:.
-ES:SI -> Event Parameter Block (EPB) <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3024>(see #03024)</a><br>
+ES:SI -> Event Parameter Block (EPB) <a href=rb-5288.htm#Table3024>(see #03024)</a><br>
 <p><b>Return:</b><br>AX = completion code (0000h, 8005h) (see #03019)
 ES:SI -> still points to EPB
 </PRE>
@@ -239,9 +239,9 @@ Offset  Size    Description     (Table 03024)
 00h    WORD    EPB_MajVer  Major Version of this structure (=1)
 02h    WORD    EPB_MinVer  Minor Version of this structure (=0)
 04h    DWORD   EPB_ClassName  -> ASCIZ string identifying event class
-<a href=http://www.ctyme.com/intr/rb-5288.htm#Table3025>(see #03025)</a>
+<a href=rb-5288.htm#Table3025>(see #03025)</a>
 08h    DWORD   EPB_EventName  -> ASCIZ string identifying event within
-class <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3026>(see #03026)</a>
+class <a href=rb-5288.htm#Table3026>(see #03026)</a>
 0Ch    DWORD   EPB_ModuleName -> ASCIZ string identifying module
 producing event
 10h    DWORD   EPB_DataPtr0   -> event-defined data or NULL if not used
@@ -287,7 +287,7 @@ MLID Speed Change              Serv/Status Change  Change in communic. speed
 </PRE>
 <p><b>Note:</b>
 Contact Novell Labs to register new event names..
-For all predefined events above, EPB_DataPtr0 <a href=http://www.ctyme.com/intr/rb-5288.htm#Table3024>(see #03024)</a> points
+For all predefined events above, EPB_DataPtr0 <a href=rb-5288.htm#Table3024>(see #03024)</a> points
 to the MLID Configuration table (see AX=C000h"ODI") for the
 affected MLID.
 <p>
@@ -297,108 +297,20 @@ Netware</a>
 Int 2Fh</a>
 - <a href=alpha-n.htm>
 N</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-5287.htm>
+<a href=rb-5287.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-5289.htm>
+<a href=rb-5289.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

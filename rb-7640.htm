@@ -17,34 +17,34 @@ CX = number of scancodes in list (if bit 4 of DH set)
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 6F/AH=00h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-7639.htm>
+<a href=rb-7639.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-7641.htm>
+<a href=rb-7641.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>HP Vectra EX-BIOS - F_ISR (internal) - RESPOND TO LOGICAL ISR</font></h3>
 <PRE>
 AH = 00h
-BP = ID for driver <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3741>(see #03741)</a>
-DH = data type <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3742>(see #03742)</a>
+BP = ID for driver <a href=rb-7640.htm#Table3741>(see #03741)</a>
+DH = data type <a href=rb-7640.htm#Table3742>(see #03742)</a>
 DL = physical device driver's index (driver ID / 6)
 BX,CX = data
-ES:0000h -> physical device's Describe Record <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3749>(see #03749)</a>
+ES:0000h -> physical device's Describe Record <a href=rb-7640.htm#Table3749>(see #03749)</a>
 ---keypress event data---
-BH = keyboard state (only if bit 5 of DH set) <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3743>(see #03743)</a>
+BH = keyboard state (only if bit 5 of DH set) <a href=rb-7640.htm#Table3743>(see #03743)</a>
 BL = scancode (if bit 4 of DH clear)
 CX = number of scancodes in list (if bit 4 of DH set)
 ES:SI -> scancode list (if bit 4 of DH set)
@@ -61,8 +61,8 @@ BH = reserved<br>
 BP,DS destroyed
 ---if device is keyboard translator---
 BL = translated scancode
-BH = new keyboard state (if DH bit 5 set) <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3743>(see #03743)</a>
-DH = new scancode type <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3742>(see #03742)</a>
+BH = new keyboard state (if DH bit 5 set) <a href=rb-7640.htm#Table3743>(see #03743)</a>
+DH = new scancode type <a href=rb-7640.htm#Table3742>(see #03742)</a>
 </PRE>
 <p><b>Notes:</b>
 INT 6F corresponds to IRQ23 on the original HP Vectra AT, which is
@@ -77,10 +77,10 @@ Each entry in the HP_VECTOR table consists of a DWORD for the driver's
 entry point address and a WORD for the driver's data segment.
 This function is not user-callable, as it is a response to a physical
 event, and assumes that the caller has already handled the physical
-interrupt and updated the Describe Record <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3749>(see #03749)</a> to reflect
+interrupt and updated the Describe Record <a href=rb-7640.htm#Table3749>(see #03749)</a> to reflect
 the event
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-7627.htm>INT 6C"HP Vectra"</a> - <a href=http://www.ctyme.com/intr/rb-7643.htm>INT 6F/AX=0200h"HP Vectra"</a>
+<a href=rb-7627.htm>INT 6C"HP Vectra"</a> - <a href=rb-7643.htm>INT 6F/AX=0200h"HP Vectra"</a>
 <PRE>
 <p>
 <a name=table3741></a>
@@ -198,10 +198,10 @@ while positive values indicate exceptional conditions
 Format of HP EX-BIOS driver header data:
 <a name=table3745></a>
 Offset  Size    Description     (Table 03745)
-00h    WORD    driver attributes <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3746>(see #03746)</a>
+00h    WORD    driver attributes <a href=rb-7640.htm#Table3746>(see #03746)</a>
 02h    WORD    string index of driver's name
-04h    WORD    driver's default logical device vector <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3741>(see #03741)</a>
-06h    WORD    driver's parent class (bitset) <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3747>(see #03747)</a>
+04h    WORD    driver's default logical device vector <a href=rb-7640.htm#Table3741>(see #03741)</a>
+06h    WORD    driver's parent class (bitset) <a href=rb-7640.htm#Table3747>(see #03747)</a>
 08h    WORD    driver's child class (bitset)
 0Ah    WORD    driver's parent vector
 0Ch    WORD    driver's child vector
@@ -302,12 +302,12 @@ Offset  Size    Description     (Table 03748)
 Format of HP EX-BIOS Driver Describe Record:
 <a name=table3749></a>
 Offset  Size    Description     (Table 03749)
-00h 16 BYTEs   EX-BIOS driver header data <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3745>(see #03745)</a>
+00h 16 BYTEs   EX-BIOS driver header data <a href=rb-7640.htm#Table3745>(see #03745)</a>
 10h    BYTE    device GID type
 <p><b>bits 7-4:</b><br>Device type
 <p><b>bits 3-0:</b><br>Physical device link address
-11h    BYTE    physical device ID <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3751>(see #03751)</a>
-12h    WORD    logical device status bits <a href=http://www.ctyme.com/intr/rb-7640.htm#Table3750>(see #03750)</a>
+11h    BYTE    physical device ID <a href=rb-7640.htm#Table3751>(see #03751)</a>
+12h    WORD    logical device status bits <a href=rb-7640.htm#Table3750>(see #03750)</a>
 14h    BYTE    physical device vector number (driver ID / 6)
 15h    BYTE    maximum number of axes reported (0-2)
 16h    BYTE    device class
@@ -400,108 +400,20 @@ Vendor-specific BIOS Extensions</a>
 Int 6Fh</a>
 - <a href=alpha-h.htm>
 H</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-7639.htm>
+<a href=rb-7639.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-7641.htm>
+<a href=rb-7641.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

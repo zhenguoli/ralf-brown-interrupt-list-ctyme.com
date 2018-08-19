@@ -17,24 +17,24 @@ AL = function
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 1A/AH=AFh
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2367.htm>
+<a href=rb-2367.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2369.htm>
+<a href=rb-2369.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>PCMCIA v2 Card Services - API</font></h3>
 <PRE>
 AH = AFh
@@ -42,20 +42,20 @@ AL = function
 00h close memory
 01h copy memory
 02h deregister client
-03h get client information <a href=http://www.ctyme.com/intr/rb-2368.htm#Table702>(see #00702)</a>
-04h get configuration information <a href=http://www.ctyme.com/intr/rb-2368.htm#Table704>(see #00704)</a>
+03h get client information <a href=rb-2368.htm#Table702>(see #00702)</a>
+04h get configuration information <a href=rb-2368.htm#Table704>(see #00704)</a>
 05h get first partition
 06h get first region
-07h get first tuple <a href=http://www.ctyme.com/intr/rb-2368.htm#Table711>(see #00711)</a>
+07h get first tuple <a href=rb-2368.htm#Table711>(see #00711)</a>
 08h get next partition
 09h get next region
 0Ah get next tuple
-0Bh get Card Services information <a href=http://www.ctyme.com/intr/rb-2368.htm#Table700>(see #00700)</a>
+0Bh get Card Services information <a href=rb-2368.htm#Table700>(see #00700)</a>
 0Ch get status
-0Dh get tuple data <a href=http://www.ctyme.com/intr/rb-2368.htm#Table712>(see #00712)</a>
-0Eh get first client <a href=http://www.ctyme.com/intr/rb-2368.htm#Table701>(see #00701)</a>
+0Dh get tuple data <a href=rb-2368.htm#Table712>(see #00712)</a>
+0Eh get first client <a href=rb-2368.htm#Table701>(see #00701)</a>
 0Fh get/register Erase Queue
-10h register client <a href=http://www.ctyme.com/intr/rb-2368.htm#Table713>(see #00713)</a>
+10h register client <a href=rb-2368.htm#Table713>(see #00713)</a>
 11h reset function
 12h map logical socket
 13h map logical window
@@ -67,12 +67,12 @@ AL = function
 19h read memory
 1Ah register MTD
 1Bh release I/O
-1Ch release IRQ <a href=http://www.ctyme.com/intr/rb-2368.htm#Table715>(see #00715)</a>
+1Ch release IRQ <a href=rb-2368.htm#Table715>(see #00715)</a>
 1Dh release window
-1Eh release configuration <a href=http://www.ctyme.com/intr/rb-2368.htm#Table716>(see #00716)</a>
-1Fh request I/O <a href=http://www.ctyme.com/intr/rb-2368.htm#Table717>(see #00717)</a>
-20h request IRQ <a href=http://www.ctyme.com/intr/rb-2368.htm#Table718>(see #00718)</a>
-21h reqeust window <a href=http://www.ctyme.com/intr/rb-2368.htm#Table720>(see #00720)</a>
+1Eh release configuration <a href=rb-2368.htm#Table716>(see #00716)</a>
+1Fh request I/O <a href=rb-2368.htm#Table717>(see #00717)</a>
+20h request IRQ <a href=rb-2368.htm#Table718>(see #00718)</a>
+21h reqeust window <a href=rb-2368.htm#Table720>(see #00720)</a>
 22h request socket mask
 23h return SS entry
 24h write memory
@@ -83,11 +83,11 @@ AL = function
 29h set region
 2Ah get next client
 2Bh validate CIS
-2Ch request exclusive access <a href=http://www.ctyme.com/intr/rb-2368.htm#Table723>(see #00723)</a>
-2Dh release exclusive access <a href=http://www.ctyme.com/intr/rb-2368.htm#Table723>(see #00723)</a>
+2Ch request exclusive access <a href=rb-2368.htm#Table723>(see #00723)</a>
+2Dh release exclusive access <a href=rb-2368.htm#Table723>(see #00723)</a>
 2Eh get event mask
 2Fh release socket mask
-30h request configuration <a href=http://www.ctyme.com/intr/rb-2368.htm#Table724>(see #00724)</a>
+30h request configuration <a href=rb-2368.htm#Table724>(see #00724)</a>
 31h set event mask
 32h add Socket Service
 33h replace Socket Service
@@ -103,7 +103,7 @@ further details not yet available<br>
 <p><b>Return:</b><br>??? = result code (see #00698)
 </PRE>
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-2366.htm>AH=AEh</a>
+<a href=rb-2366.htm>AH=AEh</a>
 <PRE>
 <p>
 <a name=table698></a>
@@ -204,10 +204,10 @@ Format of Cards Services Client Information:
 Offset  Size    Description     (Table 00702)
 00h    WORD    maximum length of data in bytes (180)
 02h    WORD    (ret) length of returned data
-04h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table703>(see #00703)</a>
+04h    WORD    attributes <a href=rb-2368.htm#Table703>(see #00703)</a>
 06h    WORD    revision level (BCD)
 08h    WORD    Card Services level (BCD)
-0Ah    WORD    revision date (DOS packed date format) <a href=http://www.ctyme.com/intr/rb-2992.htm#Table1666>(see #01666)</a>
+0Ah    WORD    revision date (DOS packed date format) <a href=rb-2992.htm#Table1666>(see #01666)</a>
 0Ch    WORD    offset to name
 0Eh    WORD    length of name
 10h    WORD    offset to vendor string
@@ -236,11 +236,11 @@ Format of Card Services configuration information:
 <a name=table704></a>
 Offset  Size    Description     (Table 00704)
 00h    WORD    socket (usually 0000h)
-02h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table705>(see #00705)</a>
+02h    WORD    attributes <a href=rb-2368.htm#Table705>(see #00705)</a>
 04h    BYTE    Vcc value
 05h    BYTE    Vpp1 value
 06h    BYTE    Vpp2 value
-07h    BYTE    interface type <a href=http://www.ctyme.com/intr/rb-2368.htm#Table706>(see #00706)</a>
+07h    BYTE    interface type <a href=rb-2368.htm#Table706>(see #00706)</a>
 08h    DWORD   base address of configuration registers
 0Ch    BYTE    card's Status register setting (if present)
 0Dh    BYTE    card's Pin register setting (if present)
@@ -254,16 +254,16 @@ Offset  Size    Description     (Table 00704)
 16h    WORD    manufacturer information
 18h    BYTE    valie card register values
 19h    BYTE    IRQ number assigned to PC Card
-1Ah    WORD    IRQ attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table708>(see #00708)</a>
+1Ah    WORD    IRQ attributes <a href=rb-2368.htm#Table708>(see #00708)</a>
 1Ch    WORD    base port address (for I/O range 1)
 1Eh    BYTE    number of contiguous ports (for I/O range 1)
-1Fh    BYTE    bitmap of port attributes (for I/O range 1) <a href=http://www.ctyme.com/intr/rb-2368.htm#Table709>(see #00709)</a>
+1Fh    BYTE    bitmap of port attributes (for I/O range 1) <a href=rb-2368.htm#Table709>(see #00709)</a>
 20h    WORD    base port address (for I/O range 2)
 22h    BYTE    number of contiguous ports (for I/O range 2)
-23h    BYTE    bitmap of port attributes (for I/O range 2) <a href=http://www.ctyme.com/intr/rb-2368.htm#Table709>(see #00709)</a>
+23h    BYTE    bitmap of port attributes (for I/O range 2) <a href=rb-2368.htm#Table709>(see #00709)</a>
 24h    BYTE    number of I/O address lines decoded (16-bit PC Card only)
 25h    BYTE    extended status register setting (if present)
-26h    BYTE    bitmap of DMA attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table710>(see #00710)</a>
+26h    BYTE    bitmap of DMA attributes <a href=rb-2368.htm#Table710>(see #00710)</a>
 <p><b>(note:</b><br>Value at call is used to set!)
 27h    BYTE    assigned DMA channel
 28h    BYTE    number of I/O windows in use on logical socket
@@ -446,7 +446,7 @@ Format of Card Services ReleaseIRQ record:
 <a name=table715></a>
 Offset  Size    Description     (Table 00715)
 00h    WORD    logical socket number
-02h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table708>(see #00708)</a>
+02h    WORD    attributes <a href=rb-2368.htm#Table708>(see #00708)</a>
 04h    BYTE    assigned IRQ number to be released
 <p>
 Format of Card Services Release Configuration record:
@@ -460,10 +460,10 @@ Offset  Size    Description     (Table 00717)
 00h    WORD    logical socket number
 02h    WORD    base port 1
 04h    BYTE    size of port range 1
-05h    BYTE    attributes for port range 1 <a href=http://www.ctyme.com/intr/rb-2368.htm#Table709>(see #00709)</a>
+05h    BYTE    attributes for port range 1 <a href=rb-2368.htm#Table709>(see #00709)</a>
 06h    WORD    base port 2
 08h    BYTE    size of port range 2
-09h    BYTE    attributes for port range 2 <a href=http://www.ctyme.com/intr/rb-2368.htm#Table709>(see #00709)</a>
+09h    BYTE    attributes for port range 2 <a href=rb-2368.htm#Table709>(see #00709)</a>
 0Ah    BYTE    number of address lines (typically 16)
 </PRE>
 <p><b>See Also:</b>
@@ -474,9 +474,9 @@ Format of Card Services Request IRQ record:
 <a name=table718></a>
 Offset  Size    Description     (Table 00718)
 00h    WORD    logical socket number
-02h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table708>(see #00708)</a>
+02h    WORD    attributes <a href=rb-2368.htm#Table708>(see #00708)</a>
 04h    BYTE    (ret) assigned IRQ number, if successful
-05h    BYTE    IRQ info <a href=http://www.ctyme.com/intr/rb-2368.htm#Table719>(see #00719)</a>
+05h    BYTE    IRQ info <a href=rb-2368.htm#Table719>(see #00719)</a>
 06h    WORD    bitmap of available IRQs (bit 0 = IRQ0, etc.)
 (only if bit 4 of IRQ info set)
 </PRE>
@@ -507,12 +507,12 @@ Format of Card Services Request Window record:
 <a name=table720></a>
 Offset  Size    Description     (Table 00720)
 00h    WORD    logical socket number
-02h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table721>(see #00721)</a>
+02h    WORD    attributes <a href=rb-2368.htm#Table721>(see #00721)</a>
 04h    DWORD   system base adress
 08h    DWORD   size of memory window
 0Ch    BYTE    additional info
 if attributes bit ??? is set, this is the address-lines field
-otherwise, this is the access-speed field <a href=http://www.ctyme.com/intr/rb-2368.htm#Table722>(see #00722)</a>
+otherwise, this is the access-speed field <a href=rb-2368.htm#Table722>(see #00722)</a>
 <p>
 Bitfields for Card Services Request Window attributes:
 <a name=table721></a>
@@ -593,11 +593,11 @@ Format of Card Services Request Configuration record:
 <a name=table724></a>
 Offset  Size    Description     (Table 00724)
 00h    WORD    socket (usually 0000h)
-02h    WORD    attributes <a href=http://www.ctyme.com/intr/rb-2368.htm#Table705>(see #00705)</a>
+02h    WORD    attributes <a href=rb-2368.htm#Table705>(see #00705)</a>
 04h    BYTE    Vcc value
 05h    BYTE    Vpp1 value
 06h    BYTE    Vpp2 value
-07h    BYTE    interface type <a href=http://www.ctyme.com/intr/rb-2368.htm#Table706>(see #00706)</a>
+07h    BYTE    interface type <a href=rb-2368.htm#Table706>(see #00706)</a>
 08h    DWORD   base address of configuration registers
 0Ch    BYTE    card's Status register setting (if present)
 0Dh    BYTE    card's Pin register setting (if present)
@@ -615,108 +615,20 @@ Expansion Bus Bios</a>
 Int 1Ah</a>
 - <a href=alpha-p.htm>
 P</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2367.htm>
+<a href=rb-2367.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2369.htm>
+<a href=rb-2369.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!-- Friend Finder 100%/Sale *Sex *Gen -->
-
-<A HREF="http://friendfinder.com/go/p10748" target=_blank>
-<img src="http://graphics.ctyme.com/sexads/ff1o_ani.gif"
-width=468 height=60 border=0></A><p>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>

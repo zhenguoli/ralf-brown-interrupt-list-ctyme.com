@@ -17,24 +17,24 @@ DOS-UP.SYS is to test whether the list-of-lists segment is greater
 ">
 <META NAME="robots" CONTENT="none">
 </HEAD>
-<BODY BGCOLOR="#FFD0A0">
+<BODY BGCOLOR="">
 <center>
 <h2>Int 21/AH=52h
 </h2>
 </center><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2982.htm>
+<a href=rb-2982.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2984.htm>
+<a href=rb-2984.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+
 <h3><font color=#C00040>DOS 2+ internal - SYSVARS - GET LIST OF LISTS</font></h3>
 <PRE>
 AH = 52h<br>
@@ -45,7 +45,7 @@ Partially supported by OS/2 v1.1 compatibility box (however, most
 pointers are FFFFh:FFFFh, LASTDRIVE is FFh, and the NUL header "next"
 pointer is FFFFh:FFFFh)..
 Partially supported by the Windows NT DOS box; contains only a
-rudimentary Current Directory Structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1645>(see #01645)</a>.
+rudimentary Current Directory Structure <a href=rb-2983.htm#Table1645>(see #01645)</a>.
 On return, ES points at the DOS data segment (see also INT 2F/AX=1203h).
 Quarterdeck's suggested check for the use of its DOSDATA.SYS or
 DOS-UP.SYS is to test whether the list-of-lists segment is greater
@@ -62,7 +62,7 @@ same even for INT 21/AX=5F02h.
 Windows95 GUI no longer returns the true path for a SUBSTed drive,
 but MS-DOS 7.00 does; use INT 21/AH=60h to obtain the true name
 <p><b>See Also:</b>
-<a href=http://www.ctyme.com/intr/rb-4371.htm>INT 2F/AX=1203h</a>
+<a href=rb-4371.htm>INT 2F/AX=1203h</a>
 <PRE>
 <p>
 Format of List of Lists:
@@ -81,9 +81,9 @@ FFFFh:FFFFh if not installed or not available
 when CON is read via a handle, DOS reads an entire line,
 and returns the requested portion, buffering the rest
 for the next read.  0000h indicates no unread input
--2     WORD    segment of first memory control block <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1628>(see #01628)</a>
-00h    DWORD   pointer to first Drive Parameter Block <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
-04h    DWORD   -> first System File Table <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01639,#01640,#01641,#01642)
+-2     WORD    segment of first memory control block <a href=rb-2983.htm#Table1628>(see #01628)</a>
+00h    DWORD   pointer to first Drive Parameter Block <a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+04h    DWORD   -> first System File Table <a href=rb-0000.htm#Table0></a>(see #01639,#01640,#01641,#01642)
 08h    DWORD   pointer to active CLOCK$ device's header (most recently loaded
 driver with CLOCK bit set)
 0Ch    DWORD   pointer to active CON device's header (most recently loaded
@@ -91,15 +91,15 @@ driver with STDIN bit set)
 ---DOS 2.x---
 10h    BYTE    number of logical drives in system
 11h    WORD    maximum bytes/block of any block device
-13h    DWORD   pointer to first disk buffer <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01649,#01650)
+13h    DWORD   pointer to first disk buffer <a href=rb-0000.htm#Table0></a>(see #01649,#01650)
 17h 18 BYTEs   actual NUL device driver header (not a pointer!)
 NUL is always the first device on DOS's linked list of device
-drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a>
+drivers. <a href=rb-2983.htm#Table1646>(see #01646)</a>
 ---DOS 3.0---
 10h    BYTE    number of block devices
 11h    WORD    maximum bytes/block of any block device
-13h    DWORD   pointer to first disk buffer <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01650,#01652)
-17h    DWORD   pointer to array of current directory structures <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1643>(see #01643)</a>
+13h    DWORD   pointer to first disk buffer <a href=rb-0000.htm#Table0></a>(see #01650,#01652)
+17h    DWORD   pointer to array of current directory structures <a href=rb-2983.htm#Table1643>(see #01643)</a>
 1Bh    BYTE    value of LASTDRIVE command in CONFIG.SYS (default 5)
 1Ch    DWORD   pointer to STRING= workspace area
 20h    WORD    size of STRING area (the x in STRING=x from CONFIG.SYS)
@@ -107,12 +107,12 @@ drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a
 26h    WORD    the y in FCBS=x,y from CONFIG.SYS
 28h 18 BYTEs   actual NUL device driver header (not a pointer!)
 NUL is always the first device on DOS's linked list of device
-drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a>
+drivers. <a href=rb-2983.htm#Table1646>(see #01646)</a>
 ---DOS 3.1-3.3---
 10h    WORD    maximum bytes per sector of any block device
-12h    DWORD   pointer to first disk buffer in buffer chain <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1650>(see #01650)</a>
-16h    DWORD   pointer to array of current directory structures <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1643>(see #01643)</a>
-1Ah    DWORD   pointer to system FCB tables <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01640,#01641,#01642)
+12h    DWORD   pointer to first disk buffer in buffer chain <a href=rb-2983.htm#Table1650>(see #01650)</a>
+16h    DWORD   pointer to array of current directory structures <a href=rb-2983.htm#Table1643>(see #01643)</a>
+1Ah    DWORD   pointer to system FCB tables <a href=rb-0000.htm#Table0></a>(see #01640,#01641,#01642)
 1Eh    WORD    number of protected FCBs (the y in the CONFIG.SYS FCBS=x,y)
 20h    BYTE    number of block devices installed
 21h    BYTE    number of available drive letters (largest of 5, installed
@@ -120,19 +120,19 @@ block devices, and CONFIG.SYS LASTDRIVE=).  Also size of
 current directory structure array.
 22h 18 BYTEs   actual NUL device driver header (not a pointer!)
 NUL is always the first device on DOS's linked list of device
-drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a>
+drivers. <a href=rb-2983.htm#Table1646>(see #01646)</a>
 34h    BYTE    number of JOIN'ed drives
 ---DOS 4.x---
 10h    WORD    maximum bytes per sector of any block device
-12h    DWORD   pointer to disk buffer info record <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01652,#01653)
+12h    DWORD   pointer to disk buffer info record <a href=rb-0000.htm#Table0></a>(see #01652,#01653)
 </PRE>
 <p><b>Note:</b>
 Although the initialization code in IO.SYS uses this
 pointer, MSDOS.SYS does not, instead using the hardcoded
 address of the info record
 16h    DWORD   pointer to array of current directory structures
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01643,#01644)
-1Ah    DWORD   pointer to system FCB tables <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01640,#01641,#01642)
+<a href=rb-0000.htm#Table0></a>(see #01643,#01644)
+1Ah    DWORD   pointer to system FCB tables <a href=rb-0000.htm#Table0></a>(see #01640,#01641,#01642)
 1Eh    WORD    number of protected FCBs (the y in the CONFIG.SYS FCBS=x,y)
 (always 00h for DOS 5.0)
 20h    BYTE    number of block devices installed
@@ -146,13 +146,13 @@ LASTDRIVEHIGH=, else set to larger of installed block
 devices and LASTDRIVE(HIGH)=
 22h 18 BYTEs   actual NUL device driver header (not a pointer!)
 NUL is always the first device on DOS's linked list of device
-drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a>
+drivers. <a href=rb-2983.htm#Table1646>(see #01646)</a>
 34h    BYTE    number of JOIN'ed drives
 35h    WORD    pointer within IBMDOS code segment to list of special program
-names <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1662>(see #01662)</a>
+names <a href=rb-2983.htm#Table1662>(see #01662)</a>
 (always 0000h for DOS 5.0)
 37h    DWORD   pointer to FAR routine for resident IFS utility functions
-<a href=http://www.ctyme.com/intr/rb-2983.htm#Table1658>(see #01658)</a>
+<a href=rb-2983.htm#Table1658>(see #01658)</a>
 may be called by any IFS driver which does not wish to
 service functions 20h or 24h-28h itself
 3Bh    DWORD   pointer to chain of IFS (installable file system) drivers
@@ -172,14 +172,14 @@ on return
 3Fh  8 BYTEs   as for DOS 4.x (above)
 ---Windows NT DOS Box---
 10h  6 BYTEs   ???
-16h    DWORD   pointer to array of current directory structures <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1645>(see #01645)</a>
+16h    DWORD   pointer to array of current directory structures <a href=rb-2983.htm#Table1645>(see #01645)</a>
 1Ah  6 BYTEs   ???
 20h    BYTE    number of block devices installed
 21h    BYTE    number of local drive letters (= installed block devices)
 Also size of current directory structure array.
 22h 18 BYTEs   actual NUL device driver header (not a pointer!)
 NUL is always the first device on DOS's linked list of device
-drivers. <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1646>(see #01646)</a>
+drivers. <a href=rb-2983.htm#Table1646>(see #01646)</a>
 ---DOS 7.x---
 10h 55 BYTEs   as for DOS 5.0-6.0 (above)
 47h 25 BYTEs   ???
@@ -189,7 +189,7 @@ Format of DOS memory control block:
 <a name=table1628></a>
 Offset  Size    Description     (Table 01628)
 <p><b>00h    BYTE    block type:</b><br>5Ah if last block in chain, otherwise 4Dh
-01h    WORD    PSP segment of owner or special flag value <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1629>(see #01629)</a>
+01h    WORD    PSP segment of owner or special flag value <a href=rb-2983.htm#Table1629>(see #01629)</a>
 03h    WORD    size of memory block in paragraphs
 05h  3 BYTEs   unused by MS-DOS
 (386MAX) if locked-out block, region start/prev region end
@@ -205,7 +205,7 @@ The next MCB is at segment (current + size + 1).
 Under DOS 3.1+, the first memory block is the DOS data segment,
 containing installable drivers, buffers, etc.  Under DOS 4.0+ it is
 divided into subsegments, each with its own memory control block
-<a href=http://www.ctyme.com/intr/rb-2983.htm#Table1633>(see #01633)</a>, the first of which is at offset 0000h..
+<a href=rb-2983.htm#Table1633>(see #01633)</a>, the first of which is at offset 0000h..
 For DOS 5+, blocks owned by DOS may have either "SC" or "SD" in bytes
 08h and 09h.  "SC" is system code or locked-out inter-UMB memory,
 "SD" is system data, device drivers, etc..
@@ -223,7 +223,7 @@ Values for special flag PSP segments:
 0007h  DR DOS excluded upper memory ("hole")
 0008h  belongs to DOS
 FFF7h  386MAX v6.01+ ???
-FFFAh  386MAX UMB control block <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01477 at AX=4402h"386MAX")
+FFFAh  386MAX UMB control block <a href=rb-0000.htm#Table0></a>(see #01477 at AX=4402h"386MAX")
 FFFDh  386MAX locked-out memory
 FFFEh  386MAX UMB (normally immediately follows its control block)
 FFFFh  386MAX v6.01+ device driver
@@ -275,13 +275,13 @@ Offset  Size    Description     (Table 01633)
 "D"  device driver
 "E"  device driver appendage
 "I"  IFS (Installable File System) driver
-(MS-DOS 7) high-loaded drive data table array <a href=http://www.ctyme.com/intr/rb-4283.htm#Table2603>(see #02603)</a>
+(MS-DOS 7) high-loaded drive data table array <a href=rb-4283.htm#Table2603>(see #02603)</a>
 "F"  FILES=  control block storage area (for FILES>5)
 "X"  FCBS=   control block storage area, if present
 "C"  BUFFERS EMS workspace area (if BUFFERS /X option used)
 "B"  BUFFERS=  storage area
 "L"  LASTDRIVE=  current directory structure array storage area
-"S"  STACKS=  code and data area, if present <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01634,#01635)
+"S"  STACKS=  code and data area, if present <a href=rb-0000.htm#Table0></a>(see #01634,#01635)
 "T"  INSTALL= transient code
 01h    WORD    paragraph of subsegment start (usually the next paragraph)
 03h    WORD    size of subsegment in paragraphs
@@ -318,7 +318,7 @@ DOS 4.0+    Identified by sub-segment control block type "S" within the DOS
 data segment.
 </PRE>
 <p><b>See Also:</b>
-#01636 - <a href=http://www.ctyme.com/intr/rb-8372.htm>INT B4"STACKMAN"</a>
+#01636 - <a href=rb-8372.htm>INT B4"STACKMAN"</a>
 <PRE>
 <p>
 Format of array elements in STACKS data segment:
@@ -344,12 +344,12 @@ Not called by MS-DOS 3.3, set to 0000h:0000h by
 SHARE 3.3+
 -38h    DWORD   pointer to FAR routine called on opening file
 on call, internal DOS location points at filename
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01687 at AX=5D06h)
+<a href=rb-0000.htm#Table0></a>(see #01687 at AX=5D06h)
 <PRE>
 <p><b>Return:</b><br>CF clear if successful
 CF set on error
 AX = DOS error code (24h)
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
+<a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
 </PRE>
 <p><b>Note:</b>
 SHARE directly accesses DOS-internal data to get name of
@@ -364,13 +364,13 @@ Does something to every Record Lock Record for file
 (called by AX=5D04h)
 -28h    DWORD   pointer to FAR routine to close file by name
 (called by AX=5D02h)
-DS:SI -> DOS parameter list <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01686 at AX=5D00h)
+DS:SI -> DOS parameter list <a href=rb-0000.htm#Table0></a>(see #01686 at AX=5D00h)
 DPL's DS:DX -> name of file to close
 <PRE>
 <p><b>Return:</b><br>CF clear if successful
 CF set on error
 AX = DOS error code (03h)
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
+<a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h/BX=0000h)
 -24h    DWORD   pointer to FAR routine to lock region of file
 call with BX = file handle
 ---DOS 3.x---
@@ -381,7 +381,7 @@ DS:DX -> lock range
 DWORD start offset
 DWORD size in bytes
 <p><b>Return:</b><br>CF set on error
-AL = DOS error code (21h) <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h)
+AL = DOS error code (21h) <a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h)
 </PRE>
 <p><b>Note:</b>
 Not called if file is marked as remote
@@ -396,7 +396,7 @@ DWORD start offset
 DWORD size in bytes
 <PRE>
 <p><b>Return:</b><br>CF set on error
-AL = DOS error code (21h) <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h)
+AL = DOS error code (21h) <a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h)
 </PRE>
 <p><b>Note:</b>
 Not called if file is marked as remote
@@ -408,11 +408,11 @@ CX = length of region from current position in file
 AX = 0021h
 -18h    DWORD   pointer to FAR routine to get open file list entry
 (called by AX=5D05h)
-call with DS:SI -> DOS parameter list <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01686 at AX=5D00h)
+call with DS:SI -> DOS parameter list <a href=rb-0000.htm#Table0></a>(see #01686 at AX=5D00h)
 DPL's BX = index of sharing record
 DPL's CX = index of SFT in SFT chain of sharing rec
 <p><b>Return:</b><br>CF set on error or not loaded
-AX = DOS error code (12h) <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01680 at AH=59h)
+AX = DOS error code (12h) <a href=rb-0000.htm#Table0></a>(see #01680 at AH=59h)
 CF clear if successful
 ES:DI -> filename
 CX = number of locks owned by specified SFT
@@ -453,7 +453,7 @@ Closes various handles referring to file most-recently
 opened
 -04h    DWORD   pointer to FAR routine to update directory info in related SFT
 entries
-call with ES:DI -> system file table entry for file <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1641>(see #01641)</a>
+call with ES:DI -> system file table entry for file <a href=rb-2983.htm#Table1641>(see #01641)</a>
 AX = subfunction (apply to each related SFT)
 <PRE>
 <p><b>00h:</b><br>Update time stamp (offset 0Dh) and date
@@ -491,7 +491,7 @@ FFh end marker
 01h    WORD    size of block
 03h    BYTE    checksum of pathname (including NUL)
 if sum of ASCII values is N, checksum is (N/256 + N%256)
-04h    WORD    offset in SHARE's DS of first Record Lock Record <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1638>(see #01638)</a>
+04h    WORD    offset in SHARE's DS of first Record Lock Record <a href=rb-2983.htm#Table1638>(see #01638)</a>
 06h    DWORD   pointer to start of system file table chain for file
 0Ah    WORD    unique sequence number
 0Ch    var     ASCIZ full pathname
@@ -526,16 +526,16 @@ Offset  Size    Description     (Table 01639)
 06h  28h bytes per file.
 Offset  Size    Description
 00h    BYTE    number of file handles referring to this file
-01h    BYTE    file open mode <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01402 at AH=3Dh)
+01h    BYTE    file open mode <a href=rb-0000.htm#Table0></a>(see #01402 at AH=3Dh)
 02h    BYTE    file attribute
 03h    BYTE    drive (0 = character device, 1 = A, 2 = B, etc)
 04h 11 BYTEs   filename in FCB format (no path,no period,blank-padded)
 0Fh    WORD    ???
 11h    WORD    ???
 13h    DWORD   file size???
-17h    WORD    file date in packed format <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01666 at AX=5700h)
-19h    WORD    file time in packed format <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01665 at AX=5700h)
-1Bh    BYTE    device attribute <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01423 at AX=4400h).
+17h    WORD    file date in packed format <a href=rb-0000.htm#Table0></a>(see #01666 at AX=5700h)
+19h    WORD    file time in packed format <a href=rb-0000.htm#Table0></a>(see #01665 at AX=5700h)
+1Bh    BYTE    device attribute <a href=rb-0000.htm#Table0></a>(see #01423 at AX=4400h).
 ---character device---
 1Ch    DWORD   pointer to device driver.
 ---block device---
@@ -557,7 +557,7 @@ Offset  Size    Description     (Table 01640)
 04h    WORD    number of files in this table
 06h  38h bytes per file.
 Offset  Size    Description
-00h-1Eh as for DOS 3.1+ <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1641>(see #01641)</a>
+00h-1Eh as for DOS 3.1+ <a href=rb-2983.htm#Table1641>(see #01641)</a>
 1Fh    WORD    byte offset of directory entry within sector
 21h 11 BYTEs   filename in FCB format (no path/period, blank-padded)
 2Ch    DWORD   (SHARE.EXE) pointer to previous SFT sharing same file
@@ -583,19 +583,19 @@ Offset  Size    Description
 00h    WORD    number of file handles referring to this file
 02h    WORD    file open mode (see AX=6C00h, #01402 at AH=3Dh)
 bit 15 set if this file opened via FCB
-04h    BYTE    file attribute <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
-05h    WORD    device info word <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01423 at AX=4400h)
+04h    BYTE    file attribute <a href=rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
+05h    WORD    device info word <a href=rb-0000.htm#Table0></a>(see #01423 at AX=4400h)
 bit 15 set if remote file
 bit 14 set means do not set file date/time on closing
 bit 12 set means don't inherit on EXEC
 bits 5-0 drive number for disk files
 07h    DWORD   pointer to device driver header if character device
 else pointer to DOS Drive Parameter Block
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+<a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
 0Bh    WORD    starting cluster of file
-0Dh    WORD    file time in packed format <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01665 at AX=5700h)
+0Dh    WORD    file time in packed format <a href=rb-0000.htm#Table0></a>(see #01665 at AX=5700h)
 not used for character devices in DR DOS
-0Fh    WORD    file date in packed format <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01666 at AX=5700h)
+0Fh    WORD    file date in packed format <a href=rb-0000.htm#Table0></a>(see #01666 at AX=5700h)
 not used for character devices in DR DOS
 11h    DWORD   file size.
 ---system file table---
@@ -611,18 +611,18 @@ latest I/O and open).
 1Bh    WORD    absolute cluster number of last cluster accessed
 0000h if file never read or written???
 1Dh    WORD    number of sector containing directory entry
-<a href=http://www.ctyme.com/intr/rb-2576.htm#Table1352>(see #01352)</a>
+<a href=rb-2576.htm#Table1352>(see #01352)</a>
 1Fh    BYTE    number of dir entry within sector (byte offset/32)
 20h 11 BYTEs   filename in FCB format (no path/period, blank-padded)
 2Bh    DWORD   (SHARE.EXE) pointer to previous SFT sharing same file
 2Fh    WORD    (SHARE.EXE) network machine number which opened file
 (Windows Enhanced mode DOSMGR uses the virtual machine
 ID as the machine number; see INT 2F/AX=1683h)
-31h    WORD    PSP segment of file's owner <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01378 at AH=26h)
+31h    WORD    PSP segment of file's owner <a href=rb-0000.htm#Table0></a>(see #01378 at AH=26h)
 (first three entries for AUX/CON/PRN contain segment
 of IO.SYS startup code)
 33h    WORD    offset within SHARE.EXE code segment of
-sharing record <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1637>(see #01637)</a> 0000h = none
+sharing record <a href=rb-2983.htm#Table1637>(see #01637)</a> 0000h = none
 </PRE>
 <p><b>See Also:</b>
 #01639 - #01640 - #01642
@@ -639,7 +639,7 @@ Offset  Size    Description
 FFFFh if in use but not referenced
 02h    WORD    file open mode (see AX=6C00h,#01402 at AH=3Dh)
 bit 15 set if this file opened via FCB
-04h    BYTE    file attribute <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
+04h    BYTE    file attribute <a href=rb-0000.htm#Table0></a>(see #01420 at AX=4301h)
 05h    WORD    device info word (see also #01423 at AX=4400h)
 bit 15 set if remote file
 bit 14 set means do not set file date/time on closing
@@ -650,12 +650,12 @@ bit 7  set if device, clear if file (only if local)
 bits 6-0 as for AX=4400h
 07h    DWORD   pointer to device driver header if character device
 else pointer to DOS Drive Parameter Block
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h) or REDIR data
+<a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h) or REDIR data
 0Bh    WORD    starting cluster of file (local files only)
 not set for FAT32-capable versions of Windows95
 (since they allow 32-bit cluster numbers)
-0Dh    WORD    file time in packed format <a href=http://www.ctyme.com/intr/rb-2992.htm#Table1665>(see #01665)</a>
-0Fh    WORD    file date in packed format <a href=http://www.ctyme.com/intr/rb-2992.htm#Table1666>(see #01666)</a>
+0Dh    WORD    file time in packed format <a href=rb-2992.htm#Table1665>(see #01665)</a>
+0Fh    WORD    file date in packed format <a href=rb-2992.htm#Table1666>(see #01666)</a>
 11h    DWORD   file size
 15h    DWORD   current offset in file (SFT)
 LRU counters (FCB table, two WORDs).
@@ -672,11 +672,11 @@ LRU counters (FCB table, two WORDs).
 2Fh    WORD    (SHARE.EXE) network machine number which opened file
 (Windows Enhanced mode DOSMGR uses the virtual machine
 ID as the machine number; see INT 2F/AX=1683h)
-31h    WORD    PSP segment of file's owner <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01378 at AH=26h)
+31h    WORD    PSP segment of file's owner <a href=rb-0000.htm#Table0></a>(see #01378 at AH=26h)
 (first three entries for AUX/CON/PRN contain segment
 of IO.SYS startup code)
 33h    WORD    offset within SHARE.EXE code segment of
-sharing record <a href=http://www.ctyme.com/intr/rb-2939.htm#Table1595>(see #01595)</a>  0000h = none
+sharing record <a href=rb-2939.htm#Table1595>(see #01595)</a>  0000h = none
 35h    WORD    (local) absolute cluster number of last clustr accessed
 (redirector) ???
 37h    DWORD   pointer to IFS driver for file, 0000000h if native DOS
@@ -706,7 +706,7 @@ exempt from network connection make/break commands;
 set for CD-ROM drives by MSCDEX (not supported by
 CORELCDX)
 45h    DWORD   pointer to Drive Parameter Block for drive
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+<a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
 ---local drives---
 49h    WORD    starting cluster of current directory
 0000h = root, FFFFh = never accessed
@@ -737,7 +737,7 @@ The path for invalid drives is normally set to X:\, but may be empty
 <p><b>after JOIN x:</b><br>/D in DR DOS 5.0 or NET USE x: /D in older LAN versions.
 Normally, only one of bits 13&12 may be set together with bit 14, but
 <p><b>DR DOS 5.0 uses other combinations for bits 15-12:</b><br>0111 JOIN,
-0001 SUBST, 0101 ASSIGN <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1644>(see #01644)</a>.
+0001 SUBST, 0101 ASSIGN <a href=rb-2983.htm#Table1644>(see #01644)</a>.
 Windows for Workgroups 3.11 network sets the path to the local
 drive and directory even for network drives; in that case the
 UNC form \\SERVER\SHARE can be obtained with INT 21/AX=5F02h
@@ -791,10 +791,10 @@ Format of DOS device driver header:
 <a name=table1646></a>
 Offset  Size    Description     (Table 01646)
 00h    DWORD   pointer to next driver, offset=FFFFh if last driver
-04h    WORD    device attributes <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01647,#01648)
+04h    WORD    device attributes <a href=rb-0000.htm#Table0></a>(see #01647,#01648)
 06h    WORD    device strategy entry point
 call with ES:BX -> request header
-<a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #02597 at INT 2F/AX=0802h)
+<a href=rb-0000.htm#Table0></a>(see #02597 at INT 2F/AX=0802h)
 08h    WORD    device interrupt entry point
 ---character device---
 0Ah  8 BYTEs   blank-padded character device name
@@ -892,7 +892,7 @@ least-recently used buffer is first in chain
 08h    WORD    logical sector number
 0Ah    BYTE    number of copies to write (1 for non-FAT sectors)
 0Bh    BYTE    sector offset between copies if multiple copies to be written
-0Ch    DWORD   pointer to DOS Drive Parameter Block <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+0Ch    DWORD   pointer to DOS Drive Parameter Block <a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
 10h            buffered data
 </PRE>
 <p><b>See Also:</b>
@@ -905,11 +905,11 @@ Offset  Size    Description     (Table 01650)
 00h    DWORD   pointer to next disk buffer, offset = FFFFh if last
 least-recently used buffer is first in chain
 04h    BYTE    drive (0=A,1=B, etc), FFh if not in use
-05h    BYTE    buffer flags <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1651>(see #01651)</a>
+05h    BYTE    buffer flags <a href=rb-2983.htm#Table1651>(see #01651)</a>
 06h    WORD    logical sector number
 08h    BYTE    number of copies to write (1 for non-FAT sectors)
 09h    BYTE    sector offset between copies if multiple copies to be written
-0Ah    DWORD   pointer to DOS Drive Parameter Block <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+0Ah    DWORD   pointer to DOS Drive Parameter Block <a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
 0Eh    WORD    unused??? (almost always 0)
 10h            buffered data
 </PRE>
@@ -936,7 +936,7 @@ Bit(s)  Description     (Table 01651)
 Format of DOS 4.00 (pre UR 25066) disk buffer info:
 <a name=table1652></a>
 Offset  Size    Description     (Table 01652)
-00h    DWORD   pointer to array of disk buffer hash chain heads <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1654>(see #01654)</a>
+00h    DWORD   pointer to array of disk buffer hash chain heads <a href=rb-2983.htm#Table1654>(see #01654)</a>
 04h    WORD    number of disk buffer hash chains (referred to as NDBCH below)
 06h    DWORD   pointer to lookahead buffer, zero if not present
 0Ah    WORD    number of lookahead sectors, else zero (the y in BUFFERS=x,y)
@@ -955,7 +955,7 @@ Offset  Size    Description     (Table 01652)
 Format of DOS 4.01 (from UR 25066 Corrctive Services Disk on) disk buffer info:
 <a name=table1653></a>
 Offset  Size    Description     (Table 01653)
-00h    DWORD   pointer to array of disk buffer hash chain heads <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1654>(see #01654)</a>
+00h    DWORD   pointer to array of disk buffer hash chain heads <a href=rb-2983.htm#Table1654>(see #01654)</a>
 04h    WORD    number of disk buffer hash chains (referred to as NDBCH below)
 06h    DWORD   pointer to lookahead buffer, zero if not present
 0Ah    WORD    number of lookahead sectors, else zero (the y in BUFFERS=x,y)
@@ -1004,13 +1004,13 @@ Offset  Size    Description     (Table 01655)
 04h    BYTE    drive (0=A,1=B, etc) if bit 7 clear
 SFT index if bit 7 set
 FFh if not in use
-05h    BYTE    buffer flags <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1656>(see #01656)</a>
+05h    BYTE    buffer flags <a href=rb-2983.htm#Table1656>(see #01656)</a>
 06h    DWORD   logical sector number (local buffers only)
 0Ah    BYTE    number of copies to write
 for FAT sectors, same as number of FATs
 for data and directory sectors, usually 1
 0Bh    WORD    offset in sectors between copies to write for FAT sectors
-0Dh    DWORD   pointer to DOS Drive Parameter Block <a href=http://www.ctyme.com/intr/rb-0000.htm#Table0></a>(see #01395 at AH=32h)
+0Dh    DWORD   pointer to DOS Drive Parameter Block <a href=rb-0000.htm#Table0></a>(see #01395 at AH=32h)
 11h    WORD    size of data in buffer if remote buffer (see also #01656)
 13h    BYTE    reserved (padding)
 14h            buffered data
@@ -1047,7 +1047,7 @@ Format of DOS 5.0-6.0 disk buffer info:
 <a name=table1657></a>
 Offset  Size    Description     (Table 01657)
 00h    DWORD   pointer to least-recently-used buffer header (may be in HMA)
-<a href=http://www.ctyme.com/intr/rb-2983.htm#Table1655>(see #01655)</a>
+<a href=rb-2983.htm#Table1655>(see #01655)</a>
 04h    WORD    number of dirty disk buffers
 06h    DWORD   pointer to lookahead buffer, zero if not present
 0Ah    WORD    number of lookahead sectors, else zero (the y in BUFFERS=x,y)
@@ -1144,8 +1144,8 @@ Offset  Size    Description     (Table 01659)
 00h    DWORD   pointer to next driver header
 04h  8 BYTEs   IFS driver name (blank padded), as used by FILESYS command
 0Ch  4 BYTEs   ???
-10h    DWORD   pointer to IFS utility function entry point <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1658>(see #01658)</a>
-call with ES:BX -> IFS request <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1660>(see #01660)</a>
+10h    DWORD   pointer to IFS utility function entry point <a href=rb-2983.htm#Table1658>(see #01658)</a>
+call with ES:BX -> IFS request <a href=rb-2983.htm#Table1660>(see #01660)</a>
 14h    WORD    offset in header's segment of driver entry point.
 ???
 </PRE>
@@ -1260,7 +1260,7 @@ FFh internal failure
 ---class 05h function 09h---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    WORD    ???  \ together, specify open vs. create, whether or
 28h    WORD    ???  / not to truncate
 2Ah  4 BYTEs   ???
@@ -1272,21 +1272,21 @@ returned ???
 ---class 05h function 0Ah---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    BYTE    seek type (02h = from end)
 28h    DWORD   offset on call
 returned new absolute position.
 ---class 05h functions 0Bh,0Ch---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 28h    WORD    number of bytes to transfer
 returned bytes actually transferred
 2Ah    DWORD   transfer address.
 ---class 05h function 0Dh---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    BYTE    file handle???
 27h    BYTE    unused???
 28h    WORD    ???
@@ -1296,7 +1296,7 @@ returned bytes actually transferred
 ---class 05h function 0Eh---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    BYTE    00h commit file
 01h close file
 27h    BYTE    unused???.
@@ -1319,7 +1319,7 @@ returned bytes actually transferred
 ---class 05h function 10h---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    WORD    ???
 28h    DWORD   pointer to ???
 2Ch    WORD    ???
@@ -1335,7 +1335,7 @@ returned bytes actually transferred
 ---class 05h function 11h---
 17h  7 BYTEs   ???
 1Eh    DWORD   pointer to ???
-22h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+22h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 26h    BYTE    subfunction
 27h    BYTE    unused???
 28h    WORD    ???
@@ -1356,7 +1356,7 @@ returned bytes actually transferred
 1Ah    BYTE    returned ???
 1Bh    BYTE    unused
 ---request class 07h---
-16h    DWORD   pointer to IFS open file structure <a href=http://www.ctyme.com/intr/rb-2983.htm#Table1661>(see #01661)</a>
+16h    DWORD   pointer to IFS open file structure <a href=rb-2983.htm#Table1661>(see #01661)</a>
 1Ah    BYTE    ???
 1Bh    BYTE    unused???
 </PRE>
@@ -1406,108 +1406,20 @@ DOS Kernel</a>
 Int 21h</a>
 - <a href=alpha-d.htm>
 D</a>
-</b><p><p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
+</b><p>
 <table border=1 cellpadding=3 cellspacing=1>
 <td>
-<a href=http://www.ctyme.com/intr/rb-2982.htm>
+<a href=rb-2982.htm>
 <img src=http://graphics.ctyme.com/gif/lup.gif border=0 alt=Prev></a>
-<a href=http://www.ctyme.com/intr/rb-2984.htm>
+<a href=rb-2984.htm>
 <img src=http://graphics.ctyme.com/gif/ldown.gif border=0 alt=Next></a>
 <a href=http://www.ctyme.com/rbrown.htm>
 <img src=http://graphics.ctyme.com/gif/lhome.gif border=0 alt=Ralf Brown Page></a>
-<td><a href=http://www.ctyme.com/intr/int.htm>Interrups</a></td>
-<td><a href=http://www.ctyme.com/intr/cat.htm>Categories</a></td>
-<td><a href=http://www.ctyme.com/intr/alpha.htm>Contents</a></td>
+<td><a href=int.htm>Interrups</a></td>
+<td><a href=cat.htm>Categories</a></td>
+<td><a href=alpha.htm>Contents</a></td>
 </td></table><p>
 
-<!-- Bottom Link Start -->
-
-<center>
-
-<p><table border=1 bgcolor="#ffff99"><tr><td>
-<table border=0 height=80>
-<tr align=center><td width="65">
-
-<a href="http://www.ctyme.com/sponsor.htm">
-<img src="http://graphics.ctyme.com/gif/tip.gif" ALT="Sponsors" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/sponsor.htm">Shopping</a>
-
-</td><td width="65">
-
-<a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">
-<img src="http://graphics.ctyme.com/gif/comment.gif" ALT="Forum" height="40" width="40"></a>
-<br><a href="http://talk.ctyme.com/webx.cgi?13@@.ee6b2be">Forum</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/mail.htm">
-<img src="http://graphics.ctyme.com/gif/mail.gif" ALT="email" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/mail.htm">EMail</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com/map.htm">
-<img src="http://graphics.ctyme.com/gif/toc.gif" ALT="Index" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com/map.htm">Index</a>
-
-</td><td width="65">
-
-<a href="http://www.ctyme.com">
-<img src="http://graphics.ctyme.com/gif/home.gif" ALT="Home" height="40" width="40"></a>
-<br><a href="http://www.ctyme.com">Home</a>
-
-</td><td width="90">
-
-<center>
-<!-- Begin PayPal Logo -->
-<form action="https://www.paypal.com/cgi-bin/webscr" methd="post" target="_blank">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="marc@perkel.com">
-<input type="hidden" name="item_name" value="">
-<input type="hidden" name="image_url" value="http://graphics.ctyme.com/gif/fishl.gif">
-<input type="hidden" name="no_shipping" value="1">
-<input type="image" src="http://images.paypal.com/images/x-click-but7.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-
-<!-- End PayPal Logo -->
-
-</td></tr></table></td></tr></table><p>
-
-
-<center>
-<p>
-<!--- I Want You *Gen --->
-
-<a href="http://stats.cashring.com/click?id=marc833&clientID=20101" target=_blank>
-<img src="http://stats.cashring.com/ads?clientID=20101&ProfileID=marc833">
-</a>
-<p>
-<!-- Ad End --->
-
-<p>
-<!-- Adult FriendFinder -->
-<a href="http://sex.perkel.com/nuderedit.htm" target=_blank><b>Rate My Photo</b></a><p>
-<a href="http://sex.perkel.com/affredir.htm" target=_blank>
-<img src="http://adserver.adultfriendfinder.com/banner.cgi" height=60 width=468 border=0></a>
-<p>
-<!-- Ad End --->
-
-<p>
-<a href="http://www.ctyme.com/hosting/index.htm" target="_blank">
-<img src="http://graphics.ctyme.com/gif/ctymehost.gif"
-border=3 height=60 width=468></a>
-<p>
-<!-- Ad End --->
-
-</center>
-
-
-</center>
-
-
-<p><img src=http://graphics.ctyme.com/gif/rbline.gif width="100%" alt="------"><p>
-
-<!-- Bottom Link End -->
 
 </BODY>
 </HTML>
